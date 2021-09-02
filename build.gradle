@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.testng', name: 'testng', version: '7.4.0'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.4.3'
+    implementation group: 'com.browserstack', name: 'browserstack-local-java', version: '1.0.6'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0-beta-4'
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.10.4'
+    implementation group: 'io.cucumber', name: 'cucumber-testng', version: '6.10.4'
+    implementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '6.10.4'
+    implementation group: 'net.masterthought', name: 'cucumber-reporting', version: '5.5.3'
+}
+
+test {
+    scanForTestClasses = false
+    ignoreFailures = false
+    testLogging.showStandardStreams = true
+    useTestNG()
+}
+task executeFeatures(type: Test) {
+    useTestNG()
+    options {
+        useDefaultListeners = false
+        jvmArgs = ['-Dcucumber.glue=cucumber']
+        jvmArgs = ['-Dcucumber.features=src/test/resources/features/']
+        jvmArgs = ['-Dcucumber.plugin=pretty,' +
+                           'html:build/cucumber/cucumber-report.html,' +
+                           'json:build/cucumber/cucumber.json,' +
+                           'rerun:build/cucumber/rerun.txt']
+    }
+
+    ignoreFailures = false
+    scanForTestClasses = false
+    testLogging.showStandardStreams = true
+}
