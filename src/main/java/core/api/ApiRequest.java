@@ -10,6 +10,7 @@
 
 package core.api;
 
+import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 import io.restassured.http.Headers;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class ApiRequest {
     private Map<String, String> queryParams;
     private Map<String, String> pathParams;
     private Map<String, String> params;
+    private ContentType contentType;
 
     public ApiRequest() {
         headers = new ArrayList<>();
@@ -246,5 +248,23 @@ public class ApiRequest {
      */
     public Map<String, String> getParams() {
         return params;
+    }
+
+    /**
+     * Gets the ContentType
+     *
+     * @return the ContentType Enum
+     */
+    public ContentType getContentType() {
+        return contentType;
+    }
+
+    /**
+     * Sets the ContentType
+     *
+     * @param contentType the content type Enum
+     */
+    public void setContentType(ContentType contentType) {
+        this.contentType = contentType;
     }
 }

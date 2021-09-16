@@ -18,10 +18,6 @@ public class ApiResponse {
 
     private Response response;
 
-    public ApiResponse(final Response response) {
-        this.response = response;
-    }
-
     /**
      * Gets the response.
      *

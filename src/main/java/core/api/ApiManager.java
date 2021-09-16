@@ -10,10 +10,10 @@
 
 package core.api;
 
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import static core.api.ApiRequestSpecificationProvider.add;
 import static io.restassured.RestAssured.given;
 
 /**
@@ -38,19 +38,6 @@ public final class ApiManager {
     }
 
     /**
-     * Executes a ApiRequest without body without log.
-     *
-     * @param apiRequest  Contains all data of request
-     * @param apiResponse after execution of request
-     * @author Saul Caspa
-     */
-    public static void executeWithoutLog(final ApiRequest apiRequest, final ApiResponse apiResponse) {
-        Response response = buildRequestWithoutLog(apiRequest)
-                .request(apiRequest.getMethod().name(), apiRequest.getEndpoint());
-        apiResponse.setResponse(response);
-    }
-
-    /**
      * Builds a RequestSpecification.
      *
      * @param apiRequest Contains all data of request
@@ -58,61 +45,15 @@ public final class ApiManager {
      * @author Saul Caspa
      */
     private static RequestSpecification buildRequest(final ApiRequest apiRequest) {
-        return given()
-                .headers(apiRequest.getHeaders())
-                .queryParams(apiRequest.getQueryParams())
-                .pathParams(apiRequest.getPathParams())
-                .baseUri(apiRequest.getBaseUri())
-                .contentType(ContentType.JSON)
-                .log()
-                .all();
-    }
-
-    /**
-     * Builds a RequestSpecification without log.
-     *
-     * @param apiRequest Contains all data of request
-     * @return RequestSpecification without log
-     * @author Saul Caspa
-     */
-    private static RequestSpecification buildRequestWithoutLog(final ApiRequest apiRequest) {
-        return given()
-                .headers(apiRequest.getHeaders())
-                .queryParams(apiRequest.getQueryParams())
-                .pathParams(apiRequest.getPathParams())
-                .baseUri(apiRequest.getBaseUri())
-                .contentType(ContentType.JSON);
-    }
-
-    /**
-     * Executes a ApiRequest with body.
-     *
-     * @param apiRequest  Contains all data of request
-     * @param apiResponse Contains all data of a response
-     * @author Saul Caspa
-     */
-    public static void executeWithBody(final ApiRequest apiRequest, final ApiResponse apiResponse) {
-        Response response = buildRequest(apiRequest)
-                .body(apiRequest.getBody())
-                .request(apiRequest.getMethod().name(), apiRequest.getEndpoint());
-        apiResponse.setResponse(response);
-    }
-
-    /**
-     * Executes the Api request and assignment to response using param.
-     *
-     * @param apiRequest contains all the parameters for the execution to request.
-     * @return a new instance to response.
-     */
-    public static ApiResponse executeParam(final ApiRequest apiRequest) {
-        Response response = given().headers(apiRequest.getHeaders())
-                .queryParams(apiRequest.getQueryParams())
-                .pathParams(apiRequest.getPathParams())
-                .baseUri(apiRequest.getBaseUri())
-                .params(apiRequest.getParams())
-                .log().all()
-                .request(apiRequest.getMethod().name(),
-                        apiRequest.getEndpoint());
-        return new ApiResponse(response);
+        RequestSpecification requestSpecification = given();
+        add(() -> requestSpecification.headers(apiRequest.getHeaders()), () -> apiRequest.getHeaders());
+        add(() -> requestSpecification.queryParams(apiRequest.getQueryParams()), () -> apiRequest.getQueryParams());
+        add(() -> requestSpecification.pathParams(apiRequest.getPathParams()), () -> apiRequest.getPathParams());
+        add(() -> requestSpecification.baseUri(apiRequest.getBaseUri()), () -> apiRequest.getBaseUri());
+        add(() -> requestSpecification.params(apiRequest.getParams()), () -> apiRequest.getParams());
+        add(() -> requestSpecification.contentType(apiRequest.getContentType()), () -> apiRequest.getContentType());
+        add(() -> requestSpecification.body(apiRequest.getBody()), () -> apiRequest.getBody());
+        requestSpecification.log().all();
+        return requestSpecification;
     }
 }
