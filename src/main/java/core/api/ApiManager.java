@@ -16,9 +16,6 @@ import io.restassured.specification.RequestSpecification;
 import static core.api.ApiRequestSpecificationProvider.add;
 import static io.restassured.RestAssured.given;
 
-/**
- * Manages the creation of RequestSpecification and execution of an ApiRequest.
- */
 public final class ApiManager {
 
     private ApiManager() {
@@ -53,7 +50,6 @@ public final class ApiManager {
         add(() -> requestSpecification.params(apiRequest.getParams()), () -> apiRequest.getParams());
         add(() -> requestSpecification.contentType(apiRequest.getContentType()), () -> apiRequest.getContentType());
         add(() -> requestSpecification.body(apiRequest.getBody()), () -> apiRequest.getBody());
-        requestSpecification.log().all();
         return requestSpecification;
     }
 }

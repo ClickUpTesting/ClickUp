@@ -254,6 +254,7 @@ public class ApiRequest {
      * Gets the ContentType
      *
      * @return the ContentType Enum
+     * @author Saul Caspa
      */
     public ContentType getContentType() {
         return contentType;
@@ -263,6 +264,7 @@ public class ApiRequest {
      * Sets the ContentType
      *
      * @param contentType the content type Enum
+     * @author Saul Caspa
      */
     public void setContentType(ContentType contentType) {
         this.contentType = contentType;

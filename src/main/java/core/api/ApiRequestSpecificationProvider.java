@@ -12,13 +12,17 @@ package core.api;
 
 import core.utils.Supplier;
 
-public class ApiRequestSpecificationProvider {
+public final class ApiRequestSpecificationProvider {
+
+    private ApiRequestSpecificationProvider() {
+    }
 
     /**
      * Checks if an ApiRequestField is not null and adds the specification if so.
      *
      * @param addSpecification
      * @param getRequestField
+     * @author Saul Caspa
      */
     public static void add(Supplier addSpecification, Supplier getRequestField) {
         if (getRequestField.run() != null) {

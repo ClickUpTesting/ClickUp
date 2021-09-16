@@ -4,13 +4,12 @@
  * ("Confidential Information"). You shall not disclose such Confidential
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with Fundacion Jala
+ *
+ * @author Saul Caspa
  */
 
 package core.utils;
 
-/**
- * Provides a supplier method to return an object.
- */
-public interface Supplier <T> {
+public interface Supplier<T> {
     T run();
 }
