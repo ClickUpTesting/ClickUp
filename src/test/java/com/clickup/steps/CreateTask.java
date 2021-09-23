@@ -2,12 +2,9 @@ package com.clickup.steps;
 
 import com.clickup.api.Endpoints;
 import com.clickup.api.PathParams;
-import com.clickup.api.entities.Lisst;
-import com.clickup.api.entities.ObjectToString;
 import com.clickup.api.entities.Task;
 import com.clickup.api.utils.BaseRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -20,6 +17,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.testng.Assert;
 
 public class CreateTask {
@@ -37,7 +35,7 @@ public class CreateTask {
     }
 
     @Given("^I build a \"([^\"]*)\" request$")
-    public void iBuildARequest(final ApiMethod method) {
+    public void buildRequest(final ApiMethod method) {
         apiRequest = BaseRequest.baseRequest()
                 .method(method)
                 .endpoint(Endpoints.CREATE_TASK)
@@ -46,7 +44,8 @@ public class CreateTask {
     }
 
     @When("I create a new {string} with parameters:")
-    public void iCreateANewWithParameters(final String entityName, final DataTable object) throws JsonProcessingException {
+    public void createObjectWithParameters(final String entityName, final DataTable object)
+            throws JsonProcessingException {
         Map<String, String> json = object.asMap(String.class, String.class);
         entity = new HashMap<>(json);
         expected_task = new Task();
@@ -55,7 +54,7 @@ public class CreateTask {
     }
 
     @Then("I verify that the response is {int}")
-    public void iVerifyThatTheResponseIs(final int expectedResponse) {
+    public void verifyThatTheResponseIs(final int expectedResponse) {
         apiResponse = new ApiResponse();
         ApiManager.execute(apiRequest, apiResponse);
         apiResponse.getResponse().then().log().all();
@@ -65,7 +64,7 @@ public class CreateTask {
     }
 
     @And("I verify that the parameters are correct")
-    public void iVerifyThatTheParametersAreCorrect() {
+    public void verifyThatTheParametersAreCorrect() {
         Assert.assertEquals(actual_task.getName(), expected_task.getName());
     }
 }

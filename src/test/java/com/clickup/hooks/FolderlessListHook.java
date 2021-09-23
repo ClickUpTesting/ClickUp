@@ -12,6 +12,7 @@ import core.utils.PrerequisiteIds;
 import core.utils.PropertiesReader;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+
 import java.util.Map;
 
 import static com.clickup.api.utils.BaseRequest.baseRequest;
@@ -28,7 +29,7 @@ public class FolderlessListHook {
         this.ids = ids;
     }
 
-    @Before(value="@Task")
+    @Before(value = "@Task")
     public void createFolderlessList() throws JsonProcessingException {
         String spaceID = PropertiesReader.getProperties("configuration.properties").getProperty("defaultSpaceId");
         apiResponse = new ApiResponse();
@@ -46,7 +47,7 @@ public class FolderlessListHook {
         ids.setObjectId(list.getName(), list.getId());
     }
 
-    @After(value="@Task")
+    @After(value = "@Task")
     public void deleteFolderlessList() {
         apiResponse = new ApiResponse();
         apiRequest = baseRequest()
