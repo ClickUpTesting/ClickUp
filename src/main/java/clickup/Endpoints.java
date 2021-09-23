@@ -8,12 +8,18 @@
  * @author Raymundo Guaraguara
  */
 
-package core.api;
+package clickup;
 
-public enum ApiMethod {
-    GET,
-    POST,
-    DELETE,
-    PUT,
-    PATCH
+public enum Endpoints {
+    CREATE_GOAL("/team/{TeamId}/goal");
+
+    private String endpoint;
+
+    Endpoints(String endpoint) {
+        this.endpoint = endpoint;
+    }
+
+    public String getEndpoint() {
+        return endpoint;
+    }
 }

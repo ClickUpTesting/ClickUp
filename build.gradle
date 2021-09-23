@@ -11,12 +11,20 @@ repositories {
 
 dependencies {
     implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.11.0'
+    implementation group: 'io.cucumber', name: 'cucumber-testng', version: '6.11.0'
     implementation group: 'io.rest-assured', name: 'rest-assured', version: '4.4.0'
     implementation group: 'io.rest-assured', name: 'json-path', version: '4.4.0'
     implementation group: 'io.rest-assured', name: 'json-schema-validator', version: '4.4.0'
+    implementation group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4'
+    implementation group: 'org.springframework', name: 'spring-web', version: '5.3.10'
+    testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '6.11.0'
     testImplementation group: 'org.testng', name: 'testng', version: '7.4.0'
 }
 
 test {
+    ignoreFailures = true
+    scanForTestClasses = false
+    testLogging.showStandardStreams = true
     useTestNG()
+    scanForTestClasses = false
 }

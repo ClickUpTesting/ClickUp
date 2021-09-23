@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "goal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "pretty_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "integer"
+        },
+        "color": {
+          "type": "null"
+        },
+        "date_created": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "null"
+        },
+        "due_date": {
+          "type": "null"
+        },
+        "description": {
+          "type": "null"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "multiple_owners": {
+          "type": "null"
+        },
+        "editor_token": {
+          "type": "string"
+        },
+        "date_updated": {
+          "type": "string"
+        },
+        "folder_id": {
+          "type": "null"
+        },
+        "folder_name": {
+          "type": "null"
+        },
+        "editor_expiration": {
+          "type": "integer"
+        },
+        "members": {
+          "type": "array",
+          "items": {}
+        },
+        "group_members": {
+          "type": "array",
+          "items": {}
+        },
+        "owners": {
+          "type": "array",
+          "items": {}
+        },
+        "key_results": {
+          "type": "array",
+          "items": {}
+        },
+        "percent_completed": {
+          "type": "integer"
+        },
+        "history": {
+          "type": "array",
+          "items": {}
+        },
+        "pretty_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "pretty_id",
+        "name",
+        "team_id",
+        "creator",
+        "color",
+        "date_created",
+        "start_date",
+        "due_date",
+        "description",
+        "private",
+        "archived",
+        "multiple_owners",
+        "editor_token",
+        "date_updated",
+        "folder_id",
+        "folder_name",
+        "editor_expiration",
+        "members",
+        "group_members",
+        "owners",
+        "key_results",
+        "percent_completed",
+        "history",
+        "pretty_url"
+      ]
+    }
+  },
+  "required": [
+    "goal"
+  ]
+}
