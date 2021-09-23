@@ -23,3 +23,15 @@ dependencies {
 test {
     useTestNG()
 }
+
+checkstyle {
+    toolVersion '9.0'
+    configFile file('config/checkstyle/checkstyle.xml')
+}
+
+checkstyleMain {
+    source = 'src'
+}
+
+test.finalizedBy("checkstyleMain")
+check.dependsOn build
