@@ -16,4 +16,5 @@ public final class PathParams {
     }
 
     public static final String LIST_ID = "list_id";
+    public static final String SPACE_ID = "space_id";
 }

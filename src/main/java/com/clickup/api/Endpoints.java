@@ -15,5 +15,6 @@ public final class Endpoints {
     private Endpoints() {
     }
     public static final String CREATE_FOLDERLESS_LIST = "/space/{space_id}/list";
-    public static final String DELETE_LIST = "/v2/list/{list_id}";
+    public static final String DELETE_LIST = "/list/{list_id}";
+    public static final String CREATE_TASK = "/list/{list_id}/task";
 }

@@ -55,7 +55,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "folder",
         "space"
 })
-public class Task {
+public class Task implements ObjectToString {
 
     @JsonProperty("id")
     private String id;

@@ -12,6 +12,8 @@ repositories {
 
 dependencies {
     implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.11.0'
+    implementation group: 'io.cucumber', name: 'cucumber-testng', version: '6.11.0'
+    implementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '6.11.0'
     implementation group: 'io.rest-assured', name: 'rest-assured', version: '4.4.0'
     implementation group: 'io.rest-assured', name: 'json-path', version: '4.4.0'
     implementation group: 'io.rest-assured', name: 'json-schema-validator', version: '4.4.0'
