@@ -8,20 +8,15 @@
  * @author Raymundo Guaraguara
  */
 
-package core.utils;
+package clickup.utils.stringtoobjectconverter;
 
-public final class PascalCaseConverter {
-    private PascalCaseConverter() {
-    }
-
+public interface StringToObjectConverter {
     /**
-     * Converts a string to Pascal Case format.
+     * Converts a String to an Object.
      *
-     * @param value a string
-     * @return the string with pascal case format
+     * @param string to convert
+     * @return an Object
      * @author Raymundo Guaraguara
      */
-    public static String convertToPascalCase(final String value) {
-        return value.toUpperCase().replaceAll("\\s", "_");
-    }
+    Object convertStringToObject(final String string);
 }

@@ -1,6 +1,9 @@
 package core.utils;
 
-public class LowerCamelCaseConverter {
+public final class LowerCamelCaseConverter {
+    private LowerCamelCaseConverter() {
+    }
+
     /**
      * Converts a string to Lower Camel Case format.
      *
@@ -15,7 +18,7 @@ public class LowerCamelCaseConverter {
             if (i == 0) {
                 lowerCamelCaseWord = lowerCamelCaseWord.concat(words[i].toLowerCase());
             } else {
-                lowerCamelCaseWord = lowerCamelCaseWord.concat(words[i].substring(0,1).toUpperCase()
+                lowerCamelCaseWord = lowerCamelCaseWord.concat(words[i].substring(0, 1).toUpperCase()
                         .concat(words[i].substring(1).toLowerCase()));
             }
         }
