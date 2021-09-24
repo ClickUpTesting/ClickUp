@@ -21,6 +21,8 @@ public class FeatureFactory {
     public Features getFeature(String featureName) {
         if (featureName.equalsIgnoreCase("Goal")) {
             return new Goal();
+        } else if (featureName.equalsIgnoreCase("Goals")) {
+            return new Goals();
         }
         return null;
     }

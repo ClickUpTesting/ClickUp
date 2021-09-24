@@ -1,22 +1,17 @@
 package cucumber.steps;
 
-import clickup.Endpoints;
 import clickup.entities.FeatureFactory;
 import clickup.entities.Features;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.*;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.springframework.http.HttpStatus;
 import org.testng.asserts.SoftAssert;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
-
-import static core.utils.PascalCaseConverter.convertToPascalCase;
 
 public class ApiSteps {
     ApiRequestBuilder apiRequestBuilder;
@@ -24,47 +19,50 @@ public class ApiSteps {
     ApiResponse apiResponse = new ApiResponse();
     FeatureFactory featureFactory = new FeatureFactory();
     SoftAssert softAssert = new SoftAssert();
+    String featureName;
 
     public ApiSteps(ApiRequestBuilder apiRequestBuilder) {
         this.apiRequestBuilder = apiRequestBuilder;
     }
 
-    @Given("^I build a (.*) request$")
-    public void iBuildAPOSTRequest(final String apiMethod) {
+    @Given("^I set the request endpoint to (.*)$")
+    public void iSetTheRequestEndpointToTeamTeam_idGoal(final String endpoint) {
         apiRequestBuilder
-                .method(ApiMethod.valueOf(apiMethod));
+                .endpoint(endpoint)
+//                .pathParams(getPathParams(endpoint));
+                .pathParams("team_id", "12908518");
     }
 
-    @When("^I create a (.*) body with parameters$")
-    public void iCreateAGoalBodyWithParameters(final String featureName, final Map<String, String> entry) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException, JsonProcessingException {
+    @When("^I set the request body as (.*) with following values:$")
+    public void iSetTheRequestBodyAsGoalWithFollowingValues(final String featureName, final Map<String, String> body)
+            throws InvocationTargetException, IllegalAccessException, NoSuchMethodException, JsonProcessingException {
         Features feature = featureFactory.getFeature(featureName);
-        feature.setAllFields(entry);
+        feature.setAllFields(body);
         apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));
+        this.featureName = featureName;
     }
 
-    @And("^I execute the request on (.*) endpoint$")
-    public void iExecuteTheRequestOnTheEndpoint(final String endpointName) {
+    @When("^I execute the (.*) request$")
+    public void iExecuteThePOSTRequest(final String apiMethod) {
         apiRequest = apiRequestBuilder
-                .endpoint(Endpoints.valueOf(convertToPascalCase(endpointName)).getEndpoint())
-                .pathParams("TeamId", "12908518")
+                .method(ApiMethod.valueOf(apiMethod))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
+        Features featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
     }
 
-    @Then("^I check that the response status is (.*)$")
-    public void iCheckThatTheResponseStatusIsOK(final String responseStatus) {
-        HttpStatus httpStatus = HttpStatus.valueOf(responseStatus);
-        int expectedStatus = httpStatus.value();
-        softAssert.assertEquals(apiResponse.getStatusCode(), expectedStatus);
+    @Then("I verify that the response status is {int}")
+    public void iVerifyThatTheResponseStatusIs(final int statusCode) {
+        softAssert.assertEquals(apiResponse.getStatusCode(), statusCode);
     }
 
-    @And("^I see that the schema matches the provided on the file (.*)$")
-    public void iSeeThatTheSchemaMatchesTheProvidedOnTheFileCreateGoalJson(final String schemaPath) {
+    @Then("^I verify the schema matches the file: (.*)$")
+    public void iVerifyTheSchemaMatchesTheFileSchemasCreate_goalJson(final String schemaPath) {
         apiResponse.validateBodySchema(schemaPath);
     }
 
-    @Then("^I check that the (.*) was created with provided parameters$")
-    public void iCheckThatTheGoalWasCreatedWithProvidedParameters(final String featureType) {
+    @Then("I verify the values set on the feature")
+    public void iVerifyTheValuesSetOnTheGoal() {
         softAssert.assertAll();
     }
 }

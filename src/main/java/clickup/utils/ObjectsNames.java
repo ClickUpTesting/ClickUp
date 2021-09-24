@@ -4,7 +4,8 @@ public enum ObjectsNames {
     Boolean(new StringToBoolean()),
     Double(new StringToDouble()),
     Long(new StringToLong()),
-    Integer(new StringToInteger());
+    Integer(new StringToInteger()),
+    Goal(new StringToGoal());
 
     private StringToObjectConverter stringToObjectConverter;
 
