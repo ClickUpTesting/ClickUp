@@ -30,7 +30,7 @@ public class ApiSteps {
         apiRequestBuilder
                 .endpoint(endpoint)
 //                .pathParams(getPathParams(endpoint));
-                .pathParams("team_id", "12908518");
+                .pathParams("space_id", "3169890");
     }
 
     @When("^I set the request body as (.*) with following values:$")

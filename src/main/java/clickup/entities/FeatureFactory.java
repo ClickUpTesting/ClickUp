@@ -23,6 +23,8 @@ public class FeatureFactory {
             return new Goal();
         } else if (featureName.equalsIgnoreCase("Goals")) {
             return new Goals();
+        } else if (featureName.equalsIgnoreCase("Folder")) {
+            return new Folder();
         }
         return null;
     }
