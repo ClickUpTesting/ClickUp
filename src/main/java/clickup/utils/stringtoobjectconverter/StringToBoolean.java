@@ -8,19 +8,11 @@
  * @author Raymundo Guaraguara
  */
 
-package clickup.entities;
+package clickup.utils.stringtoobjectconverter;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class Goals implements Features {
-    private Goal goal;
-
-    public Goal getGoal() {
-        return goal;
-    }
-
-    public void setGoal(Goal goal) {
-        this.goal = goal;
+public class StringToBoolean implements StringToObjectConverter {
+    @Override
+    public Object convertStringToObject(String string) {
+        return Boolean.valueOf(string);
     }
 }

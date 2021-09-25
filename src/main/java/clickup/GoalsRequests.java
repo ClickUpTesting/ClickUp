@@ -8,7 +8,11 @@ import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 
-public class GoalsRequests {
+public final class GoalsRequests {
+    private GoalsRequests() {
+
+    }
+
     public static void deleteGoal(final String goalId) {
         ApiRequestBuilder apiRequestBuilder = new ApiRequestBuilder();
         ApiResponse apiResponse = new ApiResponse();

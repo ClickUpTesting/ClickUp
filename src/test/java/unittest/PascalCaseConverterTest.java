@@ -3,7 +3,7 @@ package unittest;
 import org.testng.annotations.Test;
 
 import static core.utils.PascalCaseConverter.convertToPascalCase;
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class PascalCaseConverterTest {
 

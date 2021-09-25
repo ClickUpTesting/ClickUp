@@ -8,18 +8,11 @@
  * @author Raymundo Guaraguara
  */
 
-package clickup;
+package clickup.utils.stringtoobjectconverter;
 
-public enum Endpoints {
-    CREATE_GOAL("/team/{TeamId}/goal");
-
-    private String endpoint;
-
-    Endpoints(String endpoint) {
-        this.endpoint = endpoint;
-    }
-
-    public String getEndpoint() {
-        return endpoint;
+public class StringToInteger implements StringToObjectConverter {
+    @Override
+    public Object convertStringToObject(String string) {
+        return Integer.valueOf(string);
     }
 }
