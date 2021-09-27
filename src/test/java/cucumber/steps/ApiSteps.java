@@ -30,12 +30,13 @@ public class ApiSteps {
         apiRequestBuilder
                 .endpoint(endpoint)
 //                .pathParams(getPathParams(endpoint));
-                .pathParams("team_id", "12908518");
+//                .pathParams("team_id", "12908518")
+                .pathParams("folder_id", "25022057");
     }
 
     @When("^I set the request body as (.*) with following values:$")
     public void iSetTheRequestBodyAsGoalWithFollowingValues(final String featureName, final Map<String, String> body)
-            throws InvocationTargetException, IllegalAccessException, NoSuchMethodException, JsonProcessingException {
+            throws Exception, JsonProcessingException {
         Features feature = featureFactory.getFeature(featureName);
         feature.setAllFields(body);
         apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));

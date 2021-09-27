@@ -1,0 +1,178 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Gustavo Huanca
+ */
+
+package clickup.entities;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+public class Lisst implements Features {
+    private int orderindex;
+    @JsonProperty("due_date")
+    private String dueDate;
+    private Priority priority;
+    private String content;
+    private Space space;
+    @JsonProperty("override_statuses")
+    private boolean overrideStatuses;
+    private boolean archived;
+    @JsonProperty("permission_level")
+    private String permissionLevel;
+    private boolean deleted;
+    private Folder folder;
+    private String name;
+    private List<StatusesItem> statuses;
+    private String id;
+    private Assignee assignee;
+    private Status status;
+    @JsonProperty("start_date")
+    private Object startDate;
+    @JsonProperty("inbound_address")
+    private String inboundAddress;
+
+    public void setOrderindex(final int orderindex) {
+        this.orderindex = orderindex;
+    }
+
+    public int getOrderindex() {
+        return orderindex;
+    }
+
+    public void setDueDate(final String dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setPriority(final Priority priority) {
+        this.priority = priority;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public void setContent(final String content) {
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setSpace(final Space space) {
+        this.space = space;
+    }
+
+    public Space getSpace() {
+        return space;
+    }
+
+    public void setOverrideStatuses(final boolean overrideStatuses) {
+        this.overrideStatuses = overrideStatuses;
+    }
+
+    public boolean isOverrideStatuses() {
+        return overrideStatuses;
+    }
+
+    public void setArchived(final boolean archived) {
+        this.archived = archived;
+    }
+
+    public boolean isArchived() {
+        return archived;
+    }
+
+    public void setPermissionLevel(final String permissionLevel) {
+        this.permissionLevel = permissionLevel;
+    }
+
+    public String getPermissionLevel() {
+        return permissionLevel;
+    }
+
+    public void setDeleted(final boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setFolder(final Folder folder) {
+        this.folder = folder;
+    }
+
+    public Folder getFolder() {
+        return folder;
+    }
+
+    public void setName(final String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setStatuses(final List<StatusesItem> statuses) {
+        this.statuses = statuses;
+    }
+
+    public List<StatusesItem> getStatuses() {
+        return statuses;
+    }
+
+    public void setId(final String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setAssignee(final Assignee assignee) {
+        this.assignee = assignee;
+    }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setStatus(final Status status) {
+        this.status = status;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStartDate(final Object startDate) {
+        this.startDate = startDate;
+    }
+
+    public Object getStartDate() {
+        return startDate;
+    }
+
+    public void setInboundAddress(final String inboundAddress) {
+        this.inboundAddress = inboundAddress;
+    }
+
+    public String getInboundAddress() {
+        return inboundAddress;
+    }
+}

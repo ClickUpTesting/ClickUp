@@ -24,6 +24,9 @@ public class FeatureFactory {
         } else if (featureName.equalsIgnoreCase("Goals")) {
             return new Goals();
         }
+        if (featureName.equalsIgnoreCase("List")) {
+            return new Lisst();
+        }
         return null;
     }
 }
