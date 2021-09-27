@@ -1,6 +1,6 @@
 Feature: Create Goal
 
-  Scenario: As a user I want to create a goal for tracking an objective
+  Scenario: As a user I want to create a folder
     Given I set the request endpoint to /space/{space_id}/folder
     When I set the request body as folder with following values:
       | name | My folder |
