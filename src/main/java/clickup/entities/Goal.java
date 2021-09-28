@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Goal implements Features {
+public class Goal implements IFeatures {
     private String id;
     @JsonProperty("pretty_id")
     private String prettyId;
@@ -288,5 +288,10 @@ public class Goal implements Features {
                 ", history=" + history +
                 ", prettyUrl='" + prettyUrl + '\'' +
                 '}';
+    }
+
+    @Override
+    public String getIdentifier() {
+        return id;
     }
 }

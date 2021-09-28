@@ -12,33 +12,71 @@ package clickup.entities;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.List;
+
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Space {
-    private boolean access;
+    private IFeatures features;
+    private boolean archived;
+    private boolean jsonMemberPrivate;
     private String name;
+    private List<StatusesItem> statuses;
     private String id;
+    private boolean multipleAssignees;
 
-    public void setAccess(final boolean access) {
-        this.access = access;
+    public void setFeatures(IFeatures features){
+        this.features = features;
     }
 
-    public boolean isAccess() {
-        return access;
+    public IFeatures getFeatures(){
+        return features;
     }
 
-    public void setName(final String name) {
+    public void setArchived(boolean archived){
+        this.archived = archived;
+    }
+
+    public boolean isArchived(){
+        return archived;
+    }
+
+    public void setJsonMemberPrivate(boolean jsonMemberPrivate){
+        this.jsonMemberPrivate = jsonMemberPrivate;
+    }
+
+    public boolean isJsonMemberPrivate(){
+        return jsonMemberPrivate;
+    }
+
+    public void setName(String name){
         this.name = name;
     }
 
-    public String getName() {
+    public String getName(){
         return name;
     }
 
-    public void setId(final String id) {
+    public void setStatuses(List<StatusesItem> statuses){
+        this.statuses = statuses;
+    }
+
+    public List<StatusesItem> getStatuses(){
+        return statuses;
+    }
+
+    public void setId(String id){
         this.id = id;
     }
 
-    public String getId() {
+    public String getId(){
         return id;
+    }
+
+    public void setMultipleAssignees(boolean multipleAssignees){
+        this.multipleAssignees = multipleAssignees;
+    }
+
+    public boolean isMultipleAssignees(){
+        return multipleAssignees;
     }
 }

@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
-public class Lisst implements Features {
+public class Lisst implements IFeatures {
     private int orderindex;
     @JsonProperty("due_date")
     private String dueDate;
@@ -174,5 +174,10 @@ public class Lisst implements Features {
 
     public String getInboundAddress() {
         return inboundAddress;
+    }
+
+    @Override
+    public String getIdentifier() {
+        return id;
     }
 }

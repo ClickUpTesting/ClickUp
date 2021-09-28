@@ -173,6 +173,16 @@ public class ApiRequest {
     }
 
     /**
+     * Sets the values for path params using a map.
+     *
+     * @param mapPathParam map with the path params values
+     * @author Gustavo Huanca
+     */
+    public void addPathParams(final Map<String, String> mapPathParam) {
+        pathParams.putAll(mapPathParam);
+    }
+
+    /**
      * Removes all the values added to the path params Map.
      *
      * @author Jorge Caceres

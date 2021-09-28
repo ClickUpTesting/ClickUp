@@ -11,6 +11,12 @@
 package clickup;
 
 public enum Endpoints {
+    URL_BASE("https://api.clickup.com/api/v2"),
+    CREATE_SPACE("/team/{team_id}/space"),
+    CREATE_FOLDER_IN_SPACE("/space/{space_id}/folder"),
+    GET_SPACE("/space/{space_id}"),
+    LIST_IN_FOLDER("/folder/{folder_id}/list"),
+    LIST("/list/{list_id}"),
     CREATE_GOAL("/team/{TeamId}/goal");
 
     private String endpoint;
