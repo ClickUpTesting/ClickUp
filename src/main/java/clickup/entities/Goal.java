@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Goal implements IFeatures {
+public class Goal implements Features {
     private String id;
     @JsonProperty("pretty_id")
     private String prettyId;
@@ -257,41 +257,5 @@ public class Goal implements IFeatures {
 
     public void setPrettyUrl(String prettyUrl) {
         this.prettyUrl = prettyUrl;
-    }
-
-    @Override
-    public String toString() {
-        return "Goal{" +
-                "id='" + id + '\'' +
-                ", prettyId='" + prettyId + '\'' +
-                ", name='" + name + '\'' +
-                ", teamId='" + teamId + '\'' +
-                ", creator=" + creator +
-                ", color='" + color + '\'' +
-                ", dateCreated='" + dateCreated + '\'' +
-                ", startDate='" + startDate + '\'' +
-                ", dueDate='" + dueDate + '\'' +
-                ", description='" + description + '\'' +
-                ", is_private=" + is_private +
-                ", archived=" + archived +
-                ", multipleOwners=" + multipleOwners +
-                ", editorToken='" + editorToken + '\'' +
-                ", dateUpdated='" + dateUpdated + '\'' +
-                ", folderId=" + folderId +
-                ", folderName=" + folderName +
-                ", editorExpiration=" + editorExpiration +
-                ", members=" + members +
-                ", groupMembers=" + groupMembers +
-                ", owners=" + owners +
-                ", keyResults=" + keyResults +
-                ", percentCompleted=" + percentCompleted +
-                ", history=" + history +
-                ", prettyUrl='" + prettyUrl + '\'' +
-                '}';
-    }
-
-    @Override
-    public String getIdentifier() {
-        return id;
     }
 }

@@ -18,7 +18,7 @@ public class FeatureFactory {
      * @return the corresponding feature
      * @author Raymundo Guaraguara
      */
-    public IFeatures getFeature(String featureName) {
+    public Features getFeature(final String featureName) {
         if (featureName.equalsIgnoreCase("Goal")) {
             return new Goal();
         } else if (featureName.equalsIgnoreCase("Goals")) {

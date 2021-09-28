@@ -1,94 +1,46 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Raymundo Guaraguara
+ */
+
 package clickup.entities;
 
-public class Features{
-	private Checklists checklists;
-	private Emails emails;
-	private DependencyWarning dependencyWarning;
-	private RemapDependencies remapDependencies;
-	private Sprints sprints;
-	private Zoom zoom;
-	private Milestones milestones;
-	private CustomItems customItems;
-	private DueDates dueDates;
-	private Points points;
+import org.apache.commons.beanutils.PropertyUtils;
 
-	public void setChecklists(Checklists checklists){
-		this.checklists = checklists;
-	}
+import java.lang.reflect.Field;
+import java.util.Map;
 
-	public Checklists getChecklists(){
-		return checklists;
-	}
+import static clickup.utils.stringtoobjectconverter.StringToObjectContext.convertStringToObject;
 
-	public void setEmails(Emails emails){
-		this.emails = emails;
-	}
-
-	public Emails getEmails(){
-		return emails;
-	}
-
-	public void setDependencyWarning(DependencyWarning dependencyWarning){
-		this.dependencyWarning = dependencyWarning;
-	}
-
-	public DependencyWarning getDependencyWarning(){
-		return dependencyWarning;
-	}
-
-	public void setRemapDependencies(RemapDependencies remapDependencies){
-		this.remapDependencies = remapDependencies;
-	}
-
-	public RemapDependencies getRemapDependencies(){
-		return remapDependencies;
-	}
-
-	public void setSprints(Sprints sprints){
-		this.sprints = sprints;
-	}
-
-	public Sprints getSprints(){
-		return sprints;
-	}
-
-	public void setZoom(Zoom zoom){
-		this.zoom = zoom;
-	}
-
-	public Zoom getZoom(){
-		return zoom;
-	}
-
-	public void setMilestones(Milestones milestones){
-		this.milestones = milestones;
-	}
-
-	public Milestones getMilestones(){
-		return milestones;
-	}
-
-	public void setCustomItems(CustomItems customItems){
-		this.customItems = customItems;
-	}
-
-	public CustomItems getCustomItems(){
-		return customItems;
-	}
-
-	public void setDueDates(DueDates dueDates){
-		this.dueDates = dueDates;
-	}
-
-	public DueDates getDueDates(){
-		return dueDates;
-	}
-
-	public void setPoints(Points points){
-		this.points = points;
-	}
-
-	public Points getPoints(){
-		return points;
-	}
+public interface Features {
+    /**
+     * Sets all the attributes on the class.
+     *
+     * @param map a Map with the attributes to set
+     * @author Raymundo Guaraguara
+     */
+    default void setAllFields(final Map map)
+            throws Exception {
+        Field[] attributes = this.getClass().getDeclaredFields();
+        for (Object key : map.keySet()) {
+            for (Field attribute : attributes) {
+                if (key.equals(attribute.getName())) {
+                    if (map.get(key) == null) {
+                        PropertyUtils.setSimpleProperty(this, attribute.getName(), map.get(key));
+                    } else if (attribute.getType().equals(map.get(key).getClass())) {
+                        PropertyUtils.setSimpleProperty(this, attribute.getName(), map.get(key));
+                    } else {
+                        PropertyUtils.setSimpleProperty(this,
+                                attribute.getName(), convertStringToObject((String) map.get(key),
+                                        attribute.getType().getSimpleName()));
+                    }
+                }
+            }
+        }
+    }
 }

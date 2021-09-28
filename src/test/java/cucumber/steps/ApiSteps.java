@@ -1,10 +1,25 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Raymundo Guaraguara
+ */
+
 package cucumber.steps;
 
 import clickup.entities.FeatureFactory;
+import clickup.entities.Features;
 import clickup.entities.IFeatures;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import core.api.*;
+import core.api.ApiManager;
+import core.api.ApiMethod;
+import core.api.ApiRequest;
+import core.api.ApiRequestBuilder;
+import core.api.ApiResponse;
 import core.utils.Context;
 import core.utils.SelectPathParams;
 import io.cucumber.java.en.Given;
@@ -30,7 +45,7 @@ public class ApiSteps {
     }
 
     @Given("^I set the request endpoint to (.*)$")
-    public void iSetTheRequestEndpointToTeamTeam_idGoal(final String endpoint) {
+    public void setsRequestEndpoint(final String endpoint) {
         apiRequestBuilder
                 .endpoint(endpoint)
 //                .pathParams(getPathParams(endpoint));
@@ -40,16 +55,16 @@ public class ApiSteps {
     }
 
     @When("^I set the request body as (.*) with following values:$")
-    public void iSetTheRequestBodyAsGoalWithFollowingValues(final String featureName, final Map<String, String> body)
-            throws Exception, JsonProcessingException {
-        IFeatures feature = featureFactory.getFeature(featureName);
+    public void setsRequestBody(final String featureName, final Map<String, String> body)
+            throws Exception {
+        Features feature = featureFactory.getFeature(featureName);
         feature.setAllFields(body);
         apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));
         this.featureName = featureName;
     }
 
     @When("^I execute the (.*) request$")
-    public void iExecuteThePOSTRequest(final String apiMethod) {
+    public void executesRequest(final String apiMethod) {
         apiRequest = apiRequestBuilder
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
@@ -59,17 +74,17 @@ public class ApiSteps {
     }
 
     @Then("I verify that the response status is {int}")
-    public void iVerifyThatTheResponseStatusIs(final int statusCode) {
+    public void verifiesResponseStatus(final int statusCode) {
         softAssert.assertEquals(apiResponse.getStatusCode(), statusCode);
     }
 
     @Then("^I verify the schema matches the file: (.*)$")
-    public void iVerifyTheSchemaMatchesTheFileSchemasCreate_goalJson(final String schemaPath) {
+    public void verifiesResponseSchema(final String schemaPath) {
         apiResponse.validateBodySchema(schemaPath);
     }
 
     @Then("I verify the values set on the feature")
-    public void iVerifyTheValuesSetOnTheGoal() {
+    public void verifiesValuesOnFeature() {
         softAssert.assertAll();
     }
 }
