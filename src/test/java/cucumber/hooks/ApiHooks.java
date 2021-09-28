@@ -14,7 +14,7 @@ public class ApiHooks {
     public void setUp() {
         apiRequestBuilder
                 .baseUri("https://api.clickup.com/api/v2/")
-                .headers("Authorization", "pk_18916260_75528SIM2T2KAL8T2WQXNGTSYG6XWT2V")
+                .headers("Authorization", "pk_3152915_34W1K1QMDBA5EQGGS2NVCO3ZL5U0MVRV")
                 .headers("Content-Type", "application/json");
     }
 }

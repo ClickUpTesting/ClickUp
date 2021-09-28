@@ -18,12 +18,17 @@ public class FeatureFactory {
      * @return the corresponding feature
      * @author Raymundo Guaraguara
      */
-    public Features getFeature(final String featureName) {
-        if (featureName.equalsIgnoreCase("Goal")) {
-            return new Goal();
-        } else if (featureName.equalsIgnoreCase("Goals")) {
-            return new Goals();
+    public Features getFeature(final String featureName) throws IllegalAccessException {
+        String feature = featureName.toLowerCase();
+        switch (feature) {
+            case "goal":
+                return new Goal();
+            case "goals":
+                return new Goals();
+            case "tags":
+                return new Tags();
+            default:
+                throw new IllegalAccessException("Feature Not Found");
         }
-        return null;
     }
 }

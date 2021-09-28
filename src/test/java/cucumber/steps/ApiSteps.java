@@ -18,6 +18,7 @@ import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
+import core.utils.ScenarioContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,22 +28,23 @@ import java.util.Map;
 
 public class ApiSteps {
     ApiRequestBuilder apiRequestBuilder;
-    ApiRequest apiRequest = new ApiRequest();
-    ApiResponse apiResponse = new ApiResponse();
+    ApiRequest apiRequest;
+    ApiResponse apiResponse;
     FeatureFactory featureFactory = new FeatureFactory();
     SoftAssert softAssert = new SoftAssert();
     String featureName;
+    public ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
-    public ApiSteps(ApiRequestBuilder apiRequestBuilder) {
+    public ApiSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
+        this.apiResponse = apiResponse;
     }
 
     @Given("^I set the request endpoint to (.*)$")
     public void setsRequestEndpoint(final String endpoint) {
         apiRequestBuilder
                 .endpoint(endpoint)
-//                .pathParams(getPathParams(endpoint));
-                .pathParams("team_id", "12908518");
+                .pathParams("space_id", scenarioContext.getEnvData("space_id"));
     }
 
     @When("^I set the request body as (.*) with following values:$")
@@ -55,7 +57,7 @@ public class ApiSteps {
     }
 
     @When("^I execute the (.*) request$")
-    public void executesRequest(final String apiMethod) {
+    public void executesRequest(final String apiMethod) throws IllegalAccessException {
         apiRequest = apiRequestBuilder
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
