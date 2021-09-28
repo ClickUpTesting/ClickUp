@@ -13,7 +13,7 @@ package clickup.entities;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Goals implements Features {
+public class Goals implements IFeature {
     private Goal goal;
 
     public Goal getGoal() {

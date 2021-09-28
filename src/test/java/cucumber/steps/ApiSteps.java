@@ -11,9 +11,7 @@
 package cucumber.steps;
 
 import clickup.entities.FeatureFactory;
-import clickup.entities.Features;
-import clickup.entities.IFeatures;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import clickup.entities.IFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
 import core.api.ApiMethod;
@@ -57,7 +55,7 @@ public class ApiSteps {
     @When("^I set the request body as (.*) with following values:$")
     public void setsRequestBody(final String featureName, final Map<String, String> body)
             throws Exception {
-        Features feature = featureFactory.getFeature(featureName);
+        IFeature feature = featureFactory.getFeature(featureName);
         feature.setAllFields(body);
         apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));
         this.featureName = featureName;
@@ -69,7 +67,7 @@ public class ApiSteps {
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
-        IFeatures featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
+        IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
         context.addPathParamsStep(String.format("%s_id",featureName),featureResponse.getIdentifier());
     }
 

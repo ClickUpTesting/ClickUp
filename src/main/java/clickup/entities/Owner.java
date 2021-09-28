@@ -10,6 +10,9 @@
 
 package clickup.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Owner {
     public Integer id;
     public String username;

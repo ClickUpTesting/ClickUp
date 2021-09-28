@@ -13,12 +13,11 @@ package clickup.entities;
 import org.apache.commons.beanutils.PropertyUtils;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
-import static clickup.utils.StringToObjectContext.convertStringToObject;
+import static clickup.utils.stringtoobjectconverter.StringToObjectContext.convertStringToObject;
 
-public interface IFeatures {
+public interface IFeature {
     /**
      * Sets all the attributes on the class.
      *
@@ -26,7 +25,7 @@ public interface IFeatures {
      * @author Raymundo Guaraguara
      */
     default void setAllFields(final Map map)
-            throws IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+            throws Exception {
         Field[] attributes = this.getClass().getDeclaredFields();
         for (Object key : map.keySet()) {
             for (Field attribute : attributes) {

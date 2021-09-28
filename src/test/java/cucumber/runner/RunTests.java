@@ -45,7 +45,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
     @BeforeTest (dependsOnMethods = {"Setup"})
     public void createSpace() throws JsonProcessingException {
         Space space = new Space();
-        space.setName("Space before");
+        space.setName("Space before 2");
         apiRequest = baseRequest()
                 .method(ApiMethod.POST)
                 .endpoint(Endpoints.CREATE_SPACE.getEndpoint())
@@ -53,6 +53,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
                 .body(new ObjectMapper().writeValueAsString(space))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
+        Space space2 =  apiResponse.getBody(Space.class);
         context.addPathParamsBase("space_id", apiResponse.getBody(Space.class).getId());
     }
 

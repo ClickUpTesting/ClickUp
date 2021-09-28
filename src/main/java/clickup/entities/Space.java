@@ -11,24 +11,27 @@
 package clickup.entities;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Space {
-    private IFeatures features;
-    private boolean archived;
-    private boolean jsonMemberPrivate;
-    private String name;
-    private List<StatusesItem> statuses;
-    private String id;
-    private boolean multipleAssignees;
+    public Features features;
+    public boolean archived;
+    public boolean jsonMemberPrivate;
+    public String name;
+    public List<StatusesItem> statuses;
+    @JsonProperty("id")
+    public String id;
+    @JsonProperty("multiple_assignees")
+    public boolean multipleAssignees;
 
-    public void setFeatures(IFeatures features){
+    public void setFeatures(Features features){
         this.features = features;
     }
 
-    public IFeatures getFeatures(){
+    public Features getFeatures(){
         return features;
     }
 
