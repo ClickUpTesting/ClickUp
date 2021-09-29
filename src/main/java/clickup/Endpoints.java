@@ -16,7 +16,7 @@ public enum Endpoints {
     CREATE_FOLDER_IN_SPACE("/space/{space_id}/folder"),
     GET_SPACE("/space/{space_id}"),
     LIST_IN_FOLDER("/folder/{folder_id}/list"),
-    LIST("/list/{list_id}"),
+    GET_LIST("/list/{list_id}"),
     CREATE_GOAL("/team/{TeamId}/goal");
 
     private String endpoint;

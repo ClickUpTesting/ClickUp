@@ -11,7 +11,6 @@
 package core.api.request;
 
 public enum Header {
-    SOBJECTS("sobjects"),
     AUTHORIZATION("Authorization"),
     BEARER("Bearer "),
     ACCEPT("Accept"),

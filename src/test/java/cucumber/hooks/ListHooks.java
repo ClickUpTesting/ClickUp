@@ -11,17 +11,19 @@
 package cucumber.hooks;
 
 import clickup.Endpoints;
-import core.api.*;
+import core.api.ApiManager;
+import core.api.ApiMethod;
+import core.api.ApiRequest;
+import core.api.ApiRequestBuilder;
+import core.api.ApiResponse;
 import core.api.request.Header;
 import core.utils.Context;
 import io.cucumber.java.After;
-import org.testng.Assert;
 
 public class ListHooks {
     private ApiRequest apiRequest;
     private ApiResponse apiResponse = new ApiResponse();
     private Context context;
-    private int statusOk = 200;
     private final String TOKEN = "pk_18915744_BBOVH8SIAV8XZZA3W06NS6PSY8WZI7LJ";
 
     public ListHooks(Context context) {
@@ -44,10 +46,9 @@ public class ListHooks {
     public void deleteList() {
         apiRequest = baseRequest()
                 .method(ApiMethod.DELETE)
-                .endpoint(Endpoints.LIST.getEndpoint())
+                .endpoint(Endpoints.GET_LIST.getEndpoint())
                 .pathParams("list_id", context.getPathParamsStep().get("list_id"))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
-        Assert.assertEquals(apiResponse.getStatusCode(), statusOk);
     }
 }

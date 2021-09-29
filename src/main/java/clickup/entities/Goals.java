@@ -26,9 +26,9 @@ public class Goals implements IFeature {
 
     @Override
     public String toString() {
-        return "Goals{" +
-                "goal=" + goal +
-                '}';
+        return "Goals{"
+                + "goal=" + goal
+                + '}';
     }
 
     @Override

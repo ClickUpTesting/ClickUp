@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Gustavo Huanca
+ */
+
 package core.utils;
 
 import java.util.ArrayList;
@@ -27,10 +37,10 @@ public class SelectPathParams {
         return list;
     }
 
-    public Map<String, String> getMapFollowEndpoint(Map<String, String> mapPathParam , String endPoint){
+    public Map<String, String> getMapFollowEndpoint(Map<String, String> mapPathParam, String endPoint) {
         Map<String, String> mapValues = new HashMap<>();
         List<String> pathParamsInEndPoint = getPathParamsInEndPoint(endPoint);
-        pathParamsInEndPoint.forEach(value -> mapValues.put(value,mapPathParam.get(value)));
+        pathParamsInEndPoint.forEach(value -> mapValues.put(value, mapPathParam.get(value)));
         return mapValues;
     }
 }

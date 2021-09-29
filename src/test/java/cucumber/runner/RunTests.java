@@ -1,11 +1,14 @@
 package cucumber.runner;
 
 import clickup.Endpoints;
-import clickup.entities.Folder;
 import clickup.entities.Space;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import core.api.*;
+import core.api.ApiManager;
+import core.api.ApiMethod;
+import core.api.ApiRequest;
+import core.api.ApiRequestBuilder;
+import core.api.ApiResponse;
 import core.api.request.Header;
 import core.utils.BaseContext;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -23,7 +26,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
     private final String TOKEN = "pk_18915744_BBOVH8SIAV8XZZA3W06NS6PSY8WZI7LJ";
     private String teamId = "12908183";
     private ApiRequest apiRequest;
-    private BaseContext context;
+    private BaseContext BaseContext;
 
     /**
      * Sets base of request.
@@ -38,14 +41,14 @@ public class RunTests extends AbstractTestNGCucumberTests {
     }
 
     @BeforeTest
-    public void Setup() {
-        context = BaseContext.getBaseContext();
+    public void setup() {
+        BaseContext = BaseContext.getBaseContext();
     }
 
-    @BeforeTest (dependsOnMethods = {"Setup"})
+    @BeforeTest (dependsOnMethods = {"setup"})
     public void createSpace() throws JsonProcessingException {
         Space space = new Space();
-        space.setName("Space before 2");
+        space.setName("Space before From API");
         apiRequest = baseRequest()
                 .method(ApiMethod.POST)
                 .endpoint(Endpoints.CREATE_SPACE.getEndpoint())
@@ -53,22 +56,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
                 .body(new ObjectMapper().writeValueAsString(space))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
-        Space space2 =  apiResponse.getBody(Space.class);
-        context.addPathParamsBase("space_id", apiResponse.getBody(Space.class).getId());
-    }
-
-    @BeforeTest (dependsOnMethods = {"createSpace"})
-    public void folderSpace() throws JsonProcessingException {
-        Folder folder = new Folder();
-        folder.setName("Space before");
-        apiRequest = baseRequest()
-                .method(ApiMethod.POST)
-                .endpoint(Endpoints.CREATE_FOLDER_IN_SPACE.getEndpoint())
-                .pathParams("space_id", context.getPathParamsBase().get("space_id"))
-                .body(new ObjectMapper().writeValueAsString(folder))
-                .build();
-        ApiManager.execute(apiRequest, apiResponse);
-        context.addPathParamsBase("folder_id", apiResponse.getBody(Folder.class).getId());
+        BaseContext.addPathParamsBase("space_id", apiResponse.getBody(Space.class).getId());
     }
 
     @AfterTest()
@@ -76,7 +64,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
          apiRequest = baseRequest()
                 .method(ApiMethod.DELETE)
                 .endpoint(Endpoints.GET_SPACE.getEndpoint())
-                 .pathParams("space_id", context.getPathParamsBase().get("space_id"))
+                 .pathParams("space_id", BaseContext.getPathParamsBase().get("space_id"))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
     }

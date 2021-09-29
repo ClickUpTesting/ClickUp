@@ -3,8 +3,11 @@ package unittest;
 import core.utils.SelectPathParams;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-import java.util.*;
 
 public class SelectPathParamsTest {
     private SelectPathParams selectPathParams = new SelectPathParams();
@@ -49,7 +52,7 @@ public class SelectPathParamsTest {
         mapValues.put("team_id", "12908183");
         mapValues.put("list_id", "245475");
         mapValues.put("folder_id", "245475");
-        Map<String, String> actual = selectPathParams.getMapFollowEndpoint(mapValues,"/folder/{folder_id}");
+        Map<String, String> actual = selectPathParams.getMapFollowEndpoint(mapValues, "/folder/{folder_id}");
         Map<String, String> expected = new HashMap<>();
         expected.put("folder_id", "245475");
         Assert.assertEquals(actual, expected);
@@ -61,7 +64,7 @@ public class SelectPathParamsTest {
         mapValues.put("team_id", "34324");
         mapValues.put("list_id", "245475");
         mapValues.put("folder_id", "245475");
-        Map<String, String> actual = selectPathParams.getMapFollowEndpoint(mapValues,"{team_id}/folder/{folder_id}");
+        Map<String, String> actual = selectPathParams.getMapFollowEndpoint(mapValues, "{team_id}/folder/{folder_id}");
         Map<String, String> expected = new HashMap<>();
         expected.put("folder_id", "245475");
         expected.put("team_id", "34324");

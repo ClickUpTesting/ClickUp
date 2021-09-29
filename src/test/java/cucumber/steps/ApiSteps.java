@@ -46,10 +46,7 @@ public class ApiSteps {
     public void setsRequestEndpoint(final String endpoint) {
         apiRequestBuilder
                 .endpoint(endpoint)
-//                .pathParams(getPathParams(endpoint));
-//                .pathParams("team_id", "12908183")
-//                .pathParams("folder_id", "25022057");
-                .pathParams(selectPathParams.getMapFollowEndpoint(context.getPathParams(),endpoint));
+                .pathParams(selectPathParams.getMapFollowEndpoint(context.getPathParams(), endpoint));
     }
 
     @When("^I set the request body as (.*) with following values:$")
@@ -68,7 +65,7 @@ public class ApiSteps {
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
         IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
-        context.addPathParamsStep(String.format("%s_id",featureName),featureResponse.getIdentifier());
+        context.addPathParamsStep(String.format("%s_id", featureName), featureResponse.getIdentifier());
     }
 
     @Then("I verify that the response status is {int}")

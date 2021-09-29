@@ -8,7 +8,7 @@ public class BaseContext {
     private Map<String, String> pathParamsBase;
     private static BaseContext baseContext;
 
-    public BaseContext(){
+    public BaseContext() {
         initialize();
     }
 

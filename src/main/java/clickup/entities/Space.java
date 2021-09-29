@@ -10,11 +10,13 @@
 
 package clickup.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Space {
     public Features features;
@@ -26,60 +28,70 @@ public class Space {
     public String id;
     @JsonProperty("multiple_assignees")
     public boolean multipleAssignees;
+    @JsonProperty("private")
+    public boolean privatee;
 
-    public void setFeatures(Features features){
+    public void setPrivatee(final boolean privatee) {
+        this.privatee = privatee;
+    }
+
+    public boolean isPrivatee() {
+        return privatee;
+    }
+
+    public void setFeatures(final Features features) {
         this.features = features;
     }
 
-    public Features getFeatures(){
+    public Features getFeatures() {
         return features;
     }
 
-    public void setArchived(boolean archived){
+    public void setArchived(final boolean archived) {
         this.archived = archived;
     }
 
-    public boolean isArchived(){
+    public boolean isArchived() {
         return archived;
     }
 
-    public void setJsonMemberPrivate(boolean jsonMemberPrivate){
+    public void setJsonMemberPrivate(final boolean jsonMemberPrivate) {
         this.jsonMemberPrivate = jsonMemberPrivate;
     }
 
-    public boolean isJsonMemberPrivate(){
+    public boolean isJsonMemberPrivate() {
         return jsonMemberPrivate;
     }
 
-    public void setName(String name){
+    public void setName(final String name) {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setStatuses(List<StatusesItem> statuses){
+    public void setStatuses(final List<StatusesItem> statuses) {
         this.statuses = statuses;
     }
 
-    public List<StatusesItem> getStatuses(){
+    public List<StatusesItem> getStatuses() {
         return statuses;
     }
 
-    public void setId(String id){
+    public void setId(final String id) {
         this.id = id;
     }
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 
-    public void setMultipleAssignees(boolean multipleAssignees){
+    public void setMultipleAssignees(final boolean multipleAssignees) {
         this.multipleAssignees = multipleAssignees;
     }
 
-    public boolean isMultipleAssignees(){
+    public boolean isMultipleAssignees() {
         return multipleAssignees;
     }
 }
