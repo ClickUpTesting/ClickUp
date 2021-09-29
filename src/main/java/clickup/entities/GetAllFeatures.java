@@ -5,15 +5,18 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with JalaSoft
  *
- * @author Raymundo Guaraguara
+ * @author Jorge Caceres
  */
 
-package core.api;
+package clickup.entities;
 
-public enum ApiMethod {
-    GET,
-    POST,
-    DELETE,
-    PUT,
-    PATCH
+public interface GetAllFeatures {
+
+    /**
+     * Gets the list's size.
+     *
+     * @return int with the size of a list
+     * @author Jorge Caceres
+     */
+    int getAmount();
 }

@@ -8,12 +8,11 @@
  * @author Raymundo Guaraguara
  */
 
-package core.api;
+package clickup.utils.stringtoobjectconverter;
 
-public enum ApiMethod {
-    GET,
-    POST,
-    DELETE,
-    PUT,
-    PATCH
+public class StringToBoolean implements StringToObjectConverter {
+    @Override
+    public Object convertStringToObject(String string) {
+        return Boolean.valueOf(string);
+    }
 }

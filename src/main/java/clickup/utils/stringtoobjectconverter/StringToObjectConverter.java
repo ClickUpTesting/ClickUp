@@ -8,12 +8,15 @@
  * @author Raymundo Guaraguara
  */
 
-package core.api;
+package clickup.utils.stringtoobjectconverter;
 
-public enum ApiMethod {
-    GET,
-    POST,
-    DELETE,
-    PUT,
-    PATCH
+public interface StringToObjectConverter {
+    /**
+     * Converts a String to an Object.
+     *
+     * @param string to convert
+     * @return an Object
+     * @author Raymundo Guaraguara
+     */
+    Object convertStringToObject(final String string);
 }
