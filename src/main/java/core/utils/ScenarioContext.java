@@ -116,7 +116,7 @@ public class ScenarioContext {
      * @return List stored on the map
      * @author Jorge Caceres
      */
-    public List<String> getTrashList( String trashName) {
+    public List<String> getTrashList(String trashName) {
         return trash.get(trashName);
     }
 }

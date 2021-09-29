@@ -32,7 +32,7 @@ public class GetFeaturesAmount {
     }
 
     @And("^I (.*) request all (.*) amount$")
-    public void getAllTagsAmount(String apiMethod, String featureName){
+    public void getAllTagsAmount(String apiMethod, String featureName) {
         apiRequest = apiRequestBuilder
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
