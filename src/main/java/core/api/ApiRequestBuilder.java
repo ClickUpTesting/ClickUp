@@ -10,6 +10,8 @@
 
 package core.api;
 
+import java.util.Map;
+
 public class ApiRequestBuilder implements IBuilderApiRequest {
 
     private ApiRequest apiRequest;
@@ -80,6 +82,17 @@ public class ApiRequestBuilder implements IBuilderApiRequest {
     }
 
     /**
+     * Removes all the values added to the path params Map.
+     *
+     * @return ApiRequest in order to build request
+     * @author Gustavo Huanca
+     */
+    public ApiRequestBuilder cleanParams() {
+        this.apiRequest.clearPathParams();
+        return this;
+    }
+
+    /**
      * Sets params to request.
      *
      * @param param is the key of param
@@ -89,6 +102,18 @@ public class ApiRequestBuilder implements IBuilderApiRequest {
      */
     public ApiRequestBuilder pathParams(final String param, final String value) {
         this.apiRequest.addPathParams(param, value);
+        return this;
+    }
+
+    /**
+     * Sets params to request.
+     *
+     * @param mapPathParam map with the path params values
+     * @return ApiRequest in order to build request
+     * @author Gustavo Huanca
+     */
+    public ApiRequestBuilder pathParams(final Map<String, String> mapPathParam) {
+        this.apiRequest.addPathParams(mapPathParam);
         return this;
     }
 

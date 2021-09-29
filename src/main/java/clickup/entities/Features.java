@@ -5,42 +5,106 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with JalaSoft
  *
- * @author Raymundo Guaraguara
+ * @author Gustavo Huanca
  */
 
 package clickup.entities;
 
-import org.apache.commons.beanutils.PropertyUtils;
-import java.lang.reflect.Field;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import static clickup.utils.stringtoobjectconverter.StringToObjectContext.convertStringToObject;
+public class Features {
+    private Checklists checklists;
+    private Emails emails;
+    @JsonProperty("dependency_warning")
+    private DependencyWarning dependencyWarning;
+    @JsonProperty("remap_dependencies")
+    private RemapDependencies remapDependencies;
+    private Sprints sprints;
+    private Zoom zoom;
+    private Milestones milestones;
+    @JsonProperty("custom_items")
+    private CustomItems customItems;
+    @JsonProperty("due_dates")
+    private DueDates dueDates;
+    private Points points;
 
-public interface Features {
+    public void setChecklists(final Checklists checklists) {
+        this.checklists = checklists;
+    }
 
-    /**
-     * Sets all the attributes on the class.
-     *
-     * @param map a Map with the attributes to set
-     * @author Raymundo Guaraguara
-     */
-    default void setAllFields(final Map map)
-            throws Exception {
-        Field[] attributes = this.getClass().getDeclaredFields();
-        for (Object key : map.keySet()) {
-            for (Field attribute : attributes) {
-                if (key.equals(attribute.getName())) {
-                    if (map.get(key) == null) {
-                        PropertyUtils.setSimpleProperty(this, attribute.getName(), map.get(key));
-                    } else if (attribute.getType().equals(map.get(key).getClass())) {
-                        PropertyUtils.setSimpleProperty(this, attribute.getName(), map.get(key));
-                    } else {
-                        PropertyUtils.setSimpleProperty(this,
-                                attribute.getName(), convertStringToObject((String) map.get(key),
-                                        attribute.getType().getSimpleName()));
-                    }
-                }
-            }
-        }
+    public Checklists getChecklists() {
+        return checklists;
+    }
+
+    public void setEmails(final Emails emails) {
+        this.emails = emails;
+    }
+
+    public Emails getEmails() {
+        return emails;
+    }
+
+    public void setDependencyWarning(final DependencyWarning dependencyWarning) {
+        this.dependencyWarning = dependencyWarning;
+    }
+
+    public DependencyWarning getDependencyWarning() {
+        return dependencyWarning;
+    }
+
+    public void setRemapDependencies(final RemapDependencies remapDependencies) {
+        this.remapDependencies = remapDependencies;
+    }
+
+    public RemapDependencies getRemapDependencies() {
+        return remapDependencies;
+    }
+
+    public void setSprints(final Sprints sprints) {
+        this.sprints = sprints;
+    }
+
+    public Sprints getSprints() {
+        return sprints;
+    }
+
+    public void setZoom(final Zoom zoom) {
+        this.zoom = zoom;
+    }
+
+    public Zoom getZoom() {
+        return zoom;
+    }
+
+    public void setMilestones(final Milestones milestones) {
+        this.milestones = milestones;
+    }
+
+    public Milestones getMilestones() {
+        return milestones;
+    }
+
+    public void setCustomItems(final CustomItems customItems) {
+        this.customItems = customItems;
+    }
+
+    public CustomItems getCustomItems() {
+        return customItems;
+    }
+
+    public void setDueDates(final DueDates dueDates) {
+        this.dueDates = dueDates;
+    }
+
+    public DueDates getDueDates() {
+        return dueDates;
+    }
+
+    public void setPoints(final Points points) {
+        this.points = points;
+    }
+
+    public Points getPoints() {
+        return points;
     }
 }

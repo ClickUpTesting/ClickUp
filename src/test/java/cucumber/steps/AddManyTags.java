@@ -10,7 +10,7 @@
 
 package cucumber.steps;
 
-import clickup.entities.ApiEndpoints;
+import clickup.ApiEndpoints;
 import core.api.ApiHeaders;
 import core.api.ApiManager;
 import core.api.ApiMethod;
@@ -33,7 +33,7 @@ public class AddManyTags {
         List<String> tagsTrashList = new ArrayList<>();
         apiRequestBuilder
                 .baseUri(ApiHeaders.URL_BASE.getValue())
-                .headers(ApiHeaders.AUTHORIZATION.getValue(), "3152915_d6831bb6342aea560c0d7bdcfd16a6f9ce50b1fb")
+                .headers(ApiHeaders.AUTHORIZATION.getValue(), "18915744_4f5e1d5e81284a083475fe64660390d8d6bb17db")
                 .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue())
                 .endpoint(ApiEndpoints.POST_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))

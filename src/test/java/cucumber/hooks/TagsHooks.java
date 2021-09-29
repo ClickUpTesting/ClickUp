@@ -10,7 +10,7 @@
 
 package cucumber.hooks;
 
-import clickup.entities.ApiEndpoints;
+import clickup.ApiEndpoints;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -28,6 +28,7 @@ public class TagsHooks {
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
     private ApiRequest apiRequest;
     private ApiResponse apiResponse;
+
     public TagsHooks(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;

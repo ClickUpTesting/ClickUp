@@ -8,9 +8,10 @@
  * @author Raymundo Guaraguara
  */
 
-package clickup.entities;
+package clickup;
 
 public enum ApiEndpoints {
+    URL_BASE("https://api.clickup.com/api/v2"),
     CREATE_SPACE("/team/{team_id}/space"),
     CREATE_FOLDER_IN_SPACE("/space/{space_id}/folder"),
     GET_SPACE("/space/{space_id}"),
