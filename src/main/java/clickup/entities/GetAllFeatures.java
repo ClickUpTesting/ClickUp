@@ -13,7 +13,7 @@ package clickup.entities;
 public interface GetAllFeatures {
 
     /**
-     * Sets all the attributes on the class.
+     * Gets the list's size.
      *
      * @return int with the size of a list
      * @author Jorge Caceres

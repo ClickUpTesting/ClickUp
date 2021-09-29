@@ -18,7 +18,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 @CucumberOptions(
-        features = {"src/test/resources/features/tags"},
+        features = {"src/test/resources/features"},
         plugin = {"html:build/cucumber/cucumber-pretty.html", "json:build/cucumber/cucumber.json"},
         glue = {"cucumber"}
 )

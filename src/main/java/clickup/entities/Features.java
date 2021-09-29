@@ -11,7 +11,6 @@
 package clickup.entities;
 
 import org.apache.commons.beanutils.PropertyUtils;
-
 import java.lang.reflect.Field;
 import java.util.Map;
 

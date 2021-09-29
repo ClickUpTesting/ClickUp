@@ -9,8 +9,6 @@
  */
 
 package clickup.entities;
-import clickup.entities.goals.Goal;
-import clickup.entities.goals.Goals;
 import clickup.entities.tags.Tags;
 
 public class FeatureFactory {
@@ -24,10 +22,6 @@ public class FeatureFactory {
     public Features getFeature(final String featureName) throws IllegalAccessException {
         String feature = featureName.toLowerCase();
         switch (feature) {
-            case "goal":
-                return new Goal();
-            case "goals":
-                return new Goals();
             case "tags":
                 return new Tags();
             default:

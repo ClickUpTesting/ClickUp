@@ -21,17 +21,18 @@ import core.utils.ScenarioContext;
 import io.cucumber.java.en.And;
 
 public class GetFeaturesAmount {
-    ApiRequestBuilder apiRequestBuilder;
-    ApiRequest apiRequest;
-    ApiResponse apiResponse;
-    ScenarioContext scenarioContext = ScenarioContext.getInstance();
+    private ApiRequestBuilder apiRequestBuilder;
+    private ApiRequest apiRequest;
+    private ApiResponse apiResponse;
+    private ScenarioContext scenarioContext = ScenarioContext.getInstance();
+
     public GetFeaturesAmount(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
     }
 
     @And("^I (.*) request all (.*) amount$")
-    public void getAllTagsAmount(String apiMethod, String featureName) throws IllegalAccessException {
+    public void getAllTagsAmount(String apiMethod, String featureName){
         apiRequest = apiRequestBuilder
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();

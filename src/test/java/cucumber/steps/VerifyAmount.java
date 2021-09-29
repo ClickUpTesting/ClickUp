@@ -21,11 +21,11 @@ import io.cucumber.java.en.Then;
 import org.testng.asserts.SoftAssert;
 
 public class VerifyAmount {
-    ApiRequestBuilder apiRequestBuilder;
-    ApiRequest apiRequest;
-    ApiResponse apiResponse;
-    SoftAssert softAssert = new SoftAssert();
-    ScenarioContext scenarioContext = ScenarioContext.getInstance();
+    private ApiRequestBuilder apiRequestBuilder;
+    private ApiRequest apiRequest;
+    private ApiResponse apiResponse;
+    private SoftAssert softAssert = new SoftAssert();
+    private ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
     public VerifyAmount(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
@@ -33,8 +33,8 @@ public class VerifyAmount {
     }
 
     @Then("I verify the amount of has increased by {int}")
-    public void verifyAmountOfTags(int arg0) {
-        int actual = scenarioContext.getFeatures("Initial status").getAmount() + arg0;
+    public void verifyAmountOfTags(int amount) {
+        int actual = scenarioContext.getFeatures("Initial status").getAmount() + amount;
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
         GetAllFeatures featureResponse = apiResponse.getBody(Tags.class);

@@ -10,6 +10,8 @@
 
 package cucumber.steps;
 
+import clickup.entities.ApiEndpoints;
+import core.api.ApiHeaders;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -24,20 +26,20 @@ public class AddManyTags {
     private ApiRequestBuilder apiRequestBuilder = new ApiRequestBuilder();
     private ApiRequest apiRequest = new ApiRequest();
     private ApiResponse apiResponse = new ApiResponse();
-    public ScenarioContext scenarioContext = ScenarioContext.getInstance();
+    private ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
     @When("I add the amount of {int} to the total of tags")
-    public void tagsBulkAdd(int arg0) {
+    public void tagsBulkAdd(int amount) {
         List<String> tagsTrashList = new ArrayList<>();
         apiRequestBuilder
-                .baseUri("https://api.clickup.com/api/v2/")
-                .headers("Authorization", "3152915_d6831bb6342aea560c0d7bdcfd16a6f9ce50b1fb")
-                .headers("Content-Type", "application/json")
-                .endpoint("/space/{space_id}/tag")
+                .baseUri(ApiHeaders.URL_BASE.getValue())
+                .headers(ApiHeaders.AUTHORIZATION.getValue(), "3152915_d6831bb6342aea560c0d7bdcfd16a6f9ce50b1fb")
+                .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue())
+                .endpoint(ApiEndpoints.POST_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .method(ApiMethod.POST);
         String tagName = "";
-        for (int i = 0; i < arg0; i++) {
+        for (int i = 0; i < amount; i++) {
             tagName = "tag0" + i;
             apiRequestBuilder.body("{\n"
                     + "  \"tag\": {\n"

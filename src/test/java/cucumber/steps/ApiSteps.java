@@ -24,16 +24,19 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.asserts.SoftAssert;
 
+import java.util.List;
 import java.util.Map;
 
+import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
+
 public class ApiSteps {
-    ApiRequestBuilder apiRequestBuilder;
-    ApiRequest apiRequest;
-    ApiResponse apiResponse;
-    FeatureFactory featureFactory = new FeatureFactory();
-    SoftAssert softAssert = new SoftAssert();
-    String featureName;
-    public ScenarioContext scenarioContext = ScenarioContext.getInstance();
+    private ApiRequestBuilder apiRequestBuilder;
+    private ApiRequest apiRequest;
+    private ApiResponse apiResponse;
+    private FeatureFactory featureFactory = new FeatureFactory();
+    private SoftAssert softAssert = new SoftAssert();
+    private String featureName;
+    private ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
     public ApiSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
@@ -42,9 +45,13 @@ public class ApiSteps {
 
     @Given("^I set the request endpoint to (.*)$")
     public void setsRequestEndpoint(final String endpoint) {
+        List<String> pathParamsList = getPathParamsFromEndpoint(endpoint);
         apiRequestBuilder
-                .endpoint(endpoint)
-                .pathParams("space_id", scenarioContext.getEnvData("space_id"));
+                .endpoint(endpoint);
+        for (String pathParams:pathParamsList) {
+            apiRequestBuilder
+                    .pathParams(pathParams, scenarioContext.getEnvData(pathParams));
+        }
     }
 
     @When("^I set the request body as (.*) with following values:$")

@@ -10,6 +10,7 @@
 
 package cucumber.hooks;
 
+import core.api.ApiHeaders;
 import core.api.ApiRequestBuilder;
 import io.cucumber.java.Before;
 
@@ -23,8 +24,8 @@ public class ApiHooks {
     @Before(order  = 1)
     public void setUp() {
         apiRequestBuilder
-                .baseUri("https://api.clickup.com/api/v2/")
-                .headers("Authorization", "3152915_d6831bb6342aea560c0d7bdcfd16a6f9ce50b1fb")
-                .headers("Content-Type", "application/json");
+                .baseUri(ApiHeaders.URL_BASE.getValue())
+                .headers(ApiHeaders.AUTHORIZATION.getValue(), "3152915_d6831bb6342aea560c0d7bdcfd16a6f9ce50b1fb")
+                .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue());
     }
 }

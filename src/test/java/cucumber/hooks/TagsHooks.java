@@ -10,6 +10,7 @@
 
 package cucumber.hooks;
 
+import clickup.entities.ApiEndpoints;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -37,7 +38,7 @@ public class TagsHooks {
         List<String> tagsTrashList = new ArrayList<>();
         String tagName = "deleteMe";
         apiRequestBuilder
-                .endpoint("/space/{space_id}/tag")
+                .endpoint(ApiEndpoints.POST_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .method(ApiMethod.POST)
                 .body("{\n"
@@ -57,7 +58,7 @@ public class TagsHooks {
     public void deleteTags() {
         List<String> tagsTrashList = scenarioContext.getTrashList("Tags Trash");
         apiRequestBuilder
-                .endpoint("/space/{space_id}/tag/{tag_name}")
+                .endpoint(ApiEndpoints.DELETE_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .method(ApiMethod.DELETE);
         for (String tagName : tagsTrashList) {

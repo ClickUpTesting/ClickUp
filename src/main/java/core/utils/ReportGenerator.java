@@ -1,9 +1,11 @@
 /**
- * Copyright (c) 2021 Fundacion Jala.
- * This software is the confidential and proprietary information of Fundacion Jala
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
  * ("Confidential Information"). You shall not disclose such Confidential
  * Information and shall use it only in accordance with the terms of the
- * license agreement you entered into with Fundacion Jala
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Jorge Caceres
  */
 
 package core.utils;
@@ -18,9 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Generates the report file for tests scenarios.
- */
+
 public final class ReportGenerator {
 
     private ReportGenerator() {
@@ -28,6 +28,8 @@ public final class ReportGenerator {
 
     /**
      * Generates the report file for tests scenarios.
+     *
+     * @author Jorge Caceres
      */
     public static void generateReport() {
         File reportOutputDirectory = new File("build/cucumber");
