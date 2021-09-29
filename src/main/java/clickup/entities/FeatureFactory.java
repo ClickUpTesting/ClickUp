@@ -9,6 +9,7 @@
  */
 
 package clickup.entities;
+import clickup.entities.tags.Tags;
 
 public class FeatureFactory {
     /**
@@ -18,15 +19,15 @@ public class FeatureFactory {
      * @return the corresponding feature
      * @author Raymundo Guaraguara
      */
-    public IFeature getFeature(final String featureName) {
-        if (featureName.equalsIgnoreCase("Goal")) {
-            return new Goal();
-        } else if (featureName.equalsIgnoreCase("Goals")) {
-            return new Goals();
+    public Features getFeature(final String featureName) throws IllegalAccessException {
+        String feature = featureName.toLowerCase();
+        switch (feature) {
+            case "tags":
+                return new Tags();
+            case "list":
+                return new Lisst();
+            default:
+                throw new IllegalAccessException("Feature Not Found");
         }
-        if (featureName.equalsIgnoreCase("List")) {
-            return new Lisst();
-        }
-        return null;
     }
 }

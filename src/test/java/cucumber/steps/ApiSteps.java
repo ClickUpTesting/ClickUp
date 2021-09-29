@@ -18,6 +18,7 @@ import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
+import core.utils.ScenarioContext;
 import core.utils.Context;
 import core.utils.SelectPathParams;
 import io.cucumber.java.en.Given;
@@ -25,28 +26,34 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.asserts.SoftAssert;
 
+import java.util.List;
 import java.util.Map;
 
-public class ApiSteps {
-    ApiRequestBuilder apiRequestBuilder;
-    ApiRequest apiRequest = new ApiRequest();
-    ApiResponse apiResponse = new ApiResponse();
-    FeatureFactory featureFactory = new FeatureFactory();
-    SoftAssert softAssert = new SoftAssert();
-    SelectPathParams selectPathParams = new SelectPathParams();
-    String featureName;
-    Context context;
+import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
 
-    public ApiSteps(ApiRequestBuilder apiRequestBuilder, Context context) {
+public class ApiSteps {
+    private ApiRequestBuilder apiRequestBuilder;
+    private ApiRequest apiRequest;
+    private ApiResponse apiResponse;
+    private FeatureFactory featureFactory = new FeatureFactory();
+    private SoftAssert softAssert = new SoftAssert();
+    private String featureName;
+    private ScenarioContext scenarioContext = ScenarioContext.getInstance();
+
+    public ApiSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
-        this.context = context;
+        this.apiResponse = apiResponse;
     }
 
     @Given("^I set the request endpoint to (.*)$")
     public void setsRequestEndpoint(final String endpoint) {
+        List<String> pathParamsList = getPathParamsFromEndpoint(endpoint);
         apiRequestBuilder
-                .endpoint(endpoint)
-                .pathParams(selectPathParams.getMapFollowEndpoint(context.getPathParams(), endpoint));
+                .endpoint(endpoint);
+        for (String pathParams:pathParamsList) {
+            apiRequestBuilder
+                    .pathParams(pathParams, scenarioContext.getEnvData(pathParams));
+        }
     }
 
     @When("^I set the request body as (.*) with following values:$")
@@ -59,13 +66,12 @@ public class ApiSteps {
     }
 
     @When("^I execute the (.*) request$")
-    public void executesRequest(final String apiMethod) {
+    public void executesRequest(final String apiMethod) throws IllegalAccessException {
         apiRequest = apiRequestBuilder
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
         IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
-        context.addPathParamsStep(String.format("%s_id", featureName), featureResponse.getIdentifier());
     }
 
     @Then("I verify that the response status is {int}")

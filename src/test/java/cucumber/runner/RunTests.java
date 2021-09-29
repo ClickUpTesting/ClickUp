@@ -1,5 +1,17 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Raymundo Guaraguara
+ */
+
 package cucumber.runner;
 
+import core.utils.ReportGenerator;
+import core.utils.ScenarioContext;
 import clickup.Endpoints;
 import clickup.entities.Space;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -13,12 +25,14 @@ import core.api.request.Header;
 import core.utils.BaseContext;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 @CucumberOptions(
         features = {"src/test/resources/features"},
-        plugin = {"html:target/site/cucumber-pretty.html", "json:target/cucumber/cucumber.json"},
+        plugin = {"html:build/cucumber/cucumber-pretty.html", "json:build/cucumber/cucumber.json"},
         glue = {"cucumber"}
 )
 public class RunTests extends AbstractTestNGCucumberTests {
@@ -27,6 +41,12 @@ public class RunTests extends AbstractTestNGCucumberTests {
     private String teamId = "12908183";
     private ApiRequest apiRequest;
     private BaseContext BaseContext;
+
+    @BeforeSuite
+    public void setBaseEnv() {
+        ScenarioContext scenarioContext = ScenarioContext.getInstance();
+        scenarioContext.setBaseEnvironment("space_id", "12950133");
+    }
 
     /**
      * Sets base of request.
@@ -40,6 +60,10 @@ public class RunTests extends AbstractTestNGCucumberTests {
                 .headers(Header.CONTENT_TYPE.getValue(), Header.APPLICATION_JSON.getValue());
     }
 
+    @AfterSuite
+    public void createReports() {
+        ReportGenerator.generateReport();
+    }
     @BeforeTest
     public void setup() {
         BaseContext = BaseContext.getBaseContext();

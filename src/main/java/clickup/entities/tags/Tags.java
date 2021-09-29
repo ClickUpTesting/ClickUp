@@ -5,34 +5,32 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with JalaSoft
  *
- * @author Raymundo Guaraguara
+ * @author Jorge Caceres
  */
 
-package clickup.entities;
+package clickup.entities.tags;
 
+import clickup.entities.Features;
+import clickup.entities.GetAllFeatures;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.List;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Goals implements IFeature {
-    private Goal goal;
+public class Tags implements GetAllFeatures, Features {
+    public List<Tag> tags;
 
-    public Goal getGoal() {
-        return goal;
+    public List<Tag> getTags() {
+        return tags;
     }
 
-    public void setGoal(Goal goal) {
-        this.goal = goal;
-    }
-
-    @Override
-    public String toString() {
-        return "Goals{"
-                + "goal=" + goal
-                + '}';
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 
     @Override
-    public String getIdentifier() {
-        return null;
+    public int getAmount() {
+        return tags.size();
     }
+
 }
