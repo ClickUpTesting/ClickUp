@@ -8,11 +8,11 @@
  * @author Raymundo Guaraguara
  */
 
-package clickup.entities;
+package clickup.entities.goals;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class LastAction {
+public class History {
     public String id;
     @JsonProperty("key_result_id")
     public String keyResultId;
@@ -20,13 +20,11 @@ public class LastAction {
     public Integer userId;
     public String note;
     @JsonProperty("date_modified")
-    public Object dateModified;
-    @JsonProperty("stepsBefore")
-    public Integer steps_before;
+    public String dateModified;
     @JsonProperty("steps_taken")
     public Integer stepsTaken;
-    @JsonProperty("steps_current")
-    public Object stepsCurrent;
+    @JsonProperty("steps_before")
+    public Integer stepsBefore;
 
     public String getId() {
         return id;
@@ -60,20 +58,12 @@ public class LastAction {
         this.note = note;
     }
 
-    public Object getDateModified() {
+    public String getDateModified() {
         return dateModified;
     }
 
-    public void setDateModified(Object dateModified) {
+    public void setDateModified(String dateModified) {
         this.dateModified = dateModified;
-    }
-
-    public Integer getSteps_before() {
-        return steps_before;
-    }
-
-    public void setSteps_before(Integer steps_before) {
-        this.steps_before = steps_before;
     }
 
     public Integer getStepsTaken() {
@@ -84,11 +74,11 @@ public class LastAction {
         this.stepsTaken = stepsTaken;
     }
 
-    public Object getStepsCurrent() {
-        return stepsCurrent;
+    public Integer getStepsBefore() {
+        return stepsBefore;
     }
 
-    public void setStepsCurrent(Object stepsCurrent) {
-        this.stepsCurrent = stepsCurrent;
+    public void setStepsBefore(Integer stepsBefore) {
+        this.stepsBefore = stepsBefore;
     }
 }

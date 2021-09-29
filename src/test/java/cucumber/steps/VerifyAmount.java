@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Jorge Caceres
+ */
+
 package cucumber.steps;
 
 import clickup.entities.GetAllFeatures;
@@ -23,15 +33,12 @@ public class VerifyAmount {
     }
 
     @Then("I verify the amount of has increased by {int}")
-    public void iVerifyTheAmountOfHasIncreasedBy(int arg0) {
-        System.out.println(scenarioContext.getFeatures("Initial status").getAmount());
+    public void verifyAmountOfTags(int arg0) {
         int actual = scenarioContext.getFeatures("Initial status").getAmount() + arg0;
-        System.out.println(actual);
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
         GetAllFeatures featureResponse = apiResponse.getBody(Tags.class);
         int expected = featureResponse.getAmount();
-        System.out.println(expected);
         softAssert.assertEquals(actual, expected);
         softAssert.assertAll();
     }

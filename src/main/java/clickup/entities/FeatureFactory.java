@@ -9,7 +9,8 @@
  */
 
 package clickup.entities;
-
+import clickup.entities.goals.Goal;
+import clickup.entities.goals.Goals;
 import clickup.entities.tags.Tags;
 
 public class FeatureFactory {

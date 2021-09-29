@@ -8,7 +8,7 @@
  * @author Raymundo Guaraguara
  */
 
-package clickup.entities;
+package clickup.entities.goals;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

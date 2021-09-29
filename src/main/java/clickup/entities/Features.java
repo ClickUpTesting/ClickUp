@@ -18,6 +18,7 @@ import java.util.Map;
 import static clickup.utils.stringtoobjectconverter.StringToObjectContext.convertStringToObject;
 
 public interface Features {
+
     /**
      * Sets all the attributes on the class.
      *

@@ -8,7 +8,7 @@
  * @author Raymundo Guaraguara
  */
 
-package clickup.entities;
+package clickup.entities.goals;
 
 public class Owner {
     public Integer id;

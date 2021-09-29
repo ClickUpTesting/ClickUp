@@ -1,9 +1,22 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Jorge Caceres
+ */
+
 package cucumber.steps;
 
-import clickup.entities.FeatureFactory;
 import clickup.entities.GetAllFeatures;
 import clickup.entities.tags.Tags;
-import core.api.*;
+import core.api.ApiManager;
+import core.api.ApiMethod;
+import core.api.ApiRequest;
+import core.api.ApiRequestBuilder;
+import core.api.ApiResponse;
 import core.utils.ScenarioContext;
 import io.cucumber.java.en.And;
 
@@ -11,7 +24,6 @@ public class GetFeaturesAmount {
     ApiRequestBuilder apiRequestBuilder;
     ApiRequest apiRequest;
     ApiResponse apiResponse;
-    FeatureFactory featureFactory = new FeatureFactory();
     ScenarioContext scenarioContext = ScenarioContext.getInstance();
     public GetFeaturesAmount(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
@@ -19,13 +31,13 @@ public class GetFeaturesAmount {
     }
 
     @And("^I (.*) request all (.*) amount$")
-    public void iGETRequestAllTagsAmount(String apiMethod, String featureName) throws IllegalAccessException {
+    public void getAllTagsAmount(String apiMethod, String featureName) throws IllegalAccessException {
         apiRequest = apiRequestBuilder
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
         apiResponse.getResponse().then().log().body();
         GetAllFeatures featureResponse =  apiResponse.getBody(Tags.class);
-        scenarioContext.setFeatures("Initial status", featureResponse );
+        scenarioContext.setFeatures("Initial status", featureResponse);
     }
 }

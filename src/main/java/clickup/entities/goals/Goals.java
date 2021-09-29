@@ -8,8 +8,9 @@
  * @author Raymundo Guaraguara
  */
 
-package clickup.entities;
+package clickup.entities.goals;
 
+import clickup.entities.Features;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

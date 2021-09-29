@@ -1,6 +1,6 @@
 package clickup;
 
-import clickup.entities.Goal;
+import clickup.entities.goals.Goal;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
