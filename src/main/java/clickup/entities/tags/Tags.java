@@ -1,5 +1,7 @@
-package clickup.entities;
+package clickup.entities.tags;
 
+import clickup.entities.Features;
+import clickup.entities.GetAllFeatures;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.List;

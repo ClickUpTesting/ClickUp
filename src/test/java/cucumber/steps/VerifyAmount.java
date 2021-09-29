@@ -1,7 +1,7 @@
 package cucumber.steps;
 
 import clickup.entities.GetAllFeatures;
-import clickup.entities.Tags;
+import clickup.entities.tags.Tags;
 import core.api.ApiManager;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
@@ -24,11 +24,15 @@ public class VerifyAmount {
 
     @Then("I verify the amount of has increased by {int}")
     public void iVerifyTheAmountOfHasIncreasedBy(int arg0) {
+        System.out.println(scenarioContext.getFeatures("Initial status").getAmount());
         int actual = scenarioContext.getFeatures("Initial status").getAmount() + arg0;
+        System.out.println(actual);
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
         GetAllFeatures featureResponse = apiResponse.getBody(Tags.class);
         int expected = featureResponse.getAmount();
-                softAssert.assertEquals(actual, expected);
+        System.out.println(expected);
+        softAssert.assertEquals(actual, expected);
+        softAssert.assertAll();
     }
 }

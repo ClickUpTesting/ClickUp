@@ -1,5 +1,6 @@
-package clickup.entities;
+package clickup.entities.tags;
 
+import clickup.entities.Features;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

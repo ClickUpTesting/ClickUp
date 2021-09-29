@@ -2,7 +2,7 @@ package cucumber.steps;
 
 import clickup.entities.FeatureFactory;
 import clickup.entities.GetAllFeatures;
-import clickup.entities.Tags;
+import clickup.entities.tags.Tags;
 import core.api.*;
 import core.utils.ScenarioContext;
 import io.cucumber.java.en.And;
@@ -24,6 +24,7 @@ public class GetFeaturesAmount {
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
+        apiResponse.getResponse().then().log().body();
         GetAllFeatures featureResponse =  apiResponse.getBody(Tags.class);
         scenarioContext.setFeatures("Initial status", featureResponse );
     }

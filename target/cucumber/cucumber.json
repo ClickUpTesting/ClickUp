@@ -3,26 +3,44 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-09-22T18:57:37.334Z",
+        "start_timestamp": "2021-09-29T01:44:39.913Z",
         "before": [
           {
             "result": {
-              "duration": 12224000,
+              "duration": 23999100,
               "status": "passed"
             },
             "match": {
               "location": "cucumber.hooks.ApiHooks.setUp()"
             }
+          },
+          {
+            "result": {
+              "duration": 3981197500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.hooks.TagsHooks.createTag()"
+            }
           }
         ],
-        "line": 3,
-        "name": "As a user I want to create a goal for tracking an objective",
+        "line": 4,
+        "name": "As a user I want to get all tags and verity the amount",
         "description": "",
-        "id": "create-goal;as-a-user-i-want-to-create-a-goal-for-tracking-an-objective",
+        "id": "get-all-tags;as-a-user-i-want-to-get-all-tags-and-verity-the-amount",
         "after": [
           {
             "result": {
-              "duration": 438000,
+              "duration": 2226668400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.hooks.TagsHooks.deleteTags()"
+            }
+          },
+          {
+            "result": {
+              "duration": 997000,
               "status": "passed"
             },
             "match": {
@@ -35,128 +53,96 @@
         "steps": [
           {
             "result": {
-              "duration": 2144000,
+              "duration": 6000700,
               "status": "passed"
             },
-            "line": 4,
-            "name": "I build a POST request",
+            "line": 5,
+            "name": "I set the request endpoint to /space/{space_id}/tag",
             "match": {
               "arguments": [
                 {
-                  "val": "POST",
-                  "offset": 10
+                  "val": "/space/{space_id}/tag",
+                  "offset": 30
                 }
               ],
-              "location": "cucumber.steps.ApiSteps.iBuildAPOSTRequest(java.lang.String)"
+              "location": "cucumber.steps.ApiSteps.setsRequestEndpoint(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 158630000,
+              "duration": 1490226700,
               "status": "passed"
             },
-            "line": 5,
-            "name": "I create a goal body with parameters",
+            "line": 6,
+            "name": "I GET request all tags amount",
             "match": {
               "arguments": [
                 {
-                  "val": "goal",
-                  "offset": 11
+                  "val": "GET",
+                  "offset": 2
+                },
+                {
+                  "val": "tags",
+                  "offset": 18
                 }
               ],
-              "location": "cucumber.steps.ApiSteps.iCreateAGoalBodyWithParameters(java.lang.String,java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+              "location": "cucumber.steps.GetFeaturesAmount.iGETRequestAllTagsAmount(java.lang.String,java.lang.String)"
             },
-            "rows": [
-              {
-                "cells": [
-                  "name",
-                  "My goal"
-                ]
-              }
-            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1226388100,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I add the amount of 2 to the total of tags",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 20
+                }
+              ],
+              "location": "cucumber.steps.AddManyTags.iAddTheAmountOfToTheTotalOfTags(int)"
+            },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 1991361000,
-              "status": "passed"
-            },
-            "line": 7,
-            "name": "I execute the request on create goal endpoint",
-            "match": {
-              "arguments": [
-                {
-                  "val": "create goal",
-                  "offset": 25
-                }
-              ],
-              "location": "cucumber.steps.ApiSteps.iExecuteTheRequestOnTheEndpoint(java.lang.String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3808000,
+              "duration": 539642100,
               "status": "passed"
             },
             "line": 8,
-            "name": "I check that the response status is OK",
+            "name": "I verify the amount of has increased by 2",
             "match": {
               "arguments": [
                 {
-                  "val": "OK",
-                  "offset": 36
+                  "val": "2",
+                  "offset": 40
                 }
               ],
-              "location": "cucumber.steps.ApiSteps.iCheckThatTheResponseStatusIsOK(java.lang.String)"
+              "location": "cucumber.steps.VerifyAmount.iVerifyTheAmountOfHasIncreasedBy(int)"
             },
             "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CreateTag"
           },
           {
-            "result": {
-              "duration": 268495000,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "I see that the schema matches the provided on the file schemas/create_goal.json",
-            "match": {
-              "arguments": [
-                {
-                  "val": "schemas/create_goal.json",
-                  "offset": 55
-                }
-              ],
-              "location": "cucumber.steps.ApiSteps.iSeeThatTheSchemaMatchesTheProvidedOnTheFileCreateGoalJson(java.lang.String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 161000,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "I check that the goal was created with provided parameters",
-            "match": {
-              "arguments": [
-                {
-                  "val": "goal",
-                  "offset": 17
-                }
-              ],
-              "location": "cucumber.steps.ApiSteps.iCheckThatTheGoalWasCreatedWithProvidedParameters(java.lang.String)"
-            },
-            "keyword": "Then "
+            "name": "@DeleteTag"
           }
         ]
       }
     ],
-    "name": "Create Goal",
+    "name": "Get all Tags",
     "description": "",
-    "id": "create-goal",
+    "id": "get-all-tags",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/features/goals/create_goal.feature",
+    "uri": "file:src/test/resources/features/tags/get_all_tags_amount.feature",
     "tags": []
   }
 ]

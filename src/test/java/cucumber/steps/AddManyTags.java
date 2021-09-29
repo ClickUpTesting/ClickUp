@@ -1,35 +1,42 @@
 package cucumber.steps;
 
-import clickup.entities.Tag;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.*;
 import core.utils.ScenarioContext;
 import io.cucumber.java.en.When;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AddManyTags {
-    ApiRequestBuilder apiRequestBuilder = new ApiRequestBuilder();
-    ApiRequest apiRequest = new ApiRequest();
-    ApiResponse apiResponse = new ApiResponse();
-    ScenarioContext scenarioContext = ScenarioContext.getInstance();
+    private ApiRequestBuilder apiRequestBuilder = new ApiRequestBuilder();
+    private ApiRequest apiRequest = new ApiRequest();
+    private ApiResponse apiResponse = new ApiResponse();
+    public ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
     @When("I add the amount of {int} to the total of tags")
-    public void iAddTheAmountOfToTheTotalOfTags(int arg0) throws JsonProcessingException {
+    public void iAddTheAmountOfToTheTotalOfTags(int arg0) {
+        List<String> tagsTrashList = new ArrayList<>();
         apiRequestBuilder
                 .baseUri("https://api.clickup.com/api/v2/")
-                .headers("Authorization", "pk_18916260_75528SIM2T2KAL8T2WQXNGTSYG6XWT2V")
+                .headers("Authorization", "3152915_d6831bb6342aea560c0d7bdcfd16a6f9ce50b1fb")
                 .headers("Content-Type", "application/json")
                 .endpoint("/space/{space_id}/tag")
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .method(ApiMethod.POST);
-        String name = "";
+        String tagName = "";
         for (int i = 0; i < arg0; i++) {
-            Tag tag = new Tag();
-            name = "name".concat(Integer.toString(i));
-            tag.setName(name);
-            apiRequestBuilder.body(new ObjectMapper().writeValueAsString(tag));
+            tagName = "tag0" + i;
+            apiRequestBuilder.body("{\n" +
+                    "  \"tag\": {\n" +
+                    "    \"name\": \"" +tagName+ "\"\n" +
+                    "  }\n" +
+                    "}");
             apiRequest = apiRequestBuilder.build();
+            tagsTrashList.add(tagName);
+            scenarioContext.setTrash("Tags Trash", tagsTrashList);
             ApiManager.execute(apiRequest, apiResponse);
+            apiResponse.getResponse().then().log().body();
         }
     }
+
 }

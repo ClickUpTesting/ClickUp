@@ -10,6 +10,8 @@
 
 package clickup.entities;
 
+import clickup.entities.tags.Tags;
+
 public class FeatureFactory {
     /**
      * Creates a feature given a name.

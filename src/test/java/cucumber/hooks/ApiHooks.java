@@ -10,11 +10,12 @@ public class ApiHooks {
         this.apiRequestBuilder = apiRequestBuilder;
     }
 
-    @Before
+    @Before(order  = 1)
     public void setUp() {
         apiRequestBuilder
                 .baseUri("https://api.clickup.com/api/v2/")
-                .headers("Authorization", "pk_3152915_34W1K1QMDBA5EQGGS2NVCO3ZL5U0MVRV")
+                .headers("Authorization", "3152915_d6831bb6342aea560c0d7bdcfd16a6f9ce50b1fb")
                 .headers("Content-Type", "application/json");
+        System.out.println("uno");
     }
 }
