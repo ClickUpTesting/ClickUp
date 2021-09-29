@@ -82,6 +82,17 @@ public class ApiRequestBuilder implements IBuilderApiRequest {
     }
 
     /**
+     * Removes all the values added to the path params Map.
+     *
+     * @return ApiRequest in order to build request
+     * @author Gustavo Huanca
+     */
+    public ApiRequestBuilder cleanParams() {
+        this.apiRequest.clearPathParams();
+        return this;
+    }
+
+    /**
      * Sets params to request.
      *
      * @param param is the key of param

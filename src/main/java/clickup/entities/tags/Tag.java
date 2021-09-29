@@ -10,12 +10,12 @@
 
 package clickup.entities.tags;
 
-import clickup.entities.Features;
+import clickup.entities.IFeature;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Tag implements Features {
+public class Tag implements IFeature {
     @JsonProperty("name")
     private String name;
     @JsonProperty("tag_fg")
@@ -63,4 +63,8 @@ public class Tag implements Features {
         this.tagBg = tagBg;
     }
 
+    @Override
+    public String getIdentifier() {
+        return null;
+    }
 }

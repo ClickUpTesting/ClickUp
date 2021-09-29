@@ -19,8 +19,6 @@ import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import core.utils.ScenarioContext;
-import core.utils.Context;
-import core.utils.SelectPathParams;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -49,10 +47,10 @@ public class ApiSteps {
     public void setsRequestEndpoint(final String endpoint) {
         List<String> pathParamsList = getPathParamsFromEndpoint(endpoint);
         apiRequestBuilder
-                .endpoint(endpoint);
-        for (String pathParams:pathParamsList) {
-            apiRequestBuilder
-                    .pathParams(pathParams, scenarioContext.getEnvData(pathParams));
+                .endpoint(endpoint)
+                .cleanParams();
+        for (String pathParams : pathParamsList) {
+            apiRequestBuilder.pathParams(pathParams, scenarioContext.getEnvData(pathParams));
         }
     }
 
@@ -72,6 +70,7 @@ public class ApiSteps {
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
         IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
+        scenarioContext.setBaseEnvironment(String.format("%s_id", featureName), featureResponse.getIdentifier());
     }
 
     @Then("I verify that the response status is {int}")

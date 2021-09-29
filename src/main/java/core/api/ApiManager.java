@@ -10,9 +10,6 @@
 
 package core.api;
 
-import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -45,7 +42,6 @@ public final class ApiManager {
      * @author Saul Caspa
      */
     private static RequestSpecification buildRequest(final ApiRequest apiRequest) {
-        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         RequestSpecification requestSpecification = given();
         add(() -> requestSpecification.headers(apiRequest.getHeaders()), () -> apiRequest.getHeaders());
         add(() -> requestSpecification.queryParams(apiRequest.getQueryParams()), () -> apiRequest.getQueryParams());

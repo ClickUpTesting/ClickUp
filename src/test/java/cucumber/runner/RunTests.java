@@ -41,12 +41,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
     private String teamId = "12908183";
     private ApiRequest apiRequest;
     private BaseContext BaseContext;
-
-    @BeforeSuite
-    public void setBaseEnv() {
-        ScenarioContext scenarioContext = ScenarioContext.getInstance();
-        scenarioContext.setBaseEnvironment("space_id", "12950133");
-    }
+    private  ScenarioContext scenarioContext;
 
     /**
      * Sets base of request.
@@ -60,10 +55,17 @@ public class RunTests extends AbstractTestNGCucumberTests {
                 .headers(Header.CONTENT_TYPE.getValue(), Header.APPLICATION_JSON.getValue());
     }
 
+    @BeforeSuite
+    public void setBaseEnv() {
+        scenarioContext = ScenarioContext.getInstance();
+        scenarioContext.setBaseEnvironment("space_id", "12950133");
+    }
+
     @AfterSuite
     public void createReports() {
         ReportGenerator.generateReport();
     }
+
     @BeforeTest
     public void setup() {
         BaseContext = BaseContext.getBaseContext();
@@ -80,7 +82,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
                 .body(new ObjectMapper().writeValueAsString(space))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
-        BaseContext.addPathParamsBase("space_id", apiResponse.getBody(Space.class).getId());
+        scenarioContext.setBaseEnvironment("space_id", apiResponse.getBody(Space.class).getId());
     }
 
     @AfterTest()
@@ -88,7 +90,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
          apiRequest = baseRequest()
                 .method(ApiMethod.DELETE)
                 .endpoint(Endpoints.GET_SPACE.getEndpoint())
-                 .pathParams("space_id", BaseContext.getPathParamsBase().get("space_id"))
+                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
     }

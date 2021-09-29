@@ -28,6 +28,7 @@ public class TagsHooks {
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
     private ApiRequest apiRequest;
     private ApiResponse apiResponse;
+
     public TagsHooks(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;

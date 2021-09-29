@@ -16,39 +16,29 @@ import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
-import core.api.request.Header;
-import core.utils.Context;
+import core.utils.ScenarioContext;
 import io.cucumber.java.After;
 
 public class ListHooks {
+    private ApiRequestBuilder apiRequestBuilder;
+    private ScenarioContext scenarioContext = ScenarioContext.getInstance();
     private ApiRequest apiRequest;
-    private ApiResponse apiResponse = new ApiResponse();
-    private Context context;
-    private final String TOKEN = "pk_18915744_BBOVH8SIAV8XZZA3W06NS6PSY8WZI7LJ";
+    private ApiResponse apiResponse;
 
-    public ListHooks(Context context) {
-        this.context = context;
-    }
-
-    /**
-     * Sets base of request.
-     *
-     * @return ApiRequestBuilder contains base request
-     */
-    private ApiRequestBuilder baseRequest() {
-        return new ApiRequestBuilder()
-                .baseUri(Endpoints.URL_BASE.getEndpoint())
-                .headers(Header.AUTHORIZATION.getValue(), TOKEN)
-                .headers(Header.CONTENT_TYPE.getValue(), Header.APPLICATION_JSON.getValue());
+    public ListHooks(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
+        this.apiRequestBuilder = apiRequestBuilder;
+        this.apiResponse = apiResponse;
     }
 
     @After(value = "@CreateList", order = 1)
     public void deleteList() {
-        apiRequest = baseRequest()
+        apiRequestBuilder
                 .method(ApiMethod.DELETE)
                 .endpoint(Endpoints.GET_LIST.getEndpoint())
-                .pathParams("list_id", context.getPathParamsStep().get("list_id"))
+                .cleanParams()
+                .pathParams("list_id", scenarioContext.getEnvData("list_id"))
                 .build();
+        apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
     }
 }

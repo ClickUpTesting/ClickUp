@@ -12,6 +12,7 @@ package clickup.entities;
 import clickup.entities.tags.Tags;
 
 public class FeatureFactory {
+
     /**
      * Creates a feature given a name.
      *
@@ -19,7 +20,7 @@ public class FeatureFactory {
      * @return the corresponding feature
      * @author Raymundo Guaraguara
      */
-    public Features getFeature(final String featureName) throws IllegalAccessException {
+    public IFeature getFeature(final String featureName) throws IllegalAccessException {
         String feature = featureName.toLowerCase();
         switch (feature) {
             case "tags":
