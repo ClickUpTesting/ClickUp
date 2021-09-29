@@ -10,7 +10,7 @@
 
 package cucumber.hooks;
 
-import clickup.Endpoints;
+import clickup.ApiEndpoints;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -34,7 +34,7 @@ public class ListHooks {
     public void deleteList() {
         apiRequestBuilder
                 .method(ApiMethod.DELETE)
-                .endpoint(Endpoints.GET_LIST.getEndpoint())
+                .endpoint(ApiEndpoints.GET_LIST.getEndpoint())
                 .cleanParams()
                 .pathParams("list_id", scenarioContext.getEnvData("list_id"))
                 .build();

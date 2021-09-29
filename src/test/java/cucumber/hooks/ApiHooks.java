@@ -12,15 +12,12 @@ package cucumber.hooks;
 
 import core.api.ApiHeaders;
 import core.api.ApiRequestBuilder;
-import core.utils.Context;
 import io.cucumber.java.Before;
 
 public class ApiHooks {
     private ApiRequestBuilder apiRequestBuilder;
-    private Context context;
 
-    public ApiHooks(final ApiRequestBuilder apiRequestBuilder, final Context context) {
-        this.context = context;
+    public ApiHooks(final ApiRequestBuilder apiRequestBuilder) {
         this.apiRequestBuilder = apiRequestBuilder;
     }
 

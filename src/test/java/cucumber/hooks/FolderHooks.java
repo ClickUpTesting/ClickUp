@@ -1,6 +1,6 @@
 package cucumber.hooks;
 
-import clickup.Endpoints;
+import clickup.ApiEndpoints;
 import clickup.entities.Folder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,7 +29,7 @@ public class FolderHooks {
         folder.setName("Folder before From API");
         apiRequestBuilder
                 .method(ApiMethod.POST)
-                .endpoint(Endpoints.CREATE_FOLDER_IN_SPACE.getEndpoint())
+                .endpoint(ApiEndpoints.CREATE_FOLDER_IN_SPACE.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .body(new ObjectMapper().writeValueAsString(folder))
                 .build();

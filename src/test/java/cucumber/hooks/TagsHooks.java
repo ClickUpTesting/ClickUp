@@ -10,7 +10,7 @@
 
 package cucumber.hooks;
 
-import clickup.entities.ApiEndpoints;
+import clickup.ApiEndpoints;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;

@@ -44,5 +44,11 @@ public interface IFeature {
         }
     }
 
+    /**
+     * Gets identifier of feature
+     *
+     * @return a string with value of identifier
+     * @author Gustavo Huanca
+     */
     String getIdentifier();
 }
