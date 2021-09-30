@@ -36,7 +36,7 @@ public final class ReportGenerator {
         List<String> jsonFiles = new ArrayList<>();
         jsonFiles.add("build/cucumber/cucumber.json");
         String buildNumber = "1";
-        String projectName = "SeleniumProject";
+        String projectName = "ClickUp tests";
         Configuration configuration = new Configuration(reportOutputDirectory, projectName);
         configuration.addPresentationModes(PresentationMode.RUN_WITH_JENKINS);
         configuration.setNotFailingStatuses(Collections.singleton(Status.SKIPPED));

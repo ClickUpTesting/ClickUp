@@ -44,15 +44,9 @@ public class ApiSteps {
         this.softAssert = softAssert;
     }
 
-<<<<<<< HEAD
-    @Given("^I set the request endpoint to (.*)$")
-    public void setsRequestEndpoint(final String endpoint) {
-        System.out.println("set endpoint");
-=======
     @Given("^I set the (.*) with request endpoint to (.*)$")
     public void setsRequestEndpoint(final String featureName, final String endpoint) {
         this.featureName = featureName;
->>>>>>> develop
         List<String> pathParamsList = getPathParamsFromEndpoint(endpoint);
         apiRequestBuilder
                 .endpoint(endpoint)

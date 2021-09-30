@@ -36,8 +36,8 @@ import org.testng.annotations.BeforeTest;
 )
 public class RunTests extends AbstractTestNGCucumberTests {
     private ApiResponse apiResponse = new ApiResponse();
-    private final String TOKEN = "3152915_d6831bb6342aea560c0d7bdcfd16a6f9ce50b1fb";
-    private String teamId = "12908325";
+    private final String TOKEN = System.getenv("API_TOKEN");
+    private String teamId = System.getenv("TEAM_ID");
     private ApiRequest apiRequest;
     private ScenarioContext scenarioContext;
 
@@ -71,6 +71,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
         scenarioContext.setBaseEnvironment("space_id", apiResponse.getBody(Space.class).getId());
+
     }
 
     @AfterTest()

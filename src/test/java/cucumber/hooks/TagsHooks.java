@@ -19,6 +19,7 @@ import core.api.ApiResponse;
 import clickup.utils.ScenarioContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,15 +39,15 @@ public class TagsHooks {
     public void createTag() {
         List<String> tagsTrashList = new ArrayList<>();
         String tagName = "deleteMe";
+        JSONObject jsonBody = new JSONObject();
+        JSONObject tagBody = new JSONObject();
+        tagBody.put("name",tagName);
+        jsonBody.put("tag",tagBody);
         apiRequestBuilder
                 .endpoint(ApiEndpoints.POST_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .method(ApiMethod.POST)
-                .body("{\n"
-                        + "  \"tag\": {\n"
-                        + "    \"name\": \"" + tagName + "\"\n"
-                        + "  }\n"
-                        + "}")
+                .body(jsonBody.toString())
                 .build();
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
@@ -69,5 +70,6 @@ public class TagsHooks {
             apiResponse.getResponse().then().log().body();
             System.out.println("deleting " + tagName);
         }
+        scenarioContext.getTrashList("Tags Trash").clear();
     }
 }

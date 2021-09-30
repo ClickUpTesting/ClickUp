@@ -20,13 +20,13 @@ import core.api.ApiResponse;
 import clickup.utils.ScenarioContext;
 import io.cucumber.java.en.And;
 
-public class GetFeaturesAmount {
+public class GetTagsAmountStep {
     private ApiRequestBuilder apiRequestBuilder;
     private ApiRequest apiRequest;
     private ApiResponse apiResponse;
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
-    public GetFeaturesAmount(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
+    public GetTagsAmountStep(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
     }
