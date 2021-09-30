@@ -18,7 +18,7 @@ import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import core.api.ApiHeaders;
 import core.utils.ReportGenerator;
-import core.utils.ScenarioContext;
+import clickup.utils.ScenarioContext;
 import clickup.entities.Space;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,8 +36,8 @@ import org.testng.annotations.BeforeTest;
 )
 public class RunTests extends AbstractTestNGCucumberTests {
     private ApiResponse apiResponse = new ApiResponse();
-    private final String TOKEN = "pk_18915744_BBOVH8SIAV8XZZA3W06NS6PSY8WZI7LJ";
-    private String teamId = "12908183";
+    private final String TOKEN = "18916260_e3f36a2bafdfc1530ad6363cf86218a6b44acb36";
+    private String teamId = "12908518";
     private ApiRequest apiRequest;
     private ScenarioContext scenarioContext;
 

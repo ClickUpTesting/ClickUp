@@ -10,13 +10,13 @@
 
 package cucumber.steps;
 
-import clickup.entities.GetAllFeatures;
-import clickup.entities.tags.Tags;
+import clickup.entities.features.GetAllFeatures;
+import clickup.entities.features.tags.Tags;
 import core.api.ApiManager;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
-import core.utils.ScenarioContext;
+import clickup.utils.ScenarioContext;
 import io.cucumber.java.en.Then;
 import org.testng.asserts.SoftAssert;
 

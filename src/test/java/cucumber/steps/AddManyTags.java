@@ -17,7 +17,7 @@ import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
-import core.utils.ScenarioContext;
+import clickup.utils.ScenarioContext;
 import io.cucumber.java.en.When;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class AddManyTags {
         List<String> tagsTrashList = new ArrayList<>();
         apiRequestBuilder
                 .baseUri(ApiHeaders.URL_BASE.getValue())
-                .headers(ApiHeaders.AUTHORIZATION.getValue(), "18915744_4f5e1d5e81284a083475fe64660390d8d6bb17db")
+                .headers(ApiHeaders.AUTHORIZATION.getValue(), "18916260_e3f36a2bafdfc1530ad6363cf86218a6b44acb36")
                 .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue())
                 .endpoint(ApiEndpoints.POST_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))

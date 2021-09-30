@@ -12,20 +12,29 @@ package cucumber.hooks;
 
 import core.api.ApiHeaders;
 import core.api.ApiRequestBuilder;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import org.testng.asserts.SoftAssert;
 
 public class ApiHooks {
     private ApiRequestBuilder apiRequestBuilder;
+    private SoftAssert softAssert;
 
-    public ApiHooks(final ApiRequestBuilder apiRequestBuilder) {
+    public ApiHooks(final ApiRequestBuilder apiRequestBuilder, final SoftAssert softAssert) {
         this.apiRequestBuilder = apiRequestBuilder;
+        this.softAssert = softAssert;
     }
 
     @Before(order  = 1)
     public void setUp() {
         apiRequestBuilder
                 .baseUri(ApiHeaders.URL_BASE.getValue())
-                .headers(ApiHeaders.AUTHORIZATION.getValue(), "18915744_4f5e1d5e81284a083475fe64660390d8d6bb17db")
+                .headers(ApiHeaders.AUTHORIZATION.getValue(), "18916260_e3f36a2bafdfc1530ad6363cf86218a6b44acb36")
                 .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue());
+    }
+
+    @After
+    public void assertAllSteps() {
+        softAssert.assertAll();
     }
 }
