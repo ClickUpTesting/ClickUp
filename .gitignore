@@ -4,6 +4,9 @@
 /target/
 # Ignore Gradle GUI config
 gradle-app.setting
+.project
+.settings/
+bin/
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar

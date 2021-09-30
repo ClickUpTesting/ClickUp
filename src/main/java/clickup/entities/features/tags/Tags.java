@@ -8,10 +8,10 @@
  * @author Jorge Caceres
  */
 
-package clickup.entities.tags;
+package clickup.entities.features.tags;
 
-import clickup.entities.GetAllFeatures;
-import clickup.entities.IFeature;
+import clickup.entities.features.GetAllFeatures;
+import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.List;
@@ -36,5 +36,10 @@ public class Tags implements GetAllFeatures, IFeature {
     @Override
     public String getIdentifier() {
         return null;
+    }
+
+    @Override
+    public void setDefaultValues() {
+
     }
 }

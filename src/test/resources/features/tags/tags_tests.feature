@@ -16,4 +16,3 @@ Feature: Get all Tags
       | tag_bg | #3c9d9b |
       And I execute the POST request
     Then I verify that the response status is 200
-      And I verify the values set on the feature

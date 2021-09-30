@@ -1,7 +1,17 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Gustavo Huanca
+ */
+
 package cucumber.hooks;
 
 import clickup.ApiEndpoints;
-import clickup.entities.Folder;
+import clickup.entities.features.folders.Folder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
@@ -9,7 +19,7 @@ import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
-import core.utils.ScenarioContext;
+import clickup.utils.ScenarioContext;
 import io.cucumber.java.Before;
 
 public class FolderHooks {

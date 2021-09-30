@@ -8,7 +8,7 @@
  * @author Jorge Caceres
  */
 
-package clickup.entities;
+package clickup.entities.features;
 
 public interface GetAllFeatures {
 

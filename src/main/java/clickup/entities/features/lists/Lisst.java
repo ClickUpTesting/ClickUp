@@ -8,8 +8,15 @@
  * @author Gustavo Huanca
  */
 
-package clickup.entities;
+package clickup.entities.features.lists;
 
+import clickup.entities.Assignee;
+import clickup.entities.Priority;
+import clickup.entities.Space;
+import clickup.entities.Status;
+import clickup.entities.StatusesItem;
+import clickup.entities.features.IFeature;
+import clickup.entities.features.folders.Folder;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -17,7 +24,8 @@ import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Lisst implements IFeature {
-    private int orderindex;
+    @JsonProperty("orderindex")
+    private int orderIndex;
     @JsonProperty("due_date")
     private String dueDate;
     private Priority priority;
@@ -40,12 +48,12 @@ public class Lisst implements IFeature {
     @JsonProperty("inbound_address")
     private String inboundAddress;
 
-    public void setOrderindex(final int orderindex) {
-        this.orderindex = orderindex;
+    public void setOrderIndex(final int orderIndex) {
+        this.orderIndex = orderIndex;
     }
 
-    public int getOrderindex() {
-        return orderindex;
+    public int getOrderIndex() {
+        return orderIndex;
     }
 
     public void setDueDate(final String dueDate) {
@@ -179,5 +187,10 @@ public class Lisst implements IFeature {
     @Override
     public String getIdentifier() {
         return id;
+    }
+
+    @Override
+    public void setDefaultValues() {
+
     }
 }

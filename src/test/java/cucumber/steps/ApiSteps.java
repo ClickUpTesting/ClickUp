@@ -10,15 +10,15 @@
 
 package cucumber.steps;
 
-import clickup.entities.FeatureFactory;
-import clickup.entities.IFeature;
+import clickup.entities.features.FeatureFactory;
+import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import clickup.utils.ScenarioContext;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
-import core.utils.ScenarioContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -34,13 +34,14 @@ public class ApiSteps {
     private ApiRequest apiRequest;
     private ApiResponse apiResponse;
     private FeatureFactory featureFactory = new FeatureFactory();
-    private SoftAssert softAssert = new SoftAssert();
+    private SoftAssert softAssert;
     private String featureName;
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
-    public ApiSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
+    public ApiSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, SoftAssert softAssert) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
+        this.softAssert = softAssert;
     }
 
     @Given("^I set the request endpoint to (.*)$")
@@ -84,8 +85,4 @@ public class ApiSteps {
         apiResponse.validateBodySchema(schemaPath);
     }
 
-    @Then("I verify the values set on the feature")
-    public void verifiesValuesOnFeature() {
-        softAssert.assertAll();
-    }
 }

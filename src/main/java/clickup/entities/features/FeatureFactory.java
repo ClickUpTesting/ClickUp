@@ -8,8 +8,11 @@
  * @author Raymundo Guaraguara
  */
 
-package clickup.entities;
-import clickup.entities.tags.Tags;
+package clickup.entities.features;
+
+import clickup.entities.features.folders.Folder;
+import clickup.entities.features.lists.Lisst;
+import clickup.entities.features.tags.Tags;
 
 public class FeatureFactory {
 
@@ -27,6 +30,8 @@ public class FeatureFactory {
                 return new Tags();
             case "list":
                 return new Lisst();
+            case "folder":
+                return new Folder();
             default:
                 throw new IllegalAccessException("Feature Not Found");
         }

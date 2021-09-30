@@ -8,9 +8,9 @@
  * @author Jorge Caceres
  */
 
-package clickup.entities.tags;
+package clickup.entities.features.tags;
 
-import clickup.entities.IFeature;
+import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -66,5 +66,10 @@ public class Tag implements IFeature {
     @Override
     public String getIdentifier() {
         return null;
+    }
+
+    @Override
+    public void setDefaultValues() {
+
     }
 }

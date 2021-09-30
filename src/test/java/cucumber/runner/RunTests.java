@@ -18,7 +18,7 @@ import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import core.api.ApiHeaders;
 import core.utils.ReportGenerator;
-import core.utils.ScenarioContext;
+import clickup.utils.ScenarioContext;
 import clickup.entities.Space;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
