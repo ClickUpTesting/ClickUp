@@ -34,7 +34,7 @@ public class TagsHooks {
         this.apiResponse = apiResponse;
     }
 
-    @Before(value = "@DeleteTag or @CreateTag")
+    @Before(value = "@CreateTag")
     public void createTag() {
         List<String> tagsTrashList = new ArrayList<>();
         String tagName = "deleteMe";
@@ -55,7 +55,7 @@ public class TagsHooks {
         scenarioContext.setTrash("Tags Trash", tagsTrashList);
     }
 
-    @After(value = "@DeleteTag or @CreateTag")
+    @After(value = "@DeleteTag")
     public void deleteTags() {
         List<String> tagsTrashList = scenarioContext.getTrashList("Tags Trash");
         apiRequestBuilder
@@ -67,6 +67,7 @@ public class TagsHooks {
             apiRequest = apiRequestBuilder.build();
             ApiManager.execute(apiRequest, apiResponse);
             apiResponse.getResponse().then().log().body();
+            System.out.println("deleting " + tagName);
         }
     }
 }

@@ -45,6 +45,7 @@ public class ApiSteps {
 
     @Given("^I set the request endpoint to (.*)$")
     public void setsRequestEndpoint(final String endpoint) {
+        System.out.println("set endpoint");
         List<String> pathParamsList = getPathParamsFromEndpoint(endpoint);
         apiRequestBuilder
                 .endpoint(endpoint)
@@ -69,8 +70,8 @@ public class ApiSteps {
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
-        IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
-        scenarioContext.setBaseEnvironment(String.format("%s_id", featureName), featureResponse.getIdentifier());
+//        IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
+//        scenarioContext.setBaseEnvironment(String.format("%s_id", featureName), featureResponse.getIdentifier());
     }
 
     @Then("I verify that the response status is {int}")

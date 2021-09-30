@@ -30,14 +30,14 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 @CucumberOptions(
-        features = {"src/test/resources/features"},
+        features = {"src/test/resources/features/tags"},
         plugin = {"html:build/cucumber/cucumber-pretty.html", "json:build/cucumber/cucumber.json"},
         glue = {"cucumber"}
 )
 public class RunTests extends AbstractTestNGCucumberTests {
     private ApiResponse apiResponse = new ApiResponse();
-    private final String TOKEN = "pk_18915744_BBOVH8SIAV8XZZA3W06NS6PSY8WZI7LJ";
-    private String teamId = "12908183";
+    private final String TOKEN = "3152915_d6831bb6342aea560c0d7bdcfd16a6f9ce50b1fb";
+    private String teamId = "12908325";
     private ApiRequest apiRequest;
     private ScenarioContext scenarioContext;
 
