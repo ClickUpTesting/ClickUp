@@ -3,7 +3,7 @@ package clickup.entities;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Space implements Features{
+public class Space implements Features {
     public String id;
     public String name;
     public boolean access;
@@ -30,5 +30,24 @@ public class Space implements Features{
 
     public void setAccess(boolean access) {
         this.access = access;
+    }
+
+    @Override
+    public String toString() {
+        return "Space{"
+                + "id='" + id + '\''
+                + ", name='" + name + '\''
+                + ", access=" + access
+                + '}';
+    }
+
+    @Override
+    public <T> T getIdentifier() {
+        return null;
+    }
+
+    @Override
+    public void setDefaultValues() {
+
     }
 }

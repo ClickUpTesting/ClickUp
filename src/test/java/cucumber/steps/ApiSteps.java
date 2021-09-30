@@ -25,24 +25,27 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.Map;
 
+import static clickup.FoldersRequests.getFolder;
+
 public class ApiSteps {
     ApiRequestBuilder apiRequestBuilder;
     ApiRequest apiRequest = new ApiRequest();
-    ApiResponse apiResponse = new ApiResponse();
+    ApiResponse apiResponse;
     FeatureFactory featureFactory = new FeatureFactory();
-    SoftAssert softAssert = new SoftAssert();
+    SoftAssert softAssert;
     String featureName;
 
-    public ApiSteps(ApiRequestBuilder apiRequestBuilder) {
+    public ApiSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, SoftAssert softAssert) {
         this.apiRequestBuilder = apiRequestBuilder;
+        this.apiResponse = apiResponse;
+        this.softAssert = softAssert;
     }
 
     @Given("^I set the request endpoint to (.*)$")
     public void setsRequestEndpoint(final String endpoint) {
         apiRequestBuilder
                 .endpoint(endpoint)
-//                .pathParams(getPathParams(endpoint));
-                .pathParams("space_id", "3169890");
+                .pathParams("space_id", "12971248");
     }
 
     @When("^I set the request body as (.*) with following values:$")
@@ -75,6 +78,13 @@ public class ApiSteps {
 
     @Then("I verify the values set on the feature")
     public void verifiesValuesOnFeature() {
-        softAssert.assertAll();
+        Features actual = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
+        actual.setDefaultValues();
+        Features expected = getFolder(actual.getIdentifier())
+                .getBody(featureFactory.getFeature(this.featureName).getClass());
+        System.out.println(actual);
+        System.out.println(expected);
+//        softAssert.assertTrue(actual.equals(expected));
+        softAssert.assertEquals(actual, expected);
     }
 }

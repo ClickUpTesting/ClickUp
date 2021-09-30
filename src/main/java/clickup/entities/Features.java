@@ -43,4 +43,8 @@ public interface Features {
             }
         }
     }
+
+    <T> T getIdentifier();
+
+    void setDefaultValues();
 }

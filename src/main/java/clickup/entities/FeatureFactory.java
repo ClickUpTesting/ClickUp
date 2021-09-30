@@ -19,11 +19,7 @@ public class FeatureFactory {
      * @author Raymundo Guaraguara
      */
     public Features getFeature(final String featureName) {
-        if (featureName.equalsIgnoreCase("Goal")) {
-            return new Goal();
-        } else if (featureName.equalsIgnoreCase("Goals")) {
-            return new Goals();
-        } else if (featureName.equalsIgnoreCase("Folder")) {
+        if (featureName.equalsIgnoreCase("Folder")) {
             return new Folder();
         }
         return null;
