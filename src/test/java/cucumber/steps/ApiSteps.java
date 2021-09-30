@@ -72,6 +72,7 @@ public class ApiSteps {
         ApiManager.execute(apiRequest, apiResponse);
         IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
         scenarioContext.setBaseEnvironment(String.format("%s_id", featureName), featureResponse.getIdentifier());
+
     }
 
     @Then("I verify that the response status is {int}")
@@ -83,5 +84,4 @@ public class ApiSteps {
     public void verifiesResponseSchema(final String schemaPath) {
         apiResponse.validateBodySchema(schemaPath);
     }
-
 }

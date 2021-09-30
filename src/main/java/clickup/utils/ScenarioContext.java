@@ -58,7 +58,9 @@ public class ScenarioContext {
      * @author Jorge Caceres
      */
     public void setBaseEnvironment(final String key, final String value) {
-        baseEnvironment.put(key, value);
+        if (null != value) {
+            baseEnvironment.put(key, value);
+        }
     }
 
     /**
