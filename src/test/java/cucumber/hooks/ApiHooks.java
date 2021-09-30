@@ -1,5 +1,16 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Jorge Caceres
+ */
+
 package cucumber.hooks;
 
+import core.api.ApiHeaders;
 import core.api.ApiRequestBuilder;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -14,12 +25,12 @@ public class ApiHooks {
         this.softAssert = softAssert;
     }
 
-    @Before
+    @Before(order  = 1)
     public void setUp() {
         apiRequestBuilder
-                .baseUri("https://api.clickup.com/api/v2/")
-                .headers("Authorization", "pk_18916260_75528SIM2T2KAL8T2WQXNGTSYG6XWT2V")
-                .headers("Content-Type", "application/json");
+                .baseUri(ApiHeaders.URL_BASE.getValue())
+                .headers(ApiHeaders.AUTHORIZATION.getValue(), "18916260_e3f36a2bafdfc1530ad6363cf86218a6b44acb36")
+                .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue());
     }
 
     @After

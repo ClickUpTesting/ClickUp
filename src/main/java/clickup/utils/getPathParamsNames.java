@@ -17,6 +17,13 @@ public final class getPathParamsNames {
     private getPathParamsNames() {
     }
 
+    /**
+     * Gets the path params from an endpoint.
+     *
+     * @param endpoint base to get path params
+     * @return List with all path params inside an endpoint
+     * @author Raymundo Guaraguara
+     */
     public static List<String> getPathParamsFromEndpoint(final String endpoint) {
         List<String> pathParamsNames = new ArrayList();
         String[] endpointParts = endpoint.split("/");

@@ -8,15 +8,21 @@
  * @author Cristian Choque
  */
 
-package clickup.entities;
+package clickup.entities.features.folders;
 
+import clickup.entities.features.IFeature;
+import clickup.entities.features.lists.Lisst;
+import clickup.entities.Space;
+import clickup.entities.Status;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Folder implements Features {
+public class Folder implements IFeature {
     private String id;
     private String name;
     @JsonProperty("orderindex")
@@ -29,7 +35,7 @@ public class Folder implements Features {
     private String taskCount;
     private Boolean archived = false;
     private List<Status> statuses;
-    private List<Object> lists;
+    private List<Lisst> lists;
     @JsonProperty("permission_level")
     private String permissionLevel;
 
@@ -105,11 +111,11 @@ public class Folder implements Features {
         this.statuses = statuses;
     }
 
-    public List<Object> getLists() {
+    public List<Lisst> getLists() {
         return lists;
     }
 
-    public void setLists(List<Object> lists) {
+    public void setLists(List<Lisst> lists) {
         this.lists = lists;
     }
 
@@ -151,4 +157,3 @@ public class Folder implements Features {
         statuses.add(completeStatus);
     }
 }
-

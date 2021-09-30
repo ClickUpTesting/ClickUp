@@ -15,7 +15,7 @@ public final class FoldersRequests {
         ApiResponse apiResponse = new ApiResponse();
         ApiRequest apiRequest = apiRequestBuilder
                 .baseUri("https://api.clickup.com/api/v2/")
-                .headers("Authorization", "pk_18916260_75528SIM2T2KAL8T2WQXNGTSYG6XWT2V")
+                .headers("Authorization", "18916260_e3f36a2bafdfc1530ad6363cf86218a6b44acb36")
                 .method(ApiMethod.GET)
                 .endpoint("folder/{folder_id}")
                 .pathParams("folder_id", folderId)
@@ -29,7 +29,7 @@ public final class FoldersRequests {
         ApiResponse apiResponse = new ApiResponse();
         ApiRequest apiRequest = apiRequestBuilder
                 .baseUri("https://api.clickup.com/api/v2/")
-                .headers("Authorization", "pk_18916260_75528SIM2T2KAL8T2WQXNGTSYG6XWT2V")
+                .headers("Authorization", "18916260_e3f36a2bafdfc1530ad6363cf86218a6b44acb36")
                 .method(ApiMethod.DELETE)
                 .endpoint("folder/{folder_id}")
                 .pathParams("folder_id", folderId)

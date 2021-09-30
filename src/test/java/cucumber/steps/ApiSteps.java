@@ -10,30 +10,29 @@
 
 package cucumber.steps;
 
-import clickup.entities.FeatureFactory;
-import clickup.entities.Features;
+import clickup.entities.features.FeatureFactory;
+import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import core.api.ApiManager;
-import core.api.ApiMethod;
-import core.api.ApiRequest;
-import core.api.ApiRequestBuilder;
-import core.api.ApiResponse;
+import core.api.*;
+import clickup.utils.ScenarioContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.asserts.SoftAssert;
 
+import java.util.List;
 import java.util.Map;
 
-import static clickup.FoldersRequests.getFolder;
+import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
 
 public class ApiSteps {
-    ApiRequestBuilder apiRequestBuilder;
-    ApiRequest apiRequest = new ApiRequest();
-    ApiResponse apiResponse;
-    FeatureFactory featureFactory = new FeatureFactory();
-    SoftAssert softAssert;
-    String featureName;
+    private ApiRequestBuilder apiRequestBuilder;
+    private ApiRequest apiRequest;
+    private ApiResponse apiResponse;
+    private FeatureFactory featureFactory = new FeatureFactory();
+    private SoftAssert softAssert;
+    private String featureName;
+    private ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
     public ApiSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, SoftAssert softAssert) {
         this.apiRequestBuilder = apiRequestBuilder;
@@ -43,27 +42,32 @@ public class ApiSteps {
 
     @Given("^I set the request endpoint to (.*)$")
     public void setsRequestEndpoint(final String endpoint) {
+        List<String> pathParamsList = getPathParamsFromEndpoint(endpoint);
         apiRequestBuilder
                 .endpoint(endpoint)
-                .pathParams("space_id", "12971248");
+                .cleanParams();
+        for (String pathParams : pathParamsList) {
+            apiRequestBuilder.pathParams(pathParams, scenarioContext.getEnvData(pathParams));
+        }
     }
 
     @When("^I set the request body as (.*) with following values:$")
     public void setsRequestBody(final String featureName, final Map<String, String> body)
             throws Exception {
-        Features feature = featureFactory.getFeature(featureName);
+        IFeature feature = featureFactory.getFeature(featureName);
         feature.setAllFields(body);
         apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));
         this.featureName = featureName;
     }
 
     @When("^I execute the (.*) request$")
-    public void executesRequest(final String apiMethod) {
+    public void executesRequest(final String apiMethod) throws IllegalAccessException {
         apiRequest = apiRequestBuilder
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
-        Features featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
+        IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
+        scenarioContext.setBaseEnvironment(String.format("%s_id", featureName), featureResponse.getIdentifier());
     }
 
     @Then("I verify that the response status is {int}")
@@ -75,16 +79,5 @@ public class ApiSteps {
     public void verifiesResponseSchema(final String schemaPath) {
         apiResponse.validateBodySchema(schemaPath);
     }
-
-    @Then("I verify the values set on the feature")
-    public void verifiesValuesOnFeature() {
-        Features actual = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
-        actual.setDefaultValues();
-        Features expected = getFolder(actual.getIdentifier())
-                .getBody(featureFactory.getFeature(this.featureName).getClass());
-        System.out.println(actual);
-        System.out.println(expected);
-//        softAssert.assertTrue(actual.equals(expected));
-        softAssert.assertEquals(actual, expected);
-    }
+    
 }
