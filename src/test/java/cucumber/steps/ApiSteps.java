@@ -13,8 +13,12 @@ package cucumber.steps;
 import clickup.entities.features.FeatureFactory;
 import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import core.api.*;
 import clickup.utils.ScenarioContext;
+import core.api.ApiManager;
+import core.api.ApiMethod;
+import core.api.ApiRequest;
+import core.api.ApiRequestBuilder;
+import core.api.ApiResponse;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -79,5 +83,5 @@ public class ApiSteps {
     public void verifiesResponseSchema(final String schemaPath) {
         apiResponse.validateBodySchema(schemaPath);
     }
-    
+
 }

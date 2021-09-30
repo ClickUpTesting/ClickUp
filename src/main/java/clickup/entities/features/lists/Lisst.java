@@ -48,11 +48,11 @@ public class Lisst implements IFeature {
     @JsonProperty("inbound_address")
     private String inboundAddress;
 
-    public void setOrderindex(final int orderindex) {
-        this.orderIndex = orderindex;
+    public void setOrderIndex(final int orderIndex) {
+        this.orderIndex = orderIndex;
     }
 
-    public int getOrderindex() {
+    public int getOrderIndex() {
         return orderIndex;
     }
 
