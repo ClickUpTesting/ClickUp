@@ -20,7 +20,6 @@ import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import io.cucumber.java.en.When;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
