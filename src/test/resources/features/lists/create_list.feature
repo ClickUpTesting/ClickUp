@@ -8,4 +8,3 @@ Feature: Create List
       And I execute the POST request
     Then I verify that the response status is 200
       And I verify the schema matches the file: schemas/list/create_required_field.json
-      And I verify the values set on the feature

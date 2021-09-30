@@ -16,7 +16,7 @@ import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
-import core.utils.ScenarioContext;
+import clickup.utils.ScenarioContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 

@@ -8,9 +8,9 @@
  * @author Jorge Caceres
  */
 
-package core.utils;
+package clickup.utils;
 
-import clickup.entities.GetAllFeatures;
+import clickup.entities.features.GetAllFeatures;
 
 import java.util.HashMap;
 import java.util.List;

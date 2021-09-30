@@ -8,7 +8,7 @@
  * @author Raymundo Guaraguara
  */
 
-package clickup.entities;
+package clickup.entities.features;
 
 import org.apache.commons.beanutils.PropertyUtils;
 
@@ -51,4 +51,6 @@ public interface IFeature {
      * @author Gustavo Huanca
      */
     String getIdentifier();
+
+    void setDefaultValues();
 }
