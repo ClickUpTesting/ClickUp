@@ -2,8 +2,8 @@ Feature: Create List
 
   @CreateList
   Scenario: As a user I want to create a list for tracking an objective
-    Given I set the request endpoint to /folder/{folder_id}/list
-    When I set the request body as list with following values:
+    Given I set the list with request endpoint to /folder/{folder_id}/list
+    When I set the request body with following values:
       | name | My list created 41|
       And I execute the POST request
     Then I verify that the response status is 200

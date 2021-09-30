@@ -11,6 +11,9 @@
 package cucumber.hooks;
 
 import clickup.ApiEndpoints;
+import clickup.entities.Lisst;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -18,6 +21,7 @@ import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import core.utils.ScenarioContext;
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 
 public class ListHooks {
     private ApiRequestBuilder apiRequestBuilder;
@@ -29,6 +33,23 @@ public class ListHooks {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
     }
+
+
+    @Before(value = "@GetList", order = 1)
+    public void createList() throws JsonProcessingException {
+        Lisst lisst = new Lisst();
+        lisst.setName("List before From API");
+        apiRequestBuilder
+                .method(ApiMethod.POST)
+                .endpoint(ApiEndpoints.CREATE_LIST_IN_FOLDER.getEndpoint())
+                .pathParams("folder_id", scenarioContext.getEnvData("folder_id"))
+                .body(new ObjectMapper().writeValueAsString(lisst))
+                .build();
+        apiRequest = apiRequestBuilder.build();
+        ApiManager.execute(apiRequest, apiResponse);
+        scenarioContext.setBaseEnvironment("list_id", apiResponse.getBody(Lisst.class).getId());
+    }
+
 
     @After(value = "@CreateList", order = 1)
     public void deleteList() {
