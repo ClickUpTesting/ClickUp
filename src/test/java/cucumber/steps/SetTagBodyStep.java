@@ -7,7 +7,6 @@ import core.api.ApiResponse;
 import io.cucumber.java.en.When;
 import org.json.JSONObject;
 import org.testng.asserts.SoftAssert;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +27,6 @@ public class SetTagBodyStep {
     @When("I set the tags body with following values:")
     public void setTagBody(final Map<String, String> body) {
         List<String> trashList =  new ArrayList<>();
-        System.out.println(body.get("name"));
         trashList.add(body.get("name"));
         scenarioContext.setTrash("Tags Trash", trashList);
         JSONObject jsonBody = new JSONObject();
@@ -38,6 +36,5 @@ public class SetTagBodyStep {
         }
         jsonBody.put("tag", tagBody);
         apiRequestBuilder.body(jsonBody.toString());
-        System.out.println(jsonBody.toString());
     }
 }

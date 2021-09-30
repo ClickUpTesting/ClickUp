@@ -7,6 +7,7 @@ gradle-app.setting
 .project
 .settings/
 bin/
+.classpath
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar

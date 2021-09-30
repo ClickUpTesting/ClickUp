@@ -70,8 +70,8 @@ public class ApiSteps {
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
-//        IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
-//        scenarioContext.setBaseEnvironment(String.format("%s_id", featureName), featureResponse.getIdentifier());
+        IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
+        scenarioContext.setBaseEnvironment(String.format("%s_id", featureName), featureResponse.getIdentifier());
     }
 
     @Then("I verify that the response status is {int}")

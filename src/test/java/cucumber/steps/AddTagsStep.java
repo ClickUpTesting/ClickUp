@@ -11,13 +11,13 @@
 package cucumber.steps;
 
 import clickup.ApiEndpoints;
+import clickup.utils.ScenarioContext;
 import core.api.ApiHeaders;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
-import clickup.utils.ScenarioContext;
 import io.cucumber.java.en.When;
 import org.json.JSONObject;
 
@@ -50,9 +50,7 @@ public class AddTagsStep {
             ApiManager.execute(apiRequest, apiResponse);
             apiResponse.getResponse().then().log().body();
             tagsTrashList.add(tagName);
-
         }
         scenarioContext.setTrash("Tags Trash", tagsTrashList);
     }
-
 }

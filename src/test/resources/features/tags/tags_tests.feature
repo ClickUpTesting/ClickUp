@@ -1,6 +1,6 @@
 Feature: Create Tags
 
-  @DeleteTag
+  @CreateTag
   Scenario: As a user I want to create a Tag for tracking an objective
     Given I set the tags with request endpoint to /space/{space_id}/tag
     When I set the tags body with following values:
