@@ -19,7 +19,7 @@ import core.api.ApiResponse;
 import clickup.utils.ScenarioContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-
+import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,19 +34,19 @@ public class TagsHooks {
         this.apiResponse = apiResponse;
     }
 
-    @Before(value = "@DeleteTag or @CreateTag")
+    @Before(value = "@DeleteTag")
     public void createTag() {
         List<String> tagsTrashList = new ArrayList<>();
         String tagName = "deleteMe";
+        JSONObject jsonBody = new JSONObject();
+        JSONObject tagBody = new JSONObject();
+        tagBody.put("name", tagName);
+        jsonBody.put("tag", tagBody);
         apiRequestBuilder
                 .endpoint(ApiEndpoints.POST_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .method(ApiMethod.POST)
-                .body("{\n"
-                        + "  \"tag\": {\n"
-                        + "    \"name\": \"" + tagName + "\"\n"
-                        + "  }\n"
-                        + "}")
+                .body(jsonBody.toString())
                 .build();
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
@@ -55,7 +55,7 @@ public class TagsHooks {
         scenarioContext.setTrash("Tags Trash", tagsTrashList);
     }
 
-    @After(value = "@DeleteTag or @CreateTag")
+    @After(value = "@CreateTag")
     public void deleteTags() {
         List<String> tagsTrashList = scenarioContext.getTrashList("Tags Trash");
         apiRequestBuilder
@@ -68,5 +68,6 @@ public class TagsHooks {
             ApiManager.execute(apiRequest, apiResponse);
             apiResponse.getResponse().then().log().body();
         }
+        scenarioContext.getTrashList("Tags Trash").clear();
     }
 }

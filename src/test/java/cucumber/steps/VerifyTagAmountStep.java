@@ -20,14 +20,14 @@ import clickup.utils.ScenarioContext;
 import io.cucumber.java.en.Then;
 import org.testng.asserts.SoftAssert;
 
-public class VerifyAmount {
+public class VerifyTagAmountStep {
     private ApiRequestBuilder apiRequestBuilder;
     private ApiRequest apiRequest;
     private ApiResponse apiResponse;
     private SoftAssert softAssert = new SoftAssert();
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
-    public VerifyAmount(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
+    public VerifyTagAmountStep(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
     }
