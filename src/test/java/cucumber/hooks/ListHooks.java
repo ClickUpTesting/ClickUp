@@ -11,7 +11,7 @@
 package cucumber.hooks;
 
 import clickup.ApiEndpoints;
-import clickup.entities.Lisst;
+import clickup.entities.features.lists.Lisst;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
