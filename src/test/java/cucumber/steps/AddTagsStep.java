@@ -44,8 +44,8 @@ public class AddTagsStep {
         JSONObject jsonBody = new JSONObject();
         JSONObject tagBody = new JSONObject();
         for (int i = 0; i < amount; i++) {
-            tagBody.put("name",tagName+i);
-            apiRequestBuilder.body(jsonBody.put("tag",tagBody).toString());
+            tagBody.put("name", tagName + i);
+            apiRequestBuilder.body(jsonBody.put("tag", tagBody).toString());
             apiRequest = apiRequestBuilder.build();
             ApiManager.execute(apiRequest, apiResponse);
             apiResponse.getResponse().then().log().body();

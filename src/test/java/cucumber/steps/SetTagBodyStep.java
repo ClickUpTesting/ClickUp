@@ -26,7 +26,7 @@ public class SetTagBodyStep {
     }
 
     @When("I set the tags body with following values:")
-    public void iSetTheTagsBodyWithFollowingValues(final Map<String, String> body) {
+    public void setTagBody(final Map<String, String> body) {
         List<String> trashList =  new ArrayList<>();
         System.out.println(body.get("name"));
         trashList.add(body.get("name"));
@@ -34,10 +34,9 @@ public class SetTagBodyStep {
         JSONObject jsonBody = new JSONObject();
         JSONObject tagBody = new JSONObject();
         for (String tagComponent: body.keySet()) {
-            tagBody.put(tagComponent,body.get(tagComponent));
+            tagBody.put(tagComponent, body.get(tagComponent));
         }
-
-        jsonBody.put("tag",tagBody);
+        jsonBody.put("tag", tagBody);
         apiRequestBuilder.body(jsonBody.toString());
         System.out.println(jsonBody.toString());
     }

@@ -41,8 +41,8 @@ public class TagsHooks {
         String tagName = "deleteMe";
         JSONObject jsonBody = new JSONObject();
         JSONObject tagBody = new JSONObject();
-        tagBody.put("name",tagName);
-        jsonBody.put("tag",tagBody);
+        tagBody.put("name", tagName);
+        jsonBody.put("tag", tagBody);
         apiRequestBuilder
                 .endpoint(ApiEndpoints.POST_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))

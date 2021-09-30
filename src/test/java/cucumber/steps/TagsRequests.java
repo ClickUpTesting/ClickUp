@@ -17,9 +17,9 @@ public class TagsRequests {
         this.apiResponse = apiResponse;
     }
 
-    @And("I execute the POST request for tags")
-    public void iExecuteThePOSTRequestForTags() {
-        apiRequest = apiRequestBuilder.method(ApiMethod.POST).build();
+    @And("^I execute the (.*) request for tags$")
+    public void executesRequest(final String method) {
+        apiRequest = apiRequestBuilder.method(ApiMethod.valueOf(method)).build();
         ApiManager.execute(apiRequest, apiResponse);
     }
 }
