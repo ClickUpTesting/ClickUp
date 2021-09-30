@@ -33,13 +33,14 @@ public class FolderHooks {
         this.apiResponse = apiResponse;
     }
 
-    @Before(value = "@CreateList")
+    @Before(value = "@CreateList or @GetList")
     public void createFolder() throws JsonProcessingException {
         Folder folder = new Folder();
         folder.setName("Folder before From API");
         apiRequestBuilder
                 .method(ApiMethod.POST)
                 .endpoint(ApiEndpoints.CREATE_FOLDER_IN_SPACE.getEndpoint())
+                .cleanParams()
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .body(new ObjectMapper().writeValueAsString(folder))
                 .build();

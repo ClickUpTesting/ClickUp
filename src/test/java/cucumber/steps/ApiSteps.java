@@ -44,9 +44,15 @@ public class ApiSteps {
         this.softAssert = softAssert;
     }
 
+<<<<<<< HEAD
     @Given("^I set the request endpoint to (.*)$")
     public void setsRequestEndpoint(final String endpoint) {
         System.out.println("set endpoint");
+=======
+    @Given("^I set the (.*) with request endpoint to (.*)$")
+    public void setsRequestEndpoint(final String featureName, final String endpoint) {
+        this.featureName = featureName;
+>>>>>>> develop
         List<String> pathParamsList = getPathParamsFromEndpoint(endpoint);
         apiRequestBuilder
                 .endpoint(endpoint)
@@ -56,13 +62,12 @@ public class ApiSteps {
         }
     }
 
-    @When("^I set the request body as (.*) with following values:$")
-    public void setsRequestBody(final String featureName, final Map<String, String> body)
+    @When("^I set the request body with following values:$")
+    public void setsRequestBody(final Map<String, String> body)
             throws Exception {
         IFeature feature = featureFactory.getFeature(featureName);
         feature.setAllFields(body);
         apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));
-        this.featureName = featureName;
     }
 
     @When("^I execute the (.*) request$")

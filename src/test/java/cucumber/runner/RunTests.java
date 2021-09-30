@@ -56,7 +56,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
     @BeforeSuite
     public void setBaseEnv() {
         scenarioContext = ScenarioContext.getInstance();
-        scenarioContext.setBaseEnvironment("space_id", teamId);
+        scenarioContext.setBaseEnvironment("team_id", teamId);
     }
 
     @BeforeTest()

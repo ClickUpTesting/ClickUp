@@ -31,8 +31,8 @@ public class GetFeaturesAmount {
         this.apiResponse = apiResponse;
     }
 
-    @And("^I (.*) request all (.*) amount$")
-    public void getAllTagsAmount(String apiMethod, String featureName) {
+    @And("^I (.*) request all (?:.*?) amount$")
+    public void getAllTagsAmount(String apiMethod) {
         apiRequest = apiRequestBuilder
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
