@@ -26,11 +26,10 @@ dependencies {
 }
 
 test {
-    ignoreFailures = true
+    ignoreFailures = false
     scanForTestClasses = false
     testLogging.showStandardStreams = true
     useTestNG()
-    scanForTestClasses = false
 }
 
 checkstyle {
@@ -52,7 +51,7 @@ task runApiTests(type: Test) {
                            'json:build/cucumber/cucumber.json,' +
                            'rerun:build/cucumber/rerun.txt']
     }
-    ignoreFailures = true
+    ignoreFailures = false
     scanForTestClasses = false
     testLogging.showStandardStreams = true
 }
