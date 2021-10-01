@@ -10,8 +10,10 @@
 
 package clickup.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Status {
     private String id;
     private String status;
@@ -19,6 +21,8 @@ public class Status {
     private Integer orderIndex;
     private String color;
     private String type;
+    @JsonProperty("hide_label")
+    private String hideLabel;
 
     public Status() {
     }
@@ -69,6 +73,14 @@ public class Status {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getHideLabel() {
+        return hideLabel;
+    }
+
+    public void setHideLabel(String hideLabel) {
+        this.hideLabel = hideLabel;
     }
 
     @Override

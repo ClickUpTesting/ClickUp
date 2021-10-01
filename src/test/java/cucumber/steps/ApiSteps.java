@@ -12,6 +12,7 @@ package cucumber.steps;
 
 import clickup.entities.features.FeatureFactory;
 import clickup.entities.features.IFeature;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import clickup.utils.ScenarioContext;
 import core.api.ApiManager;
@@ -22,6 +23,10 @@ import core.api.ApiResponse;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.RestAssured;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
+import org.json.JSONObject;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
@@ -57,15 +62,20 @@ public class ApiSteps {
     }
 
     @When("^I set the request body with following values:$")
-    public void setsRequestBody(final Map<String, String> body)
-            throws Exception {
-        IFeature feature = featureFactory.getFeature(featureName);
-        feature.setAllFields(body);
-        apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));
+    public void setsRequestBody(final Map<String, String> body) {
+        try {
+            IFeature feature = featureFactory.getFeature(featureName);
+            feature.setAllFields(body);
+            apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));
+        } catch (Exception e) {
+            JSONObject jsonBody = new JSONObject(body);
+            apiRequestBuilder.body(jsonBody.toString());
+        }
     }
 
-    @When("^I execute the (.*) request$")
+        @When("^I execute the (.*) request$")
     public void executesRequest(final String apiMethod) throws IllegalAccessException {
+            RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         apiRequest = apiRequestBuilder
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
