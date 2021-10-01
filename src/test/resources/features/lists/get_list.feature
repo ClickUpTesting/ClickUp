@@ -1,4 +1,4 @@
-Feature: Create List
+Feature: Get List
 
   @GetList
   Scenario: As a user I want to create a list for tracking an objective
