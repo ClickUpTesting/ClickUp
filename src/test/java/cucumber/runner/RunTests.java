@@ -36,8 +36,8 @@ import org.testng.annotations.BeforeTest;
 )
 public class RunTests extends AbstractTestNGCucumberTests {
     private ApiResponse apiResponse = new ApiResponse();
-    private final String TOKEN = "18916260_e3f36a2bafdfc1530ad6363cf86218a6b44acb36";
-    private String teamId = "12908518";
+    private final String TOKEN = System.getenv("API_TOKEN");
+    private String teamId = System.getenv("TEAM_ID");
     private ApiRequest apiRequest;
     private ScenarioContext scenarioContext;
 

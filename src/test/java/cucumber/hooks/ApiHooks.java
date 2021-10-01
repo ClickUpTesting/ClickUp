@@ -29,7 +29,7 @@ public class ApiHooks {
     public void setUp() {
         apiRequestBuilder
                 .baseUri(ApiHeaders.URL_BASE.getValue())
-                .headers(ApiHeaders.AUTHORIZATION.getValue(), "18916260_e3f36a2bafdfc1530ad6363cf86218a6b44acb36")
+                .headers(ApiHeaders.AUTHORIZATION.getValue(), System.getenv("API_TOKEN"))
                 .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue());
     }
 

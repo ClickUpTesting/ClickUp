@@ -11,18 +11,19 @@
 package cucumber.steps;
 
 import clickup.ApiEndpoints;
+import clickup.utils.ScenarioContext;
 import core.api.ApiHeaders;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
-import clickup.utils.ScenarioContext;
 import io.cucumber.java.en.When;
+import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddManyTags {
+public class AddTagsStep {
     private ApiRequestBuilder apiRequestBuilder = new ApiRequestBuilder();
     private ApiRequest apiRequest = new ApiRequest();
     private ApiResponse apiResponse = new ApiResponse();
@@ -33,25 +34,22 @@ public class AddManyTags {
         List<String> tagsTrashList = new ArrayList<>();
         apiRequestBuilder
                 .baseUri(ApiHeaders.URL_BASE.getValue())
-                .headers(ApiHeaders.AUTHORIZATION.getValue(), "18916260_e3f36a2bafdfc1530ad6363cf86218a6b44acb36")
+                .headers(ApiHeaders.AUTHORIZATION.getValue(), System.getenv("API_TOKEN"))
                 .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue())
                 .endpoint(ApiEndpoints.POST_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .method(ApiMethod.POST);
-        String tagName = "";
+        String tagName = "tag0";
+        JSONObject jsonBody = new JSONObject();
+        JSONObject tagBody = new JSONObject();
         for (int i = 0; i < amount; i++) {
-            tagName = "tag0" + i;
-            apiRequestBuilder.body("{\n"
-                    + "  \"tag\": {\n"
-                    + "    \"name\": \"" + tagName + "\"\n"
-                    + "  }\n"
-                    + "}");
+            tagBody.put("name", tagName + i);
+            apiRequestBuilder.body(jsonBody.put("tag", tagBody).toString());
             apiRequest = apiRequestBuilder.build();
-            tagsTrashList.add(tagName);
-            scenarioContext.setTrash("Tags Trash", tagsTrashList);
             ApiManager.execute(apiRequest, apiResponse);
             apiResponse.getResponse().then().log().body();
+            tagsTrashList.add(tagName);
         }
+        scenarioContext.setTrash("Tags Trash", tagsTrashList);
     }
-
 }
