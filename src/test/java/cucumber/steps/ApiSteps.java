@@ -83,5 +83,4 @@ public class ApiSteps {
     public void verifiesResponseSchema(final String schemaPath) {
         apiResponse.validateBodySchema(schemaPath);
     }
-
 }

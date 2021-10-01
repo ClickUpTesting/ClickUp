@@ -22,6 +22,8 @@ import core.api.ApiResponse;
 import clickup.utils.ScenarioContext;
 import io.cucumber.java.Before;
 
+import static core.utils.RandomCustom.random;
+
 public class FolderHooks {
     private ApiRequestBuilder apiRequestBuilder;
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
@@ -36,7 +38,7 @@ public class FolderHooks {
     @Before(value = "@CreateList or @GetList")
     public void createFolder() throws JsonProcessingException {
         Folder folder = new Folder();
-        folder.setName("Folder before From API");
+        folder.setName("Folder before From API".concat(random()));
         apiRequestBuilder
                 .method(ApiMethod.POST)
                 .endpoint(ApiEndpoints.CREATE_FOLDER_IN_SPACE.getEndpoint())

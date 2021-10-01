@@ -47,6 +47,16 @@ public class Lisst implements IFeature {
     private Object startDate;
     @JsonProperty("inbound_address")
     private String inboundAddress;
+    @JsonProperty("task_count")
+    private String taskCount;
+
+    public String getTaskCount() {
+        return taskCount;
+    }
+
+    public void setTaskCount(final String taskCount) {
+        this.taskCount = taskCount;
+    }
 
     public void setOrderIndex(final int orderIndex) {
         this.orderIndex = orderIndex;

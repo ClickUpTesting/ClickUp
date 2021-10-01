@@ -23,6 +23,8 @@ import clickup.utils.ScenarioContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
+import static core.utils.RandomCustom.random;
+
 public class ListHooks {
     private ApiRequestBuilder apiRequestBuilder;
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
@@ -34,14 +36,13 @@ public class ListHooks {
         this.apiResponse = apiResponse;
     }
 
-
-    @Before(value = "@GetList", order = 1)
+    @Before(value = "@GetList or @DeleteList", order = 1)
     public void createList() throws JsonProcessingException {
         Lisst lisst = new Lisst();
-        lisst.setName("List before From API");
+        lisst.setName("List before From API".concat(random()));
         apiRequestBuilder
                 .method(ApiMethod.POST)
-                .endpoint(ApiEndpoints.CREATE_LIST_IN_FOLDER.getEndpoint())
+                .endpoint(ApiEndpoints.LIST_IN_FOLDER.getEndpoint())
                 .pathParams("folder_id", scenarioContext.getEnvData("folder_id"))
                 .body(new ObjectMapper().writeValueAsString(lisst))
                 .build();
@@ -50,8 +51,7 @@ public class ListHooks {
         scenarioContext.setBaseEnvironment("list_id", apiResponse.getBody(Lisst.class).getId());
     }
 
-
-    @After(value = "@CreateList", order = 1)
+    @After(value = "@CreateList or @GetList", order = 1)
     public void deleteList() {
         apiRequestBuilder
                 .method(ApiMethod.DELETE)
