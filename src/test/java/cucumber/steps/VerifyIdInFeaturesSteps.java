@@ -48,7 +48,6 @@ public class VerifyIdInFeaturesSteps {
         lists = apiResponse.getBody(Lists.class);
         boolean actual = false;
         if (lists.getLists().size() != 0) {
-            System.out.println(lists.getLists().size());
             for (Lisst lisst : lists.getLists()) {
                 if (scenarioContext.getEnvData("list_id").equals(lisst.getId())) {
                     actual = true;
