@@ -1,14 +1,25 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Gustavo Huanca
+ */
+
 package cucumber.steps;
 
 import clickup.ApiEndpoints;
 import clickup.entities.features.lists.Lisst;
 import clickup.entities.features.lists.Lists;
 import clickup.utils.ScenarioContext;
-import core.api.*;
+import core.api.ApiManager;
+import core.api.ApiMethod;
+import core.api.ApiRequest;
+import core.api.ApiRequestBuilder;
+import core.api.ApiResponse;
 import io.cucumber.java.en.And;
-import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 import org.testng.asserts.SoftAssert;
 
 public class VerifyIdInFeaturesSteps {
@@ -25,7 +36,7 @@ public class VerifyIdInFeaturesSteps {
     }
 
     @And("I verify the list exists in the folder")
-    public void iVerifyTheIdOfListExistInFolder() {
+    public void verifyTheIdOfListExistInFolder() {
         apiRequestBuilder
                 .method(ApiMethod.GET)
                 .endpoint(ApiEndpoints.LIST_IN_FOLDER.getEndpoint())

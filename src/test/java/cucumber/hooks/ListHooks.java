@@ -22,9 +22,6 @@ import core.api.ApiResponse;
 import clickup.utils.ScenarioContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 
 import static core.utils.RandomCustom.random;
 
@@ -38,7 +35,6 @@ public class ListHooks {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
     }
-
 
     @Before(value = "@GetList or @DeleteList", order = 1)
     public void createList() throws JsonProcessingException {
