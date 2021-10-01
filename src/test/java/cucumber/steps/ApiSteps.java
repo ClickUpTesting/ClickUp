@@ -22,6 +22,7 @@ import core.api.ApiResponse;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.json.JSONObject;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
@@ -57,11 +58,15 @@ public class ApiSteps {
     }
 
     @When("^I set the request body with following values:$")
-    public void setsRequestBody(final Map<String, String> body)
-            throws Exception {
-        IFeature feature = featureFactory.getFeature(featureName);
-        feature.setAllFields(body);
-        apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));
+    public void setsRequestBody(final Map<String, String> body) {
+        try {
+            IFeature feature = featureFactory.getFeature(featureName);
+            feature.setAllFields(body);
+            apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));
+        } catch (Exception e) {
+            JSONObject jsonBody = new JSONObject(body);
+            apiRequestBuilder.body(jsonBody.toString());
+        }
     }
 
     @When("^I execute the (.*) request$")

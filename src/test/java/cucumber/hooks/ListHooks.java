@@ -36,7 +36,7 @@ public class ListHooks {
         this.apiResponse = apiResponse;
     }
 
-    @Before(value = "@GetList or @DeleteList", order = 1)
+    @Before(value = "@GetList or @DeleteList or @UpdateList", order = 1)
     public void createList() throws JsonProcessingException {
         Lisst lisst = new Lisst();
         lisst.setName("List before From API".concat(random()));
@@ -51,7 +51,7 @@ public class ListHooks {
         scenarioContext.setBaseEnvironment("list_id", apiResponse.getBody(Lisst.class).getId());
     }
 
-    @After(value = "@CreateList or @GetList", order = 1)
+    @After(value = "@CreateList or @GetList or @UpdateList", order = 1)
     public void deleteList() {
         apiRequestBuilder
                 .method(ApiMethod.DELETE)
