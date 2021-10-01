@@ -51,7 +51,6 @@ public class VerifyIdInFeaturesSteps {
             System.out.println(lists.getLists().size());
             for (Lisst lisst : lists.getLists()) {
                 if (scenarioContext.getEnvData("list_id").equals(lisst.getId())) {
-                    System.out.println(equals(lisst.getId()));
                     actual = true;
                     break;
                 }
