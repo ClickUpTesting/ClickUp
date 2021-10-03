@@ -13,13 +13,13 @@ package clickup.utils;
 import clickup.entities.features.GetAllFeatures;
 
 import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class ScenarioContext {
     private Map<String, String> baseEnvironment;
     private Map<String, GetAllFeatures> featuresAmount;
-    private Map<String, List> trash;
+    private Map<String, LinkedList> trash;
     private static ScenarioContext instance;
 
     public ScenarioContext() {
@@ -103,7 +103,7 @@ public class ScenarioContext {
      * @param trashIdList that will contain the trash map
      * @author Jorge Caceres
      */
-    public void setTrash(final String trashName,  List<String> trashIdList) {
+    public void setTrash(final String trashName,  LinkedList<String> trashIdList) {
         if (getTrashList(trashName) == null) {
             trash.put(trashName, trashIdList);
         } else {
@@ -118,7 +118,7 @@ public class ScenarioContext {
      * @return List stored on the map
      * @author Jorge Caceres
      */
-    public List<String> getTrashList(String trashName) {
+    public LinkedList<String> getTrashList(String trashName) {
         return trash.get(trashName);
     }
 }

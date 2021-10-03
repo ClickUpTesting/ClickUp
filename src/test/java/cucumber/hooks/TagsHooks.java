@@ -21,6 +21,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class TagsHooks {
@@ -36,7 +37,7 @@ public class TagsHooks {
 
     @Before(value = "@DeleteTag")
     public void createTag() {
-        List<String> tagsTrashList = new ArrayList<>();
+        LinkedList<String> tagsTrashList = new LinkedList<>();
         String tagName = "deleteMe";
         JSONObject jsonBody = new JSONObject();
         JSONObject tagBody = new JSONObject();
@@ -52,12 +53,12 @@ public class TagsHooks {
         ApiManager.execute(apiRequest, apiResponse);
         apiResponse.getResponse().then().log().body();
         tagsTrashList.add(tagName);
-        scenarioContext.setTrash("Tags Trash", tagsTrashList);
+        scenarioContext.setTrash("Tags", tagsTrashList);
     }
 
     @After(value = "@CreateTag")
     public void deleteTags() {
-        List<String> tagsTrashList = scenarioContext.getTrashList("Tags Trash");
+        LinkedList<String> tagsTrashList = scenarioContext.getTrashList("Tags");
         apiRequestBuilder
                 .endpoint(ApiEndpoints.DELETE_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
@@ -68,6 +69,6 @@ public class TagsHooks {
             ApiManager.execute(apiRequest, apiResponse);
             apiResponse.getResponse().then().log().body();
         }
-        scenarioContext.getTrashList("Tags Trash").clear();
+        scenarioContext.getTrashList("Tags").clear();
     }
 }
