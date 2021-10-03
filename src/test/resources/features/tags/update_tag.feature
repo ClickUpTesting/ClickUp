@@ -8,3 +8,11 @@ Feature: Update Tags
     And I execute the PUT request for tags
     Then I verify that the response status is 200
 
+  @CreateTag @DeleteTag
+  Scenario: As a user I want to update a Tag's color
+    Given I set the Tags composed endpoint /space/{space_id}/tag/{tag_name}
+    When I set the tags body with following values:
+      | tag_fg | #ffffff |
+      | tag_bg | #3c9d9b |
+    And I execute the PUT request for tags
+    Then I verify that the response status is 200
