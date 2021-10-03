@@ -18,7 +18,8 @@ public class SetComposedEndpointStep {
     private SoftAssert softAssert;
     ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
-    public SetComposedEndpointStep(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, SoftAssert softAssert) {
+    public SetComposedEndpointStep(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse,
+                                   SoftAssert softAssert) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
         this.softAssert = softAssert;

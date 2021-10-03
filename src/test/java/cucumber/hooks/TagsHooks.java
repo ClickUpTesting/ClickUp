@@ -20,9 +20,7 @@ import clickup.utils.ScenarioContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.json.JSONObject;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 public class TagsHooks {
     private ApiRequestBuilder apiRequestBuilder;
