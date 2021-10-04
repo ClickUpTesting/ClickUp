@@ -24,7 +24,6 @@ import clickup.utils.ScenarioContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.json.JSONObject;
-
 import java.util.LinkedList;
 
 import static core.utils.RandomCustom.random;
