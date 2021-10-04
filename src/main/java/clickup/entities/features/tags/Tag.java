@@ -69,6 +69,11 @@ public class Tag implements IFeature {
     }
 
     @Override
+    public String getRequiredField() {
+        return null;
+    }
+
+    @Override
     public void setDefaultValues() {
 
     }

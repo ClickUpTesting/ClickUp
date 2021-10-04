@@ -23,6 +23,8 @@ import clickup.utils.ScenarioContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
+import java.util.List;
+
 import static core.utils.RandomCustom.random;
 
 public class ListHooks {
@@ -61,5 +63,20 @@ public class ListHooks {
                 .build();
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
+    }
+
+    @After(value = "@GetAllList")
+    public void deleteLists() {
+        List<String> tagsTrashList = scenarioContext.getTrashList("FeatureName Trash");
+        apiRequestBuilder
+                .endpoint(ApiEndpoints.GET_LIST.getEndpoint())
+                .cleanParams()
+                .method(ApiMethod.DELETE);
+        for (String tagName : tagsTrashList) {
+            apiRequestBuilder.pathParams("list_id", tagName);
+            apiRequest = apiRequestBuilder.build();
+            ApiManager.execute(apiRequest, apiResponse);
+        }
+        scenarioContext.getTrashList("FeatureName Trash").clear();
     }
 }
