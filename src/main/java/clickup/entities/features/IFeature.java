@@ -52,5 +52,13 @@ public interface IFeature {
      */
     String getIdentifier();
 
+    /**
+     * Gets string with required field to create a feature in JSON format.
+     *
+     * @return a string in JSON format
+     * @author Gustavo Huanca
+     */
+    String getRequiredField();
+
     void setDefaultValues();
 }

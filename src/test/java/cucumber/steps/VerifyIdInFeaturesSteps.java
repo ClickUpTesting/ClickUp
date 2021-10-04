@@ -58,4 +58,30 @@ public class VerifyIdInFeaturesSteps {
         softAssert.assertEquals(actual, false);
         softAssert.assertAll();
     }
+
+    @And("I verify the list exists in the space")
+    public void verifyTheIdOfListExistInFolder2() {
+        apiRequestBuilder
+                .method(ApiMethod.GET)
+                .endpoint(ApiEndpoints.LIST_IN_SPACE.getEndpoint())
+                .cleanParams()
+                .pathParams("space_id", scenarioContext.getEnvData("space_id"))
+                .build();
+        apiRequest = apiRequestBuilder.build();
+        ApiManager.execute(apiRequest, apiResponse);
+        lists = apiResponse.getBody(Lists.class);
+        int actual = 0;
+        if (lists.getLists().size() != 0) {
+            for (Lisst lisst : lists.getLists()) {
+                for (String feature : scenarioContext.getTrashList("FeatureName Trash")) {
+                    if (feature.equals(lisst.getId())) {
+                        actual++;
+                        break;
+                    }
+                }
+            }
+        }
+        softAssert.assertEquals(scenarioContext.getTrashList("FeatureName Trash").size(), actual);
+        softAssert.assertAll();
+    }
 }

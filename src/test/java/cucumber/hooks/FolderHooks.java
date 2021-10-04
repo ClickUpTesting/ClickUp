@@ -35,7 +35,7 @@ public class FolderHooks {
         this.apiResponse = apiResponse;
     }
 
-    @Before(value = "@CreateList or @GetList")
+    @Before(value = "@CreateList or @GetList or @AddTagToTask")
     public void createFolder() throws JsonProcessingException {
         Folder folder = new Folder();
         folder.setName("Folder before From API".concat(random()));
@@ -48,6 +48,7 @@ public class FolderHooks {
                 .build();
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
+        apiResponse.getResponse().then().log().body();
         scenarioContext.setBaseEnvironment("folder_id", apiResponse.getBody(Folder.class).getId());
     }
 }

@@ -17,6 +17,7 @@ public enum ApiEndpoints {
     GET_SPACE("/space/{space_id}"),
     LIST_IN_FOLDER("/folder/{folder_id}/list"),
     FOLDER_LESS_LIST("/space/{space_id}/list"),
+    LIST_IN_SPACE("/space/{space_id}/list"),
     GET_LIST("/list/{list_id}"),
     GET_TAG("/space/{space_id}/tag"),
     CREATE_TAG("/space/{space_id}/tag"),
