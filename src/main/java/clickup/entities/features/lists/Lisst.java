@@ -203,7 +203,7 @@ public class Lisst implements IFeature {
 
     @Override
     public String getRequiredField() {
-        return String.format("{ \"name\": \"List Required %s\"}",random());
+        return String.format("{ \"name\": \"List Required %s\"}", random());
     }
 
     @Override

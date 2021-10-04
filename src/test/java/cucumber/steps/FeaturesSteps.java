@@ -19,7 +19,7 @@ import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import io.cucumber.java.en.Given;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
 
@@ -36,7 +36,7 @@ public class FeaturesSteps {
     }
 
     @Given("^I set the (.*) (.*) with the endpoint to (.*)$")
-    public void getAllTagsAmount(String numberEntities, String featureName, String endpoint)
+    public void createNFeatures(String numberEntities, String featureName, String endpoint)
             throws IllegalAccessException {
         List<String> pathParamsList = getPathParamsFromEndpoint(endpoint);
         apiRequestBuilder
@@ -47,7 +47,7 @@ public class FeaturesSteps {
                 pathParams,
                 scenarioContext.getEnvData(pathParams)));
         IFeature feature = featureFactory.getFeature(featureName);
-        List<String> featureTrashList = new ArrayList<>();
+        LinkedList<String> featureTrashList = new LinkedList<>();
         IFeature featureResponse;
 
         for (int i = 0; i < Integer.parseInt(numberEntities); i++) {
@@ -55,7 +55,7 @@ public class FeaturesSteps {
             apiRequest = apiRequestBuilder.build();
             ApiManager.execute(apiRequest, apiResponse);
             featureResponse = apiResponse.getBody(featureFactory.getFeature(featureName).getClass());
-            featureTrashList.add( featureResponse.getIdentifier());
+            featureTrashList.addLast(featureResponse.getIdentifier());
         }
         scenarioContext.setTrash("FeatureName Trash", featureTrashList);
     }
