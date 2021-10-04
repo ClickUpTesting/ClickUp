@@ -11,10 +11,6 @@
 package cucumber.hooks;
 
 import clickup.ApiEndpoints;
-import clickup.entities.features.Tasks.TasksResponse;
-import clickup.entities.features.lists.Lisst;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -25,8 +21,6 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.json.JSONObject;
 import java.util.LinkedList;
-
-import static core.utils.RandomCustom.random;
 
 public class TagsHooks {
     private ApiRequestBuilder apiRequestBuilder;
@@ -77,56 +71,14 @@ public class TagsHooks {
         }
         scenarioContext.getTrashList("Tags").clear();
     }
-    @Before(value = "@AddTagToTask")
-    public void addTagToTask() throws JsonProcessingException {
-        createList();
-        createTask();
+
+    @Before(value = "@AddTagToTask", order = 3)
+    public void addTagToTask() {
         createTag();
     }
-    @After(value = "@AddTagToTask")
+
+    @After(value = "@AddTagToTask", order = 3)
     public void deleteTagFromTask() {
         deleteTags();
-        deleteList();
-    }
-
-    public void createTask() throws JsonProcessingException {
-        TasksResponse tasksResponse = new TasksResponse();
-        tasksResponse.setName("Task before From API".concat(random()));
-        apiRequestBuilder
-                .cleanParams()
-                .method(ApiMethod.POST)
-                .endpoint(ApiEndpoints.CREATE_TASK.getEndpoint())
-                .pathParams("list_id", scenarioContext.getEnvData("list_id"))
-                .body(new ObjectMapper().writeValueAsString(tasksResponse))
-                .build();
-        apiRequest = apiRequestBuilder.build();
-        ApiManager.execute(apiRequest, apiResponse);
-        scenarioContext.setBaseEnvironment("task_id", apiResponse.getBody(TasksResponse.class).getId());
-        apiResponse.getResponse().then().log().body();
-    }
-    public void createList() throws JsonProcessingException {
-        Lisst lisst = new Lisst();
-        lisst.setName("List before From API".concat(random()));
-        apiRequestBuilder
-                .cleanParams()
-                .method(ApiMethod.POST)
-                .endpoint(ApiEndpoints.FOLDER_LESS_LIST.getEndpoint())
-                .pathParams("space_id", scenarioContext.getEnvData("space_id"))
-                .body(new ObjectMapper().writeValueAsString(lisst))
-                .build();
-        apiRequest = apiRequestBuilder.build();
-        ApiManager.execute(apiRequest, apiResponse);
-        scenarioContext.setBaseEnvironment("list_id", apiResponse.getBody(Lisst.class).getId());
-    }
-    public void deleteList() {
-        apiRequestBuilder
-                .cleanParams()
-                .method(ApiMethod.DELETE)
-                .endpoint(ApiEndpoints.GET_LIST.getEndpoint())
-                .cleanParams()
-                .pathParams("list_id", scenarioContext.getEnvData("list_id"))
-                .build();
-        apiRequest = apiRequestBuilder.build();
-        ApiManager.execute(apiRequest, apiResponse);
     }
 }
