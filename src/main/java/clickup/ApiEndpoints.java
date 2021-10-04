@@ -16,10 +16,13 @@ public enum ApiEndpoints {
     CREATE_FOLDER_IN_SPACE("/space/{space_id}/folder"),
     GET_SPACE("/space/{space_id}"),
     LIST_IN_FOLDER("/folder/{folder_id}/list"),
+    FOLDER_LESS_LIST("/space/{space_id}/list"),
     GET_LIST("/list/{list_id}"),
     GET_TAG("/space/{space_id}/tag"),
-    POST_TAG("/space/{space_id}/tag"),
+    CREATE_TAG("/space/{space_id}/tag"),
     DELETE_TAG("/space/{space_id}/tag/{tag_name}"),
+    CREATE_TASK("/list/{list_id}/task"),
+    DELETE_TASK("/task/{task_id}"),
     CREATE_GOAL("/team/{TeamId}/goal");
 
     private String endpoint;

@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Jorge Caceres
+ */
+
 package cucumber.steps;
 
 import clickup.utils.ScenarioContext;
@@ -33,6 +43,5 @@ public class SetComposedEndpointStep {
                 .cleanParams();
         apiRequestBuilder.pathParams(pathParamsList.get(0), scenarioContext.getEnvData(pathParamsList.get(0)))
                 .pathParams(pathParamsList.get(1), scenarioContext.getTrashList(featureName).getLast());
-
     }
 }

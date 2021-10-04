@@ -35,7 +35,7 @@ public class AddTagsStep {
                 .baseUri(ApiHeaders.URL_BASE.getValue())
                 .headers(ApiHeaders.AUTHORIZATION.getValue(), System.getenv("API_TOKEN"))
                 .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue())
-                .endpoint(ApiEndpoints.POST_TAG.getEndpoint())
+                .endpoint(ApiEndpoints.CREATE_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .method(ApiMethod.POST);
         String tagName = "tag0";
