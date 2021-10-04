@@ -31,6 +31,5 @@ public class TagsRequests {
     public void executesRequest(final String method) {
         apiRequest = apiRequestBuilder.method(ApiMethod.valueOf(method)).build();
         ApiManager.execute(apiRequest, apiResponse);
-        apiResponse.getResponse().then().log().body();
     }
 }
