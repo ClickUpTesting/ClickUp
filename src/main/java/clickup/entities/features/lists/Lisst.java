@@ -22,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
+import static core.utils.RandomCustom.random;
+
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Lisst implements IFeature {
     @JsonProperty("orderindex")
@@ -197,6 +199,11 @@ public class Lisst implements IFeature {
     @Override
     public String getIdentifier() {
         return id;
+    }
+
+    @Override
+    public String getRequiredField() {
+        return String.format("{ \"name\": \"List Required %s\"}", random());
     }
 
     @Override

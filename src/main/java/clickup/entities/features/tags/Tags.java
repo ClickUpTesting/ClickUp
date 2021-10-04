@@ -39,6 +39,11 @@ public class Tags implements GetAllFeatures, IFeature {
     }
 
     @Override
+    public String getRequiredField() {
+        return null;
+    }
+
+    @Override
     public void setDefaultValues() {
 
     }

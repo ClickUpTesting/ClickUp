@@ -133,6 +133,11 @@ public class Folder implements IFeature {
     }
 
     @Override
+    public String getRequiredField() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "Folder{"
                 + "id='" + id + '\''
