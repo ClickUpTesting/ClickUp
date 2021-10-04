@@ -20,8 +20,7 @@ import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import io.cucumber.java.en.When;
 import org.json.JSONObject;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
 public class AddTagsStep {
     private ApiRequestBuilder apiRequestBuilder = new ApiRequestBuilder();
@@ -31,7 +30,7 @@ public class AddTagsStep {
 
     @When("I add the amount of {int} to the total of tags")
     public void tagsBulkAdd(int amount) {
-        List<String> tagsTrashList = new ArrayList<>();
+        LinkedList<String> tagsTrashList = new LinkedList<>();
         apiRequestBuilder
                 .baseUri(ApiHeaders.URL_BASE.getValue())
                 .headers(ApiHeaders.AUTHORIZATION.getValue(), System.getenv("API_TOKEN"))
@@ -48,8 +47,8 @@ public class AddTagsStep {
             apiRequest = apiRequestBuilder.build();
             ApiManager.execute(apiRequest, apiResponse);
             apiResponse.getResponse().then().log().body();
-            tagsTrashList.add(tagName);
+            tagsTrashList.addLast(tagName);
         }
-        scenarioContext.setTrash("Tags Trash", tagsTrashList);
+        scenarioContext.setTrash("Tags", tagsTrashList);
     }
 }
