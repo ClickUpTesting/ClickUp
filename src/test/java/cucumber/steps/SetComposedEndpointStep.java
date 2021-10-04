@@ -16,7 +16,6 @@ import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import io.cucumber.java.en.Given;
 import org.testng.asserts.SoftAssert;
-
 import java.util.List;
 
 import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
