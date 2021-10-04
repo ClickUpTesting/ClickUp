@@ -33,7 +33,7 @@ public class Folder implements IFeature {
     private Space space;
     @JsonProperty("task_count")
     private String taskCount;
-    private Boolean archived = false;
+    private Boolean archived;
     private List<Status> statuses;
     private List<Lisst> lists;
     @JsonProperty("permission_level")

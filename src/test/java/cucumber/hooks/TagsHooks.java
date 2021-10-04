@@ -72,12 +72,12 @@ public class TagsHooks {
         scenarioContext.getTrashList("Tags").clear();
     }
 
-    @Before(value = "@AddTagToTask", order = 3)
+    @Before(value = "@AddTagToTask", order = 4)
     public void addTagToTask() {
         createTag();
     }
 
-    @After(value = "@AddTagToTask", order = 3)
+    @After(value = "@AddTagToTask", order = 4)
     public void deleteTagFromTask() {
         deleteTags();
     }

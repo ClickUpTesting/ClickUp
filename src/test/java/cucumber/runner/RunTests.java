@@ -30,7 +30,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 @CucumberOptions(
-        features = {"src/test/resources/features/tags/add_tag_to_task.feature"},
+        features = {"src/test/resources/features"},
         plugin = {"html:build/cucumber/cucumber-pretty.html", "json:build/cucumber/cucumber.json"},
         glue = {"cucumber"}
 )

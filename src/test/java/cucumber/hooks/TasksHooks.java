@@ -35,7 +35,7 @@ public class TasksHooks {
         this.apiResponse = apiResponse;
     }
 
-    @Before(value = "@AddTagToTask", order = 2)
+    @Before(value = "@AddTagToTask", order = 3)
     public void createTask() throws JsonProcessingException {
         TasksResponse tasksResponse = new TasksResponse();
         tasksResponse.setName("Task before From API".concat(random()));
