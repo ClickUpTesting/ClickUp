@@ -7,8 +7,7 @@ import core.api.ApiResponse;
 import io.cucumber.java.en.When;
 import org.json.JSONObject;
 import org.testng.asserts.SoftAssert;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class SetTagBodyStep {
@@ -26,9 +25,11 @@ public class SetTagBodyStep {
 
     @When("I set the tags body with following values:")
     public void setTagBody(final Map<String, String> body) {
-        List<String> trashList =  new ArrayList<>();
-        trashList.add(body.get("name"));
-        scenarioContext.setTrash("Tags Trash", trashList);
+        LinkedList<String> trashList =  new LinkedList<>();
+        if (body.get("name") != null) {
+            trashList.addLast(body.get("name"));
+            scenarioContext.setTrash("Tags", trashList);
+        }
         JSONObject jsonBody = new JSONObject();
         JSONObject tagBody = new JSONObject();
         for (String tagComponent: body.keySet()) {
