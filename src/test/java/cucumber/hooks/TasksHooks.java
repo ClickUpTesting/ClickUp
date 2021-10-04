@@ -5,13 +5,14 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with JalaSoft
  *
- * @author Gustavo Huanca
+ * @author Jorge Caceres
  */
 
 package cucumber.hooks;
 
 import clickup.ApiEndpoints;
-import clickup.entities.features.folders.Folder;
+import clickup.entities.features.Tasks.TasksResponse;
+import clickup.utils.ScenarioContext;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
@@ -19,36 +20,35 @@ import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
-import clickup.utils.ScenarioContext;
 import io.cucumber.java.Before;
 
 import static core.utils.RandomCustom.random;
 
-public class FolderHooks {
+public class TasksHooks {
     private ApiRequestBuilder apiRequestBuilder;
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
     private ApiRequest apiRequest;
     private ApiResponse apiResponse;
 
-    public FolderHooks(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
+    public TasksHooks(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
     }
 
-    @Before(value = "@CreateList or @GetList or @AddTagToTask", order = 1)
-    public void createFolder() throws JsonProcessingException {
-        Folder folder = new Folder();
-        folder.setName("Folder before From API".concat(random()));
+    @Before(value = "@AddTagToTask", order = 3)
+    public void createTask() throws JsonProcessingException {
+        TasksResponse tasksResponse = new TasksResponse();
+        tasksResponse.setName("Task before From API".concat(random()));
         apiRequestBuilder
-                .method(ApiMethod.POST)
                 .cleanParams()
-                .endpoint(ApiEndpoints.CREATE_FOLDER_IN_SPACE.getEndpoint())
-                .pathParams("space_id", scenarioContext.getEnvData("space_id"))
-                .body(new ObjectMapper().writeValueAsString(folder))
+                .method(ApiMethod.POST)
+                .endpoint(ApiEndpoints.CREATE_TASK.getEndpoint())
+                .pathParams("list_id", scenarioContext.getEnvData("list_id"))
+                .body(new ObjectMapper().writeValueAsString(tasksResponse))
                 .build();
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
+        scenarioContext.setBaseEnvironment("task_id", apiResponse.getBody(TasksResponse.class).getId());
         apiResponse.getResponse().then().log().body();
-        scenarioContext.setBaseEnvironment("folder_id", apiResponse.getBody(Folder.class).getId());
     }
 }

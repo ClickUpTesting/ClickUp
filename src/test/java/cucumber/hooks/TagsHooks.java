@@ -42,7 +42,8 @@ public class TagsHooks {
         tagBody.put("name", tagName);
         jsonBody.put("tag", tagBody);
         apiRequestBuilder
-                .endpoint(ApiEndpoints.POST_TAG.getEndpoint())
+                .cleanParams()
+                .endpoint(ApiEndpoints.CREATE_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .method(ApiMethod.POST)
                 .body(jsonBody.toString())
@@ -58,6 +59,7 @@ public class TagsHooks {
     public void deleteTags() {
         LinkedList<String> tagsTrashList = scenarioContext.getTrashList("Tags");
         apiRequestBuilder
+                .cleanParams()
                 .endpoint(ApiEndpoints.DELETE_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .method(ApiMethod.DELETE);
@@ -68,5 +70,15 @@ public class TagsHooks {
             apiResponse.getResponse().then().log().body();
         }
         scenarioContext.getTrashList("Tags").clear();
+    }
+
+    @Before(value = "@AddTagToTask", order = 4)
+    public void addTagToTask() {
+        createTag();
+    }
+
+    @After(value = "@AddTagToTask", order = 4)
+    public void deleteTagFromTask() {
+        deleteTags();
     }
 }
