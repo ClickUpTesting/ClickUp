@@ -38,7 +38,7 @@ public class VerifyIdInFeaturesSteps {
         this.apiResponse = apiResponse;
     }
 
-    @And("I verify the list deleted doesn't exist in the folder")
+    @And("I verify the deleted list doesn't exist in the folder")
     public void verifyTheIdOfListExistInFolder() {
         apiRequestBuilder
                 .method(ApiMethod.GET)
