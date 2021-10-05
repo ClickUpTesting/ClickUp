@@ -17,6 +17,7 @@ import clickup.entities.Status;
 import clickup.entities.StatusesItem;
 import clickup.entities.features.IFeature;
 import clickup.entities.features.folders.Folder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -202,6 +203,8 @@ public class Lisst implements IFeature {
     }
 
     @Override
+    @JsonIgnore
+    @JsonProperty(value = "requiredField")
     public String getRequiredField() {
         return String.format("{ \"name\": \"List Required %s\"}", random());
     }

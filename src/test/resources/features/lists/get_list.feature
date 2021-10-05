@@ -1,6 +1,6 @@
 Feature: Get List
 
-  @GetList
+  @CreateList @DeleteList
   Scenario: As a user I want to get a list for tracking an objective
     Given I set the list with request endpoint to /list/{list_id}
     When I execute the GET request

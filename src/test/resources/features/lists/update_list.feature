@@ -1,6 +1,6 @@
 Feature: Update List
 
-  @UpdateList
+  @CreateList @DeleteList
   Scenario: As a user I want to update a list for tracking an objective
     Given I set the list with request endpoint to /list/{list_id}
     When I set the request body with following values:
@@ -9,7 +9,7 @@ Feature: Update List
     Then I verify that the response status is 200
     And I verify the schema matches the file: schemas/list/create_required_field.json
 
-  @UpdateList
+  @CreateList @DeleteList
   Scenario: As a user I want to update a list for tracking an objective
     Given I set the list with request endpoint to /list/{list_id}
     When I set the request body with following values:
