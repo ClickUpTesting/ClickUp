@@ -21,6 +21,9 @@ import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import io.cucumber.java.en.And;
 import org.testng.asserts.SoftAssert;
+import java.util.List;
+
+import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
 
 public class VerifyIdInFeaturesSteps {
     private ApiRequestBuilder apiRequestBuilder;
@@ -35,7 +38,7 @@ public class VerifyIdInFeaturesSteps {
         this.apiResponse = apiResponse;
     }
 
-    @And("I verify the list exists in the folder")
+    @And("I verify the list deleted doesn't exist in the folder")
     public void verifyTheIdOfListExistInFolder() {
         apiRequestBuilder
                 .method(ApiMethod.GET)
@@ -59,13 +62,15 @@ public class VerifyIdInFeaturesSteps {
         softAssert.assertAll();
     }
 
-    @And("I verify the list exists in the space")
-    public void verifyTheIdOfListExistInFolder2() {
+    @And("^I verify the list exists in the \"(folder|space)\"$")
+    public void verifyTheIdOfListExistInContainer(String feature) {
+        String endpoint = ApiEndpoints.valueOf(String.format("LIST_IN_%s", feature.toUpperCase())).getEndpoint();
+        List<String> pathParamsList = getPathParamsFromEndpoint(endpoint);
         apiRequestBuilder
                 .method(ApiMethod.GET)
-                .endpoint(ApiEndpoints.LIST_IN_SPACE.getEndpoint())
+                .endpoint(endpoint)
                 .cleanParams()
-                .pathParams("space_id", scenarioContext.getEnvData("space_id"))
+                .pathParams(pathParamsList.get(0), scenarioContext.getEnvData(pathParamsList.get(0)))
                 .build();
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
@@ -73,8 +78,8 @@ public class VerifyIdInFeaturesSteps {
         int actual = 0;
         if (lists.getLists().size() != 0) {
             for (Lisst lisst : lists.getLists()) {
-                for (String feature : scenarioContext.getTrashList("FeatureName Trash")) {
-                    if (feature.equals(lisst.getId())) {
+                for (String featureInList : scenarioContext.getTrashList("FeatureName Trash")) {
+                    if (featureInList.equals(lisst.getId())) {
                         actual++;
                         break;
                     }
@@ -82,6 +87,8 @@ public class VerifyIdInFeaturesSteps {
             }
         }
         softAssert.assertEquals(scenarioContext.getTrashList("FeatureName Trash").size(), actual);
+        softAssert.assertEquals(scenarioContext.getTrashList("FeatureName Trash").size(),
+                lists.getLists().size());
         softAssert.assertAll();
     }
 }

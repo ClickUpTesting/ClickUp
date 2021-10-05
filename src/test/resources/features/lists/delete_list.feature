@@ -5,4 +5,4 @@ Feature: Delete List
     Given I set the list with request endpoint to /list/{list_id}
     When I execute the DELETE request
     Then I verify that the response status is 200
-      And I verify the list exists in the folder
+      And I verify the list deleted doesn't exist in the folder
