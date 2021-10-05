@@ -11,8 +11,8 @@
 package cucumber.runner;
 
 import clickup.ApiEndpoints;
-import core.api.ApiManager;
-import core.api.ApiMethod;
+import clickup.api.ApiFacade;
+import clickup.entities.features.folders.Folder;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
@@ -21,13 +21,14 @@ import core.utils.ReportGenerator;
 import clickup.utils.ScenarioContext;
 import clickup.entities.Space;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+
+import static core.utils.RandomCustom.random;
 
 @CucumberOptions(
         features = {"src/test/resources/features"},
@@ -40,6 +41,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
     private String teamId = System.getenv("TEAM_ID");
     private ApiRequest apiRequest;
     private ScenarioContext scenarioContext;
+    private ApiFacade apiFacade = new ApiFacade();
 
     /**
      * Sets base of request.
@@ -62,25 +64,24 @@ public class RunTests extends AbstractTestNGCucumberTests {
     @BeforeTest()
     public void createSpace() throws JsonProcessingException {
         Space space = new Space();
-        space.setName("Space before From API");
-        apiRequest = baseRequest()
-                .method(ApiMethod.POST)
-                .endpoint(ApiEndpoints.CREATE_SPACE.getEndpoint())
-                .pathParams("team_id", teamId)
-                .body(new ObjectMapper().writeValueAsString(space))
-                .build();
-        ApiManager.execute(apiRequest, apiResponse);
+        space.setName("Space created RunTest before From API");
+        apiResponse = apiFacade.createObject(space, ApiEndpoints.CREATE_SPACE, "team_id", teamId);
         scenarioContext.setBaseEnvironment("space_id", apiResponse.getBody(Space.class).getId());
+    }
+
+    @BeforeTest(dependsOnMethods = {"createSpace"})
+    public void createFolder() throws JsonProcessingException {
+        Folder folder = new Folder();
+        folder.setName("Folder created in RunTest From API".concat(random()));
+        apiResponse = apiFacade.createObject(folder, ApiEndpoints.CREATE_FOLDER_IN_SPACE, "space_id",
+                scenarioContext.getEnvData("space_id"));
+        scenarioContext.setBaseEnvironment("folder_id", apiResponse.getBody(Folder.class).getId());
     }
 
     @AfterTest()
     public void deleteSpace() {
-         apiRequest = baseRequest()
-                .method(ApiMethod.DELETE)
-                .endpoint(ApiEndpoints.GET_SPACE.getEndpoint())
-                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
-                .build();
-        ApiManager.execute(apiRequest, apiResponse);
+        apiFacade.deleteObject(ApiEndpoints.GET_SPACE, "space_id", scenarioContext.getEnvData("space_id"));
+
     }
 
     @AfterSuite
