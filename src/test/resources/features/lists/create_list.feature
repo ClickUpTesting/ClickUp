@@ -28,6 +28,6 @@ Feature: Create List
     Given I set the list with request endpoint to /space/{space_id}/list
     When I set the request body with following values:
       | name | My list created in space |
-    And I execute the POST request
+      And I execute the POST request
     Then I verify that the response status is 200
-    And I verify the schema matches the file: schemas/list/create_required_field.json
+      And I verify the schema matches the file: schemas/list/create_required_field.json
