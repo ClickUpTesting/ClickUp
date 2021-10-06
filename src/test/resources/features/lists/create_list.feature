@@ -24,6 +24,15 @@ Feature: Create List
       And I verify the schema matches the file: schemas/list/create_all_field.json
 
   @DeleteList
+  Scenario: As a user I want to create a list in space for tracking an objective
+    Given I set the list with request endpoint to /space/{space_id}/list
+    When I set the request body with following values:
+      | name | My list created in space |
+      And I execute the POST request
+    Then I verify that the response status is 200
+      And I verify the schema matches the file: schemas/list/create_required_field.json
+
+  @DeleteList
   Scenario: As a user I want to create a list in space with all fields
     Given I set the list with request endpoint to /space/{space_id}/list
     When I set the request body with following values:

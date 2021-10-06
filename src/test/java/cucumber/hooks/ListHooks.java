@@ -33,12 +33,21 @@ public class ListHooks {
         this.apiResponse = apiResponse;
     }
 
-    @Before(value = "@CreateList or @AddTagToTask", order = 2)
-    public void createList() throws JsonProcessingException {
+    @Before(value = "@CreateListInFolder or @AddTagToTask", order = 2)
+    public void createListInFolder() throws JsonProcessingException {
         Lisst lisst = new Lisst();
         lisst.setName("List before From API".concat(random()));
         apiResponse = apiFacade.createObject(lisst, ApiEndpoints.LIST_IN_FOLDER, "folder_id",
                 scenarioContext.getEnvData("folder_id"));
+        scenarioContext.setBaseEnvironment("list_id", apiResponse.getBody(Lisst.class).getId());
+    }
+
+    @Before(value = "@CreateListInSpace", order = 2)
+    public void createListInSpace() throws JsonProcessingException {
+        Lisst lisst = new Lisst();
+        lisst.setName("List before in space From API".concat(random()));
+        apiResponse = apiFacade.createObject(lisst, ApiEndpoints.LIST_IN_SPACE, "space_id",
+                scenarioContext.getEnvData("space_id"));
         scenarioContext.setBaseEnvironment("list_id", apiResponse.getBody(Lisst.class).getId());
     }
 
