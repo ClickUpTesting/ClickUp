@@ -10,4 +10,4 @@ Feature: Get all List
   Scenario: As a user I want to get all lists and verity the that was created in folder
     Given I set the 3 list with the endpoint to /folder/{folder_id}/list
     Then I verify the list exists in the "folder"
-    And I verify that the response status is 200
+      And I verify that the response status is 200

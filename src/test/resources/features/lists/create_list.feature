@@ -5,9 +5,9 @@ Feature: Create List
     Given I set the list with request endpoint to /folder/{folder_id}/list
     When I set the request body with following values:
       | name | My list created 41 |
-    And I execute the POST request
+      And I execute the POST request
     Then I verify that the response status is 200
-    And I verify the schema matches the file: schemas/list/create_required_field.json
+      And I verify the schema matches the file: schemas/list/create_required_field.json
 
   @DeleteList
   Scenario: As a user I want to create a list for tracking an objective
@@ -19,6 +19,6 @@ Feature: Create List
       | due_date_time | false              |
       | priority      | 1                  |
       | status        | red                |
-    And I execute the POST request
+      And I execute the POST request
     Then I verify that the response status is 200
-    And I verify the schema matches the file: schemas/list/create_all_field.json
+      And I verify the schema matches the file: schemas/list/create_all_field.json
