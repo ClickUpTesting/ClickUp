@@ -1,7 +1,7 @@
 Feature: Delete List
 
   @CreateList
-  Scenario: As a user I want to delete a list for tracking an objective
+  Scenario: As a user I want to delete a list
     Given I set the list with request endpoint to /list/{list_id}
     When I execute the DELETE request
     Then I verify that the response status is 200

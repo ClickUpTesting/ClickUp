@@ -1,7 +1,7 @@
 Feature: Get List
 
   @CreateList @DeleteList
-  Scenario: As a user I want to get a list for tracking an objective
+  Scenario: As a user I want to get a list
     Given I set the list with request endpoint to /list/{list_id}
     When I execute the GET request
     Then I verify that the response status is 200

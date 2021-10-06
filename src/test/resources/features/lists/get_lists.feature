@@ -1,7 +1,7 @@
 Feature: Get all List
 
   @DeleteLists
-  Scenario: As a user I want to get all lists and verity the that was created
+  Scenario: As a user I want to get all lists and verity the that was created in space
     Given I set the 4 list with the endpoint to /space/{space_id}/list
     Then I verify the list exists in the "space"
       And I verify that the response status is 200

@@ -1,7 +1,7 @@
 Feature: Update List
 
   @CreateList @DeleteList
-  Scenario: As a user I want to update a list for tracking an objective
+  Scenario: As a user I want to update a list in folder
     Given I set the list with request endpoint to /list/{list_id}
     When I set the request body with following values:
       | name | My list is updated |
@@ -10,7 +10,7 @@ Feature: Update List
       And I verify the schema matches the file: schemas/list/create_required_field.json
 
   @CreateList @DeleteList
-  Scenario: As a user I want to update a list for tracking an objective
+  Scenario: As a user I want to update a list in folder
     Given I set the list with request endpoint to /list/{list_id}
     When I set the request body with following values:
       | name          | My list is updated   |
