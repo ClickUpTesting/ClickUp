@@ -10,6 +10,8 @@
 
 package core.api;
 
+import java.util.Map;
+
 public interface IBuilderApiRequest {
     ApiRequest build();
 
@@ -22,4 +24,6 @@ public interface IBuilderApiRequest {
     ApiRequestBuilder pathParams(String param, String value);
 
     ApiRequestBuilder endpoint(String endpoint);
+
+    ApiRequestBuilder queryParams(String queryParam, String value);
 }

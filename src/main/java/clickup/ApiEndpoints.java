@@ -24,7 +24,10 @@ public enum ApiEndpoints {
     DELETE_TAG("/space/{space_id}/tag/{tag_name}"),
     CREATE_TASK("/list/{list_id}/task"),
     DELETE_TASK("/task/{task_id}"),
-    CREATE_GOAL("/team/{TeamId}/goal");
+    CREATE_GOAL("/team/{TeamId}/goal"),
+    GET_FOLDER("/folder/{folder_id}"),
+    GET_FOLDERS("/space/{space_id}/folder"),
+    DELETE_FOLDER("/folder/{folder_id}");
 
     private String endpoint;
 

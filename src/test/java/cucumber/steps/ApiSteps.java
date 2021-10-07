@@ -10,8 +10,12 @@
 
 package cucumber.steps;
 
+import clickup.ApiEndpoints;
+import clickup.api.ApiFacade;
 import clickup.entities.features.FeatureFactory;
 import clickup.entities.features.IFeature;
+import clickup.entities.features.folders.Folder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import clickup.utils.ScenarioContext;
 import core.api.ApiManager;
@@ -19,15 +23,19 @@ import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.json.JSONObject;
 import org.testng.asserts.SoftAssert;
+
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
+import static core.utils.RandomCustom.random;
 
 public class ApiSteps {
     private ApiRequestBuilder apiRequestBuilder;
@@ -86,5 +94,12 @@ public class ApiSteps {
     @Then("^I verify the schema matches the file: (.*)$")
     public void verifiesResponseSchema(final String schemaPath) {
         apiResponse.validateBodySchema(schemaPath);
+    }
+
+    @Given("I set the query parameters as:")
+    public void iSetTheQueryParametersAs(final Map<String, String> queryParams) {
+        for (String queryParamKey : queryParams.keySet()) {
+            apiRequestBuilder.queryParams(queryParamKey, queryParams.get(queryParamKey));
+        }
     }
 }
