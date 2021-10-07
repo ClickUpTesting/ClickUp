@@ -22,7 +22,6 @@ import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-
 import java.util.LinkedList;
 
 import static core.utils.RandomCustom.random;
