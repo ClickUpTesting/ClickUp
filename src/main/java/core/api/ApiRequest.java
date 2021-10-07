@@ -154,11 +154,12 @@ public class ApiRequest {
     /**
      * Adds the query parameters.
      *
-     * @param queryParams a Map with the query parameters to add
+     * @param queryParam the key of the query parameter to add
+     * @param value the value of the query parameter
      * @author Jorge Caceres
      */
-    public void addQueryParams(Map<String, String> queryParams) {
-        this.queryParams = queryParams;
+    public void addQueryParams(final String queryParam, final String value) {
+        queryParams.put(queryParam, value);
     }
 
     /**

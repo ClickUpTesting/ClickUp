@@ -12,8 +12,8 @@ package cucumber.steps;
 
 import clickup.entities.features.FeatureFactory;
 import clickup.entities.features.IFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import clickup.utils.ScenarioContext;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -86,5 +86,12 @@ public class ApiSteps {
     @Then("^I verify the schema matches the file: (.*)$")
     public void verifiesResponseSchema(final String schemaPath) {
         apiResponse.validateBodySchema(schemaPath);
+    }
+
+    @Given("I set the query parameters as:")
+    public void setsTheQueryParameters(final Map<String, String> queryParams) {
+        for (String queryParamKey : queryParams.keySet()) {
+            apiRequestBuilder.queryParams(queryParamKey, queryParams.get(queryParamKey));
+        }
     }
 }
