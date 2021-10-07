@@ -1,12 +1,9 @@
 package cucumber.steps;
 
 import clickup.ApiEndpoints;
-import clickup.entities.features.FeatureFactory;
 import clickup.entities.features.GetAllFeatures;
-import clickup.entities.features.IFeature;
 import clickup.entities.features.folders.Folder;
 import clickup.entities.features.folders.Folders;
-import clickup.entities.features.tags.Tags;
 import clickup.utils.ScenarioContext;
 import core.api.ApiHeaders;
 import core.api.ApiManager;
@@ -37,7 +34,7 @@ public class FoldersSteps {
     }
 
     @When("I add the amount of {int} to the total of folders")
-    public void iAddTheAmountOfToTheTotalOfFolders(final int amount) {
+    public void addsTheAmountOfFoldersToTheTotal(final int amount) {
         LinkedList<String> foldersTrashList = new LinkedList<>();
         apiRequestBuilder
                 .baseUri(ApiHeaders.URL_BASE.getValue())
@@ -61,14 +58,14 @@ public class FoldersSteps {
     }
 
     @Then("I verify the amount of folders has increased by {int}")
-    public void iVerifyTheAmountOfFoldersHasIncreasedBy(int addedFolders) {
+    public void verifiesTheAmountOfFoldersHasIncreased(int addedFolders) {
         GetAllFeatures featureResponse = apiResponse.getBody(Folders.class);
         int expected = featureResponse.getAmount();
         softAssert.assertEquals(actual + addedFolders, expected);
     }
 
     @Given("^I get the initial amount of (.*) folders$")
-    public void iGetTheInitialAmountOfFolders(final String archived) {
+    public void getsTheInitialAmountOfFolders(final String archived) {
         boolean archivedStatus = "archived".equals(archived);
         ApiRequestBuilder requestBuilder = new ApiRequestBuilder();
         requestBuilder

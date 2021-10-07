@@ -10,8 +10,6 @@
 
 package core.api;
 
-import java.util.Map;
-
 public interface IBuilderApiRequest {
     ApiRequest build();
 
