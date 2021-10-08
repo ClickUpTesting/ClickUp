@@ -10,29 +10,28 @@
 
 package cucumber.hooks;
 
-import clickup.requests.TasksRequests;
+import clickup.requests.ChecklistRequest;
 import clickup.utils.ScenarioTrash;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
-public class TasksHooks {
-
-    private TasksRequests tasksRequests;
+public class CheckListHooks {
     private ScenarioTrash scenarioTrash;
+    private ChecklistRequest checklistRequest;
 
-    public TasksHooks(ScenarioTrash scenarioTrash) {
-        this.tasksRequests = new TasksRequests();
+    public CheckListHooks(ScenarioTrash scenarioTrash) {
         this.scenarioTrash = scenarioTrash;
+        this.checklistRequest = new ChecklistRequest();
     }
 
-    @Before(value = "@CreateTask")
-    public void createTask() throws JsonProcessingException {
-        scenarioTrash.setScenarioTrash("task_id", tasksRequests.createTask());
+    @Before(value = "@CreateChecklist")
+    public void createChecklist() throws JsonProcessingException {
+        scenarioTrash.setScenarioTrash("checklist_id", checklistRequest.createChecklist());
     }
 
-    @After(value = "@DeleteTask")
-    public void deleteTask() {
-        tasksRequests.deleteTask(scenarioTrash.getTrashValue("task_id"));
+    @After(value = "@DeleteChecklist")
+    public void deleteChecklist() {
+        checklistRequest.deleteChecklist(scenarioTrash.getTrashValue("checklist_id"));
     }
 }

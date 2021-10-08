@@ -10,43 +10,26 @@
 
 package cucumber.steps;
 
-import clickup.ApiEndpoints;
+import clickup.requests.TagsRequest;
 import clickup.utils.ScenarioContext;
-import core.api.ApiHeaders;
-import core.api.ApiManager;
-import core.api.ApiMethod;
-import core.api.ApiRequest;
-import core.api.ApiRequestBuilder;
-import core.api.ApiResponse;
 import io.cucumber.java.en.When;
-import org.json.JSONObject;
 import java.util.LinkedList;
 
 public class AddTagsStep {
-    private ApiRequestBuilder apiRequestBuilder = new ApiRequestBuilder();
-    private ApiRequest apiRequest = new ApiRequest();
-    private ApiResponse apiResponse = new ApiResponse();
+    private TagsRequest tagsRequest;
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
+
+    public AddTagsStep() {
+        this.tagsRequest = new TagsRequest();
+    }
 
     @When("I add the amount of {int} to the total of tags")
     public void tagsBulkAdd(int amount) {
         LinkedList<String> tagsTrashList = new LinkedList<>();
-        apiRequestBuilder
-                .baseUri(ApiHeaders.URL_BASE.getValue())
-                .headers(ApiHeaders.AUTHORIZATION.getValue(), System.getenv("API_TOKEN"))
-                .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue())
-                .endpoint(ApiEndpoints.CREATE_TAG.getEndpoint())
-                .pathParams("space_id", scenarioContext.getEnvData("space_id"))
-                .method(ApiMethod.POST);
-        String tagName = "tag0";
-        JSONObject jsonBody = new JSONObject();
-        JSONObject tagBody = new JSONObject();
+        String tagName = "tag00";
         for (int i = 0; i < amount; i++) {
-            tagBody.put("name", tagName + i);
-            apiRequestBuilder.body(jsonBody.put("tag", tagBody).toString());
-            apiRequest = apiRequestBuilder.build();
-            ApiManager.execute(apiRequest, apiResponse);
-            apiResponse.getResponse().then().log().body();
+            tagName = tagName + i;
+            tagsRequest.createTag(tagName);
             tagsTrashList.addLast(tagName);
         }
         scenarioContext.setTrash("Tags", tagsTrashList);

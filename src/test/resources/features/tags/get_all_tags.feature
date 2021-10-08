@@ -1,6 +1,6 @@
 Feature: Get all Tags
 
-  @CreateTag @DeleteTag
+  @CreateTag @DeleteTagsList
   Scenario: As a user I want to get all tags and verity the amount
     Given I set the tags with request endpoint to /space/{space_id}/tag
       And I GET request all tags amount
