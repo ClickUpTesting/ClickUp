@@ -14,6 +14,7 @@ import clickup.entities.features.checklists.Checklists;
 import clickup.entities.features.folders.Folder;
 import clickup.entities.features.lists.Lisst;
 import clickup.entities.features.tags.Tags;
+import clickup.entities.features.views.Views;
 
 public class FeatureFactory {
 
@@ -35,6 +36,8 @@ public class FeatureFactory {
                 return new Folder();
             case "checklist":
                 return new Checklists();
+            case "views":
+                return new Views();
             default:
                 throw new IllegalAccessException("Feature Not Found");
         }

@@ -19,8 +19,10 @@ import clickup.entities.Settings;
 import clickup.entities.Sorting;
 import clickup.entities.TeamSidebar;
 import clickup.entities.features.IFeature;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class View implements IFeature {
     private String id;
     private String name;

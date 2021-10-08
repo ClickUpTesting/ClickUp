@@ -29,7 +29,8 @@ public enum ApiEndpoints {
     DELETE_CHECKLIST("/checklist/{checklist_id}"),
     GET_FOLDER("/folder/{folder_id}"),
     GET_FOLDERS("/space/{space_id}/folder"),
-    DELETE_FOLDER("/folder/{folder_id}");
+    DELETE_FOLDER("/folder/{folder_id}"),
+    DELETE_VIEW("/view/{view_id}");
 
     private String endpoint;
 

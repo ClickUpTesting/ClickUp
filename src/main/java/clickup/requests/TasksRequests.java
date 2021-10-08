@@ -11,7 +11,7 @@
 package clickup.requests;
 
 import clickup.ApiEndpoints;
-import clickup.entities.features.Tasks.TasksResponse;
+import clickup.entities.features.tasks.TasksResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import static core.utils.RandomCustom.random;

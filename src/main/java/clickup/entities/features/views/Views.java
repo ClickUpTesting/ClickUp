@@ -11,7 +11,9 @@
 package clickup.entities.features.views;
 
 import clickup.entities.features.IFeature;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Views implements IFeature {
     private View view;
 

@@ -8,7 +8,7 @@
  * @author Jorge Caceres
  */
 
-package clickup.entities.features.Tasks;
+package clickup.entities.features.tasks;
 
 import clickup.entities.Space;
 import clickup.entities.Status;
