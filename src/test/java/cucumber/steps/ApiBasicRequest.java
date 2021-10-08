@@ -17,12 +17,12 @@ import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import io.cucumber.java.en.And;
 
-public class TagsRequests {
+public class ApiBasicRequest {
     private ApiRequestBuilder apiRequestBuilder;
     private ApiRequest apiRequest;
     private ApiResponse apiResponse;
 
-    public TagsRequests(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
+    public ApiBasicRequest(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
     }

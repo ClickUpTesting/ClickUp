@@ -10,35 +10,26 @@
 
 package cucumber.steps;
 
-import clickup.utils.ScenarioContext;
-import core.api.ApiRequest;
+
+import clickup.utils.ScenarioTrash;
 import core.api.ApiRequestBuilder;
-import core.api.ApiResponse;
 import io.cucumber.java.en.When;
 import org.json.JSONObject;
-import org.testng.asserts.SoftAssert;
-import java.util.LinkedList;
 import java.util.Map;
 
 public class SetTagBodyStep {
     private ApiRequestBuilder apiRequestBuilder;
-    private ApiRequest apiRequest;
-    private ApiResponse apiResponse;
-    private SoftAssert softAssert;
-    private ScenarioContext scenarioContext = ScenarioContext.getInstance();
+    private ScenarioTrash scenarioTrash;
 
-    public SetTagBodyStep(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, SoftAssert softAssert) {
+    public SetTagBodyStep(ApiRequestBuilder apiRequestBuilder, ScenarioTrash scenarioTrash) {
         this.apiRequestBuilder = apiRequestBuilder;
-        this.apiResponse = apiResponse;
-        this.softAssert = softAssert;
+        this.scenarioTrash = scenarioTrash;
     }
 
     @When("I set the tags body with following values:")
     public void setTagBody(final Map<String, String> body) {
-        LinkedList<String> trashList =  new LinkedList<>();
         if (body.get("name") != null) {
-            trashList.addLast(body.get("name"));
-            scenarioContext.setTrash("Tags", trashList);
+            scenarioTrash.setScenarioTrash("tag_name", body.get("name"));
         }
         JSONObject jsonBody = new JSONObject();
         JSONObject tagBody = new JSONObject();

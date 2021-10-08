@@ -10,25 +10,18 @@
 
 package cucumber.runner;
 
-import clickup.ApiEndpoints;
-import clickup.api.ApiFacade;
-import clickup.entities.features.folders.Folder;
-import core.api.ApiRequest;
-import core.api.ApiRequestBuilder;
-import core.api.ApiResponse;
-import core.api.ApiHeaders;
+import clickup.requests.FoldersRequest;
+import clickup.requests.ListsRequest;
+import clickup.requests.SpaceRequest;
+import clickup.requests.TasksRequests;
 import core.utils.ReportGenerator;
 import clickup.utils.ScenarioContext;
-import clickup.entities.Space;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-
-import static core.utils.RandomCustom.random;
 
 @CucumberOptions(
         features = {"src/test/resources/features"},
@@ -36,52 +29,27 @@ import static core.utils.RandomCustom.random;
         glue = {"cucumber"}
 )
 public class RunTests extends AbstractTestNGCucumberTests {
-    private ApiResponse apiResponse = new ApiResponse();
-    private final String TOKEN = System.getenv("API_TOKEN");
     private String teamId = System.getenv("TEAM_ID");
-    private ApiRequest apiRequest;
     private ScenarioContext scenarioContext;
-    private ApiFacade apiFacade = new ApiFacade();
-
-    /**
-     * Sets base of request.
-     *
-     * @return ApiRequestBuilder contains base request
-     */
-    private ApiRequestBuilder baseRequest() {
-        return new ApiRequestBuilder()
-                .baseUri(ApiEndpoints.URL_BASE.getEndpoint())
-                .headers(ApiHeaders.AUTHORIZATION.getValue(), TOKEN)
-                .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue());
-    }
+    private SpaceRequest spaceRequest = new SpaceRequest();
+    private FoldersRequest foldersRequest = new FoldersRequest();
+    private ListsRequest listsRequest = new ListsRequest();
+    private TasksRequests tasksRequests = new TasksRequests();
 
     @BeforeSuite
-    public void setBaseEnv() {
+    public void setBaseEnv() throws JsonProcessingException {
         scenarioContext = ScenarioContext.getInstance();
         scenarioContext.setBaseEnvironment("team_id", teamId);
-    }
-
-    @BeforeTest()
-    public void createSpace() throws JsonProcessingException {
-        Space space = new Space();
-        space.setName("Space created RunTest before From API");
-        apiResponse = apiFacade.createObject(space, ApiEndpoints.CREATE_SPACE, "team_id", teamId);
-        scenarioContext.setBaseEnvironment("space_id", apiResponse.getBody(Space.class).getId());
-    }
-
-    @BeforeTest(dependsOnMethods = {"createSpace"})
-    public void createFolder() throws JsonProcessingException {
-        Folder folder = new Folder();
-        folder.setName("Folder created in RunTest From API".concat(random()));
-        apiResponse = apiFacade.createObject(folder, ApiEndpoints.CREATE_FOLDER_IN_SPACE, "space_id",
-                scenarioContext.getEnvData("space_id"));
-        scenarioContext.setBaseEnvironment("folder_id", apiResponse.getBody(Folder.class).getId());
+        scenarioContext.setBaseEnvironment("space_id", spaceRequest.createSpace());
+        scenarioContext.setBaseEnvironment("folder_id", foldersRequest.createFolder());
+        scenarioContext.setBaseEnvironment("list_id", listsRequest.createListInFolder());
+        scenarioContext.setBaseEnvironment("list_in_space_id", listsRequest.createListInSpace());
+        scenarioContext.setBaseEnvironment("task_id", tasksRequests.createTask());
     }
 
     @AfterTest()
     public void deleteSpace() {
-        apiFacade.deleteObject(ApiEndpoints.GET_SPACE, "space_id", scenarioContext.getEnvData("space_id"));
-
+        spaceRequest.deleteSpace(scenarioContext.getEnvData("space_id"));
     }
 
     @AfterSuite

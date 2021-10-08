@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "checklist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "orderindex": {
+          "type": "integer"
+        },
+        "resolved": {
+          "type": "integer"
+        },
+        "unresolved": {
+          "type": "integer"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "id",
+        "task_id",
+        "name",
+        "orderindex",
+        "resolved",
+        "unresolved",
+        "items"
+      ]
+    }
+  },
+  "required": [
+    "checklist"
+  ]
+}

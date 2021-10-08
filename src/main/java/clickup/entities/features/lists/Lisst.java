@@ -20,7 +20,6 @@ import clickup.entities.features.folders.Folder;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 import static core.utils.RandomCustom.random;

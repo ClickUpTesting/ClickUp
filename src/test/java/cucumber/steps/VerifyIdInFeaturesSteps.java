@@ -14,6 +14,7 @@ import clickup.ApiEndpoints;
 import clickup.entities.features.lists.Lisst;
 import clickup.entities.features.lists.Lists;
 import clickup.utils.ScenarioContext;
+import clickup.utils.ScenarioTrash;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -31,9 +32,12 @@ public class VerifyIdInFeaturesSteps {
     private ApiResponse apiResponse;
     private SoftAssert softAssert = new SoftAssert();
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
+    private ScenarioTrash scenarioTrash;
     private Lists lists;
 
-    public VerifyIdInFeaturesSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
+    public VerifyIdInFeaturesSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse,
+                                   ScenarioTrash scenarioTrash) {
+        this.scenarioTrash = scenarioTrash;
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
     }
@@ -52,7 +56,7 @@ public class VerifyIdInFeaturesSteps {
         boolean actual = false;
         if (lists.getLists().size() != 0) {
             for (Lisst lisst : lists.getLists()) {
-                if (scenarioContext.getEnvData("list_id").equals(lisst.getId())) {
+                if (scenarioTrash.getTrashValue("list_id").equals(lisst.getId())) {
                     actual = true;
                     break;
                 }
@@ -86,9 +90,9 @@ public class VerifyIdInFeaturesSteps {
                 }
             }
         }
-        softAssert.assertEquals(scenarioContext.getTrashList("FeatureName Trash").size(), actual);
-        softAssert.assertEquals(scenarioContext.getTrashList("FeatureName Trash").size(),
-                lists.getLists().size());
+       softAssert.assertEquals(actual, scenarioContext.getTrashList("FeatureName Trash").size());
+        softAssert.assertEquals(lists.getLists().size(),
+                scenarioContext.getTrashList("FeatureName Trash").size() + 1);
         softAssert.assertAll();
     }
 }
