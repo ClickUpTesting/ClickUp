@@ -10,6 +10,7 @@
 
 package clickup.entities.features;
 
+import clickup.entities.features.checklists.Checklists;
 import clickup.entities.features.folders.Folder;
 import clickup.entities.features.lists.Lisst;
 import clickup.entities.features.tags.Tags;
@@ -32,6 +33,8 @@ public class FeatureFactory {
                 return new Lisst();
             case "folder":
                 return new Folder();
+            case "checklist":
+                return new Checklists();
             default:
                 throw new IllegalAccessException("Feature Not Found");
         }

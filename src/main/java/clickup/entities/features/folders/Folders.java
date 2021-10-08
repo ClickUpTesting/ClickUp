@@ -11,7 +11,6 @@
 package clickup.entities.features.folders;
 
 import clickup.entities.features.GetAllFeatures;
-
 import java.util.List;
 
 public class Folders implements GetAllFeatures {

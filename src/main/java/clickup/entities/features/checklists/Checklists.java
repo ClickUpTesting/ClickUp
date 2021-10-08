@@ -8,38 +8,31 @@
  * @author Jorge Caceres
  */
 
-package clickup.entities.features.tags;
+package clickup.entities.features.checklists;
 
-import clickup.entities.features.GetAllFeatures;
 import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class Tags implements GetAllFeatures, IFeature {
-    public List<Tag> tags;
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+public class Checklists implements IFeature {
+    private Checklist checklist;
 
-    public List<Tag> getTags() {
-        return tags;
+    public Checklist getChecklist() {
+        return checklist;
     }
 
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
-
-    @Override
-    public int getAmount() {
-        return tags.size();
+    public void setChecklist(Checklist checklist) {
+        this.checklist = checklist;
     }
 
     @Override
     public String getIdentifier() {
-        return null;
+        return checklist.getIdentifier();
     }
 
     @Override
     public String getRequiredField() {
-        return null;
+        return checklist.getRequiredField();
     }
 
     @Override
