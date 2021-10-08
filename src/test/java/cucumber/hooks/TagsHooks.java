@@ -32,7 +32,7 @@ public class TagsHooks {
         scenarioTrash.setScenarioTrash("tag_name", tagName);
     }
 
-    @After(value = "@DeleteTags")
+    @After(value = "@DeleteTag")
     public void deleteTag() {
         tagsRequest.deleteTag(scenarioTrash.getTrashValue("tag_name"));
     }
