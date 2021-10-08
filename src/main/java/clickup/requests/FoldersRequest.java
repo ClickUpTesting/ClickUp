@@ -45,7 +45,7 @@ public class FoldersRequest extends BaseRequest {
      * @author Raymundo GuaraGuara
      */
     public void deleteFolder(final String id) {
-        apiFacade.deleteObject(ApiEndpoints.GET_FOLDER, "folder_id", id);
+        apiFacade.deleteObject(ApiEndpoints.DELETE_FOLDER, "folder_id", id);
     }
 
     /**
