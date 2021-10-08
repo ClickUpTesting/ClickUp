@@ -20,10 +20,12 @@ public class Items {
     @JsonProperty("orderindex")
     private int orderIndex;
     private String assignee;
-    private String group_assignee;
+    @JsonProperty("group_assignee")
+    private String groupAssignee;
     private Boolean resolved;
     private String parent;
-    private String date_created;
+    @JsonProperty("date_created")
+    private String dateCreated;
     private List<Object> children;
 
     public String getId() {
@@ -58,12 +60,12 @@ public class Items {
         this.assignee = assignee;
     }
 
-    public String getGroup_assignee() {
-        return group_assignee;
+    public String getGroupAssignee() {
+        return groupAssignee;
     }
 
-    public void setGroup_assignee(String group_assignee) {
-        this.group_assignee = group_assignee;
+    public void setGroupAssignee(String groupAssignee) {
+        this.groupAssignee = groupAssignee;
     }
 
     public Boolean getResolved() {
@@ -82,12 +84,12 @@ public class Items {
         this.parent = parent;
     }
 
-    public String getDate_created() {
-        return date_created;
+    public String getDateCreated() {
+        return dateCreated;
     }
 
-    public void setDate_created(String date_created) {
-        this.date_created = date_created;
+    public void setDateCreated(String dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     public List<Object> getChildren() {
