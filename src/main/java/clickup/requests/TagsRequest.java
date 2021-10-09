@@ -15,13 +15,14 @@ import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
 import org.json.JSONObject;
+
 import java.util.LinkedList;
 
 public class TagsRequest extends BaseRequest {
     private ApiRequest apiRequest;
 
     /**
-     * Creates a tag and returns its identifier.
+     * Creates a tag.
      *
      * @param tagName to be set on the tag
      * @author Jorge Caceres
@@ -44,6 +45,44 @@ public class TagsRequest extends BaseRequest {
     }
 
     /**
+     * Adds a tag to a task.
+     *
+     * @param tagName to be added to a task
+     * @author Jorge Caceres
+     */
+    public void addTagToTask(final String tagName){
+        apiRequestBuilder
+                .cleanParams()
+                .clearBody()
+                .endpoint(ApiEndpoints.ADD_TAG_TO_TASK.getEndpoint())
+                .pathParams("task_id", scenarioContext.getEnvData("task_id"))
+                .pathParams("tag_name",tagName)
+                .method(ApiMethod.POST);
+        apiRequest = apiRequestBuilder.build();
+        ApiManager.execute(apiRequest, apiResponse);
+        apiResponse.getResponse().then().log().body();
+    }
+
+    /**
+     * Adds a tag to a task.
+     *
+     * @param tagName to be added to a task
+     * @author Jorge Caceres
+     */
+    public void removeTagFromTask(final String tagName){
+        apiRequestBuilder
+                .cleanParams()
+                .clearBody()
+                .endpoint(ApiEndpoints.REMOVE_TAG_FROM_TASK.getEndpoint())
+                .pathParams("task_id", scenarioContext.getEnvData("task_id"))
+                .pathParams("tag_name",tagName)
+                .method(ApiMethod.DELETE);
+        apiRequest = apiRequestBuilder.build();
+        ApiManager.execute(apiRequest, apiResponse);
+        apiResponse.getResponse().then().log().body();
+    }
+
+    /**
      * Deletes a tag's list.
      *
      * @author Jorge Caceres
@@ -52,6 +91,7 @@ public class TagsRequest extends BaseRequest {
         LinkedList<String> tagsTrashList = scenarioContext.getTrashList("Tags");
         apiRequestBuilder
                 .cleanParams()
+                .clearBody()
                 .endpoint(ApiEndpoints.DELETE_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .method(ApiMethod.DELETE);
@@ -72,6 +112,7 @@ public class TagsRequest extends BaseRequest {
     public void deleteTag(String tagName) {
         apiRequestBuilder
                 .cleanParams()
+                .clearBody()
                 .endpoint(ApiEndpoints.DELETE_TAG.getEndpoint())
                 .pathParams("space_id", scenarioContext.getEnvData("space_id"))
                 .method(ApiMethod.DELETE);

@@ -211,6 +211,15 @@ public class ApiRequest {
     }
 
     /**
+     * Removes all the values added to the params Map.
+     *
+     * @author Jorge Caceres
+     */
+    public void clearBody() {
+        body = null;
+    }
+
+    /**
      * Gets the headers.
      *
      * @return an Object with the headers

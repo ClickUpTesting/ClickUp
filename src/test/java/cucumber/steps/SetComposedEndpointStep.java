@@ -10,37 +10,29 @@
 
 package cucumber.steps;
 
+import clickup.ApiEndpoints;
 import clickup.utils.ScenarioContext;
-import core.api.ApiRequest;
+import clickup.utils.ScenarioTrash;
 import core.api.ApiRequestBuilder;
-import core.api.ApiResponse;
 import io.cucumber.java.en.Given;
-import org.testng.asserts.SoftAssert;
-import java.util.List;
-
-import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
 
 public class SetComposedEndpointStep {
     private ApiRequestBuilder apiRequestBuilder;
-    private ApiRequest apiRequest;
-    private ApiResponse apiResponse;
-    private SoftAssert softAssert;
-    ScenarioContext scenarioContext = ScenarioContext.getInstance();
+    private ScenarioContext scenarioContext = ScenarioContext.getInstance();
+    private ScenarioTrash scenarioTrash;
 
-    public SetComposedEndpointStep(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse,
-                                   SoftAssert softAssert) {
+    public SetComposedEndpointStep(ApiRequestBuilder apiRequestBuilder, ScenarioTrash scenarioTrash) {
         this.apiRequestBuilder = apiRequestBuilder;
-        this.apiResponse = apiResponse;
-        this.softAssert = softAssert;
+        this.scenarioTrash = scenarioTrash;
     }
 
     @Given("^I set the (.*) composed endpoint (.*)$")
     public void setComposedEndpoint(final String featureName, final String endpoint) {
-        List<String> pathParamsList = getPathParamsFromEndpoint(endpoint);
         apiRequestBuilder
+                .cleanParams()
+                .clearBody()
                 .endpoint(endpoint)
-                .cleanParams();
-        apiRequestBuilder.pathParams(pathParamsList.get(0), scenarioContext.getEnvData(pathParamsList.get(0)))
-                .pathParams(pathParamsList.get(1), scenarioContext.getTrashList(featureName).getLast());
+                .pathParams("task_id", scenarioContext.getEnvData("task_id"))
+                .pathParams("tag_name",scenarioTrash.getTrashValue("tag_name"));
     }
 }

@@ -10,26 +10,32 @@
 
 package cucumber.steps;
 
+import clickup.requests.TasksRequests;
+import clickup.utils.ScenarioContext;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
-import io.cucumber.java.en.And;
+import io.cucumber.java.en.When;
 
 public class ApiBasicRequest {
     private ApiRequestBuilder apiRequestBuilder;
     private ApiRequest apiRequest;
     private ApiResponse apiResponse;
+    private TasksRequests tasksRequests = new TasksRequests();
+    private ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
     public ApiBasicRequest(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
     }
 
-    @And("^I execute the (.*) request for tags$")
+    @When("^I execute the (.*) request for tags$")
     public void executesRequest(final String method) {
-        apiRequest = apiRequestBuilder.method(ApiMethod.valueOf(method)).build();
+        apiRequest = apiRequestBuilder
+                .method(ApiMethod.valueOf(method)).build();
         ApiManager.execute(apiRequest, apiResponse);
+        apiResponse.getResponse().then().log().all();
     }
 }
