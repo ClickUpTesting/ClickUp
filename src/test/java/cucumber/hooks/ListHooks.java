@@ -10,45 +10,41 @@
 
 package cucumber.hooks;
 
-import clickup.ApiEndpoints;
-import clickup.api.ApiFacade;
-import clickup.entities.features.lists.Lisst;
+import clickup.requests.ListsRequest;
+import clickup.utils.ScenarioTrash;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import core.api.ApiRequestBuilder;
-import core.api.ApiResponse;
-import clickup.utils.ScenarioContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
-import static core.utils.RandomCustom.random;
-
 public class ListHooks {
-    private ApiRequestBuilder apiRequestBuilder;
-    private ScenarioContext scenarioContext = ScenarioContext.getInstance();
-    private ApiResponse apiResponse;
-    private ApiFacade apiFacade = new ApiFacade();
 
-    public ListHooks(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
-        this.apiRequestBuilder = apiRequestBuilder;
-        this.apiResponse = apiResponse;
+    private ListsRequest listsRequest;
+    private ScenarioTrash scenarioTrash;
+
+    public ListHooks(ScenarioTrash scenarioTrash) {
+        this.listsRequest = new ListsRequest();
+        this.scenarioTrash = scenarioTrash;
     }
 
-    @Before(value = "@CreateList or @AddTagToTask", order = 2)
-    public void createList() throws JsonProcessingException {
-        Lisst lisst = new Lisst();
-        lisst.setName("List before From API".concat(random()));
-        apiResponse = apiFacade.createObject(lisst, ApiEndpoints.LIST_IN_FOLDER, "folder_id",
-                scenarioContext.getEnvData("folder_id"));
-        scenarioContext.setBaseEnvironment("list_id", apiResponse.getBody(Lisst.class).getId());
+
+    @Before(value = "@CreateListInFolder")
+    public void createListInFolder() throws JsonProcessingException {
+        scenarioTrash.setScenarioTrash("list_id", listsRequest.createListInFolder());
     }
 
-    @After(value = "@DeleteList or @AddTagToTask", order = 2)
+    @Before(value = "@CreateListInSpace")
+    public void createListInSpace() throws JsonProcessingException {
+        scenarioTrash.setScenarioTrash("list_id", listsRequest.createListInSpace());
+
+    }
+
+    @After(value = "@DeleteList")
     public void deleteList() {
-        apiFacade.deleteObject(ApiEndpoints.GET_LIST, "list_id", scenarioContext.getEnvData("list_id"));
+        listsRequest.deleteList(scenarioTrash.getTrashValue("list_id"));
     }
 
     @After(value = "@DeleteLists")
     public void deleteLists() {
-        apiFacade.deleteListsObjects(ApiEndpoints.GET_LIST, "FeatureName Trash");
+        listsRequest.deleteLists();
     }
 }

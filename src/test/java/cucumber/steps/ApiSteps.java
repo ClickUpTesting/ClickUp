@@ -12,8 +12,9 @@ package cucumber.steps;
 
 import clickup.entities.features.FeatureFactory;
 import clickup.entities.features.IFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import clickup.utils.ScenarioContext;
+import clickup.utils.ScenarioTrash;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -39,11 +40,14 @@ public class ApiSteps {
     private FeatureFactory featureFactory = new FeatureFactory();
     private SoftAssert softAssert;
     private String featureName;
+    private ScenarioTrash scenarioTrash;
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
-    public ApiSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, SoftAssert softAssert) {
+    public ApiSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, SoftAssert softAssert,
+                    ScenarioTrash scenarioTrash) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
+        this.scenarioTrash = scenarioTrash;
         this.softAssert = softAssert;
     }
 
@@ -55,7 +59,11 @@ public class ApiSteps {
                 .endpoint(endpoint)
                 .cleanParams();
         for (String pathParams : pathParamsList) {
-            apiRequestBuilder.pathParams(pathParams, scenarioContext.getEnvData(pathParams));
+            if (scenarioTrash.getTrashValue(pathParams) != null) {
+                apiRequestBuilder.pathParams(pathParams, scenarioTrash.getTrashValue(pathParams));
+            } else {
+                apiRequestBuilder.pathParams(pathParams, scenarioContext.getEnvData(pathParams));
+            }
         }
     }
 
@@ -79,7 +87,7 @@ public class ApiSteps {
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
         IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
-        scenarioContext.setBaseEnvironment(String.format("%s_id", featureName), featureResponse.getIdentifier());
+        scenarioTrash.setScenarioTrash(String.format("%s_id", featureName), featureResponse.getIdentifier());
     }
 
     @Then("I verify that the response status is {int}")
@@ -90,5 +98,12 @@ public class ApiSteps {
     @Then("^I verify the schema matches the file: (.*)$")
     public void verifiesResponseSchema(final String schemaPath) {
         apiResponse.validateBodySchema(schemaPath);
+    }
+
+    @Given("I set the query parameters as:")
+    public void setsTheQueryParameters(final Map<String, String> queryParams) {
+        for (String queryParamKey : queryParams.keySet()) {
+            apiRequestBuilder.queryParams(queryParamKey, queryParams.get(queryParamKey));
+        }
     }
 }

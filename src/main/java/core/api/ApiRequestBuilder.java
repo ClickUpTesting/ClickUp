@@ -89,6 +89,18 @@ public class ApiRequestBuilder implements IBuilderApiRequest {
      */
     public ApiRequestBuilder cleanParams() {
         this.apiRequest.clearPathParams();
+        this.apiRequest.clearQueryParams();
+        return this;
+    }
+
+    /**
+     * Removes all on a Body.
+     *
+     * @return ApiRequest in order to build request
+     * @author Jorge Caceres
+     */
+    public ApiRequestBuilder clearBody() {
+        this.apiRequest.clearBody();
         return this;
     }
 
@@ -138,5 +150,18 @@ public class ApiRequestBuilder implements IBuilderApiRequest {
      */
     public ApiRequest build() {
         return apiRequest;
+    }
+
+    /**
+     * Sets query parameters to request.
+     *
+     * @param queryParam is a key with the query parameter name
+     * @param value is the value of the parameter
+     * @return ApiRequest in order to build request
+     * @author Raymundo Guaraguara
+     */
+    public ApiRequestBuilder queryParams(final String queryParam, final String value) {
+        this.apiRequest.addQueryParams(queryParam, value);
+        return this;
     }
 }

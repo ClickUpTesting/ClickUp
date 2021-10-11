@@ -48,7 +48,7 @@ public final class RandomCustom {
      * @return a String with random value
      * @author Gustavo Huanca
      */
-    private static String generateFourRandom() {
+    public static String generateFourRandom() {
         String[] uniqueId = UUID.randomUUID().toString().split("-");
         return uniqueId[2];
     }

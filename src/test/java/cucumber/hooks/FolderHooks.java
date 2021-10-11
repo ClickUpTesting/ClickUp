@@ -10,35 +10,33 @@
 
 package cucumber.hooks;
 
-import clickup.ApiEndpoints;
-import clickup.api.ApiFacade;
-import clickup.entities.features.folders.Folder;
+import clickup.requests.FoldersRequest;
+import clickup.utils.ScenarioTrash;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import core.api.ApiRequestBuilder;
-import core.api.ApiResponse;
-import clickup.utils.ScenarioContext;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
-import static core.utils.RandomCustom.random;
-
 public class FolderHooks {
-    private ApiRequestBuilder apiRequestBuilder;
-    private ScenarioContext scenarioContext = ScenarioContext.getInstance();
-    private ApiFacade apiFacade = new ApiFacade();
-    private ApiResponse apiResponse;
-
-    public FolderHooks(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse) {
-        this.apiRequestBuilder = apiRequestBuilder;
-        this.apiResponse = apiResponse;
+    private FoldersRequest foldersRequest;
+    private ScenarioTrash scenarioTrash;
+    public FolderHooks(ScenarioTrash scenarioTrash) {
+        this.scenarioTrash = scenarioTrash;
+        this.foldersRequest = new FoldersRequest();
     }
 
-    @Before(value = "@AddTagToTask", order = 1)
+    @Before(value = "@CreateFolder")
     public void createFolder() throws JsonProcessingException {
-        Folder folder = new Folder();
-        folder.setName("Folder created in FolderHooks From API".concat(random()));
-        apiResponse = apiFacade.createObject(folder, ApiEndpoints.CREATE_FOLDER_IN_SPACE, "space_id",
-                scenarioContext.getEnvData("space_id"));
-        scenarioContext.setBaseEnvironment("folder_id", apiResponse.getBody(Folder.class).getId());
+        scenarioTrash.setScenarioTrash("folder_id", foldersRequest.createFolder());
+    }
+
+    @After(value = "@DeleteFolder")
+    public void deleteFolder() {
+        foldersRequest.deleteFolder(scenarioTrash.getTrashValue("folder_id"));
+    }
+
+    @After(value = "@DeleteFolders")
+    public void deleteFolders() {
+        foldersRequest.deleteFolders();
     }
 
 }
