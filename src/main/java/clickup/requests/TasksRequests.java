@@ -13,14 +13,10 @@ package clickup.requests;
 import clickup.ApiEndpoints;
 import clickup.entities.features.tasks.TasksResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import core.api.ApiManager;
-import core.api.ApiMethod;
-import core.api.ApiRequest;
 
 import static core.utils.RandomCustom.random;
 
 public class TasksRequests extends BaseRequest {
-    private ApiRequest apiRequest;
 
     /**
      * Creates a task and returns its identifier.
@@ -55,14 +51,7 @@ public class TasksRequests extends BaseRequest {
      * @author Jorge Caceres
      */
     public TasksResponse getTask(final String taskId) {
-        apiRequest = apiRequestBuilder
-                .clearBody()
-                .endpoint(ApiEndpoints.GET_TASK.getEndpoint())
-                .pathParams("task_id", taskId)
-                .method(ApiMethod.GET)
-                .build();
-        ApiManager.execute(apiRequest, apiResponse);
-        apiResponse.getResponse().then().log().body();
+        apiResponse = apiFacade.getObject(ApiEndpoints.GET_TASK, "task_id", taskId);
         return apiResponse.getBody(TasksResponse.class);
     }
 }

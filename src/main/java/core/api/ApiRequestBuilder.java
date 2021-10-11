@@ -94,10 +94,10 @@ public class ApiRequestBuilder implements IBuilderApiRequest {
     }
 
     /**
-     * Removes all the values added to the path params Map.
+     * Removes all on a Body.
      *
      * @return ApiRequest in order to build request
-     * @author Gustavo Huanca
+     * @author Jorge Caceres
      */
     public ApiRequestBuilder clearBody() {
         this.apiRequest.clearBody();
