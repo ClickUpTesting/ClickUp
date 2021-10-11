@@ -12,7 +12,9 @@ package cucumber.hooks;
 
 import clickup.requests.ViewsRequest;
 import clickup.utils.ScenarioTrash;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 
 public class ViewHooks {
     private ViewsRequest viewsRequest;
@@ -21,6 +23,11 @@ public class ViewHooks {
     public ViewHooks(ScenarioTrash scenarioTrash) {
         this.scenarioTrash = scenarioTrash;
         this.viewsRequest = new ViewsRequest();
+    }
+
+    @Before(value = "@CreateTeamView")
+    public void createTeamView() throws JsonProcessingException {
+        scenarioTrash.setScenarioTrash("view_id", viewsRequest.createTeamView());
     }
 
     @After(value = "@DeleteView")

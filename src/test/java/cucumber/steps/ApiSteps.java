@@ -82,6 +82,7 @@ public class ApiSteps {
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
+        System.out.println(featureName);
         IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
         scenarioTrash.setScenarioTrash(String.format("%s_id", featureName), featureResponse.getIdentifier());
     }

@@ -33,7 +33,8 @@ public enum ApiEndpoints {
     GET_FOLDER("/folder/{folder_id}"),
     GET_FOLDERS("/space/{space_id}/folder"),
     DELETE_FOLDER("/folder/{folder_id}"),
-    DELETE_VIEW("/view/{view_id}");
+    DELETE_VIEW("/view/{view_id}"),
+    CREATE_TEAM_VIEW("/team/{team_id}/view");
 
     private String endpoint;
 
