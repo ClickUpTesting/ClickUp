@@ -27,7 +27,6 @@ public class TagsHooks {
     ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
     public TagsHooks(ScenarioTrash scenarioTrash) {
-
         this.scenarioTrash = scenarioTrash;
         this.tagsRequest = new TagsRequest();
     }

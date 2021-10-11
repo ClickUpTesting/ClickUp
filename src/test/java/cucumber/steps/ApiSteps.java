@@ -57,10 +57,8 @@ public class ApiSteps {
                 .cleanParams();
         for (String pathParams : pathParamsList) {
             if (scenarioTrash.getTrashValue(pathParams) != null) {
-                System.out.println(scenarioTrash.getTrashValue(pathParams));
                 apiRequestBuilder.pathParams(pathParams, scenarioTrash.getTrashValue(pathParams));
             } else {
-                System.out.println(scenarioContext.getEnvData(pathParams));
                 apiRequestBuilder.pathParams(pathParams, scenarioContext.getEnvData(pathParams));
             }
         }
