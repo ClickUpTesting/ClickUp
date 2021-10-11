@@ -13,7 +13,6 @@ package core.utils;
 import io.cucumber.messages.internal.com.google.gson.JsonObject;
 import io.cucumber.messages.internal.com.google.gson.JsonParser;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -23,7 +22,7 @@ import java.util.Map;
 public class JsonFileManager {
 
     /**
-     * Reads a file json.
+     * Reads a json file.
      *
      * @param pathFile a path of file to read
      * @return a string with content of file

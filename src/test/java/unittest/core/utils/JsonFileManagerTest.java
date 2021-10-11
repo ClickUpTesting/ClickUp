@@ -8,8 +8,9 @@
  * @author Gustavo Huanca
  */
 
-package core.utils;
+package unittest.core.utils;
 
+import core.utils.JsonFileManager;
 import org.testng.annotations.Test;
 
 import java.io.IOException;

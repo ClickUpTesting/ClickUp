@@ -8,8 +8,10 @@
  * @author Gustavo Huanca
  */
 
-package core.utils;
+package unittest.core.utils;
 
+import core.utils.JsonFileManager;
+import core.utils.MapStringStringToStringObject;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -23,7 +25,7 @@ public class MapStringStringToStringObjectTest {
     JsonFileManager jsonFileManager = new JsonFileManager();
 
     @Test
-    public void testBuildMapStringObject() throws IOException {
+    public void testToWriteJsonObjectInMap() throws IOException {
         Map<String, String> mapInformation = new HashMap<>();
         mapInformation.put("id", "1");
         mapInformation.put("name", "John Doe");
@@ -44,7 +46,7 @@ public class MapStringStringToStringObjectTest {
     }
 
     @Test
-    public void testBuildMapStringObject2() throws IOException {
+    public void testToWriteJsonArrayInMap() throws IOException {
         Map<String, String> mapInformation = new HashMap<>();
         mapInformation.put("id", "1");
         mapInformation.put("name", "John Doe");
@@ -64,7 +66,7 @@ public class MapStringStringToStringObjectTest {
     }
 
     @Test
-    public void testBuildMapStringObject3() throws IOException {
+    public void testToWriteJsonWithExampleTag() throws IOException {
         Map<String, String> mapInformation = new HashMap<>();
         mapInformation.put("tag{name", "API V2");
         mapInformation.put("tag{tag_fg", "#ffffff");
@@ -75,7 +77,7 @@ public class MapStringStringToStringObjectTest {
     }
 
     @Test
-    public void testBuildMapStringObject5() throws IOException {
+    public void testToWriteJsonConcatenatedWithJsonFile() throws IOException {
         Map<String, String> mapInformation = new HashMap<>();
         mapInformation.put("id", "1");
         mapInformation.put("name", "John Doe");
