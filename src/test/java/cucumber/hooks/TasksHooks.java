@@ -11,7 +11,8 @@
 package cucumber.hooks;
 
 import clickup.ApiEndpoints;
-import clickup.entities.features.Tasks.TasksResponse;
+import clickup.api.ApiFacade;
+import clickup.entities.features.Tasks.Task;
 import clickup.utils.ScenarioContext;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,12 +21,14 @@ import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
 import static core.utils.RandomCustom.random;
 
 public class TasksHooks {
     private ApiRequestBuilder apiRequestBuilder;
+    private ApiFacade apiFacade = new ApiFacade();
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
     private ApiRequest apiRequest;
     private ApiResponse apiResponse;
@@ -37,18 +40,23 @@ public class TasksHooks {
 
     @Before(value = "@AddTagToTask", order = 3)
     public void createTask() throws JsonProcessingException {
-        TasksResponse tasksResponse = new TasksResponse();
-        tasksResponse.setName("Task before From API".concat(random()));
+        Task task = new Task();
+        task.setName("Task before From API".concat(random()));
         apiRequestBuilder
                 .cleanParams()
                 .method(ApiMethod.POST)
                 .endpoint(ApiEndpoints.CREATE_TASK.getEndpoint())
                 .pathParams("list_id", scenarioContext.getEnvData("list_id"))
-                .body(new ObjectMapper().writeValueAsString(tasksResponse))
+                .body(new ObjectMapper().writeValueAsString(task))
                 .build();
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
-        scenarioContext.setBaseEnvironment("task_id", apiResponse.getBody(TasksResponse.class).getId());
+        scenarioContext.setBaseEnvironment("task_id", apiResponse.getBody(Task.class).getId());
         apiResponse.getResponse().then().log().body();
+    }
+
+    @After(value = "@DeleteTask", order = 2)
+    public void deleteList() {
+        apiFacade.deleteObject(ApiEndpoints.DELETE_TASK, "task_id", scenarioContext.getEnvData("task_id"));
     }
 }

@@ -19,11 +19,14 @@ import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
+import core.utils.JsonFileManager;
+import core.utils.MapStringStringToStringObject;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.json.JSONObject;
 import org.testng.asserts.SoftAssert;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -57,14 +60,15 @@ public class ApiSteps {
     }
 
     @When("^I set the request body with following values:$")
-    public void setsRequestBody(final Map<String, String> body) {
+    public void setsRequestBody(final Map<String, String> body) throws IOException {
         try {
             IFeature feature = featureFactory.getFeature(featureName);
             feature.setAllFields(body);
             apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));
         } catch (Exception e) {
-            JSONObject jsonBody = new JSONObject(body);
-            apiRequestBuilder.body(jsonBody.toString());
+            MapStringStringToStringObject converter = new MapStringStringToStringObject();
+            JsonFileManager jsonFileManager = new JsonFileManager();
+            apiRequestBuilder.body(jsonFileManager.writeJson(converter.buildMapStringObject(body)));
         }
     }
 
