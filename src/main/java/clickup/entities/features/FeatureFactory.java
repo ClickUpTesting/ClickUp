@@ -10,7 +10,7 @@
 
 package clickup.entities.features;
 
-import clickup.entities.features.Tasks.Task;
+import clickup.entities.features.tasks.Task;
 import clickup.entities.features.checklists.Checklists;
 import clickup.entities.features.folders.Folder;
 import clickup.entities.features.lists.Lisst;

@@ -11,7 +11,7 @@
 package clickup.requests;
 
 import clickup.ApiEndpoints;
-import clickup.entities.features.tasks.TasksResponse;
+import clickup.entities.features.tasks.Task;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import static core.utils.RandomCustom.random;
@@ -26,11 +26,11 @@ public class TasksRequests extends BaseRequest {
      * @author Jorge Caceres
      */
     public String createTask() throws JsonProcessingException {
-        TasksResponse tasksResponse = new TasksResponse();
-        tasksResponse.setName("Task created in TasksHooks From API".concat(random()));
-        apiResponse = apiFacade.createObject(tasksResponse, ApiEndpoints.CREATE_TASK, "list_id",
+        Task task = new Task();
+        task.setName("Task created in TasksHooks From API".concat(random()));
+        apiResponse = apiFacade.createObject(task, ApiEndpoints.CREATE_TASK, "list_id",
                 scenarioContext.getEnvData("list_id"));
-        return apiResponse.getBody(TasksResponse.class).getId();
+        return apiResponse.getBody(Task.class).getId();
     }
 
     /**
@@ -50,8 +50,8 @@ public class TasksRequests extends BaseRequest {
      * @return TaskResponse
      * @author Jorge Caceres
      */
-    public TasksResponse getTask(final String taskId) {
+    public Task getTask(final String taskId) {
         apiResponse = apiFacade.getObject(ApiEndpoints.GET_TASK, "task_id", taskId);
-        return apiResponse.getBody(TasksResponse.class);
+        return apiResponse.getBody(Task.class);
     }
 }
