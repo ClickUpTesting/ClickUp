@@ -16,8 +16,9 @@ Feature: Create task
       | start_date      | 1567780450202                                               |
       | start_date_time | false                                                       |
       | notify_all      | true                                                        |
+      | parent          | null                                                        |
+      | links_to        | null                                                        |
       | Custom fields   | src\test\resources\json\tasks\custom_fields_by_defects.json |
-
-    And I execute the POST request
+      And I execute the POST request
     Then I verify that the response status is 200
-    And I verify the schema matches the file: schemas/task/create_task_all_fields.json
+      And I verify the schema matches the file: schemas/task/create_task_all_fields.json
