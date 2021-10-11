@@ -19,8 +19,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Map;
 
-import static core.utils.GetPath.getPathCorrect;
-
 public class JsonFileManager {
 
     /**
@@ -32,7 +30,7 @@ public class JsonFileManager {
      * @author Gustavo Huanca
      */
     public String readFileJson(final String pathFile) throws IOException {
-        Reader reader = Files.newBufferedReader(Paths.get(getPathCorrect(pathFile)));
+        Reader reader = Files.newBufferedReader(Paths.get(pathFile));
         JsonObject parser = JsonParser.parseReader(reader).getAsJsonObject();
         return parser.toString();
     }
@@ -46,7 +44,7 @@ public class JsonFileManager {
      * @author Gustavo Huanca
      */
     public JsonObject readFileJsonToJsonObject(final String pathFile) throws IOException {
-        Reader reader = Files.newBufferedReader(Paths.get(getPathCorrect(pathFile)));
+        Reader reader = Files.newBufferedReader(Paths.get(pathFile));
         JsonObject parser = JsonParser.parseReader(reader).getAsJsonObject();
         return parser;
     }
