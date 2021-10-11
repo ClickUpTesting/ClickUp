@@ -16,7 +16,6 @@ import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-
 import java.util.Locale;
 
 import static core.utils.RandomCustom.generateFourRandom;
@@ -51,7 +50,7 @@ public class TagsHooks {
     }
 
     @Before(value = "@AddTagToTask")
-    public void addTagToTask(){
+    public void addTagToTask() {
         String tagName = "tag".concat(generateFourRandom()).toLowerCase(Locale.ROOT);
         tagsRequest.createTag(tagName);
         scenarioTrash.setScenarioTrash("tag_name", tagName);

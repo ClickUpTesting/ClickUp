@@ -54,7 +54,7 @@ public class TasksRequests extends BaseRequest {
      * @return TaskResponse
      * @author Jorge Caceres
      */
-    public TasksResponse getTask(final String taskId){
+    public TasksResponse getTask(final String taskId) {
         apiRequest = apiRequestBuilder
                 .clearBody()
                 .endpoint(ApiEndpoints.GET_TASK.getEndpoint())
