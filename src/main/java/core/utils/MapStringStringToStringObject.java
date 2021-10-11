@@ -51,7 +51,6 @@ public class MapStringStringToStringObject {
      */
     public Map<String, Object> buildMapStringObject(final Map<String, String> mapConverter) throws IOException {
         Map<String, String> mapInformation = new TreeMap<>(mapConverter);
-
         mapMain = new HashMap<>();
         for (String key : mapInformation.keySet()) {
             analyser(key, mapInformation.get(key));
