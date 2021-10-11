@@ -13,7 +13,7 @@ package cucumber.steps;
 import clickup.entities.features.GetAllFeatures;
 import clickup.entities.features.tags.Tag;
 import clickup.entities.features.tags.Tags;
-import clickup.entities.features.tasks.TasksResponse;
+import clickup.entities.features.tasks.Task;
 import clickup.requests.TagsRequest;
 import clickup.requests.TasksRequests;
 import clickup.utils.ScenarioContext;
@@ -110,8 +110,8 @@ public class TagsSteps {
 
     @Then("I verify that the tag does not exist in the task")
     public void verifyTagAbsenceByName() {
-        TasksResponse tasksResponse = tasksRequests.getTask(scenarioContext.getEnvData("task_id"));
-        List<Tag> tagsList = tasksResponse.getTags();
+        Task task = tasksRequests.getTask(scenarioContext.getEnvData("task_id"));
+        List<Tag> tagsList = task.getTags();
         String tagName = scenarioTrash.getTrashValue("tag_name");
         boolean isInTask = tagsList.stream().anyMatch(tag -> tag.getName().equals(tagName));
         softAssert.assertFalse(isInTask);

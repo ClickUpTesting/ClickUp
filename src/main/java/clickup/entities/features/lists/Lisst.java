@@ -18,12 +18,14 @@ import clickup.entities.StatusesItem;
 import clickup.entities.features.IFeature;
 import clickup.entities.features.folders.Folder;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 import static core.utils.RandomCustom.random;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Lisst implements IFeature {
     @JsonProperty("orderindex")

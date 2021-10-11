@@ -12,14 +12,17 @@ package clickup.entities.features.tasks;
 
 import clickup.entities.Space;
 import clickup.entities.Status;
+import clickup.entities.features.IFeature;
 import clickup.entities.features.folders.Folder;
 import clickup.entities.features.tags.Tag;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TasksResponse {
+public class Task implements IFeature {
     public String id;
     public Object custom_id;
     public String name;
@@ -336,5 +339,20 @@ public class TasksResponse {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String getIdentifier() {
+        return id;
+    }
+
+    @Override
+    public String getRequiredField() {
+        return null;
+    }
+
+    @Override
+    public void setDefaultValues() {
+
     }
 }
