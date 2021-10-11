@@ -122,4 +122,27 @@ public class ApiFacade {
         scenarioContext.getTrashList(NameTrashList).clear();
         return apiResponse;
     }
+
+    /**
+     * Gets an object from API.
+     * This request only permits set one pathParams.
+     *
+     * @param endpoint        is the objet's endpoint
+     * @param pathParams      is pathParams of request
+     * @param valuePathParams is valuePathParams of request
+     * @return an ApiResponse
+     * @author Jorge Caceres
+     */
+    public ApiResponse getObject(final ApiEndpoints endpoint, final String pathParams,
+                                    final String valuePathParams) {
+        apiRequest = apiRequestBuilder
+                .clearBody()
+                .endpoint(endpoint.getEndpoint())
+                .pathParams(pathParams, valuePathParams)
+                .method(ApiMethod.GET)
+                .build();
+        ApiManager.execute(apiRequest, apiResponse);
+        apiResponse.getResponse().then().log().body();
+        return apiResponse;
+    }
 }

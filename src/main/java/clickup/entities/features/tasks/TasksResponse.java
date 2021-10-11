@@ -15,6 +15,7 @@ import clickup.entities.Status;
 import clickup.entities.features.folders.Folder;
 import clickup.entities.features.tags.Tag;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -25,10 +26,14 @@ public class TasksResponse {
     public Object text_content;
     public Object description;
     public Status status;
-    public String orderindex;
-    public String date_created;
-    public String date_updated;
-    public Object date_closed;
+    @JsonProperty("orderindex")
+    public String orderIndex;
+    @JsonProperty("date_created")
+    public String dateCreated;
+    @JsonProperty("date_updated")
+    public String dateUpdated;
+    @JsonProperty("date_closed")
+    public Object dateClosed;
     public boolean archived;
     public Object creator;
     public List<Object> assignees;
@@ -37,21 +42,37 @@ public class TasksResponse {
     public List<Tag> tags;
     public Object parent;
     public Object priority;
-    public Object due_date;
-    public Object start_date;
+    @JsonProperty("due_date")
+    public Object dueDate;
+    @JsonProperty("start_date")
+    public Object startDate;
     public Object points;
-    public Object time_estimate;
+    @JsonProperty("time_estimate")
+    public Object timeEstimate;
     public int time_spent;
-    public List<Object> custom_fields;
+    @JsonProperty("custom_fields")
+    public List<Object> customFields;
     public List<Object> dependencies;
-    public List<Object> linked_tasks;
-    public String team_id;
+    @JsonProperty("linked_tasks")
+    public List<Object> linkedTasks;
+    @JsonProperty("team_id")
+    public String teamId;
     public String url;
-    public String permission_level;
+    @JsonProperty("permission_level")
+    public String permissionLevel;
     public Object list;
     public Object project;
     public Folder folder;
     public Space space;
+    public String[] attachments;
+
+    public String[] getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(String[] attachments) {
+        this.attachments = attachments;
+    }
 
     public Object getCustom_id() {
         return custom_id;
@@ -85,36 +106,36 @@ public class TasksResponse {
         this.status = status;
     }
 
-    public String getOrderindex() {
-        return orderindex;
+    public String getOrderIndex() {
+        return orderIndex;
     }
 
-    public void setOrderindex(String orderindex) {
-        this.orderindex = orderindex;
+    public void setOrderIndex(String orderIndex) {
+        this.orderIndex = orderIndex;
     }
 
-    public String getDate_created() {
-        return date_created;
+    public String getDateCreated() {
+        return dateCreated;
     }
 
-    public void setDate_created(String date_created) {
-        this.date_created = date_created;
+    public void setDateCreated(String dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
-    public String getDate_updated() {
-        return date_updated;
+    public String getDateUpdated() {
+        return dateUpdated;
     }
 
-    public void setDate_updated(String date_updated) {
-        this.date_updated = date_updated;
+    public void setDateUpdated(String dateUpdated) {
+        this.dateUpdated = dateUpdated;
     }
 
-    public Object getDate_closed() {
-        return date_closed;
+    public Object getDateClosed() {
+        return dateClosed;
     }
 
-    public void setDate_closed(Object date_closed) {
-        this.date_closed = date_closed;
+    public void setDateClosed(Object dateClosed) {
+        this.dateClosed = dateClosed;
     }
 
     public boolean isArchived() {
@@ -181,20 +202,20 @@ public class TasksResponse {
         this.priority = priority;
     }
 
-    public Object getDue_date() {
-        return due_date;
+    public Object getDueDate() {
+        return dueDate;
     }
 
-    public void setDue_date(Object due_date) {
-        this.due_date = due_date;
+    public void setDueDate(Object dueDate) {
+        this.dueDate = dueDate;
     }
 
-    public Object getStart_date() {
-        return start_date;
+    public Object getStartDate() {
+        return startDate;
     }
 
-    public void setStart_date(Object start_date) {
-        this.start_date = start_date;
+    public void setStartDate(Object startDate) {
+        this.startDate = startDate;
     }
 
     public Object getPoints() {
@@ -205,12 +226,12 @@ public class TasksResponse {
         this.points = points;
     }
 
-    public Object getTime_estimate() {
-        return time_estimate;
+    public Object getTimeEstimate() {
+        return timeEstimate;
     }
 
-    public void setTime_estimate(Object time_estimate) {
-        this.time_estimate = time_estimate;
+    public void setTimeEstimate(Object timeEstimate) {
+        this.timeEstimate = timeEstimate;
     }
 
     public int getTime_spent() {
@@ -221,12 +242,12 @@ public class TasksResponse {
         this.time_spent = time_spent;
     }
 
-    public List<Object> getCustom_fields() {
-        return custom_fields;
+    public List<Object> getCustomFields() {
+        return customFields;
     }
 
-    public void setCustom_fields(List<Object> custom_fields) {
-        this.custom_fields = custom_fields;
+    public void setCustomFields(List<Object> customFields) {
+        this.customFields = customFields;
     }
 
     public List<Object> getDependencies() {
@@ -237,20 +258,20 @@ public class TasksResponse {
         this.dependencies = dependencies;
     }
 
-    public List<Object> getLinked_tasks() {
-        return linked_tasks;
+    public List<Object> getLinkedTasks() {
+        return linkedTasks;
     }
 
-    public void setLinked_tasks(List<Object> linked_tasks) {
-        this.linked_tasks = linked_tasks;
+    public void setLinkedTasks(List<Object> linkedTasks) {
+        this.linkedTasks = linkedTasks;
     }
 
-    public String getTeam_id() {
-        return team_id;
+    public String getTeamId() {
+        return teamId;
     }
 
-    public void setTeam_id(String team_id) {
-        this.team_id = team_id;
+    public void setTeamId(String teamId) {
+        this.teamId = teamId;
     }
 
     public String getUrl() {
@@ -261,12 +282,12 @@ public class TasksResponse {
         this.url = url;
     }
 
-    public String getPermission_level() {
-        return permission_level;
+    public String getPermissionLevel() {
+        return permissionLevel;
     }
 
-    public void setPermission_level(String permission_level) {
-        this.permission_level = permission_level;
+    public void setPermissionLevel(String permissionLevel) {
+        this.permissionLevel = permissionLevel;
     }
 
     public Object getList() {

@@ -94,6 +94,17 @@ public class ApiRequestBuilder implements IBuilderApiRequest {
     }
 
     /**
+     * Removes all on a Body.
+     *
+     * @return ApiRequest in order to build request
+     * @author Jorge Caceres
+     */
+    public ApiRequestBuilder clearBody() {
+        this.apiRequest.clearBody();
+        return this;
+    }
+
+    /**
      * Sets params to request.
      *
      * @param param is the key of param

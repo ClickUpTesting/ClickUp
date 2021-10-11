@@ -42,4 +42,16 @@ public class TasksRequests extends BaseRequest {
     public void deleteTask(final String id) {
         apiFacade.deleteObject(ApiEndpoints.DELETE_TASK, "task_id", id);
     }
+
+    /**
+     * Gets a task.
+     *
+     * @param taskId the task id to be deleted
+     * @return TaskResponse
+     * @author Jorge Caceres
+     */
+    public TasksResponse getTask(final String taskId) {
+        apiResponse = apiFacade.getObject(ApiEndpoints.GET_TASK, "task_id", taskId);
+        return apiResponse.getBody(TasksResponse.class);
+    }
 }
