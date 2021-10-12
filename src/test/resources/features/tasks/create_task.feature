@@ -1,7 +1,7 @@
 Feature: Create task
 
   @CreateList @DeleteTask
-  Scenario: As a user I want to create a list with required field
+  Scenario: As a user I want to create a task with required field
     Given I set the task with request endpoint to /list/{list_id}/task
     When I set the request body with following values:
       | name | My Task created |
@@ -10,7 +10,7 @@ Feature: Create task
       And I verify the schema matches the file: schemas/task/create_task_required_field.json
 
   @CreateList @DeleteTask
-  Scenario: As a user I want to create a list with all fields
+  Scenario: As a user I want to create a task with all fields
     Given I set the task with request endpoint to /list/{list_id}/task
     When I set the request body with following values:
       | name            | My Task created                                             |
