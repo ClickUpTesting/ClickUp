@@ -36,16 +36,14 @@ public class ViewsSteps {
     private ApiRequestBuilder requestBuilder = new ApiRequestBuilder();
     private ApiResponse apiResponse;
     private ApiRequest apiRequest;
-    private ScenarioTrash scenarioTrash;
+    private ScenarioTrash scenarioTrash = new ScenarioTrash();
     private int actual;
     private ApiResponse response = new ApiResponse();
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
     private SoftAssert softAssert;
 
-    public ViewsSteps(ApiRequestBuilder apiRequestBuilder, ScenarioTrash scenarioTrash, ApiResponse apiResponse,
-                      SoftAssert softAssert) {
+    public ViewsSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, SoftAssert softAssert) {
         this.apiRequestBuilder = apiRequestBuilder;
-        this.scenarioTrash = scenarioTrash;
         this.apiResponse = apiResponse;
         this.softAssert = softAssert;
     }
