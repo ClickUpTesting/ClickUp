@@ -11,7 +11,7 @@
 package cucumber.steps;
 
 import clickup.ApiEndpoints;
-import clickup.entities.features.GetAllFeatures;
+import clickup.entities.features.IGetAllFeatures;
 import clickup.entities.features.views.Views;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
@@ -84,7 +84,7 @@ public class ViewsSteps {
                 .method(ApiMethod.GET);
         apiRequest = requestBuilder.build();
         ApiManager.execute(apiRequest, response);
-        GetAllFeatures features = response.getBody(Views.class);
+        IGetAllFeatures features = response.getBody(Views.class);
         actual = features.getAmount();
     }
 
@@ -115,7 +115,7 @@ public class ViewsSteps {
 
     @Then("^I verify the amount of views has increased by (.*)$")
     public void verifiesTheAmountOfTeamViewsHasIncreased(final int addedViews) {
-        GetAllFeatures featureResponse = apiResponse.getBody(Views.class);
+        IGetAllFeatures featureResponse = apiResponse.getBody(Views.class);
         int expected = featureResponse.getAmount();
         softAssert.assertEquals(actual + addedViews, expected);
     }

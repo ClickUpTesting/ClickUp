@@ -10,8 +10,8 @@
 
 package clickup.entities.features.views;
 
-import clickup.entities.features.GetAllFeatures;
 import clickup.entities.features.IFeature;
+import clickup.entities.features.IGetAllFeatures;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,7 +19,7 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Views implements IFeature, GetAllFeatures {
+public class Views implements IFeature, IGetAllFeatures {
     @JsonProperty("view")
     private View view;
     @JsonProperty("views")
