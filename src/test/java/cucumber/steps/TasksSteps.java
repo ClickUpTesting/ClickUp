@@ -25,9 +25,6 @@ import core.api.ApiResponse;
 import core.api.ApiHeaders;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 
 import java.util.LinkedList;
 
