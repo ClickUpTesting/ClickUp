@@ -10,13 +10,13 @@
 
 package clickup.entities.features.tags;
 
-import clickup.entities.features.GetAllFeatures;
+import clickup.entities.features.IGetAllFeatures;
 import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Tags implements GetAllFeatures, IFeature {
+public class Tags implements IGetAllFeatures, IFeature {
     public List<Tag> tags;
 
     public List<Tag> getTags() {

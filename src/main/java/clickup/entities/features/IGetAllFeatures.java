@@ -10,7 +10,7 @@
 
 package clickup.entities.features;
 
-public interface GetAllFeatures {
+public interface IGetAllFeatures {
 
     /**
      * Gets the list's size.

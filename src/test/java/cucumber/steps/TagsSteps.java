@@ -10,7 +10,7 @@
 
 package cucumber.steps;
 
-import clickup.entities.features.GetAllFeatures;
+import clickup.entities.features.IGetAllFeatures;
 import clickup.entities.features.tags.Tag;
 import clickup.entities.features.tags.Tags;
 import clickup.entities.features.tasks.Task;
@@ -66,14 +66,6 @@ public class TagsSteps {
         apiRequestBuilder.body(jsonBody.toString());
     }
 
-    @When("^I execute the (.*) request for tags$")
-    public void executesRequest(final String method) {
-        apiRequest = apiRequestBuilder
-                .method(ApiMethod.valueOf(method)).build();
-        ApiManager.execute(apiRequest, apiResponse);
-        apiResponse.getResponse().then().log().all();
-    }
-
     @When("I add the amount of {int} to the total of tags")
     public void tagsBulkAdd(int amount) {
         LinkedList<String> tagsTrashList = new LinkedList<>();
@@ -93,7 +85,7 @@ public class TagsSteps {
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
         apiResponse.getResponse().then().log().body();
-        GetAllFeatures featureResponse =  apiResponse.getBody(Tags.class);
+        IGetAllFeatures featureResponse =  apiResponse.getBody(Tags.class);
         scenarioContext.setFeatures("Initial status", featureResponse);
     }
 
@@ -102,7 +94,7 @@ public class TagsSteps {
         int actual = scenarioContext.getFeatures("Initial status").getAmount() + amount;
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
-        GetAllFeatures featureResponse = apiResponse.getBody(Tags.class);
+        IGetAllFeatures featureResponse = apiResponse.getBody(Tags.class);
         int expected = featureResponse.getAmount();
         softAssert.assertEquals(actual, expected);
         softAssert.assertAll();

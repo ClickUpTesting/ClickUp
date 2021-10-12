@@ -10,14 +10,14 @@
 
 package clickup.utils;
 
-import clickup.entities.features.GetAllFeatures;
+import clickup.entities.features.IGetAllFeatures;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
 public class ScenarioContext {
     private Map<String, String> baseEnvironment;
-    private Map<String, GetAllFeatures> featuresAmount;
+    private Map<String, IGetAllFeatures> featuresAmount;
     private Map<String, LinkedList> trash;
     private static ScenarioContext instance;
 
@@ -80,7 +80,7 @@ public class ScenarioContext {
      * @param feature that will contain the feature's map
      * @author Jorge Caceres
      */
-    public void setFeatures(final String key, final GetAllFeatures feature) {
+    public void setFeatures(final String key, final IGetAllFeatures feature) {
         featuresAmount.put(key, feature);
     }
 
@@ -91,7 +91,7 @@ public class ScenarioContext {
      * @return feature stored on the map
      * @author Jorge Caceres
      */
-    public GetAllFeatures getFeatures(final String key) {
+    public IGetAllFeatures getFeatures(final String key) {
         return featuresAmount.get(key);
     }
 
