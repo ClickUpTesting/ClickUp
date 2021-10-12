@@ -34,4 +34,9 @@ public class ViewHooks {
     public void deleteFolder() {
         viewsRequest.deleteView(scenarioTrash.getTrashValue("view_id"));
     }
+
+    @After(value = "@DeleteViews")
+    public void deleteFolders() {
+        viewsRequest.deleteViews();
+    }
 }
