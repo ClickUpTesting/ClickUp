@@ -12,6 +12,7 @@ package clickup.requests;
 
 import clickup.ApiEndpoints;
 import clickup.entities.features.checklists.Checklist;
+import clickup.entities.features.checklists.Checklists;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import static core.utils.RandomCustom.random;
@@ -30,7 +31,7 @@ public class ChecklistRequest extends BaseRequest {
         checklist.setName("Checklist created by API".concat(random()));
         apiResponse = apiFacade.createObject(checklist, ApiEndpoints.CREATE_CHECKLIST, "task_id",
                 scenarioContext.getEnvData("task_id"));
-        return apiResponse.getBody(Checklist.class).getId();
+        return apiResponse.getBody(Checklists.class).getIdentifier();
     }
 
     /**

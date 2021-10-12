@@ -1,6 +1,6 @@
 Feature: Create checklist
 
-  @ChecklistBase @DeleteList
+  @DeleteList
   Scenario: As a user I want to create a checklist
     Given I set the checklist with request endpoint to /task/{task_id}/checklist
     When I set the request body with following values:
