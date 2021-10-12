@@ -11,7 +11,7 @@
 package cucumber.steps;
 
 import clickup.ApiEndpoints;
-import clickup.entities.features.GetAllFeatures;
+import clickup.entities.features.IGetAllFeatures;
 import clickup.entities.features.folders.Folder;
 import clickup.entities.features.folders.Folders;
 import clickup.utils.ScenarioContext;
@@ -68,7 +68,7 @@ public class FoldersSteps {
 
     @Then("I verify the amount of folders has increased by {int}")
     public void verifiesTheAmountOfFoldersHasIncreased(int addedFolders) {
-        GetAllFeatures featureResponse = apiResponse.getBody(Folders.class);
+        IGetAllFeatures featureResponse = apiResponse.getBody(Folders.class);
         int expected = featureResponse.getAmount();
         softAssert.assertEquals(actual + addedFolders, expected);
     }
@@ -88,7 +88,7 @@ public class FoldersSteps {
                 .method(ApiMethod.GET);
         apiRequest = requestBuilder.build();
         ApiManager.execute(apiRequest, response);
-        GetAllFeatures features = response.getBody(Folders.class);
+        IGetAllFeatures features = response.getBody(Folders.class);
         actual = features.getAmount();
     }
 }

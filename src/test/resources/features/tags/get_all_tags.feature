@@ -10,5 +10,5 @@ Feature: Get all Tags
   @CreateTag @DeleteTag
   Scenario: As a user I want to get all tags
     Given I set the tags with request endpoint to /space/{space_id}/tag
-    When I execute the GET request for tags
+    When I execute a GET request
     Then I verify that the response status is 200

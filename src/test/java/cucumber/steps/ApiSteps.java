@@ -66,6 +66,14 @@ public class ApiSteps {
         }
     }
 
+    @When("^I execute a (.*) request$")
+    public void executesSimpleRequest(final String method) {
+        apiRequest = apiRequestBuilder
+                .method(ApiMethod.valueOf(method)).build();
+        ApiManager.execute(apiRequest, apiResponse);
+        apiResponse.getResponse().then().log().all();
+    }
+
     @When("^I set the request body with following values:$")
     public void setsRequestBody(final Map<String, String> body) throws IOException {
         try {

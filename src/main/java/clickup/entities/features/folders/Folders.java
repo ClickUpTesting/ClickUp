@@ -10,10 +10,10 @@
 
 package clickup.entities.features.folders;
 
-import clickup.entities.features.GetAllFeatures;
+import clickup.entities.features.IGetAllFeatures;
 import java.util.List;
 
-public class Folders implements GetAllFeatures {
+public class Folders implements IGetAllFeatures {
     private List<Folder> folders;
 
     @Override
