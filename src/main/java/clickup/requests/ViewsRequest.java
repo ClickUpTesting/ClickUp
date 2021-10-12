@@ -14,7 +14,11 @@ import clickup.ApiEndpoints;
 import clickup.entities.features.views.View;
 import clickup.entities.features.views.Views;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import core.api.ApiManager;
+import core.api.ApiMethod;
 import core.api.ApiRequest;
+
+import java.util.LinkedList;
 
 import static core.utils.RandomCustom.random;
 
@@ -44,5 +48,25 @@ public class ViewsRequest extends BaseRequest {
      */
     public void deleteView(final String id) {
         apiFacade.deleteObject(ApiEndpoints.DELETE_VIEW, "view_id", id);
+    }
+
+    /**
+     * Deletes a folder's list.
+     *
+     * @author Raymundo GuaraGuara
+     */
+    public void deleteViews() {
+        LinkedList<String> viewsTrashList = scenarioContext.getTrashList("Views");
+        apiRequestBuilder
+                .cleanParams()
+                .endpoint(ApiEndpoints.DELETE_VIEW.getEndpoint())
+                .method(ApiMethod.DELETE);
+        for (String viewId : viewsTrashList) {
+            apiRequestBuilder.pathParams("view_id", viewId);
+            apiRequest = apiRequestBuilder.build();
+            ApiManager.execute(apiRequest, apiResponse);
+            apiResponse.getResponse().then().log().body();
+        }
+        scenarioContext.getTrashList("Views").clear();
     }
 }

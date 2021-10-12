@@ -34,7 +34,14 @@ public enum ApiEndpoints {
     GET_FOLDERS("/space/{space_id}/folder"),
     DELETE_FOLDER("/folder/{folder_id}"),
     DELETE_VIEW("/view/{view_id}"),
-    CREATE_TEAM_VIEW("/team/{team_id}/view");
+    CREATE_TEAM_VIEW("/team/{team_id}/view"),
+    CREATE_SPACE_VIEW("/space/{space_id}/view"),
+    CREATE_FOLDER_VIEW("/folder/{folder_id}/view"),
+    CREATE_LIST_VIEW("/list/{list_id}/view"),
+    GET_TEAM_VIEWS("/team/{team_id}/view"),
+    GET_SPACE_VIEWS("/space/{space_id}/view"),
+    GET_FOLDER_VIEWS("/folder/{folder_id}/view"),
+    GET_LIST_VIEWS("/list/{list_id}/view");
 
     private String endpoint;
 
