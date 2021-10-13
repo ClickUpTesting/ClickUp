@@ -1,0 +1,275 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "view": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ]
+        },
+        "grouping": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "dir": {
+              "type": "null"
+            },
+            "collapsed": {
+              "type": "array",
+              "items": {}
+            },
+            "ignore": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "field",
+            "dir",
+            "collapsed",
+            "ignore"
+          ]
+        },
+        "divide": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "null"
+            },
+            "dir": {
+              "type": "null"
+            },
+            "collapsed": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "field",
+            "dir",
+            "collapsed"
+          ]
+        },
+        "sorting": {
+          "type": "object",
+          "properties": {
+            "fields": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "fields"
+          ]
+        },
+        "filters": {
+          "type": "object",
+          "properties": {
+            "op": {
+              "type": "string"
+            },
+            "fields": {
+              "type": "array",
+              "items": {}
+            },
+            "search": {
+              "type": "null"
+            },
+            "search_custom_fields": {
+              "type": "null"
+            },
+            "search_description": {
+              "type": "boolean"
+            },
+            "search_name": {
+              "type": "boolean"
+            },
+            "show_closed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "op",
+            "fields",
+            "search",
+            "search_custom_fields",
+            "search_description",
+            "search_name",
+            "show_closed"
+          ]
+        },
+        "columns": {
+          "type": "object",
+          "properties": {
+            "fields": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "fields"
+          ]
+        },
+        "team_sidebar": {
+          "type": "object",
+          "properties": {
+            "assignees": {
+              "type": "array",
+              "items": {}
+            },
+            "group_assignees": {
+              "type": "array",
+              "items": {}
+            },
+            "assigned_comments": {
+              "type": "boolean"
+            },
+            "unassigned_tasks": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "assignees",
+            "group_assignees",
+            "assigned_comments",
+            "unassigned_tasks"
+          ]
+        },
+        "settings": {
+          "type": "object",
+          "properties": {
+            "show_task_locations": {
+              "type": "boolean"
+            },
+            "show_subtasks": {
+              "type": "integer"
+            },
+            "show_subtask_parent_names": {
+              "type": "boolean"
+            },
+            "show_closed_subtasks": {
+              "type": "boolean"
+            },
+            "show_assignees": {
+              "type": "boolean"
+            },
+            "show_images": {
+              "type": "boolean"
+            },
+            "show_timer": {
+              "type": "null"
+            },
+            "collapse_empty_columns": {
+              "type": "null"
+            },
+            "me_comments": {
+              "type": "boolean"
+            },
+            "me_subtasks": {
+              "type": "boolean"
+            },
+            "me_checklists": {
+              "type": "boolean"
+            },
+            "show_empty_statuses": {
+              "type": "boolean"
+            },
+            "auto_wrap": {
+              "type": "boolean"
+            },
+            "time_in_status_view": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "show_task_locations",
+            "show_subtasks",
+            "show_subtask_parent_names",
+            "show_closed_subtasks",
+            "show_assignees",
+            "show_images",
+            "show_timer",
+            "collapse_empty_columns",
+            "me_comments",
+            "me_subtasks",
+            "me_checklists",
+            "show_empty_statuses",
+            "auto_wrap",
+            "time_in_status_view"
+          ]
+        },
+        "date_created": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "string"
+        },
+        "protected": {
+          "type": "boolean"
+        },
+        "protected_note": {
+          "type": "null"
+        },
+        "protected_by": {
+          "type": "null"
+        },
+        "date_protected": {
+          "type": "null"
+        },
+        "orderindex": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type",
+        "parent",
+        "grouping",
+        "divide",
+        "sorting",
+        "filters",
+        "columns",
+        "team_sidebar",
+        "settings",
+        "date_created",
+        "creator",
+        "visibility",
+        "protected",
+        "protected_note",
+        "protected_by",
+        "date_protected",
+        "orderindex"
+      ]
+    }
+  },
+  "required": [
+    "view"
+  ]
+}
