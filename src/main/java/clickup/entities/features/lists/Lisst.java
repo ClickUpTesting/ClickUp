@@ -12,7 +12,7 @@ package clickup.entities.features.lists;
 
 import clickup.entities.Assignee;
 import clickup.entities.Priority;
-import clickup.entities.Space;
+import clickup.entities.features.spaces.Space;
 import clickup.entities.Status;
 import clickup.entities.StatusesItem;
 import clickup.entities.features.IFeature;

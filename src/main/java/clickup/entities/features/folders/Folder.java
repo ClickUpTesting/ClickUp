@@ -12,7 +12,7 @@ package clickup.entities.features.folders;
 
 import clickup.entities.features.IFeature;
 import clickup.entities.features.lists.Lisst;
-import clickup.entities.Space;
+import clickup.entities.features.spaces.Space;
 import clickup.entities.Status;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
