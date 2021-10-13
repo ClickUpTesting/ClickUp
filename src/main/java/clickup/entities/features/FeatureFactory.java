@@ -12,6 +12,7 @@ package clickup.entities.features;
 
 import clickup.entities.features.spaces.Space;
 import clickup.entities.features.checklists.ChecklistItems;
+import clickup.entities.features.comment.Comment;
 import clickup.entities.features.tasks.Task;
 import clickup.entities.features.checklists.Checklists;
 import clickup.entities.features.folders.Folder;
@@ -46,6 +47,8 @@ public class FeatureFactory {
                 return new Checklists();
             case "checklistItem":
                 return new ChecklistItems();
+            case "comment":
+                return new Comment();
             case "views":
                 return new Views();
             case "space":
