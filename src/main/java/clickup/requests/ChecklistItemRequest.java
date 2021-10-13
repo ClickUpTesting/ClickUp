@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Jorge Caceres
+ */
+
 package clickup.requests;
 
 import clickup.ApiEndpoints;
@@ -7,7 +17,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
-
 import java.util.List;
 
 import static core.utils.RandomCustom.random;
