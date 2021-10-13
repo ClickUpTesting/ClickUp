@@ -27,6 +27,7 @@ public enum ApiEndpoints {
     CREATE_TASK("/list/{list_id}/task"),
     DELETE_TASK("/task/{task_id}"),
     GET_TASK("/task/{task_id}"),
+    GET_TASKS("/list/{list_id}/task"),
     CREATE_CHECKLIST("/task/{task_id}/checklist"),
     UPDATE_CHECKLIST("/checklist/{checklist_id}"),
     DELETE_CHECKLIST("/checklist/{checklist_id}"),
