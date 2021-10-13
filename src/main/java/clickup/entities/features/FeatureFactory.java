@@ -15,6 +15,7 @@ import clickup.entities.features.checklists.Checklists;
 import clickup.entities.features.folders.Folder;
 import clickup.entities.features.lists.Lisst;
 import clickup.entities.features.tags.Tags;
+import clickup.entities.features.tasks.Tasks;
 import clickup.entities.features.views.Views;
 
 public class FeatureFactory {
@@ -37,6 +38,8 @@ public class FeatureFactory {
                 return new Folder();
             case "task":
                 return new Task();
+            case "tasks":
+                return new Tasks();
             case "checklist":
                 return new Checklists();
             case "views":
