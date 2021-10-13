@@ -10,7 +10,6 @@
 
 package clickup.entities.features.checklists;
 
-import clickup.entities.Items;
 import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -32,7 +31,7 @@ public class Checklist implements IFeature {
     private int creator;
     private int resolved;
     private int unresolved;
-    private List<Items> items;
+    private List<ChecklistItems> items;
     private boolean enabled;
 
     public String getId() {
@@ -99,11 +98,11 @@ public class Checklist implements IFeature {
         this.unresolved = unresolved;
     }
 
-    public List<Items> getItems() {
+    public List<ChecklistItems> getItems() {
         return items;
     }
 
-    public void setItems(List<Items> items) {
+    public void setItems(List<ChecklistItems> items) {
         this.items = items;
     }
 
