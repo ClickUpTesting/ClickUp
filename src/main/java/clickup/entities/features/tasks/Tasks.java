@@ -10,9 +10,11 @@
 
 package clickup.entities.features.tasks;
 
+import clickup.entities.features.IFeature;
+
 import java.util.List;
 
-public class Tasks {
+public class Tasks implements IFeature {
     private List<Task> tasks;
 
     public List<Task> getTasks() {
@@ -21,5 +23,20 @@ public class Tasks {
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    @Override
+    public String getIdentifier() {
+        return null;
+    }
+
+    @Override
+    public String getRequiredField() {
+        return null;
+    }
+
+    @Override
+    public void setDefaultValues() {
+
     }
 }
