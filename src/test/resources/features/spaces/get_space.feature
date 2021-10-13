@@ -5,4 +5,4 @@ Feature: Get Space
     Given I set the space with request endpoint to /space/{space_id}
     When I execute the GET request
     Then I verify that the response status is 200
-    And I verify the schema matches the file: schemas/space/create_space.json
+      And I verify the schema matches the file: schemas/space/create_space.json
