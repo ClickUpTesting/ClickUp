@@ -63,9 +63,9 @@ public class TagsRequest extends BaseRequest {
     }
 
     /**
-     * Adds a tag to a task.
+     * Removes a tag from a task.
      *
-     * @param tagName to be added to a task
+     * @param tagName to be removed from a task
      * @author Jorge Caceres
      */
     public void removeTagFromTask(final String tagName) {

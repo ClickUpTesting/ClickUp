@@ -27,7 +27,7 @@ public class TasksRequests extends BaseRequest {
      */
     public String createTask() throws JsonProcessingException {
         Task task = new Task();
-        task.setName("Task created in TasksHooks From API".concat(random()));
+        task.setName("Task created in TasksRequests From API".concat(random()));
         apiResponse = apiFacade.createObject(task, ApiEndpoints.CREATE_TASK, "list_id",
                 scenarioContext.getEnvData("list_id"));
         return apiResponse.getBody(Task.class).getId();

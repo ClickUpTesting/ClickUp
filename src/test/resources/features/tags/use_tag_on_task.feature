@@ -11,4 +11,4 @@ Feature: Use Tag on Task
     Given I set the tags with request endpoint to /task/{task_id}/tag/{tag_name}
     When I execute a DELETE request
     Then I verify that the tag does not exist in the task
-    And I verify that the response status is 200
+      And I verify that the response status is 200

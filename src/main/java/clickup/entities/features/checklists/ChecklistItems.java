@@ -8,14 +8,15 @@
  * @author Jorge Caceres
  */
 
-package clickup.entities;
+package clickup.entities.features.checklists;
 
+import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public class Items {
-    private String Id;
+public class ChecklistItems implements IFeature {
+    private String id;
     private String name;
     @JsonProperty("orderindex")
     private int orderIndex;
@@ -29,11 +30,11 @@ public class Items {
     private List<Object> children;
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -98,5 +99,20 @@ public class Items {
 
     public void setChildren(List<Object> children) {
         this.children = children;
+    }
+
+    @Override
+    public String getIdentifier() {
+        return id;
+    }
+
+    @Override
+    public String getRequiredField() {
+        return null;
+    }
+
+    @Override
+    public void setDefaultValues() {
+
     }
 }
