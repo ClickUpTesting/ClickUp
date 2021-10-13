@@ -40,6 +40,22 @@ public class ViewsRequest extends BaseRequest {
     }
 
     /**
+     * Creates a team view with conversation type and returns its identifier.
+     *
+     * @return a view_id
+     * @throws JsonProcessingException when the response is not a valid json
+     * @author Gustavo Huanca
+     */
+    public String createTeamViewTypeConversation() throws JsonProcessingException {
+        View view = new View();
+        view.setName("Team View created in ViewHooks From API".concat(random()));
+        view.setType("conversation");
+        apiResponse = apiFacade.createObject(view, ApiEndpoints.CREATE_TEAM_VIEW, "team_id",
+                scenarioContext.getEnvData("team_id"));
+        return apiResponse.getBody(Views.class).getIdentifier();
+    }
+
+    /**
      * Deletes a view.
      *
      * @param id the view id to be deleted

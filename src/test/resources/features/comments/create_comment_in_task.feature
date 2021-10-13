@@ -7,6 +7,6 @@ Feature: Create comment in task
       | comment_text | Task comment content |
       | assignee     | 53480                |
       | notify_all   | true                 |
-    And I execute the POST request
+      And I execute the POST request
     Then I verify that the response status is 200
-    And I verify the schema matches the file: schemas/comment/create_comment_in_task.json
+      And I verify the schema matches the file: schemas/comment/create_comment_in_task.json
