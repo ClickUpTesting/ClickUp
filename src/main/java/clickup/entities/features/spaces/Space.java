@@ -8,8 +8,11 @@
  * @author Gustavo Huanca
  */
 
-package clickup.entities;
+package clickup.entities.features.spaces;
 
+import clickup.entities.Features;
+import clickup.entities.StatusesItem;
+import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,7 +20,7 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
-public class Space {
+public class Space implements IFeature {
     public Features features;
     public boolean archived;
     public boolean jsonMemberPrivate;
@@ -92,5 +95,20 @@ public class Space {
 
     public boolean isMultipleAssignees() {
         return multipleAssignees;
+    }
+
+    @Override
+    public String getIdentifier() {
+        return id;
+    }
+
+    @Override
+    public String getRequiredField() {
+        return null;
+    }
+
+    @Override
+    public void setDefaultValues() {
+
     }
 }

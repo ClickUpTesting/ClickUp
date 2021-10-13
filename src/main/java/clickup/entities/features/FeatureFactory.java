@@ -10,6 +10,7 @@
 
 package clickup.entities.features;
 
+import clickup.entities.features.spaces.Space;
 import clickup.entities.features.checklists.ChecklistItems;
 import clickup.entities.features.tasks.Task;
 import clickup.entities.features.checklists.Checklists;
@@ -47,6 +48,8 @@ public class FeatureFactory {
                 return new ChecklistItems();
             case "views":
                 return new Views();
+            case "space":
+                return new Space();
             default:
                 throw new IllegalAccessException("Feature Not Found");
         }

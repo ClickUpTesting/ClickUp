@@ -10,7 +10,7 @@
 
 package clickup.entities.features.tasks;
 
-import clickup.entities.Space;
+import clickup.entities.features.spaces.Space;
 import clickup.entities.Status;
 import clickup.entities.features.IFeature;
 import clickup.entities.features.folders.Folder;
