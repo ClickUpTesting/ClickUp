@@ -10,6 +10,7 @@
 
 package cucumber.runner;
 
+import clickup.requests.ChecklistRequest;
 import clickup.requests.FoldersRequest;
 import clickup.requests.ListsRequest;
 import clickup.requests.SpaceRequest;
@@ -35,6 +36,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
     private FoldersRequest foldersRequest = new FoldersRequest();
     private ListsRequest listsRequest = new ListsRequest();
     private TasksRequests tasksRequests = new TasksRequests();
+    private ChecklistRequest checklistRequest = new ChecklistRequest();
 
     @BeforeSuite
     public void setBaseEnv() throws JsonProcessingException {
@@ -45,6 +47,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
         scenarioContext.setBaseEnvironment("list_id", listsRequest.createListInFolder());
         scenarioContext.setBaseEnvironment("list_in_space_id", listsRequest.createListInSpace());
         scenarioContext.setBaseEnvironment("task_id", tasksRequests.createTask());
+        scenarioContext.setBaseEnvironment("checklist_id", checklistRequest.createChecklist());
     }
 
     @AfterTest()
