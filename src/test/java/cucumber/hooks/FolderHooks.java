@@ -19,6 +19,7 @@ import io.cucumber.java.Before;
 public class FolderHooks {
     private FoldersRequest foldersRequest;
     private ScenarioTrash scenarioTrash;
+
     public FolderHooks(ScenarioTrash scenarioTrash) {
         this.scenarioTrash = scenarioTrash;
         this.foldersRequest = new FoldersRequest();
@@ -38,5 +39,4 @@ public class FolderHooks {
     public void deleteFolders() {
         foldersRequest.deleteFolders();
     }
-
 }

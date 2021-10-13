@@ -11,7 +11,7 @@
 package clickup.requests;
 
 import clickup.ApiEndpoints;
-import clickup.entities.Space;
+import clickup.entities.features.spaces.Space;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import static core.utils.RandomCustom.random;
