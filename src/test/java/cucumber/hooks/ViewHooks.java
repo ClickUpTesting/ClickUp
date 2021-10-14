@@ -30,6 +30,11 @@ public class ViewHooks {
         scenarioTrash.setScenarioTrash("view_id", viewsRequest.createTeamView());
     }
 
+    @Before(value = "@CreateTeamViewTypeConversation")
+    public void createTeamViewTypeConversation() throws JsonProcessingException {
+        scenarioTrash.setScenarioTrash("view_id", viewsRequest.createTeamViewTypeConversation());
+    }
+
     @After(value = "@DeleteView")
     public void deleteFolder() {
         viewsRequest.deleteView(scenarioTrash.getTrashValue("view_id"));
