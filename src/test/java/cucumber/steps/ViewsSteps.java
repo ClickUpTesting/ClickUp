@@ -36,16 +36,18 @@ public class ViewsSteps {
     private ApiRequestBuilder requestBuilder = new ApiRequestBuilder();
     private ApiResponse apiResponse;
     private ApiRequest apiRequest;
-    private ScenarioTrash scenarioTrash = new ScenarioTrash();
+    private ScenarioTrash scenarioTrash;
     private int actual;
     private ApiResponse response = new ApiResponse();
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
     private SoftAssert softAssert;
 
-    public ViewsSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, SoftAssert softAssert) {
+    public ViewsSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, SoftAssert softAssert,
+                      ScenarioTrash scenarioTrash) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
         this.softAssert = softAssert;
+        this.scenarioTrash = scenarioTrash;
     }
 
     @When("I set the view body with following values:")
