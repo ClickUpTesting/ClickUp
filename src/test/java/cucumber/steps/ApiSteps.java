@@ -25,9 +25,6 @@ import core.utils.MapStringStringToStringObject;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
@@ -80,7 +77,6 @@ public class ApiSteps {
 
     @When("^I set the request body with following values:$")
     public void setsRequestBody(final Map<String, String> body) throws IOException {
-        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         try {
             IFeature feature = featureFactory.getFeature(featureName);
             feature.setAllFields(body);
