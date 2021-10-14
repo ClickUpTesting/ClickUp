@@ -14,6 +14,7 @@ import clickup.entities.features.FeatureFactory;
 import clickup.entities.features.IFeature;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
+import clickup.utils.StringToMap;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
 import core.api.ApiMethod;
@@ -27,10 +28,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.asserts.SoftAssert;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
-
-import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
 
 public class ApiSteps {
     private ApiRequestBuilder apiRequestBuilder;
@@ -41,6 +39,7 @@ public class ApiSteps {
     private String featureName;
     private ScenarioTrash scenarioTrash;
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
+    private StringToMap stringToMap = new StringToMap();
 
     public ApiSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, SoftAssert softAssert,
                     ScenarioTrash scenarioTrash) {
@@ -53,17 +52,11 @@ public class ApiSteps {
     @Given("^I set the (.*) with request endpoint to (.*)$")
     public void setsRequestEndpoint(final String featureName, final String endpoint) {
         this.featureName = featureName;
-        List<String> pathParamsList = getPathParamsFromEndpoint(endpoint);
         apiRequestBuilder
                 .endpoint(endpoint)
-                .cleanParams();
-        for (String pathParams : pathParamsList) {
-            if (scenarioTrash.getTrashValue(pathParams) != null) {
-                apiRequestBuilder.pathParams(pathParams, scenarioTrash.getTrashValue(pathParams));
-            } else {
-                apiRequestBuilder.pathParams(pathParams, scenarioContext.getEnvData(pathParams));
-            }
-        }
+                .cleanParams()
+                .pathParams(stringToMap.extractPathParams(endpoint, scenarioTrash));
+
     }
 
     @When("^I execute a (.*) request$")

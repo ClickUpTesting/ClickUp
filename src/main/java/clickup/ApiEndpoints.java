@@ -45,7 +45,10 @@ public enum ApiEndpoints {
     GET_FOLDER_VIEWS("/folder/{folder_id}/view"),
     GET_LIST_VIEWS("/list/{list_id}/view"),
     CREATE_LIST_COMMENT("/list/{list_id}/comment"),
-    DELETE_COMMENT("/comment/{comment_id}");
+    DELETE_COMMENT("/comment/{comment_id}"),
+    GET_TASK_COMMENTS("/task/{task_id}/comment"),
+    GET_CHAT_VIEW_COMMENTS("/view/{view_id}/comment"),
+    GET_LIST_COMMENTS("/list/{list_id}/comment");
 
     private String endpoint;
 
