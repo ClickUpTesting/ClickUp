@@ -1,6 +1,6 @@
 Feature: Create comment in task
 
-  @CreateTask @DeleteTask
+  @deleteView
   Scenario: As a user I want to create a comment in task
     Given I set the comment with request endpoint to /task/{task_id}/comment
     When I set the request body with following values:
