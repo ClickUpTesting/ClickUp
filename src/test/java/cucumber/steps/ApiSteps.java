@@ -79,6 +79,9 @@ public class ApiSteps {
         try {
             IFeature feature = featureFactory.getFeature(featureName);
             feature.setAllFields(body);
+            if (body != null && "{}".equals(new ObjectMapper().writeValueAsString(feature))) {
+                throw new NullPointerException();
+            }
             apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));
         } catch (Exception e) {
             MapStringStringToStringObject converter = new MapStringStringToStringObject();

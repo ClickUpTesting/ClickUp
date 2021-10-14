@@ -19,7 +19,6 @@ import static core.utils.RandomCustom.random;
 
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Checklist implements IFeature {
-
     private String id;
     @JsonProperty("task_id")
     private String taskId;
