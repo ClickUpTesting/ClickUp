@@ -29,4 +29,15 @@ public final class StringConvert {
         }
         return value;
     }
+
+    /**
+     * Replace space to underscore in string
+     *
+     * @param value to analyze
+     * @return a new string
+     * @author Gustavo Huanca
+     */
+    public static String replaceSpaceToUnderscore(final String value) {
+        return value.replace(' ', '_');
+    }
 }

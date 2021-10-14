@@ -26,7 +26,7 @@ import java.util.List;
 
 import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
 
-public class VerifyIdInFeaturesSteps {
+public class ListsSteps {
     private ApiRequestBuilder apiRequestBuilder;
     private ApiRequest apiRequest;
     private ApiResponse apiResponse;
@@ -35,8 +35,8 @@ public class VerifyIdInFeaturesSteps {
     private ScenarioTrash scenarioTrash;
     private Lists lists;
 
-    public VerifyIdInFeaturesSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse,
-                                   ScenarioTrash scenarioTrash) {
+    public ListsSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse,
+                      ScenarioTrash scenarioTrash) {
         this.scenarioTrash = scenarioTrash;
         this.apiRequestBuilder = apiRequestBuilder;
         this.apiResponse = apiResponse;
