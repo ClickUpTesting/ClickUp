@@ -43,7 +43,7 @@ public class CommentsSteps {
         this.scenarioTrash = scenarioTrash;
     }
 
-    @Given("^I add the amount of (.*) to the total of comments in the \"(task|view|list)\"$")
+    @Given("^I add the amount of (.*) to the total of comments in the \"(task|chat view|list)\"$")
     public void createNFeatures(String amount, String featureContainer)
             throws JsonProcessingException {
         String endpoint = ApiEndpoints.valueOf(String.format("GET_%s_COMMENTS",
