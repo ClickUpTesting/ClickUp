@@ -24,6 +24,7 @@ public enum ApiEndpoints {
     DELETE_TAG("/space/{space_id}/tag/{tag_name}"),
     ADD_TAG_TO_TASK("/task/{task_id}/tag/{tag_name}"),
     REMOVE_TAG_FROM_TASK("/task/{task_id}/tag/{tag_name}"),
+    ADD_DEPENDENCY("/task/{task_id}/dependency"),
     CREATE_TASK("/list/{list_id}/task"),
     DELETE_TASK("/task/{task_id}"),
     GET_TASK("/task/{task_id}"),
