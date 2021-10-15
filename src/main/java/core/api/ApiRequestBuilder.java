@@ -94,6 +94,17 @@ public class ApiRequestBuilder implements IBuilderApiRequest {
     }
 
     /**
+     * Removes all tquery params.
+     *
+     * @return ApiRequest in order to build request
+     * @author Jorge Caceres
+     */
+    public ApiRequestBuilder cleanQueryParams() {
+        this.apiRequest.clearQueryParams();
+        return this;
+    }
+
+    /**
      * Removes all on a Body.
      *
      * @return ApiRequest in order to build request
