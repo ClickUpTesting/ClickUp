@@ -8,7 +8,6 @@
  * @author Jorge Caceres
  */
 
-
 package clickup.requests;
 
 import clickup.ApiEndpoints;

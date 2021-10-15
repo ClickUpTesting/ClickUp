@@ -94,7 +94,7 @@ public class ApiRequestBuilder implements IBuilderApiRequest {
     }
 
     /**
-     * Removes all tquery params.
+     * Removes all query params.
      *
      * @return ApiRequest in order to build request
      * @author Jorge Caceres
