@@ -109,4 +109,12 @@ public class ApiSteps {
             apiRequestBuilder.queryParams(queryParamKey, queryParams.get(queryParamKey));
         }
     }
+
+    @Given("^I set the endpoint (.*)$")
+    public void setsRequestEndpoint(final String endpoint) {
+        apiRequestBuilder
+                .endpoint(endpoint)
+                .cleanParams()
+                .pathParams(stringToMap.extractPathParams(endpoint, scenarioTrash));
+    }
 }
