@@ -37,6 +37,6 @@ public class SpaceHooks {
 
     @After(value = "@DeleteSpaces")
     public void deleteSpaces() {
-        spaceRequest.deleteFolders();
+        spaceRequest.deleteSpaces();
     }
 }

@@ -49,11 +49,11 @@ public class SpaceRequest extends BaseRequest {
     }
 
     /**
-     * Deletes a folder's list.
+     * Deletes all spaces.
      *
      * @author Raymundo GuaraGuara
      */
-    public void deleteFolders() {
+    public void deleteSpaces() {
         LinkedList<String> spacesTrashList = scenarioContext.getTrashList("Spaces");
         apiRequestBuilder
                 .cleanParams()
