@@ -60,7 +60,7 @@ public class ApiSteps {
     }
 
     @When("^I execute a (.*) request$")
-    public void executesSimpleRequest(final String method) throws InterruptedException {
+    public void executesSimpleRequest(final String method) {
         apiRequest = apiRequestBuilder
                 .method(ApiMethod.valueOf(method)).build();
         ApiManager.execute(apiRequest, apiResponse);
