@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Jorge Caceres
+ */
+
 package cucumber.hooks;
 
 import clickup.requests.WebHooksRequest;
@@ -16,12 +26,12 @@ public class WebhookHooks {
     }
 
     @Before(value = "@CreateWebhook")
-    public void createSpace() throws JsonProcessingException {
+    public void createWebhook() throws JsonProcessingException {
         scenarioTrash.setScenarioTrash("webhook_id", webHooksRequest.createWebhook());
     }
 
     @After(value = "@DeleteWebhook")
-    public void deleteSpace() {
+    public void deleteWebhook() {
         webHooksRequest.deleteWebhook(scenarioTrash.getTrashValue("webhook_id"));
     }
 }
