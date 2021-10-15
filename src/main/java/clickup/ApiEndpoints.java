@@ -15,6 +15,8 @@ public enum ApiEndpoints {
     CREATE_SPACE("/team/{team_id}/space"),
     CREATE_FOLDER_IN_SPACE("/space/{space_id}/folder"),
     GET_SPACE("/space/{space_id}"),
+    GET_SPACES("team/{team_id}/space"),
+    DELETE_SPACE("/space/{space_id}"),
     LIST_IN_FOLDER("/folder/{folder_id}/list"),
     FOLDER_LESS_LIST("/space/{space_id}/list"),
     LIST_IN_SPACE("/space/{space_id}/list"),

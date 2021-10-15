@@ -13,10 +13,16 @@ package clickup.requests;
 import clickup.ApiEndpoints;
 import clickup.entities.features.spaces.Space;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import core.api.ApiManager;
+import core.api.ApiMethod;
+import core.api.ApiRequest;
+
+import java.util.LinkedList;
 
 import static core.utils.RandomCustom.random;
 
 public class SpaceRequest extends BaseRequest {
+    private ApiRequest apiRequest;
 
     /**
      * Creates a space and returns its identifier.
@@ -39,6 +45,26 @@ public class SpaceRequest extends BaseRequest {
      * @author Jorge Caceres
      */
     public void deleteSpace(final String id) {
-        apiFacade.deleteObject(ApiEndpoints.GET_SPACE, "space_id", id);
+        apiFacade.deleteObject(ApiEndpoints.DELETE_SPACE, "space_id", id);
+    }
+
+    /**
+     * Deletes a folder's list.
+     *
+     * @author Raymundo GuaraGuara
+     */
+    public void deleteFolders() {
+        LinkedList<String> spacesTrashList = scenarioContext.getTrashList("Spaces");
+        apiRequestBuilder
+                .cleanParams()
+                .endpoint(ApiEndpoints.DELETE_SPACE.getEndpoint())
+                .method(ApiMethod.DELETE);
+        for (String spaceId : spacesTrashList) {
+            apiRequestBuilder.pathParams("space_id", spaceId);
+            apiRequest = apiRequestBuilder.build();
+            ApiManager.execute(apiRequest, apiResponse);
+            apiResponse.getResponse().then().log().body();
+        }
+        scenarioContext.getTrashList("Spaces").clear();
     }
 }
