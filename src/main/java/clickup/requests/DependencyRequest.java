@@ -39,4 +39,24 @@ public class DependencyRequest extends BaseRequest {
         ApiManager.execute(apiRequest, apiResponse);
         apiResponse.getResponse().then().log().body();
     }
+
+    /**
+     * Add a link to a task.
+     *
+     * @param taskId that will be linked
+     * @param linkTask to link
+     * @author Jorge Caceres
+     */
+    public void addLinkTask(final String taskId, final String linkTask) {
+        apiRequestBuilder
+                .cleanParams()
+                .endpoint(ApiEndpoints.LINK_TASK.getEndpoint())
+                .pathParams("task_id", taskId)
+                .pathParams("links_to", linkTask)
+                .method(ApiMethod.POST)
+                .build();
+        apiRequest = apiRequestBuilder.build();
+        ApiManager.execute(apiRequest, apiResponse);
+        apiResponse.getResponse().then().log().body();
+    }
 }

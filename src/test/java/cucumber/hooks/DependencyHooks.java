@@ -38,4 +38,11 @@ public class DependencyHooks {
         scenarioTrash.setScenarioTrash("task_id", tasksRequests.createTask());
         scenarioTrash.setScenarioTrash("links_to", scenarioContext.getEnvData("task_id"));
     }
+    @Before(value = "@AddLinkTask")
+    public void addLinkTask() throws JsonProcessingException {
+        scenarioTrash.setScenarioTrash("task_id", tasksRequests.createTask());
+        scenarioTrash.setScenarioTrash("links_to", scenarioContext.getEnvData("task_id"));
+        dependencyRequest.addLinkTask(scenarioTrash.getTrashValue("task_id"),
+                scenarioTrash.getTrashValue("links_to"));
+    }
 }
