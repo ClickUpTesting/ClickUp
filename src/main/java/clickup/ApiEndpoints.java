@@ -50,7 +50,9 @@ public enum ApiEndpoints {
     DELETE_COMMENT("/comment/{comment_id}"),
     GET_TASK_COMMENTS("/task/{task_id}/comment"),
     GET_CHAT_VIEW_COMMENTS("/view/{view_id}/comment"),
-    GET_LIST_COMMENTS("/list/{list_id}/comment");
+    GET_LIST_COMMENTS("/list/{list_id}/comment"),
+    CREATE_WEBHOOK("/team/{team_id}/webhook"),
+    DELETE_WEBHOOK("/webhook/{webhook_id}");
 
     private String endpoint;
 

@@ -20,6 +20,7 @@ import clickup.entities.features.lists.Lisst;
 import clickup.entities.features.tags.Tags;
 import clickup.entities.features.tasks.Tasks;
 import clickup.entities.features.views.Views;
+import clickup.entities.features.webhooks.WebHook;
 
 public class FeatureFactory {
 
@@ -53,6 +54,8 @@ public class FeatureFactory {
                 return new Views();
             case "space":
                 return new Space();
+            case "webhook":
+                return new WebHook();
             default:
                 throw new IllegalAccessException("Feature Not Found");
         }
