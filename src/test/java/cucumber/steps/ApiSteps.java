@@ -60,7 +60,7 @@ public class ApiSteps {
     }
 
     @When("^I execute a (.*) request$")
-    public void executesSimpleRequest(final String method) {
+    public void executesSimpleRequest(final String method) throws InterruptedException {
         apiRequest = apiRequestBuilder
                 .method(ApiMethod.valueOf(method)).build();
         ApiManager.execute(apiRequest, apiResponse);
@@ -108,5 +108,13 @@ public class ApiSteps {
         for (String queryParamKey : queryParams.keySet()) {
             apiRequestBuilder.queryParams(queryParamKey, queryParams.get(queryParamKey));
         }
+    }
+
+    @Given("^I set the endpoint (.*)$")
+    public void setsRequestEndpoint(final String endpoint) {
+        apiRequestBuilder
+                .endpoint(endpoint)
+                .cleanParams()
+                .pathParams(stringToMap.extractPathParams(endpoint, scenarioTrash));
     }
 }
