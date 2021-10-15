@@ -32,6 +32,6 @@ Feature: Create a webhook
       | events[25] | keyResultCreated        |
       | events[26] | keyResultUpdated        |
       | events[27] | keyResultDeleted        |
-    And I execute the POST request
+      And I execute the POST request
     Then I verify that the response status is 200
-    And I verify the schema matches the file: schemas/webhooks/create_webhook.json
+      And I verify the schema matches the file: schemas/webhooks/create_webhook.json
