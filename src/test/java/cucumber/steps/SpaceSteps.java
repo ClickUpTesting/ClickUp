@@ -12,7 +12,6 @@ package cucumber.steps;
 
 import clickup.ApiEndpoints;
 import clickup.entities.features.IGetAllFeatures;
-import clickup.entities.features.folders.Folders;
 import clickup.entities.features.spaces.Space;
 import clickup.entities.features.spaces.Spaces;
 import clickup.utils.ScenarioContext;
