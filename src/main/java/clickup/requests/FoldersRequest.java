@@ -13,6 +13,7 @@ package clickup.requests;
 import clickup.ApiEndpoints;
 import clickup.entities.features.folders.Folder;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -33,8 +34,8 @@ public class FoldersRequest extends BaseRequest {
     public String createFolder() throws JsonProcessingException {
         Folder folder = new Folder();
         folder.setName("Folder created in FolderHooks From API".concat(random()));
-        apiResponse = apiFacade.createObject(folder, ApiEndpoints.CREATE_FOLDER_IN_SPACE, "space_id",
-                scenarioContext.getEnvData("space_id"));
+        apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(folder),
+                ApiEndpoints.CREATE_FOLDER_IN_SPACE, "space_id", scenarioContext.getEnvData("space_id"));
         return apiResponse.getBody(Folder.class).getId();
     }
 
