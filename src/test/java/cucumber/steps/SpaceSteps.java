@@ -27,7 +27,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.json.JSONObject;
 import org.testng.asserts.SoftAssert;
-
 import java.util.LinkedList;
 
 public class SpaceSteps {
@@ -59,7 +58,7 @@ public class SpaceSteps {
                 .method(ApiMethod.GET);
         apiRequest = requestBuilder.build();
         ApiManager.execute(apiRequest, response);
-        IGetAllFeatures features = response.getBody(Folders.class);
+        IGetAllFeatures features = response.getBody(Spaces.class);
         actual = features.getAmount();
     }
 
@@ -70,7 +69,7 @@ public class SpaceSteps {
                 .baseUri(ApiHeaders.URL_BASE.getValue())
                 .headers(ApiHeaders.AUTHORIZATION.getValue(), System.getenv("API_TOKEN"))
                 .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue())
-                .endpoint(ApiEndpoints.CREATE_FOLDER_IN_SPACE.getEndpoint())
+                .endpoint(ApiEndpoints.CREATE_SPACE.getEndpoint())
                 .pathParams("team_id", scenarioContext.getEnvData("team_id"))
                 .method(ApiMethod.POST);
         String spaceName = "Space For Testing Number ";

@@ -11,7 +11,6 @@
 package clickup.entities.features.spaces;
 
 import clickup.entities.features.IGetAllFeatures;
-
 import java.util.List;
 
 public class Spaces implements IGetAllFeatures {
