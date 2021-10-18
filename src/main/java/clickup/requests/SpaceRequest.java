@@ -16,8 +16,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
-
 import java.util.LinkedList;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static core.utils.RandomCustom.random;
 
@@ -34,7 +34,8 @@ public class SpaceRequest extends BaseRequest {
     public String createSpace() throws JsonProcessingException {
         Space space = new Space();
         space.setName("Space created RunTest before From API".concat(random()));
-        apiResponse = apiFacade.createObject(space, ApiEndpoints.CREATE_SPACE, "team_id", teamId);
+        apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(space),
+                ApiEndpoints.CREATE_SPACE, "team_id", teamId);
         return apiResponse.getBody(Space.class).getId();
     }
 

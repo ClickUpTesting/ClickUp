@@ -15,7 +15,6 @@ import clickup.entities.features.IFeature;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import clickup.utils.StringToMap;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -69,18 +68,9 @@ public class ApiSteps {
 
     @When("^I set the request body with following values:$")
     public void setsRequestBody(final Map<String, String> body) throws IOException {
-        try {
-            IFeature feature = featureFactory.getFeature(featureName);
-            feature.setAllFields(body);
-            if (body != null && "{}".equals(new ObjectMapper().writeValueAsString(feature))) {
-                throw new NullPointerException();
-            }
-            apiRequestBuilder.body(new ObjectMapper().writeValueAsString(feature));
-        } catch (Exception e) {
             MapStringStringToStringObject converter = new MapStringStringToStringObject();
             JsonFileManager jsonFileManager = new JsonFileManager();
             apiRequestBuilder.body(jsonFileManager.writeJson(converter.buildMapStringObject(body)));
-        }
     }
 
     @When("^I execute the (.*) request$")

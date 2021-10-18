@@ -14,15 +14,14 @@ import clickup.ApiEndpoints;
 import clickup.entities.features.checklists.ChecklistItems;
 import clickup.entities.features.checklists.Checklists;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import core.api.ApiManager;
-import core.api.ApiMethod;
-import core.api.ApiRequest;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static core.utils.RandomCustom.random;
 
 public class ChecklistItemRequest extends BaseRequest {
-    private ApiRequest apiRequest;
 
     /**
      * Creates a checklist item and returns its identifier.
@@ -34,7 +33,8 @@ public class ChecklistItemRequest extends BaseRequest {
     public String createChecklistItem() throws JsonProcessingException {
         ChecklistItems checklistItems = new ChecklistItems();
         checklistItems.setName("Checklist Item created by API".concat(random()));
-        apiResponse = apiFacade.createObject(checklistItems, ApiEndpoints.CREATE_CHECKLIST_ITEM, "checklist_id",
+        apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(checklistItems),
+                ApiEndpoints.CREATE_CHECKLIST_ITEM, "checklist_id",
                 scenarioContext.getEnvData("checklist_id"));
         List<ChecklistItems> checklistItemsList = apiResponse.getBody(Checklists.class).getChecklist().getItems();
         ChecklistItems createdItem = checklistItemsList.stream()
@@ -49,15 +49,9 @@ public class ChecklistItemRequest extends BaseRequest {
      * @author Jorge Caceres
      */
     public void deleteChecklistItem(final String id) {
-        apiRequestBuilder
-                .cleanParams()
-                .clearBody()
-                .endpoint(ApiEndpoints.DELETE_CHECKLIST_ITEM.getEndpoint())
-                .pathParams("checklist_id", scenarioContext.getEnvData("checklist_id"))
-                .pathParams("checklist_item_id", id)
-                .method(ApiMethod.DELETE);
-        apiRequest = apiRequestBuilder.build();
-        ApiManager.execute(apiRequest, apiResponse);
-        apiResponse.getResponse().then().log().body();
+        Map<String, String> mapPathParams = new HashMap<>();
+        mapPathParams.put("checklist_id", scenarioContext.getEnvData("checklist_id"));
+        mapPathParams.put("checklist_item_id", id);
+        apiFacade.deleteObject(ApiEndpoints.DELETE_CHECKLIST_ITEM, mapPathParams);
     }
 }

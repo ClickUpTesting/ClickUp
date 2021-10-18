@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "shared": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {}
+        },
+        "lists": {
+          "type": "array",
+          "items": {}
+        },
+        "folders": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "tasks",
+        "lists",
+        "folders"
+      ]
+    }
+  },
+  "required": [
+    "shared"
+  ]
+}
