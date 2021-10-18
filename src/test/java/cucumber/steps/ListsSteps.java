@@ -102,8 +102,8 @@ public class ListsSteps {
     }
 
     @And("I add a task to list")
-    public void iAddATaskToList() {
+    public void addATaskToList() {
         apiFacade.createObject("", ApiEndpoints.ADD_TASK_ON_LIST,
-                stringToMap.extractPathParams(ApiEndpoints.ADD_TASK_ON_LIST.getEndpoint(), scenarioTrash) );
+                stringToMap.extractPathParams(ApiEndpoints.ADD_TASK_ON_LIST.getEndpoint(), scenarioTrash));
     }
 }
