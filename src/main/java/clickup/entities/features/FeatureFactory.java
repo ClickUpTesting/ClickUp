@@ -10,6 +10,7 @@
 
 package clickup.entities.features;
 
+import clickup.entities.features.sharedhierarchy.Shares;
 import clickup.entities.features.spaces.Space;
 import clickup.entities.features.checklists.ChecklistItems;
 import clickup.entities.features.comment.Comment;
@@ -54,6 +55,8 @@ public class FeatureFactory {
                 return new Views();
             case "space":
                 return new Space();
+            case "shares":
+                return new Shares();
             case "webhook":
                 return new WebHook();
             default:
