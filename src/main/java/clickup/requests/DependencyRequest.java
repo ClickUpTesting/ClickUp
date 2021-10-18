@@ -11,13 +11,11 @@
 package clickup.requests;
 
 import clickup.ApiEndpoints;
-import core.api.ApiManager;
-import core.api.ApiMethod;
-import core.api.ApiRequest;
 import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DependencyRequest extends BaseRequest {
-    private ApiRequest apiRequest;
 
     /**
      * Add a dependency to a task.
@@ -28,16 +26,7 @@ public class DependencyRequest extends BaseRequest {
     public void addDependency(final String id) {
         JSONObject jsonBody = new JSONObject();
         jsonBody.put("depends_on", scenarioContext.getEnvData("task_id"));
-        apiRequestBuilder
-                .cleanParams()
-                .endpoint(ApiEndpoints.ADD_DEPENDENCY.getEndpoint())
-                .pathParams("task_id", id)
-                .method(ApiMethod.POST)
-                .body(jsonBody.toString())
-                .build();
-        apiRequest = apiRequestBuilder.build();
-        ApiManager.execute(apiRequest, apiResponse);
-        apiResponse.getResponse().then().log().body();
+        apiFacade.createObject(jsonBody.toString(), ApiEndpoints.ADD_DEPENDENCY, "task_id", id);
     }
 
     /**
@@ -48,15 +37,9 @@ public class DependencyRequest extends BaseRequest {
      * @author Jorge Caceres
      */
     public void addLinkTask(final String taskId, final String linkTask) {
-        apiRequestBuilder
-                .cleanParams()
-                .endpoint(ApiEndpoints.LINK_TASK.getEndpoint())
-                .pathParams("task_id", taskId)
-                .pathParams("links_to", linkTask)
-                .method(ApiMethod.POST)
-                .build();
-        apiRequest = apiRequestBuilder.build();
-        ApiManager.execute(apiRequest, apiResponse);
-        apiResponse.getResponse().then().log().body();
+        Map<String, String> mapPathParams = new HashMap<>();
+        mapPathParams.put("task_id", taskId);
+        mapPathParams.put("links_to", linkTask);
+        apiFacade.createObject("", ApiEndpoints.LINK_TASK, mapPathParams);
     }
 }

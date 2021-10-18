@@ -14,15 +14,10 @@ import clickup.ApiEndpoints;
 import clickup.entities.features.folders.Folder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import core.api.ApiManager;
-import core.api.ApiMethod;
-import core.api.ApiRequest;
-import java.util.LinkedList;
 
 import static core.utils.RandomCustom.random;
 
 public class FoldersRequest extends BaseRequest {
-    private ApiRequest apiRequest;
 
     /**
      * Creates a folder and returns its identifier.
@@ -55,17 +50,6 @@ public class FoldersRequest extends BaseRequest {
      * @author Raymundo GuaraGuara
      */
     public void deleteFolders() {
-        LinkedList<String> foldersTrashList = scenarioContext.getTrashList("Folders");
-        apiRequestBuilder
-                .cleanParams()
-                .endpoint(ApiEndpoints.DELETE_FOLDER.getEndpoint())
-                .method(ApiMethod.DELETE);
-        for (String folderId : foldersTrashList) {
-            apiRequestBuilder.pathParams("folder_id", folderId);
-            apiRequest = apiRequestBuilder.build();
-            ApiManager.execute(apiRequest, apiResponse);
-            apiResponse.getResponse().then().log().body();
-        }
-        scenarioContext.getTrashList("Folders").clear();
+        apiFacade.deleteListsObjects(ApiEndpoints.DELETE_FOLDER, "Folders");
     }
 }
