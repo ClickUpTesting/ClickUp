@@ -50,6 +50,8 @@ public final class ApiManager {
         add(() -> requestSpecification.params(apiRequest.getParams()), () -> apiRequest.getParams());
         add(() -> requestSpecification.contentType(apiRequest.getContentType()), () -> apiRequest.getContentType());
         add(() -> requestSpecification.body(apiRequest.getBody()), () -> apiRequest.getBody());
+        add(() -> requestSpecification.multiPart(apiRequest.getMultipartKey(), apiRequest.getMultipartFile()),
+                () -> apiRequest.getMultipartKey());
         return requestSpecification;
     }
 }

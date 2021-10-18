@@ -10,6 +10,7 @@
 
 package core.api;
 
+import java.io.File;
 import java.util.Map;
 
 public class ApiRequestBuilder implements IBuilderApiRequest {
@@ -173,6 +174,19 @@ public class ApiRequestBuilder implements IBuilderApiRequest {
      */
     public ApiRequestBuilder queryParams(final String queryParam, final String value) {
         this.apiRequest.addQueryParams(queryParam, value);
+        return this;
+    }
+
+    /**
+     * Sets the multipart
+     *
+     * @param key key value
+     * @param file to be added on the request
+     * @author Jorge Caceres
+     */
+    @Override
+    public ApiRequestBuilder setMultipart(String key, File file) {
+        this.apiRequest.setMultipart(key, file);
         return this;
     }
 }

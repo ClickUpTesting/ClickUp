@@ -10,6 +10,8 @@
 
 package core.api;
 
+import java.io.File;
+
 public interface IBuilderApiRequest {
     ApiRequest build();
 
@@ -24,4 +26,6 @@ public interface IBuilderApiRequest {
     ApiRequestBuilder endpoint(String endpoint);
 
     ApiRequestBuilder queryParams(String queryParam, String value);
+
+    ApiRequestBuilder setMultipart(String key, File file);
 }

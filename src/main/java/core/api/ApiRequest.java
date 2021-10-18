@@ -13,6 +13,8 @@ package core.api;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 import io.restassured.http.Headers;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,12 +31,14 @@ public class ApiRequest {
     private Map<String, String> pathParams;
     private Map<String, String> params;
     private ContentType contentType;
+    private ApiMultipart multipart;
 
     public ApiRequest() {
         headers = new ArrayList<>();
         queryParams = new HashMap<>();
         pathParams = new HashMap<>();
         params = new HashMap<>();
+        multipart = new ApiMultipart();
     }
 
     /**
@@ -289,4 +293,37 @@ public class ApiRequest {
     public void setContentType(ContentType contentType) {
         this.contentType = contentType;
     }
+
+    /**
+     * Gets the multipartKey
+     *
+     * @return the multipart Key value
+     * @author Jorge Caceres
+     */
+    public String getMultipartKey() {
+        return multipart.getKey();
+    }
+
+    /**
+     * Sets the multipart
+     *
+     * @param key key value
+     * @param file to be added on the request
+     * @author Jorge Caceres
+     */
+    public void setMultipart(final String key, final File file) {
+        this.multipart.setKey(key);
+        this.multipart.setFile(file);
+    }
+
+    /**
+     * Gets the multipart File
+     *
+     * @return the multipart file
+     * @author Jorge Caceres
+     */
+    public File getMultipartFile() {
+        return multipart.getFile();
+    }
+
 }
