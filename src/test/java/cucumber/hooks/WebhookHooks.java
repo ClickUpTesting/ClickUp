@@ -12,9 +12,10 @@ package cucumber.hooks;
 
 import clickup.requests.WebHooksRequest;
 import clickup.utils.ScenarioTrash;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+
+import java.io.IOException;
 
 public class WebhookHooks {
     private WebHooksRequest webHooksRequest;
@@ -26,7 +27,7 @@ public class WebhookHooks {
     }
 
     @Before(value = "@CreateWebhook")
-    public void createWebhook() throws JsonProcessingException {
+    public void createWebhook() throws IOException {
         scenarioTrash.setScenarioTrash("webhook_id", webHooksRequest.createWebhook());
     }
 

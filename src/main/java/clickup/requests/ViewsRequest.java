@@ -14,6 +14,7 @@ import clickup.ApiEndpoints;
 import clickup.entities.features.views.View;
 import clickup.entities.features.views.Views;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -34,8 +35,8 @@ public class ViewsRequest extends BaseRequest {
     public String createTeamView() throws JsonProcessingException {
         View view = new View();
         view.setName("Team View created in ViewHooks From API".concat(random()));
-        apiResponse = apiFacade.createObject(view, ApiEndpoints.CREATE_TEAM_VIEW, "team_id",
-                scenarioContext.getEnvData("team_id"));
+        apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(view),
+                ApiEndpoints.CREATE_TEAM_VIEW, "team_id", scenarioContext.getEnvData("team_id"));
         return apiResponse.getBody(Views.class).getIdentifier();
     }
 
@@ -50,8 +51,8 @@ public class ViewsRequest extends BaseRequest {
         View view = new View();
         view.setName("Team View created in ViewHooks From API".concat(random()));
         view.setType("conversation");
-        apiResponse = apiFacade.createObject(view, ApiEndpoints.CREATE_TEAM_VIEW, "team_id",
-                scenarioContext.getEnvData("team_id"));
+        apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(view),
+                ApiEndpoints.CREATE_TEAM_VIEW, "team_id", scenarioContext.getEnvData("team_id"));
         return apiResponse.getBody(Views.class).getIdentifier();
     }
 

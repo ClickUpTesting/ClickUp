@@ -14,6 +14,7 @@ import clickup.ApiEndpoints;
 import clickup.entities.features.comment.Comment;
 import clickup.entities.features.spaces.Space;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static core.utils.RandomCustom.random;
 
@@ -29,8 +30,8 @@ public class CommentRequest extends BaseRequest {
     public String createCommentInList() throws JsonProcessingException {
         Comment comment = new Comment();
         comment.setCommentText("Comment in List".concat(random()));
-        apiResponse = apiFacade.createObject(comment, ApiEndpoints.CREATE_LIST_COMMENT, "list_id",
-                scenarioContext.getEnvData("list_id"));
+        apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(comment),
+                ApiEndpoints.CREATE_LIST_COMMENT, "list_id", scenarioContext.getEnvData("list_id"));
         return apiResponse.getBody(Space.class).getId();
     }
 

@@ -13,6 +13,7 @@ package clickup.requests;
 import clickup.ApiEndpoints;
 import clickup.entities.features.lists.Lisst;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static core.utils.RandomCustom.random;
 
@@ -28,8 +29,8 @@ public class ListsRequest extends BaseRequest {
     public String createListInFolder() throws JsonProcessingException {
         Lisst lisst = new Lisst();
         lisst.setName("List before From API".concat(random()));
-        apiResponse = apiFacade.createObject(lisst, ApiEndpoints.LIST_IN_FOLDER, "folder_id",
-                scenarioContext.getEnvData("folder_id"));
+        apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(lisst),
+                ApiEndpoints.LIST_IN_FOLDER, "folder_id", scenarioContext.getEnvData("folder_id"));
         return apiResponse.getBody(Lisst.class).getId();
 
     }
@@ -44,8 +45,8 @@ public class ListsRequest extends BaseRequest {
     public String createListInSpace() throws JsonProcessingException {
         Lisst lisst = new Lisst();
         lisst.setName("List before in space From API".concat(random()));
-        apiResponse = apiFacade.createObject(lisst, ApiEndpoints.LIST_IN_SPACE, "space_id",
-                scenarioContext.getEnvData("space_id"));
+        apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(lisst),
+                ApiEndpoints.LIST_IN_SPACE, "space_id", scenarioContext.getEnvData("space_id"));
         return apiResponse.getBody(Lisst.class).getId();
 
     }

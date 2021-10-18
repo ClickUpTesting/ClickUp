@@ -13,7 +13,6 @@ package clickup.api;
 import clickup.ApiEndpoints;
 import clickup.utils.ScenarioContext;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -52,7 +51,7 @@ public class ApiFacade {
      * Creates a object from API,
      * this request only permit set one pathParams.
      *
-     * @param object          is the object to create
+     * @param body            body to set
      * @param endpoint        is the objet's endpoint
      * @param pathParams      is pathParams of request
      * @param valuePathParams is valuePathParams of request
@@ -60,14 +59,14 @@ public class ApiFacade {
      * @throws JsonProcessingException when the response is not a valid json
      * @author Gustavo Huanca
      */
-    public ApiResponse createObject(Object object, final ApiEndpoints endpoint, final String pathParams,
+    public ApiResponse createObject(final String body, final ApiEndpoints endpoint, final String pathParams,
                                     final String valuePathParams) throws JsonProcessingException {
         apiRequestBuilder
                 .method(ApiMethod.POST)
                 .endpoint(endpoint.getEndpoint())
                 .cleanParams()
                 .pathParams(pathParams, valuePathParams)
-                .body(new ObjectMapper().writeValueAsString(object));
+                .body(body);
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
         apiResponse.getResponse().then().log().body();
