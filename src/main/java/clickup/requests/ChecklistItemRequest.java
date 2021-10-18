@@ -14,6 +14,7 @@ import clickup.ApiEndpoints;
 import clickup.entities.features.checklists.ChecklistItems;
 import clickup.entities.features.checklists.Checklists;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -34,7 +35,8 @@ public class ChecklistItemRequest extends BaseRequest {
     public String createChecklistItem() throws JsonProcessingException {
         ChecklistItems checklistItems = new ChecklistItems();
         checklistItems.setName("Checklist Item created by API".concat(random()));
-        apiResponse = apiFacade.createObject(checklistItems, ApiEndpoints.CREATE_CHECKLIST_ITEM, "checklist_id",
+        apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(checklistItems),
+                ApiEndpoints.CREATE_CHECKLIST_ITEM, "checklist_id",
                 scenarioContext.getEnvData("checklist_id"));
         List<ChecklistItems> checklistItemsList = apiResponse.getBody(Checklists.class).getChecklist().getItems();
         ChecklistItems createdItem = checklistItemsList.stream()

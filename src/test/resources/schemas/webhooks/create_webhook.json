@@ -1,0 +1,166 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "webhook": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userid": {
+          "type": "integer"
+        },
+        "team_id": {
+          "type": "integer"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "client_id": {
+          "type": "string"
+        },
+        "events": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "task_id": {
+          "type": "null"
+        },
+        "list_id": {
+          "type": "null"
+        },
+        "folder_id": {
+          "type": "null"
+        },
+        "space_id": {
+          "type": "null"
+        },
+        "health": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "fail_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "status",
+            "fail_count"
+          ]
+        },
+        "secret": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "userid",
+        "team_id",
+        "endpoint",
+        "client_id",
+        "events",
+        "task_id",
+        "list_id",
+        "folder_id",
+        "space_id",
+        "health",
+        "secret"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "webhook"
+  ]
+}
