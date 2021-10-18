@@ -1,6 +1,6 @@
 Feature: Update a webhook
 
-  @CreateWebhook @DeleteWebhook
+  @API @SmokeTesting @CreateWebhook @DeleteWebhook
   Scenario: As a user I want to update a webhook
     Given I set the endpoint /webhook/{webhook_id}
     When I set the request body with following values:

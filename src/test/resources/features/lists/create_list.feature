@@ -1,6 +1,6 @@
 Feature: Create List
 
-  @DeleteList
+  @API @SmokeTesting @DeleteList
   Scenario: As a user I want to create a list in folder with only name
     Given I set the list with request endpoint to /folder/{folder_id}/list
     When I set the request body with following values:
@@ -9,7 +9,7 @@ Feature: Create List
     Then I verify that the response status is 200
       And I verify the schema matches the file: schemas/list/create_required_field.json
 
-  @DeleteList
+  @API @SmokeTesting @DeleteList
   Scenario: As a user I want to create a list in folder with all fields
     Given I set the list with request endpoint to /folder/{folder_id}/list
     When I set the request body with following values:
@@ -23,7 +23,7 @@ Feature: Create List
     Then I verify that the response status is 200
       And I verify the schema matches the file: schemas/list/create_all_field.json
 
-  @DeleteList
+  @API @SmokeTesting @DeleteList
   Scenario: As a user I want to create a list in space for tracking an objective
     Given I set the list with request endpoint to /space/{space_id}/list
     When I set the request body with following values:
@@ -32,7 +32,7 @@ Feature: Create List
     Then I verify that the response status is 200
       And I verify the schema matches the file: schemas/list/create_required_field.json
 
-  @DeleteList
+  @API @SmokeTesting @DeleteList
   Scenario: As a user I want to create a list in space with all fields
     Given I set the list with request endpoint to /space/{space_id}/list
     When I set the request body with following values:

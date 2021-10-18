@@ -1,5 +1,6 @@
 Feature: Get Task in team
 
+  @API @SmokeTesting
   Scenario: As a user I want to get a task
     Given I set the tasks with request endpoint to /team/{team_id}/task
     When I execute the GET request
