@@ -34,4 +34,9 @@ public class SpaceHooks {
     public void deleteSpace() {
         spaceRequest.deleteSpace(scenarioTrash.getTrashValue("space_id"));
     }
+
+    @After(value = "@DeleteSpaces")
+    public void deleteSpaces() {
+        spaceRequest.deleteSpaces();
+    }
 }
