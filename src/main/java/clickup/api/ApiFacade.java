@@ -12,14 +12,15 @@ package clickup.api;
 
 import clickup.ApiEndpoints;
 import clickup.utils.ScenarioContext;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import core.api.ApiHeaders;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
 
@@ -56,16 +57,33 @@ public class ApiFacade {
      * @param pathParams      is pathParams of request
      * @param valuePathParams is valuePathParams of request
      * @return an ApiResponse
-     * @throws JsonProcessingException when the response is not a valid json
      * @author Gustavo Huanca
      */
     public ApiResponse createObject(final String body, final ApiEndpoints endpoint, final String pathParams,
-                                    final String valuePathParams) throws JsonProcessingException {
+                                    final String valuePathParams) {
+        Map<String, String> mapPathParams = new HashMap<>();
+        mapPathParams.put(pathParams, valuePathParams);
+        return createObject(body, endpoint, mapPathParams);
+    }
+
+    /**
+     * Creates a object from API,
+     * this request only permit set one pathParams.
+     *
+     * @param body          body to set
+     * @param endpoint      is the objet's endpoint
+     * @param mapPathParams is map with values of pathParams
+     * @return an ApiResponse
+     * @author Gustavo Huanca
+     */
+    public ApiResponse createObject(final String body, final ApiEndpoints endpoint,
+                                    final Map<String, String> mapPathParams) {
         apiRequestBuilder
                 .method(ApiMethod.POST)
                 .endpoint(endpoint.getEndpoint())
                 .cleanParams()
-                .pathParams(pathParams, valuePathParams)
+                .pathParams(mapPathParams)
+                .clearBody()
                 .body(body);
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
@@ -85,11 +103,26 @@ public class ApiFacade {
      */
     public ApiResponse deleteObject(final ApiEndpoints endpoint, final String pathParams,
                                     final String valuePathParams) {
+        Map<String, String> mapPathParams = new HashMap<>();
+        mapPathParams.put(pathParams, valuePathParams);
+        return deleteObject(endpoint, mapPathParams);
+    }
+
+    /**
+     * Deletes an object from API.
+     * this request only permit set one pathParams.
+     *
+     * @param endpoint        is the objet's endpoint
+     * @param mapPathParams is map with values of pathParams
+     * @return an ApiResponse
+     * @author Gustavo Huanca
+     */
+    public ApiResponse deleteObject(final ApiEndpoints endpoint, final Map<String, String> mapPathParams) {
         apiRequestBuilder
                 .method(ApiMethod.DELETE)
                 .endpoint(endpoint.getEndpoint())
                 .cleanParams()
-                .pathParams(pathParams, valuePathParams)
+                .pathParams(mapPathParams)
                 .build();
         apiRequest = apiRequestBuilder.build();
         ApiManager.execute(apiRequest, apiResponse);
@@ -110,13 +143,15 @@ public class ApiFacade {
         List<String> tagsTrashList = scenarioContext.getTrashList(NameTrashList);
         List<String> pathParamsList = getPathParamsFromEndpoint(endpoint.getEndpoint());
         apiRequestBuilder
-                .endpoint(ApiEndpoints.GET_LIST.getEndpoint())
+                .endpoint(endpoint.getEndpoint())
                 .cleanParams()
                 .method(ApiMethod.DELETE);
         for (String tagName : tagsTrashList) {
+            apiRequestBuilder.cleanParams();
             apiRequestBuilder.pathParams(pathParamsList.get(0), tagName);
             apiRequest = apiRequestBuilder.build();
             ApiManager.execute(apiRequest, apiResponse);
+            apiResponse.getResponse().then().log().body();
         }
         scenarioContext.getTrashList(NameTrashList).clear();
         return apiResponse;
@@ -133,7 +168,7 @@ public class ApiFacade {
      * @author Jorge Caceres
      */
     public ApiResponse getObject(final ApiEndpoints endpoint, final String pathParams,
-                                    final String valuePathParams) {
+                                 final String valuePathParams) {
         apiRequest = apiRequestBuilder
                 .clearBody()
                 .endpoint(endpoint.getEndpoint())
