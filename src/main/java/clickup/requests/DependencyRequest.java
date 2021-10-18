@@ -11,7 +11,6 @@
 package clickup.requests;
 
 import clickup.ApiEndpoints;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;

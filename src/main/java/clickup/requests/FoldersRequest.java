@@ -19,7 +19,6 @@ import core.api.ApiRequest;
 import static core.utils.RandomCustom.random;
 
 public class FoldersRequest extends BaseRequest {
-    private ApiRequest apiRequest;
 
     /**
      * Creates a folder and returns its identifier.

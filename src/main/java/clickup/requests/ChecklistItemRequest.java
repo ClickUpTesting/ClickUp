@@ -23,7 +23,6 @@ import java.util.Map;
 import static core.utils.RandomCustom.random;
 
 public class ChecklistItemRequest extends BaseRequest {
-    private ApiRequest apiRequest;
 
     /**
      * Creates a checklist item and returns its identifier.
