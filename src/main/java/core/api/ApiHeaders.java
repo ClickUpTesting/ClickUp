@@ -20,7 +20,6 @@ public enum ApiHeaders {
     MULTIPART_FORM_DATA("multipart/form-data"),
     X_WWW_FORM_URLENCODED("application/x-www-form-urlencoded");
 
-
     private String value;
 
     ApiHeaders(String value) {

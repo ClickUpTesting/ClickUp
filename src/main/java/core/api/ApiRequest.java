@@ -13,7 +13,6 @@ package core.api;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 import io.restassured.http.Headers;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -325,5 +324,4 @@ public class ApiRequest {
     public File getMultipartFile() {
         return multipart.getFile();
     }
-
 }
