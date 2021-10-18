@@ -1,6 +1,6 @@
 Feature: Delete Folder
 
-  @CreateFolder
+  @API @SmokeTesting @CreateFolder
   Scenario: As a user I want to delete a folder
     Given I set the folder with request endpoint to /folder/{folder_id}
     When I execute the DELETE request
