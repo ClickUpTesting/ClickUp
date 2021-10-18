@@ -11,10 +11,12 @@
 package cucumber.steps;
 
 import clickup.ApiEndpoints;
+import clickup.api.ApiFacade;
 import clickup.entities.features.lists.Lisst;
 import clickup.entities.features.lists.Lists;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
+import clickup.utils.StringToMap;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -22,6 +24,7 @@ import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import io.cucumber.java.en.And;
 import org.testng.asserts.SoftAssert;
+
 import java.util.List;
 
 import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
@@ -32,6 +35,8 @@ public class ListsSteps {
     private ApiResponse apiResponse;
     private SoftAssert softAssert = new SoftAssert();
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
+    private StringToMap stringToMap = new StringToMap();
+    private ApiFacade apiFacade = new ApiFacade();
     private ScenarioTrash scenarioTrash;
     private Lists lists;
 
@@ -90,9 +95,15 @@ public class ListsSteps {
                 }
             }
         }
-       softAssert.assertEquals(actual, scenarioContext.getTrashList("FeatureName Trash").size());
+        softAssert.assertEquals(actual, scenarioContext.getTrashList("FeatureName Trash").size());
         softAssert.assertEquals(lists.getLists().size(),
                 scenarioContext.getTrashList("FeatureName Trash").size() + 1);
         softAssert.assertAll();
+    }
+
+    @And("I add a task to list")
+    public void addATaskToList() {
+        apiFacade.createObject("", ApiEndpoints.ADD_TASK_ON_LIST,
+                stringToMap.extractPathParams(ApiEndpoints.ADD_TASK_ON_LIST.getEndpoint(), scenarioTrash));
     }
 }
