@@ -24,7 +24,7 @@ public class DependencyRequest extends BaseRequest {
      * @param id to be set on the tag
      * @author Jorge Caceres
      */
-    public void addDependency(final String id) throws JsonProcessingException {
+    public void addDependency(final String id) {
         JSONObject jsonBody = new JSONObject();
         jsonBody.put("depends_on", scenarioContext.getEnvData("task_id"));
         apiFacade.createObject(jsonBody.toString(), ApiEndpoints.ADD_DEPENDENCY, "task_id", id);
@@ -37,7 +37,7 @@ public class DependencyRequest extends BaseRequest {
      * @param linkTask to link
      * @author Jorge Caceres
      */
-    public void addLinkTask(final String taskId, final String linkTask) throws JsonProcessingException {
+    public void addLinkTask(final String taskId, final String linkTask) {
         Map<String, String> mapPathParams = new HashMap<>();
         mapPathParams.put("task_id", taskId);
         mapPathParams.put("links_to", linkTask);

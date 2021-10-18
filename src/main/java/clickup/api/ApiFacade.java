@@ -67,8 +67,7 @@ public class ApiFacade {
     }
 
     /**
-     * Creates a object from API,
-     * this request only permit set one pathParams.
+     * Creates a object from API.
      *
      * @param body          body to set
      * @param endpoint      is the objet's endpoint
@@ -110,7 +109,6 @@ public class ApiFacade {
 
     /**
      * Deletes an object from API.
-     * this request only permit set one pathParams.
      *
      * @param endpoint        is the objet's endpoint
      * @param mapPathParams is map with values of pathParams
