@@ -1,7 +1,7 @@
 Feature: Update List
 
-  @CreateListInFolder @DeleteList
-  Scenario: As a user I want to update a list in folder for tracking an objective
+  @API @SmokeTesting @CreateListInFolder @DeleteList
+  Scenario: As a user I want to update a list in folder
     Given I set the list with request endpoint to /list/{list_id}
     When I set the request body with following values:
       | name | My list is updated |
@@ -9,8 +9,8 @@ Feature: Update List
     Then I verify that the response status is 200
       And I verify the schema matches the file: schemas/list/create_required_field.json
 
-  @CreateListInFolder @DeleteList
-  Scenario: As a user I want to update a list in folder for tracking an objective
+  @API @SmokeTesting @CreateListInFolder @DeleteList
+  Scenario: As a user I want to update a list in folder
     Given I set the list with request endpoint to /list/{list_id}
     When I set the request body with following values:
       | name          | My list is updated   |
@@ -24,8 +24,8 @@ Feature: Update List
     Then I verify that the response status is 200
       And I verify the schema matches the file: schemas/list/list_required_all_field.json
 
-  @CreateListInSpace @DeleteList
-  Scenario: As a user I want to update a list in space for tracking an objective
+  @API @SmokeTesting @CreateListInSpace @DeleteList
+  Scenario: As a user I want to update a list in space
     Given I set the list with request endpoint to /list/{list_id}
     When I set the request body with following values:
       | name          | My list is updated in space   |

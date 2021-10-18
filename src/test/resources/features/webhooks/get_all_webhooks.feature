@@ -1,6 +1,6 @@
 Feature: Get all webhooks
 
-  @CreateWebhook @DeleteWebhook
+  @API @SmokeTesting @CreateWebhook @DeleteWebhook
   Scenario: As a user I want to get all webhook
     Given I set the endpoint /team/{team_id}/webhook
     When I execute a GET request

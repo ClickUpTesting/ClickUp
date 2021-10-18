@@ -1,6 +1,6 @@
 Feature: Update Folder
 
-  @CreateFolder @DeleteFolder
+  @API @SmokeTesting @CreateFolder @DeleteFolder
   Scenario: As a user I want to update a folder
     Given I set the folder with request endpoint to /folder/{folder_id}
     When I set the request body with following values:

@@ -1,6 +1,6 @@
 Feature: Create task
 
-  @CreateList @DeleteTask
+  @API @SmokeTesting @CreateList @DeleteTask
   Scenario: As a user I want to create a task with required field
     Given I set the task with request endpoint to /list/{list_id}/task
     When I set the request body with following values:
@@ -9,7 +9,7 @@ Feature: Create task
     Then I verify that the response status is 200
       And I verify the schema matches the file: schemas/task/create_task_required_field.json
 
-  @CreateList @DeleteTask
+  @API @SmokeTesting @CreateList @DeleteTask
   Scenario: As a user I want to create a task with all fields
     Given I set the task with request endpoint to /list/{list_id}/task
     When I set the request body with following values:
