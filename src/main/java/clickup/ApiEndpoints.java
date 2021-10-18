@@ -20,6 +20,7 @@ public enum ApiEndpoints {
     LIST_IN_FOLDER("/folder/{folder_id}/list"),
     FOLDER_LESS_LIST("/space/{space_id}/list"),
     LIST_IN_SPACE("/space/{space_id}/list"),
+    ADD_TASK_ON_LIST("/list/{list_id}/task/{task_id}"),
     GET_LIST("/list/{list_id}"),
     GET_TAG("/space/{space_id}/tag"),
     CREATE_TAG("/space/{space_id}/tag"),
