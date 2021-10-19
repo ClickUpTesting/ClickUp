@@ -121,7 +121,7 @@ public class ViewsSteps {
     }
 
     @Then("I verify the amount of tasks in the view is {int}")
-    public void iVerifyTheAmountOfTasksInTheViewHasIncreasedBy(final int addedTasks) {
+    public void verifiesTheAmountOfTasksInTheView(final int addedTasks) {
         IGetAllFeatures featureResponse = apiResponse.getBody(TaskViews.class);
         int expected = featureResponse.getAmount();
         softAssert.assertEquals(addedTasks, expected);
