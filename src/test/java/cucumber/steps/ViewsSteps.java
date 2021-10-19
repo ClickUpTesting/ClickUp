@@ -12,6 +12,7 @@ package cucumber.steps;
 
 import clickup.ApiEndpoints;
 import clickup.entities.features.IGetAllFeatures;
+import clickup.entities.features.views.TaskViews;
 import clickup.entities.features.views.Views;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
@@ -117,5 +118,12 @@ public class ViewsSteps {
         IGetAllFeatures featureResponse = apiResponse.getBody(Views.class);
         int expected = featureResponse.getAmount();
         softAssert.assertEquals(actual + addedViews, expected);
+    }
+
+    @Then("I verify the amount of tasks in the view is {int}")
+    public void verifiesTheAmountOfTasksInTheView(final int addedTasks) {
+        IGetAllFeatures featureResponse = apiResponse.getBody(TaskViews.class);
+        int expected = featureResponse.getAmount();
+        softAssert.assertEquals(addedTasks, expected);
     }
 }
