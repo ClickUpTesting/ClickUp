@@ -364,7 +364,7 @@ public class Task implements IFeature {
     }
 
     @Override
-    public Map<String, String> matchesValues(IFeature featureResponse, Map<String, String> baseMap) {
+    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> baseMap) {
         Task taskResponse = (Task) featureResponse;
         Map<String, String> valuesMap = new HashMap<>();
         add(() -> valuesMap.put("name", taskResponse.getName()), () -> baseMap.get("name"));

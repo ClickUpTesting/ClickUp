@@ -68,7 +68,7 @@ public interface IFeature {
      * @return valuesMap corresponding featureResponse
      * @author Gustavo Huanca
      */
-    Map<String, String> matchesValues(IFeature featureResponse, Map<String, String> baseMap);
+    Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> baseMap);
 
     void setDefaultValues();
 }

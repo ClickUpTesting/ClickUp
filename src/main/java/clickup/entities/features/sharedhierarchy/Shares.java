@@ -43,7 +43,7 @@ public class Shares implements IGetAllFeatures, IFeature {
     }
 
     @Override
-    public Map<String, String> matchesValues(IFeature featureResponse, Map<String, String> body) {
+    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> body) {
         return null;
     }
 

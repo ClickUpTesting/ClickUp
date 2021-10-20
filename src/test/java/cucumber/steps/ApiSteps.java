@@ -115,7 +115,7 @@ public class ApiSteps {
 
     @And("^I verify the body matches with response$")
     public void verifyTheBodyMatchesWithResponseTask() {
-        Map<String, String> actual = featureResponse.matchesValues(featureResponse, mapBody);
+        Map<String, String> actual = featureResponse.getMatchedValues(featureResponse, mapBody);
         Map<String, String> expected = mapBody;
         softAssert.assertEquals(actual, expected);
     }
