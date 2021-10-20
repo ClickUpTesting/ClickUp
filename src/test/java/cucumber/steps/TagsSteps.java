@@ -11,6 +11,7 @@
 package cucumber.steps;
 
 import clickup.ApiEndpoints;
+import clickup.api.ApiFacade;
 import clickup.entities.features.IGetAllFeatures;
 import clickup.entities.features.tags.Tag;
 import clickup.entities.features.tags.Tags;
@@ -37,6 +38,7 @@ public class TagsSteps {
     private ApiRequestBuilder apiRequestBuilder;
     private ApiRequest apiRequest;
     private ApiResponse apiResponse;
+    protected ApiFacade apiFacade;
     private SoftAssert softAssert;
     private TagsRequest tagsRequest;
     private TasksRequests tasksRequests;
@@ -52,6 +54,7 @@ public class TagsSteps {
         this.softAssert = softAssert;
         this.scenarioTrash = scenarioTrash;
         this.apiResponse = apiResponse;
+        this.apiFacade = new ApiFacade();
         this.tagsRequest = new TagsRequest();
         this.tasksRequests = new TasksRequests();
         this.jsonBody = new JSONObject();
@@ -115,16 +118,9 @@ public class TagsSteps {
 
     @Then("I verify the values on the tags list")
     public void verifyTagsFields() {
-        apiRequest = apiRequestBuilder
-                .cleanParams()
-                .clearBody()
-                .endpoint(ApiEndpoints.GET_TAG.getEndpoint())
-                .pathParams("space_id", scenarioContext.getEnvData("space_id"))
-                .method(ApiMethod.GET)
-                .build();
-        ApiManager.execute(apiRequest, apiResponse);
-        apiResponse.getResponse().then().log().all();
-        Tags tagsList =  apiResponse.getBody(Tags.class);
+        ApiResponse getTagResponse = apiFacade.getObject(ApiEndpoints.GET_TAG,"space_id",
+                scenarioContext.getEnvData("space_id"));
+        Tags tagsList =  getTagResponse.getBody(Tags.class);
         boolean isCorrect = tagsList.getTags().stream().anyMatch(tag -> tag.getMapOfValues(bodyMap).equals(bodyMap));
         softAssert.assertTrue(isCorrect);
     }

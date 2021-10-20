@@ -96,5 +96,4 @@ public class Tag implements IFeature {
         add(() -> valuesMap.put("tag_bg", this.getTagBg()), () -> baseMap.get("tag_bg"));
         return  valuesMap;
     }
-
 }
