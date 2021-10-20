@@ -14,7 +14,6 @@ import clickup.requests.WebHooksRequest;
 import clickup.utils.ScenarioTrash;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-
 import java.io.IOException;
 
 public class WebhookHooks {
@@ -34,5 +33,9 @@ public class WebhookHooks {
     @After(value = "@DeleteWebhook")
     public void deleteWebhook() {
         webHooksRequest.deleteWebhook(scenarioTrash.getTrashValue("webhook_id"));
+    }
+    @After(value = "@DeleteWebhooks")
+    public void deleteWebhooks() {
+        webHooksRequest.deleteWebhook(scenarioTrash.getTrashValue("webhooks_id"));
     }
 }

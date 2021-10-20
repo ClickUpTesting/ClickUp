@@ -21,7 +21,7 @@ import clickup.entities.features.lists.Lisst;
 import clickup.entities.features.tags.Tags;
 import clickup.entities.features.tasks.Tasks;
 import clickup.entities.features.views.Views;
-import clickup.entities.features.webhooks.WebHook;
+import clickup.entities.features.webhooks.WebHooks;
 
 public class FeatureFactory {
 
@@ -57,8 +57,8 @@ public class FeatureFactory {
                 return new Space();
             case "shares":
                 return new Shares();
-            case "webhook":
-                return new WebHook();
+            case "webhooks":
+                return new WebHooks();
             default:
                 throw new IllegalAccessException("Feature Not Found");
         }
