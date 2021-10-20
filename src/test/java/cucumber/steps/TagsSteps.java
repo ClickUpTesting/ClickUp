@@ -44,7 +44,7 @@ public class TagsSteps {
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
     private JSONObject jsonBody;
     private JSONObject tagBody;
-    private Map<String,String> bodyMap;
+    private Map<String, String> bodyMap;
 
     public TagsSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, ScenarioTrash scenarioTrash,
                      SoftAssert softAssert) {
