@@ -75,8 +75,7 @@ public class Task implements IFeature {
     public Folder folder;
     public Space space;
     public String[] attachments;
-
-
+    
     public String[] getAttachments() {
         return attachments;
     }
