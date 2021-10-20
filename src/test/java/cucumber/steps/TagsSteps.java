@@ -118,7 +118,7 @@ public class TagsSteps {
 
     @Then("I verify the values on the tags list")
     public void verifyTagsFields() {
-        ApiResponse getTagResponse = apiFacade.getObject(ApiEndpoints.GET_TAG,"space_id",
+        ApiResponse getTagResponse = apiFacade.getObject(ApiEndpoints.GET_TAG, "space_id",
                 scenarioContext.getEnvData("space_id"));
         Tags tagsList =  getTagResponse.getBody(Tags.class);
         boolean isCorrect = tagsList.getTags().stream().anyMatch(tag -> tag.getMapOfValues(bodyMap).equals(bodyMap));
