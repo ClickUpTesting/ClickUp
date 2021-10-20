@@ -181,6 +181,7 @@ public class WebHook implements IFeature {
         System.out.println(webHook.getEvents().toString());
         Map<String, String> valuesMap = new HashMap<>();
         add(() -> valuesMap.put("endpoint", webHook.getEndpoint()), () -> baseMap.get("endpoint"));
+        add(() -> valuesMap.put("status", webHook.getHealth().getStatus()), () -> baseMap.get("status"));
         for (int i = 0; i < baseMap.size(); i++) {
             int finalI = i;
             add(() -> valuesMap.put("events[" + finalI + "]",
