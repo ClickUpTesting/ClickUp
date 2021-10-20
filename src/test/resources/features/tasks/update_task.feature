@@ -7,7 +7,7 @@ Feature: Update task
       | name          | Updated Task Name    |
     And I execute the PUT request
     Then I verify that the response status is 200
-      And I verify the body matches with response
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/task/update_task_required_field.json
 
   @API @SmokeTesting @CreateTask @DeleteTask
@@ -22,5 +22,5 @@ Feature: Update task
       | archived      | false                |
       And I execute the PUT request
     Then I verify that the response status is 200
-      And I verify the body matches with response
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/task/update_task_all_fields.json

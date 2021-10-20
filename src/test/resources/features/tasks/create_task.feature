@@ -7,7 +7,7 @@ Feature: Create task
       | name | My Task created |
       And I execute the POST request
     Then I verify that the response status is 200
-      And I verify the body matches with response
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/task/create_task_required_field.json
 
   @API @SmokeTesting @CreateList @DeleteTask
@@ -29,5 +29,5 @@ Feature: Create task
       | Custom fields   | src\test\resources\json\tasks\custom_fields_by_defects.json |
       And I execute the POST request
     Then I verify that the response status is 200
-      And I verify the body matches with response
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/task/create_task_all_fields.json
