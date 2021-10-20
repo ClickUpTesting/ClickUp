@@ -7,4 +7,5 @@ Feature: Create Folder
       | name | Folder For Testing |
       And I execute the POST request
     Then I verify that the response status is 200
-      And I verify the schema matches the file: schemas/folder/create_folder.json
+    And I verify that the response matches with the body
+    And I verify the schema matches the file: schemas/folder/create_folder.json
