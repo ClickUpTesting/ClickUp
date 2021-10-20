@@ -14,6 +14,8 @@ import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Map;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Tag implements IFeature {
     @JsonProperty("name")
@@ -22,6 +24,7 @@ public class Tag implements IFeature {
     private String tagFg;
     @JsonProperty("tag_bg")
     private String tagBg;
+    private Integer creator;
 
     public Integer getCreator() {
         return creator;
@@ -30,8 +33,6 @@ public class Tag implements IFeature {
     public void setCreator(Integer creator) {
         this.creator = creator;
     }
-
-    private Integer creator;
 
     @JsonProperty("name")
     public String getName() {
@@ -76,5 +77,10 @@ public class Tag implements IFeature {
     @Override
     public void setDefaultValues() {
 
+    }
+
+    @Override
+    public Map<String, String> matchesValues(IFeature featureResponse, Map<String, String> body) {
+        return null;
     }
 }

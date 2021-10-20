@@ -13,6 +13,7 @@ package clickup.entities.features.tasks;
 import clickup.entities.features.IFeature;
 
 import java.util.List;
+import java.util.Map;
 
 public class Tasks implements IFeature {
     private List<Task> tasks;
@@ -38,5 +39,10 @@ public class Tasks implements IFeature {
     @Override
     public void setDefaultValues() {
 
+    }
+
+    @Override
+    public Map<String, String> matchesValues(IFeature featureResponse, Map<String, String> body) {
+        return null;
     }
 }

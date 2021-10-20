@@ -31,6 +31,20 @@ public final class StringConvert {
     }
 
     /**
+     * Converts the null to word "null"
+     *
+     * @param value to analyze
+     * @return null or value
+     * @author Gustavo Huanca
+     */
+    public static String nullToString(final String value) {
+        if (null == value) {
+            return "null";
+        }
+        return value;
+    }
+
+    /**
      * Replace space to underscore in string
      *
      * @param value to analyze

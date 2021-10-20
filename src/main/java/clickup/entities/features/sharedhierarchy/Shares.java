@@ -13,6 +13,8 @@ package clickup.entities.features.sharedhierarchy;
 import clickup.entities.features.IFeature;
 import clickup.entities.features.IGetAllFeatures;
 
+import java.util.Map;
+
 public class Shares implements IGetAllFeatures, IFeature {
 
     private Shared shared;
@@ -38,6 +40,11 @@ public class Shares implements IGetAllFeatures, IFeature {
     @Override
     public void setDefaultValues() {
 
+    }
+
+    @Override
+    public Map<String, String> matchesValues(IFeature featureResponse, Map<String, String> body) {
+        return null;
     }
 
     @Override

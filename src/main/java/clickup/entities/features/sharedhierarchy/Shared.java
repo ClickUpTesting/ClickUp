@@ -16,6 +16,7 @@ import clickup.entities.features.lists.Lisst;
 import clickup.entities.features.tasks.Task;
 
 import java.util.List;
+import java.util.Map;
 
 public class Shared implements IFeature {
     private List<Folder> folders;
@@ -59,5 +60,10 @@ public class Shared implements IFeature {
     @Override
     public void setDefaultValues() {
 
+    }
+
+    @Override
+    public Map<String, String> matchesValues(IFeature featureResponse, Map<String, String> body) {
+        return null;
     }
 }

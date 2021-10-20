@@ -59,5 +59,16 @@ public interface IFeature {
      */
     String getRequiredField();
 
+    /**
+     * Creates a map according the values set on scenario,
+     * The new map contains featureResponse values according baseMap
+     *
+     * @param featureResponse is IFeature which extract the values the response
+     * @param baseMap baseMap with the fields set on the scenario
+     * @return valuesMap corresponding featureResponse
+     * @author Gustavo Huanca
+     */
+    Map<String, String> matchesValues(IFeature featureResponse, Map<String, String> baseMap);
+
     void setDefaultValues();
 }

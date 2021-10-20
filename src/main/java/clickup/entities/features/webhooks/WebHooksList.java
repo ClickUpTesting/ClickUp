@@ -15,6 +15,7 @@ import clickup.entities.features.IGetAllFeatures;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
+import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
@@ -54,6 +55,11 @@ public class WebHooksList implements IFeature, IGetAllFeatures {
     @Override
     public void setDefaultValues() {
 
+    }
+
+    @Override
+    public Map<String, String> matchesValues(IFeature featureResponse, Map<String, String> body) {
+        return null;
     }
 
     /**
