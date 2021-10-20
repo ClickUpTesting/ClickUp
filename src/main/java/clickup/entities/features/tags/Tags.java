@@ -14,6 +14,7 @@ import clickup.entities.features.IGetAllFeatures;
 import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Tags implements IGetAllFeatures, IFeature {
@@ -45,5 +46,10 @@ public class Tags implements IGetAllFeatures, IFeature {
     @Override
     public void setDefaultValues() {
 
+    }
+
+    @Override
+    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> body) {
+        return null;
     }
 }

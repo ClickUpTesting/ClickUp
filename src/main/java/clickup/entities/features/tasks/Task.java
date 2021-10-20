@@ -10,6 +10,7 @@
 
 package clickup.entities.features.tasks;
 
+import clickup.entities.Priority;
 import clickup.entities.features.spaces.Space;
 import clickup.entities.Status;
 import clickup.entities.features.IFeature;
@@ -18,7 +19,13 @@ import clickup.entities.features.tags.Tag;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static core.api.ApiRequestSpecificationProvider.add;
+import static core.utils.StringConvert.nullToString;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
@@ -44,7 +51,7 @@ public class Task implements IFeature {
     public List<Object> checklists;
     public List<Tag> tags;
     public Object parent;
-    public Object priority;
+    public Priority priority;
     @JsonProperty("due_date")
     public Object dueDate;
     @JsonProperty("start_date")
@@ -197,11 +204,11 @@ public class Task implements IFeature {
         this.parent = parent;
     }
 
-    public Object getPriority() {
+    public Priority getPriority() {
         return priority;
     }
 
-    public void setPriority(Object priority) {
+    public void setPriority(Priority priority) {
         this.priority = priority;
     }
 
@@ -354,5 +361,30 @@ public class Task implements IFeature {
     @Override
     public void setDefaultValues() {
 
+    }
+
+    @Override
+    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> baseMap) {
+        Task taskResponse = (Task) featureResponse;
+        Map<String, String> valuesMap = new HashMap<>();
+        add(() -> valuesMap.put("name", taskResponse.getName()), () -> baseMap.get("name"));
+        add(() -> valuesMap.put("description", (String) taskResponse.getDescription()),
+                () -> baseMap.get("description"));
+        add(() -> valuesMap.put("tags[0]", taskResponse.getTags().get(0).getName()), () -> baseMap.get("tags[0]"));
+        add(() -> valuesMap.put("status", taskResponse.getStatus().getStatus()), () -> baseMap.get("status"));
+        add(() -> valuesMap.put("priority", taskResponse.getPriority().getOrderIndex()), () -> baseMap.get("priority"));
+        add(() -> valuesMap.put("due_date", String.valueOf(taskResponse.getDueDate())), () -> baseMap.get("due_date"));
+        add(() -> valuesMap.put("time_estimate", taskResponse.getTimeEstimate().toString()),
+                () -> baseMap.get("time_estimate"));
+        add(() -> valuesMap.put("start_date", (String) taskResponse.getStartDate()), () -> baseMap.get("start_date"));
+        add(() -> valuesMap.put("parent", nullToString((String) taskResponse.getParent())),
+                () -> baseMap.get("parent"));
+        //This values doesn't exist in response body
+        add(() -> valuesMap.put("due_date_time", baseMap.get("due_date_time")), () -> baseMap.get("due_date_time"));
+        add(() -> valuesMap.put("start_date_time", baseMap.get("start_date_time")),
+                () -> baseMap.get("start_date_time"));
+        add(() -> valuesMap.put("notify_all", baseMap.get("notify_all")), () -> baseMap.get("notify_all"));
+        add(() -> valuesMap.put("Custom fields", baseMap.get("Custom fields")), () -> baseMap.get("Custom fields"));
+        return valuesMap;
     }
 }

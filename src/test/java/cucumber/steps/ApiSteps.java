@@ -22,10 +22,12 @@ import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import core.utils.JsonFileManager;
 import core.utils.MapStringStringToStringObject;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.asserts.SoftAssert;
+
 import java.io.IOException;
 import java.util.Map;
 
@@ -39,6 +41,8 @@ public class ApiSteps {
     private ScenarioTrash scenarioTrash;
     private ScenarioContext scenarioContext = ScenarioContext.getInstance();
     private StringToMap stringToMap = new StringToMap();
+    private IFeature featureResponse;
+    private Map<String, String> mapBody;
 
     public ApiSteps(ApiRequestBuilder apiRequestBuilder, ApiResponse apiResponse, SoftAssert softAssert,
                     ScenarioTrash scenarioTrash) {
@@ -68,9 +72,10 @@ public class ApiSteps {
 
     @When("^I set the request body with following values:$")
     public void setsRequestBody(final Map<String, String> body) throws IOException {
-            MapStringStringToStringObject converter = new MapStringStringToStringObject();
-            JsonFileManager jsonFileManager = new JsonFileManager();
-            apiRequestBuilder.body(jsonFileManager.writeJson(converter.buildMapStringObject(body)));
+        mapBody = body;
+        MapStringStringToStringObject converter = new MapStringStringToStringObject();
+        JsonFileManager jsonFileManager = new JsonFileManager();
+        apiRequestBuilder.body(jsonFileManager.writeJson(converter.buildMapStringObject(body)));
     }
 
     @When("^I execute the (.*) request$")
@@ -79,7 +84,7 @@ public class ApiSteps {
                 .method(ApiMethod.valueOf(apiMethod))
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
-        IFeature featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
+        featureResponse = apiResponse.getBody(featureFactory.getFeature(this.featureName).getClass());
         scenarioTrash.setScenarioTrash(String.format("%s_id", featureName), featureResponse.getIdentifier());
     }
 
@@ -106,5 +111,12 @@ public class ApiSteps {
                 .endpoint(endpoint)
                 .cleanParams()
                 .pathParams(stringToMap.extractPathParams(endpoint, scenarioTrash));
+    }
+
+    @And("^I verify the body matches with response$")
+    public void verifyTheBodyMatchesWithResponseTask() {
+        Map<String, String> actual = featureResponse.getMatchedValues(featureResponse, mapBody);
+        Map<String, String> expected = mapBody;
+        softAssert.assertEquals(actual, expected);
     }
 }

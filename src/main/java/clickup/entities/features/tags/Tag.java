@@ -26,6 +26,7 @@ public class Tag implements IFeature {
     private String tagFg;
     @JsonProperty("tag_bg")
     private String tagBg;
+    private Integer creator;
 
     public Integer getCreator() {
         return creator;
@@ -34,8 +35,6 @@ public class Tag implements IFeature {
     public void setCreator(Integer creator) {
         this.creator = creator;
     }
-
-    private Integer creator;
 
     @JsonProperty("name")
     public String getName() {
@@ -95,5 +94,10 @@ public class Tag implements IFeature {
         add(() -> valuesMap.put("tag_fg", this.getTagFg()), () -> baseMap.get("tag_fg"));
         add(() -> valuesMap.put("tag_bg", this.getTagBg()), () -> baseMap.get("tag_bg"));
         return  valuesMap;
+    }
+
+    @Override
+    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> body) {
+        return null;
     }
 }

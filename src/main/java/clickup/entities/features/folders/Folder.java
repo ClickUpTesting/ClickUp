@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
+import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -159,5 +160,10 @@ public class Folder implements IFeature {
         Status completeStatus = new Status("p12971248_2Uv0jXRR", "complete", 1, "#6bc950", "closed");
         statuses.add(toDoStatus);
         statuses.add(completeStatus);
+    }
+
+    @Override
+    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> body) {
+        return null;
     }
 }

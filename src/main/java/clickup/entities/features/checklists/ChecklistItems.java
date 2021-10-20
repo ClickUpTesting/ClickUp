@@ -14,6 +14,7 @@ import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
+import java.util.Map;
 
 public class ChecklistItems implements IFeature {
     private String id;
@@ -114,5 +115,10 @@ public class ChecklistItems implements IFeature {
     @Override
     public void setDefaultValues() {
 
+    }
+
+    @Override
+    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> body) {
+        return null;
     }
 }

@@ -13,6 +13,8 @@ package clickup.entities.features.checklists;
 import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.Map;
+
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Checklists implements IFeature {
     private Checklist checklist;
@@ -38,5 +40,10 @@ public class Checklists implements IFeature {
     @Override
     public void setDefaultValues() {
 
+    }
+
+    @Override
+    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> body) {
+        return null;
     }
 }
