@@ -11,17 +11,14 @@
 package clickup.entities.features.webhooks;
 
 import clickup.entities.features.IFeature;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import java.util.Map;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class WebHooks implements IFeature {
 
     private String id;
-    private WebHook webHook;
+    private WebHook webhook;
 
     public String getId() {
         return id;
@@ -31,12 +28,12 @@ public class WebHooks implements IFeature {
         this.id = id;
     }
 
-    public WebHook getWebHook() {
-        return webHook;
+    public WebHook getWebhook() {
+        return webhook;
     }
 
-    public void setWebHook(WebHook webHook) {
-        this.webHook = webHook;
+    public void setWebhook(WebHook webhook) {
+        this.webhook = webhook;
     }
 
     /**
@@ -47,7 +44,7 @@ public class WebHooks implements IFeature {
      */
     @Override
     public String getIdentifier() {
-        return webHook.getId();
+        return webhook.getId();
     }
 
     /**
@@ -66,8 +63,16 @@ public class WebHooks implements IFeature {
 
     }
 
+    /**
+     * Creates a map with the values set on the scenario.
+     *
+     * @param baseMap with the fields set on the scenario
+     * @return valuesMap corresponding feature
+     * @author Jorge Caceres
+     */
     @Override
-    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> body) {
-        return null;
+    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> baseMap) {
+        WebHooks webHooks = (WebHooks) featureResponse;
+        return webhook.getMatchedValues(webHooks.getWebhook(), baseMap);
     }
 }

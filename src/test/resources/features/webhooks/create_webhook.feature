@@ -1,11 +1,12 @@
 Feature: Create a webhook
 
-  @API @SmokeTesting @DeleteWebhook
+  @API @SmokeTesting @DeleteWebhooks
   Scenario: As a user I want to create a webhook with all fields
-    Given I set the webhook with request endpoint to /team/{team_id}/webhook
+    Given I set the webhooks with request endpoint to /team/{team_id}/webhook
     When I set the request body with following values:
-      | events[0]  | taskCreated             |
       | endpoint   | https://myendpoint.com  |
+      | events[0]  | taskCreated             |
+      | events[1]  | taskUpdated             |
       | events[2]  | taskDeleted             |
       | events[3]  | taskPriorityUpdated     |
       | events[4]  | taskStatusUpdated       |
@@ -34,4 +35,5 @@ Feature: Create a webhook
       | events[27] | keyResultDeleted        |
       And I execute the POST request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/webhooks/create_webhook.json
