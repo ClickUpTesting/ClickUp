@@ -13,6 +13,10 @@ package clickup.entities.features.tags;
 import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.HashMap;
+import java.util.Map;
+
+import static core.api.ApiRequestSpecificationProvider.add;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Tag implements IFeature {
@@ -65,7 +69,7 @@ public class Tag implements IFeature {
 
     @Override
     public String getIdentifier() {
-        return null;
+        return name;
     }
 
     @Override
@@ -77,4 +81,20 @@ public class Tag implements IFeature {
     public void setDefaultValues() {
 
     }
+
+    /**
+     * Creates a map with the values set on the scenario.
+     *
+     * @param baseMap with the fields set on the scenario
+     * @return valuesMap corresponding feature
+     * @author Jorge Caceres
+     */
+    public Map<String, String> getMapOfValues(final Map<String, String> baseMap) {
+        Map<String, String> valuesMap = new HashMap<>();
+        add(() -> valuesMap.put("name", this.getName()), () -> baseMap.get("name"));
+        add(() -> valuesMap.put("tag_fg", this.getTagFg()), () -> baseMap.get("tag_fg"));
+        add(() -> valuesMap.put("tag_bg", this.getTagBg()), () -> baseMap.get("tag_bg"));
+        return  valuesMap;
+    }
+
 }
