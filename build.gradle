@@ -45,7 +45,7 @@ task runApiTests(type: Test) {
     options {
         useDefaultListeners = false
         jvmArgs = ['-Dcucumber.glue=cucumber']
-        jvmArgs = ['-Dcucumber.features=src/test/resources/features']
+        jvmArgs = ['-Dcucumber.features=src/test/resources/features/tags']
         jvmArgs = ['-Dcucumber.plugin=pretty,' +
                            'html:build/cucumber/cucumber-report.html,' +
                            'json:build/cucumber/cucumber.json,' +
