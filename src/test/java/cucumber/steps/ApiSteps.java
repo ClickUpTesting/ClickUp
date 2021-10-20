@@ -113,7 +113,7 @@ public class ApiSteps {
                 .pathParams(stringToMap.extractPathParams(endpoint, scenarioTrash));
     }
 
-    @And("^I verify the body matches with response$")
+    @And("^I verify that the response matches with the body$")
     public void verifyTheBodyMatchesWithResponseTask() {
         Map<String, String> actual = featureResponse.getMatchedValues(featureResponse, mapBody);
         Map<String, String> expected = mapBody;

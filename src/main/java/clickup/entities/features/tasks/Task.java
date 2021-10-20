@@ -75,7 +75,7 @@ public class Task implements IFeature {
     public Folder folder;
     public Space space;
     public String[] attachments;
-
+    
     public String[] getAttachments() {
         return attachments;
     }
@@ -379,6 +379,7 @@ public class Task implements IFeature {
         add(() -> valuesMap.put("start_date", (String) taskResponse.getStartDate()), () -> baseMap.get("start_date"));
         add(() -> valuesMap.put("parent", nullToString((String) taskResponse.getParent())),
                 () -> baseMap.get("parent"));
+        add(() -> valuesMap.put("archived", String.valueOf(taskResponse.isArchived())), () -> baseMap.get("archived"));
         //This values doesn't exist in response body
         add(() -> valuesMap.put("due_date_time", baseMap.get("due_date_time")), () -> baseMap.get("due_date_time"));
         add(() -> valuesMap.put("start_date_time", baseMap.get("start_date_time")),

@@ -7,7 +7,8 @@ Feature: Update task
       | name          | Updated Task Name    |
     And I execute the PUT request
     Then I verify that the response status is 200
-    And I verify the schema matches the file: schemas/task/update_task_required_field.json
+      And I verify that the response matches with the body
+      And I verify the schema matches the file: schemas/task/update_task_required_field.json
 
   @API @SmokeTesting @CreateTask @DeleteTask
   Scenario: As a user I want to update a task with all fields enabled
@@ -18,8 +19,8 @@ Feature: Update task
       | status        | complete             |
       | priority      | 1                    |
       | time_estimate | 8640031              |
-      | assignees[    |                      |
       | archived      | false                |
       And I execute the PUT request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/task/update_task_all_fields.json
