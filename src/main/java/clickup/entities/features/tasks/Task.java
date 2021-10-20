@@ -363,6 +363,13 @@ public class Task implements IFeature {
 
     }
 
+    /**
+     * Creates a map with the values set on the scenario.
+     *
+     * @param baseMap with the fields set on the scenario
+     * @return valuesMap corresponding feature
+     * @author Gustavo Huanca
+     */
     @Override
     public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> baseMap) {
         Task taskResponse = (Task) featureResponse;

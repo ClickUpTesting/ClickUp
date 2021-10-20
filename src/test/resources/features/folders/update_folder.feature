@@ -7,4 +7,5 @@ Feature: Update Folder
       | name | Folder For Testing With New Name |
       And I execute the PUT request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/folder/create_folder.json
