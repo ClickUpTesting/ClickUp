@@ -2,7 +2,7 @@ Feature: Update a webhook
 
   @API @SmokeTesting @CreateWebhook @DeleteWebhook
   Scenario: As a user I want to update a webhook
-    Given I set the endpoint /webhook/{webhook_id}
+    Given I set the webhooks with request endpoint to  /webhook/{webhook_id}
     When I set the request body with following values:
       | endpoint   | https://updatedenpoint.com |
       | events[0]  | taskCreated                |
@@ -33,5 +33,6 @@ Feature: Update a webhook
       | events[26] | keyResultUpdated           |
       | events[27] | keyResultDeleted           |
       | status     | active                     |
-      And I execute a PUT request
+      And I execute the PUT request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
