@@ -17,8 +17,11 @@ import clickup.entities.Status;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static core.api.ApiRequestSpecificationProvider.add;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -163,7 +166,10 @@ public class Folder implements IFeature {
     }
 
     @Override
-    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> body) {
-        return null;
+    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> baseMap) {
+        Folder folder = (Folder) featureResponse;
+        Map<String, String> valuesMap = new HashMap<>();
+        add(() -> valuesMap.put("name", folder.getName()), () -> baseMap.get("name"));
+        return valuesMap;
     }
 }
