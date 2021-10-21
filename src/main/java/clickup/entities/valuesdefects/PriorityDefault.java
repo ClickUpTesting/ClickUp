@@ -1,3 +1,12 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Gustavo Huanca
+ */
 package clickup.entities.valuesdefects;
 
 import java.util.HashMap;
@@ -5,7 +14,6 @@ import java.util.Map;
 
 public final class PriorityDefault {
     private PriorityDefault() {
-
     }
 
     /**
@@ -13,6 +21,7 @@ public final class PriorityDefault {
      *
      * @param priorityValue value to get equivalent
      * @return a value corresponds priorityValue
+     * @author Gustavo Huanca
      */
     public static String priorityDefault(final String priorityValue) {
         Map<String, String> priorityMap = new HashMap<>();
