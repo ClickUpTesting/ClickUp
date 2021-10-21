@@ -6,3 +6,4 @@ Feature: create a task attachment
     When I Add an attachment to the task
       And I execute a POST request
     Then I verify that the response status is 200
+      And I verify the attachment is in the task
