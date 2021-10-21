@@ -9,3 +9,5 @@ Feature: Update comment
       | notify_all   | false                        |
       And I execute the PUT request
     Then I verify that the response status is 200
+      And I verify the values on the comments list
+
