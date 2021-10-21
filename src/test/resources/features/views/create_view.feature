@@ -7,8 +7,8 @@ Feature: Create View
       | name | Team View For Testing |
       And I execute the POST request
     Then I verify that the response status is 200
-    And I verify that the response matches with the body
-    And I verify the schema matches the file: schemas/views/create_view.json
+      And I verify that the response matches with the body
+      And I verify the schema matches the file: schemas/views/create_view.json
 
   @API @SmokeTesting @DeleteView
   Scenario: As a user I want to create a Space View
@@ -17,8 +17,8 @@ Feature: Create View
       | name | Space View For Testing |
       And I execute the POST request
     Then I verify that the response status is 200
-    And I verify that the response matches with the body
-    And I verify the schema matches the file: schemas/views/create_view.json
+      And I verify that the response matches with the body
+      And I verify the schema matches the file: schemas/views/create_view.json
 
   @API @SmokeTesting @DeleteView
   Scenario: As a user I want to create a Folder View
@@ -27,8 +27,8 @@ Feature: Create View
       | name | Folder View For Testing |
       And I execute the POST request
     Then I verify that the response status is 200
-    And I verify that the response matches with the body
-    And I verify the schema matches the file: schemas/views/create_view.json
+      And I verify that the response matches with the body
+      And I verify the schema matches the file: schemas/views/create_view.json
 
   @API @SmokeTesting @DeleteView
   Scenario: As a user I want to create a List View
@@ -37,5 +37,5 @@ Feature: Create View
       | name | List View For Testing |
       And I execute the POST request
     Then I verify that the response status is 200
-    And I verify that the response matches with the body
-    And I verify the schema matches the file: schemas/views/create_view.json
+      And I verify that the response matches with the body
+      And I verify the schema matches the file: schemas/views/create_view.json
