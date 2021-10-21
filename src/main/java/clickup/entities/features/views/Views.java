@@ -77,6 +77,7 @@ public class Views implements IFeature, IGetAllFeatures {
         Views viewsResponse = (Views) featureResponse;
         Map<String, String> valuesMap = new HashMap<>();
         add(() -> valuesMap.put("name", viewsResponse.getView().getName()), () -> baseMap.get("name"));
+        add(() -> valuesMap.put("type", viewsResponse.getView().getType()), () -> baseMap.get("type"));
         return valuesMap;
     }
 }
