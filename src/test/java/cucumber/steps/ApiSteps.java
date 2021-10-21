@@ -12,6 +12,8 @@ package cucumber.steps;
 
 import clickup.entities.features.FeatureFactory;
 import clickup.entities.features.IFeature;
+import clickup.entities.features.checklists.ChecklistItems;
+import clickup.entities.features.checklists.Checklists;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import clickup.utils.StringToMap;
@@ -27,8 +29,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.asserts.SoftAssert;
-
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 public class ApiSteps {
@@ -118,5 +120,13 @@ public class ApiSteps {
         Map<String, String> actual = featureResponse.getMatchedValues(featureResponse, mapBody);
         Map<String, String> expected = mapBody;
         softAssert.assertEquals(actual, expected);
+    }
+
+    @And("I verify the checklist item body inside the checklist")
+    public void verifyChecklistItemInsideChecklist() {
+        List<ChecklistItems> checklistItemsList = apiResponse.getBody(Checklists.class).getChecklist().getItems();
+        boolean isInTheList = checklistItemsList.stream()
+                .anyMatch(checklistItems -> checklistItems.getMatchedValues(checklistItems, mapBody).equals(mapBody));
+        softAssert.assertTrue(isInTheList);
     }
 }
