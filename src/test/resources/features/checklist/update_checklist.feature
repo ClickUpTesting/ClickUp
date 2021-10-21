@@ -7,4 +7,5 @@ Feature: Update checklist
       | name | Updated Checklist |
       And I execute the PUT request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/checklist/create_checklist.json
