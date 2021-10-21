@@ -34,3 +34,4 @@ Feature: Create comment
     Then I verify that the response status is 200
       And I verify the values on the comments chat view
       And I verify the schema matches the file: schemas/comment/create_comment_in_task.json
+    
