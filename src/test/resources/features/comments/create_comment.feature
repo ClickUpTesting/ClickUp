@@ -9,6 +9,7 @@ Feature: Create comment
       | notify_all   | false                 |
       And I execute the POST request
     Then I verify that the response status is 200
+      And I verify the values on the comments list
       And I verify the schema matches the file: schemas/comment/create_comment_in_task.json
 
   @API @SmokeTesting @DeleteComment
@@ -20,6 +21,7 @@ Feature: Create comment
       | notify_all   | true                 |
       And I execute the POST request
     Then I verify that the response status is 200
+      And I verify the values on the comments task
       And I verify the schema matches the file: schemas/comment/create_comment_in_task.json
 
   @API @SmokeTesting @CreateTeamViewTypeConversation @DeleteView
@@ -28,6 +30,8 @@ Feature: Create comment
     When I set the request body with following values:
       |comment_text | View comment content |
       |notify_all   | true                 |
-    And I execute the POST request
+      And I execute the POST request
     Then I verify that the response status is 200
-    And I verify the schema matches the file: schemas/comment/create_comment_in_task.json
+      And I verify the values on the comments chat view
+      And I verify the schema matches the file: schemas/comment/create_comment_in_task.json
+    

@@ -75,6 +75,7 @@ public class ApiSteps {
     @When("^I set the request body with following values:$")
     public void setsRequestBody(final Map<String, String> body) throws IOException {
         mapBody = body;
+        scenarioTrash.setScenarioBodyRequest(body);
         MapStringStringToStringObject converter = new MapStringStringToStringObject();
         JsonFileManager jsonFileManager = new JsonFileManager();
         apiRequestBuilder.body(jsonFileManager.writeJson(converter.buildMapStringObject(body)));

@@ -11,6 +11,7 @@
 package cucumber.steps;
 
 import clickup.ApiEndpoints;
+import clickup.api.ApiFacade;
 import clickup.entities.features.comment.Comment;
 import clickup.entities.features.comment.Comments;
 import clickup.utils.ScenarioTrash;
@@ -23,8 +24,10 @@ import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.testng.asserts.SoftAssert;
 
 import static core.utils.StringConvert.replaceSpaceToUnderscore;
 import static core.utils.RandomCustom.random;
@@ -35,12 +38,15 @@ public class CommentsSteps {
     private ApiRequest apiRequest;
     private ApiResponse apiResponse;
     private ScenarioTrash scenarioTrash;
+    private SoftAssert softAssert;
     private ApiResponse response = new ApiResponse();
     private StringToMap stringToMap = new StringToMap();
+    private ApiFacade apiFacade = new ApiFacade();
 
-    public CommentsSteps(ApiResponse apiResponse, ScenarioTrash scenarioTrash) {
+    public CommentsSteps(ApiResponse apiResponse, ScenarioTrash scenarioTrash, SoftAssert softAssert) {
         this.apiResponse = apiResponse;
         this.scenarioTrash = scenarioTrash;
+        this.softAssert = softAssert;
     }
 
     @Given("^I add the amount of (.*) to the total of comments in the \"(task|chat view|list)\"$")
@@ -70,5 +76,18 @@ public class CommentsSteps {
         int expected = apiResponse.getBody(Comments.class).getComments().size();
         apiResponse.getResponse().then().log().all();
         assertEquals(addedTasks, expected);
+    }
+
+
+    @And("^I verify the values on the comments (.*)$")
+    public void verifyTheValuesOnTheViewsList(String featureContainer) {
+        ApiEndpoints endpoint = ApiEndpoints.valueOf(String.format("GET_%s_COMMENTS",
+                replaceSpaceToUnderscore(featureContainer).toUpperCase()));
+        ApiResponse getCommentsResponse = apiFacade.getObject(endpoint,
+                stringToMap.extractPathParams(endpoint.getEndpoint(), scenarioTrash));
+        Comments commentsList = getCommentsResponse.getBody(Comments.class);
+        boolean isCorrect = commentsList.getComments().stream().anyMatch(comment -> comment.getCommentText().
+                equals(scenarioTrash.getScenarioBodyRequest().get("comment_text")));
+        softAssert.assertTrue(isCorrect);
     }
 }

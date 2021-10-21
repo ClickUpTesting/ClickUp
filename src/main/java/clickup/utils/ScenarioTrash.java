@@ -15,9 +15,11 @@ import java.util.Map;
 
 public class ScenarioTrash {
     private Map<String, String> scenarioTrash;
+    private Map<String, String> scenarioBodyRequest;
 
     public ScenarioTrash() {
         scenarioTrash = new HashMap<>();
+        scenarioBodyRequest = new HashMap<>();
     }
 
     /**
@@ -52,5 +54,25 @@ public class ScenarioTrash {
      */
     public Map<String, String> getScenarioTrash() {
         return scenarioTrash;
+    }
+
+    /**
+     * Gets the map value.
+     *
+     * @return Map stored the body
+     * @author Gustavo Huanca
+     */
+    public Map<String, String> getScenarioBodyRequest() {
+        return scenarioBodyRequest;
+    }
+
+    /**
+     * Sets the map value of the bodyRequest.
+     *
+     * @param scenarioBodyRequest is Map stored the bodyRequest
+     * @author Gustavo Huanca
+     */
+    public void setScenarioBodyRequest(final Map<String, String> scenarioBodyRequest) {
+        this.scenarioBodyRequest = scenarioBodyRequest;
     }
 }

@@ -167,10 +167,24 @@ public class ApiFacade {
      */
     public ApiResponse getObject(final ApiEndpoints endpoint, final String pathParams,
                                  final String valuePathParams) {
+        Map<String, String> mapPathParams = new HashMap<>();
+        mapPathParams.put(pathParams, valuePathParams);
+        return getObject(endpoint, mapPathParams);
+    }
+
+    /**
+     * Gets an object from API.
+     *
+     * @param endpoint        is the objet's endpoint
+     * @param mapPathParams is map with values of pathParams
+     * @return an ApiResponse
+     * @author Gustavo Huanca
+     */
+    public ApiResponse getObject(final ApiEndpoints endpoint, final Map<String, String> mapPathParams) {
         apiRequest = apiRequestBuilder
                 .clearBody()
                 .endpoint(endpoint.getEndpoint())
-                .pathParams(pathParams, valuePathParams)
+                .pathParams(mapPathParams)
                 .method(ApiMethod.GET)
                 .build();
         ApiManager.execute(apiRequest, apiResponse);
