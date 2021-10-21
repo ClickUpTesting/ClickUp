@@ -15,8 +15,12 @@ import clickup.entities.features.IGetAllFeatures;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static core.api.ApiRequestSpecificationProvider.add;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -32,6 +36,14 @@ public class Views implements IFeature, IGetAllFeatures {
 
     public void setView(View view) {
         this.view = view;
+    }
+
+    public List<View> getViews() {
+        return views;
+    }
+
+    public void setViews(List<View> views) {
+        this.views = views;
     }
 
     @Override
@@ -50,20 +62,15 @@ public class Views implements IFeature, IGetAllFeatures {
     }
 
     @Override
-    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> body) {
-        return null;
-    }
-
-    public List<View> getViews() {
-        return views;
-    }
-
-    public void setViews(List<View> views) {
-        this.views = views;
+    public int getAmount() {
+        return views.size();
     }
 
     @Override
-    public int getAmount() {
-        return views.size();
+    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> baseMap) {
+        Views viewsResponse = (Views) featureResponse;
+        Map<String, String> valuesMap = new HashMap<>();
+        add(() -> valuesMap.put("name", viewsResponse.getView().getName()), () -> baseMap.get("name"));
+        return valuesMap;
     }
 }
