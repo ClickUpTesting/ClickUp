@@ -7,4 +7,5 @@ Feature: Create Space
       | name | Space For Testing |
       And I execute the POST request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/space/create_space.json
