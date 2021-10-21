@@ -7,6 +7,7 @@ Feature: Create List
       | name | My list created 41 |
       And I execute the POST request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/list/create_required_field.json
 
   @API @SmokeTesting @DeleteList
@@ -21,6 +22,7 @@ Feature: Create List
       | status        | red                |
       And I execute the POST request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/list/create_all_field.json
 
   @API @SmokeTesting @DeleteList
@@ -30,6 +32,7 @@ Feature: Create List
       | name | My list created in space |
       And I execute the POST request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/list/create_required_field.json
 
   @API @SmokeTesting @DeleteList
@@ -44,4 +47,5 @@ Feature: Create List
       | status        | green                    |
       And I execute the POST request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/list/create_all_field.json
