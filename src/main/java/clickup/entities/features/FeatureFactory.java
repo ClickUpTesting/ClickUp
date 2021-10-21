@@ -52,6 +52,7 @@ public class FeatureFactory {
             case "comment":
                 return new Comment();
             case "views":
+            case "view":
                 return new Views();
             case "space":
                 return new Space();
