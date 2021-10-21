@@ -2,7 +2,7 @@ Feature: Update checklist
 
   @API @SmokeTesting @CreateChecklist @DeleteChecklist
   Scenario: As a user I want to edit a checklist's name
-    Given I set the checklist with request endpoint to /checklist/{checklist_id}
+    Given I set the checklists with request endpoint to /checklist/{checklist_id}
     When I set the request body with following values:
       | name | Updated Checklist |
       And I execute the PUT request

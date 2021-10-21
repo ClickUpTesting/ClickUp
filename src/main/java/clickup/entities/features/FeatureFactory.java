@@ -45,7 +45,7 @@ public class FeatureFactory {
                 return new Task();
             case "tasks":
                 return new Tasks();
-            case "checklist":
+            case "checklists":
                 return new Checklists();
             case "checklistItem":
                 return new ChecklistItems();
