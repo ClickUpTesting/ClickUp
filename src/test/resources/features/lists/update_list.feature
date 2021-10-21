@@ -7,6 +7,7 @@ Feature: Update List
       | name | My list is updated |
       And I execute the PUT request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/list/create_required_field.json
 
   @API @SmokeTesting @CreateListInFolder @DeleteList
@@ -22,6 +23,7 @@ Feature: Update List
       | unset_status  | true                 |
       And I execute the PUT request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/list/list_required_all_field.json
 
   @API @SmokeTesting @CreateListInSpace @DeleteList
@@ -37,4 +39,5 @@ Feature: Update List
       | unset_status  | false                         |
       And I execute the PUT request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/list/list_required_all_field.json

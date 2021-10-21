@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +29,7 @@ import java.util.Map;
 import static clickup.entities.valuesdefects.PriorityDefault.priorityDefault;
 import static core.api.ApiRequestSpecificationProvider.add;
 import static core.utils.RandomCustom.random;
+import static core.utils.StringConvert.stringToNull;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
@@ -226,11 +228,16 @@ public class Lisst implements IFeature {
         add(() -> valuesMap.put("name", lisst.getName()), () -> baseMap.get("name"));
         add(() -> valuesMap.put("content", lisst.getContent()), () -> baseMap.get("content"));
         add(() -> valuesMap.put("due_date", lisst.getDueDate()), () -> baseMap.get("due_date"));
-        add(() -> valuesMap.put("priority", priorityDefault(lisst.getPriority().getPriority())),
-                () -> baseMap.get("priority"));
+        if (null == lisst.getPriority()) {
+            add(() -> valuesMap.put("priority", "null"), () -> baseMap.get("priority"));
+        } else {
+            add(() -> valuesMap.put("priority", priorityDefault(stringToNull(lisst.getPriority().getPriority()))),
+                    () -> baseMap.get("priority"));
+        }
         add(() -> valuesMap.put("status", lisst.getStatus().getStatus()), () -> baseMap.get("status"));
         //This values doesn't exist in response body
         add(() -> valuesMap.put("due_date_time", baseMap.get("due_date_time")), () -> baseMap.get("due_date_time"));
+        add(() -> valuesMap.put("unset_status", baseMap.get("unset_status")), () -> baseMap.get("unset_status"));
         return valuesMap;
     }
 }
