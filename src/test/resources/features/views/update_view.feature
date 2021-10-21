@@ -6,6 +6,7 @@ Feature: Update View
     When I set the request body with following values:
       | name | Updated View For Testing With New Name |
       | type | board                                  |
-      And I execute the PUT request for views
+      And I execute the PUT request
     Then I verify that the response status is 200
+      And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/views/updated_view.json
