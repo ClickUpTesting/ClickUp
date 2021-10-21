@@ -37,6 +37,10 @@ public class CheckListHooks {
     public void deleteChecklist() {
         checklistRequest.deleteChecklist(scenarioTrash.getTrashValue("checklist_id"));
     }
+    @After(value = "@DeleteChecklists")
+    public void deleteChecklists() {
+        checklistRequest.deleteChecklist(scenarioTrash.getTrashValue("checklists_id"));
+    }
 
     @Before(value = "@CreateChecklistItem")
     public void createChecklistItem() throws JsonProcessingException {

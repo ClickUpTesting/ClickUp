@@ -13,9 +13,11 @@ package clickup.entities.features.checklists;
 import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static core.api.ApiRequestSpecificationProvider.add;
 import static core.utils.RandomCustom.random;
 
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
@@ -126,11 +128,20 @@ public class Checklist implements IFeature {
 
     @Override
     public void setDefaultValues() {
-
     }
 
+    /**
+     * Creates a map with the values set on the scenario.
+     *
+     * @param body with the fields set on the scenario
+     * @return valuesMap corresponding feature
+     * @author Jorge Caceres
+     */
     @Override
     public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> body) {
-        return null;
+        Checklist checklist = (Checklist) featureResponse;
+        Map<String, String> valuesMap = new HashMap<>();
+        add(() -> valuesMap.put("name", checklist.getName()), () -> body.get("name"));
+        return valuesMap;
     }
 }
