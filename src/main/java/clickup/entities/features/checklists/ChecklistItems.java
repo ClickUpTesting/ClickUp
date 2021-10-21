@@ -116,7 +116,6 @@ public class ChecklistItems implements IFeature {
 
     @Override
     public void setDefaultValues() {
-
     }
 
     /**
