@@ -16,8 +16,12 @@ import clickup.entities.features.IFeature;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static core.api.ApiRequestSpecificationProvider.add;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
@@ -113,8 +117,18 @@ public class Space implements IFeature {
 
     }
 
+    /**
+     * Creates a map with the values set on the scenario.
+     *
+     * @param baseMap with the fields set on the scenario
+     * @return valuesMap corresponding feature
+     * @author Gustavo Huanca
+     */
     @Override
-    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> body) {
-        return null;
+    public Map<String, String> getMatchedValues(IFeature featureResponse, Map<String, String> baseMap) {
+        Space space = (Space) featureResponse;
+        Map<String, String> valuesMap = new HashMap<>();
+        add(() -> valuesMap.put("name", space.getName()), () -> baseMap.get("name"));
+        return valuesMap;
     }
 }
