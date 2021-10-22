@@ -10,11 +10,11 @@
 
 package cucumber.runner;
 
-import clickup.requests.ChecklistRequest;
-import clickup.requests.FoldersRequest;
-import clickup.requests.ListsRequest;
-import clickup.requests.SpaceRequest;
-import clickup.requests.TasksRequests;
+import clickup.api.requests.ChecklistRequest;
+import clickup.api.requests.FoldersRequest;
+import clickup.api.requests.ListsRequest;
+import clickup.api.requests.SpaceRequest;
+import clickup.api.requests.TasksRequests;
 import core.utils.ReportGenerator;
 import clickup.utils.ScenarioContext;
 import com.fasterxml.jackson.core.JsonProcessingException;

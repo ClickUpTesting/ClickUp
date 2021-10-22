@@ -10,14 +10,14 @@
 
 package cucumber.steps;
 
-import clickup.ApiEndpoints;
-import clickup.api.ApiFacade;
-import clickup.entities.features.IGetAllFeatures;
-import clickup.entities.features.tags.Tag;
-import clickup.entities.features.tags.Tags;
-import clickup.entities.features.tasks.Task;
-import clickup.requests.TagsRequest;
-import clickup.requests.TasksRequests;
+import clickup.api.ApiEndpoints;
+import clickup.api.utils.ApiFacade;
+import clickup.api.entities.features.IGetAllFeatures;
+import clickup.api.entities.features.tags.Tag;
+import clickup.api.entities.features.tags.Tags;
+import clickup.api.entities.features.tasks.Task;
+import clickup.api.requests.TagsRequest;
+import clickup.api.requests.TasksRequests;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import core.api.ApiManager;

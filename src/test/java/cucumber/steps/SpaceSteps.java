@@ -10,10 +10,10 @@
 
 package cucumber.steps;
 
-import clickup.ApiEndpoints;
-import clickup.entities.features.IGetAllFeatures;
-import clickup.entities.features.spaces.Space;
-import clickup.entities.features.spaces.Spaces;
+import clickup.api.ApiEndpoints;
+import clickup.api.entities.features.IGetAllFeatures;
+import clickup.api.entities.features.spaces.Space;
+import clickup.api.entities.features.spaces.Spaces;
 import clickup.utils.ScenarioContext;
 import core.api.ApiHeaders;
 import core.api.ApiManager;

@@ -10,7 +10,7 @@
 
 package clickup.utils;
 
-import clickup.entities.features.IGetAllFeatures;
+import clickup.api.entities.features.IGetAllFeatures;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;

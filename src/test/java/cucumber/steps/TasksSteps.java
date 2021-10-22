@@ -10,9 +10,9 @@
 
 package cucumber.steps;
 
-import clickup.ApiEndpoints;
-import clickup.entities.features.tasks.Task;
-import clickup.entities.features.tasks.Tasks;
+import clickup.api.ApiEndpoints;
+import clickup.api.entities.features.tasks.Task;
+import clickup.api.entities.features.tasks.Tasks;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import com.fasterxml.jackson.core.JsonProcessingException;

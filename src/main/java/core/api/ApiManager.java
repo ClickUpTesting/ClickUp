@@ -13,7 +13,7 @@ package core.api;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-import static core.api.ApiRequestSpecificationProvider.add;
+import static core.utils.SpecificationProvider.add;
 import static io.restassured.RestAssured.given;
 
 public final class ApiManager {

@@ -10,7 +10,7 @@
 
 package cucumber.hooks;
 
-import clickup.requests.WebHooksRequest;
+import clickup.api.requests.WebHooksRequest;
 import clickup.utils.ScenarioTrash;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

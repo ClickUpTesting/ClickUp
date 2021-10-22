@@ -10,8 +10,8 @@
 
 package cucumber.hooks;
 
-import clickup.requests.ChecklistItemRequest;
-import clickup.requests.ChecklistRequest;
+import clickup.api.requests.ChecklistItemRequest;
+import clickup.api.requests.ChecklistRequest;
 import clickup.utils.ScenarioTrash;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.java.After;

@@ -10,20 +10,20 @@
 
 package cucumber.steps;
 
-import clickup.entities.features.FeatureFactory;
-import clickup.entities.features.IFeature;
-import clickup.entities.features.checklists.ChecklistItems;
-import clickup.entities.features.checklists.Checklists;
+import clickup.api.entities.features.FeatureFactory;
+import clickup.api.entities.features.IFeature;
+import clickup.api.entities.features.checklists.ChecklistItems;
+import clickup.api.entities.features.checklists.Checklists;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
-import clickup.utils.StringToMap;
+import clickup.api.utils.StringToMap;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
 import core.api.ApiRequestBuilder;
 import core.api.ApiResponse;
 import core.utils.JsonFileManager;
-import core.utils.MapStringStringToStringObject;
+import core.api.utils.MapStringStringToStringObject;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

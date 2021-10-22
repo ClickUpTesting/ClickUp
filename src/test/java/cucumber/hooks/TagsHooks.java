@@ -10,8 +10,8 @@
 
 package cucumber.hooks;
 
-import clickup.requests.TagsRequest;
-import clickup.requests.TasksRequests;
+import clickup.api.requests.TagsRequest;
+import clickup.api.requests.TasksRequests;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import io.cucumber.java.After;
