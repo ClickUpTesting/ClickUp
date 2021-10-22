@@ -10,8 +10,8 @@
 
 package cucumber.steps;
 
-import clickup.entities.features.linkedtasks.LinkedTask;
-import clickup.entities.features.linkedtasks.LinkedTasks;
+import clickup.api.entities.features.linkedtasks.LinkedTask;
+import clickup.api.entities.features.linkedtasks.LinkedTasks;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import core.api.ApiRequestBuilder;

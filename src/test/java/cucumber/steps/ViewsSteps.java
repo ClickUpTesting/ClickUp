@@ -10,10 +10,10 @@
 
 package cucumber.steps;
 
-import clickup.ApiEndpoints;
-import clickup.entities.features.IGetAllFeatures;
-import clickup.entities.features.views.TaskViews;
-import clickup.entities.features.views.Views;
+import clickup.api.ApiEndpoints;
+import clickup.api.entities.features.IGetAllFeatures;
+import clickup.api.entities.features.views.TaskViews;
+import clickup.api.entities.features.views.Views;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import core.api.ApiHeaders;

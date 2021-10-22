@@ -10,13 +10,13 @@
 
 package cucumber.steps;
 
-import clickup.ApiEndpoints;
-import clickup.api.ApiFacade;
-import clickup.entities.features.lists.Lisst;
-import clickup.entities.features.lists.Lists;
+import clickup.api.ApiEndpoints;
+import clickup.api.utils.ApiFacade;
+import clickup.api.entities.features.lists.Lisst;
+import clickup.api.entities.features.lists.Lists;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
-import clickup.utils.StringToMap;
+import clickup.api.utils.StringToMap;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
@@ -27,7 +27,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
+import static clickup.api.utils.getPathParamsNames.getPathParamsFromEndpoint;
 
 public class ListsSteps {
     private ApiRequestBuilder apiRequestBuilder;

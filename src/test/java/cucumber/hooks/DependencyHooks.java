@@ -10,8 +10,8 @@
 
 package cucumber.hooks;
 
-import clickup.requests.DependencyRequest;
-import clickup.requests.TasksRequests;
+import clickup.api.requests.DependencyRequest;
+import clickup.api.requests.TasksRequests;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import com.fasterxml.jackson.core.JsonProcessingException;

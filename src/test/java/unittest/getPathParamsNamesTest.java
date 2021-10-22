@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
+import static clickup.api.utils.getPathParamsNames.getPathParamsFromEndpoint;
 
 public class getPathParamsNamesTest {
 

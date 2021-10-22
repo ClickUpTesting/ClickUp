@@ -10,8 +10,8 @@
 
 package cucumber.steps;
 
-import clickup.entities.features.FeatureFactory;
-import clickup.entities.features.IFeature;
+import clickup.api.entities.features.FeatureFactory;
+import clickup.api.entities.features.IFeature;
 import clickup.utils.ScenarioContext;
 import core.api.ApiManager;
 import core.api.ApiMethod;
@@ -22,7 +22,7 @@ import io.cucumber.java.en.Given;
 import java.util.LinkedList;
 import java.util.List;
 
-import static clickup.utils.getPathParamsNames.getPathParamsFromEndpoint;
+import static clickup.api.utils.getPathParamsNames.getPathParamsFromEndpoint;
 
 public class FeaturesSteps {
     private ApiRequestBuilder apiRequestBuilder;

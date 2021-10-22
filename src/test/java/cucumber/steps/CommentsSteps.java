@@ -10,12 +10,12 @@
 
 package cucumber.steps;
 
-import clickup.ApiEndpoints;
-import clickup.api.ApiFacade;
-import clickup.entities.features.comment.Comment;
-import clickup.entities.features.comment.Comments;
+import clickup.api.ApiEndpoints;
+import clickup.api.utils.ApiFacade;
+import clickup.api.entities.features.comment.Comment;
+import clickup.api.entities.features.comment.Comments;
 import clickup.utils.ScenarioTrash;
-import clickup.utils.StringToMap;
+import clickup.api.utils.StringToMap;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.api.ApiHeaders;

@@ -10,7 +10,7 @@
 
 package cucumber.hooks;
 
-import clickup.requests.ListsRequest;
+import clickup.api.requests.ListsRequest;
 import clickup.utils.ScenarioTrash;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.java.After;
