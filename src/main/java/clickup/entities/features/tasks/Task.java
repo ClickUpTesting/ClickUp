@@ -10,6 +10,7 @@
 
 package clickup.entities.features.tasks;
 
+import clickup.entities.features.linkedtasks.LinkedTask;
 import clickup.entities.Priority;
 import clickup.entities.features.spaces.Space;
 import clickup.entities.Status;
@@ -19,7 +20,6 @@ import clickup.entities.features.tags.Tag;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,7 +64,7 @@ public class Task implements IFeature {
     public List<Object> customFields;
     public List<Object> dependencies;
     @JsonProperty("linked_tasks")
-    public List<Object> linkedTasks;
+    public List<LinkedTask> linkedTasks;
     @JsonProperty("team_id")
     public String teamId;
     public String url;
@@ -268,11 +268,11 @@ public class Task implements IFeature {
         this.dependencies = dependencies;
     }
 
-    public List<Object> getLinkedTasks() {
+    public List<LinkedTask> getLinkedTasks() {
         return linkedTasks;
     }
 
-    public void setLinkedTasks(List<Object> linkedTasks) {
+    public void setLinkedTasks(List<LinkedTask> linkedTasks) {
         this.linkedTasks = linkedTasks;
     }
 
