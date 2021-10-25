@@ -1,6 +1,6 @@
 Feature: Create comment
 
-  @API @SmokeTesting @DeleteComment
+  @API @SmokeTesting @Comment @DeleteComment
   Scenario: As a user I want to create a comment in list
     Given I set the comment with request endpoint to /list/{list_id}/comment
     When I set the request body with following values:

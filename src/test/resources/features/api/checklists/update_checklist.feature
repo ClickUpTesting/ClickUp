@@ -1,6 +1,6 @@
 Feature: Update checklist
 
-  @API @SmokeTesting @CreateChecklist @DeleteChecklist
+  @API @SmokeTesting @Checklist @CreateChecklist @DeleteChecklist
   Scenario: As a user I want to edit a checklist's name
     Given I set the checklists with request endpoint to /checklist/{checklist_id}
     When I set the request body with following values:

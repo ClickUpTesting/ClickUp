@@ -1,6 +1,6 @@
 Feature: Get all Task
 
-  @API @SmokeTesting @CreateListInSpace @DeleteList
+  @API @SmokeTesting @Task @CreateListInSpace @DeleteList
   Scenario: As a user I want to get all task and verity the quantity
     Given I set the task with request endpoint to /list/{list_id}/task
     When I add the amount of 3 to the total of task

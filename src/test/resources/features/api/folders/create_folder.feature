@@ -1,6 +1,6 @@
 Feature: Create Folder
 
-  @API @SmokeTesting @DeleteFolder
+  @API @SmokeTesting @Folder @DeleteFolder
   Scenario: As a user I want to create a folder
     Given I set the folder with request endpoint to /space/{space_id}/folder
     When I set the request body with following values:

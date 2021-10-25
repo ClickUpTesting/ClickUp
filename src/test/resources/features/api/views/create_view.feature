@@ -1,6 +1,6 @@
 Feature: Create View
 
-  @API @SmokeTesting @DeleteView
+  @API @SmokeTesting @View @DeleteView
   Scenario: As a user I want to create a Team View
     Given I set the view with request endpoint to /team/{team_id}/view
     When I set the request body with following values:
@@ -10,7 +10,7 @@ Feature: Create View
       And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/views/create_view.json
 
-  @API @SmokeTesting @DeleteView
+  @API @SmokeTesting @View @DeleteView
   Scenario: As a user I want to create a Space View
     Given I set the view with request endpoint to /space/{space_id}/view
     When I set the request body with following values:
@@ -20,7 +20,7 @@ Feature: Create View
       And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/views/create_view.json
 
-  @API @SmokeTesting @DeleteView
+  @API @SmokeTesting @View @DeleteView
   Scenario: As a user I want to create a Folder View
     Given I set the view with request endpoint to /folder/{folder_id}/view
     When I set the request body with following values:
@@ -30,7 +30,7 @@ Feature: Create View
       And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/views/create_view.json
 
-  @API @SmokeTesting @DeleteView
+  @API @SmokeTesting @View @DeleteView
   Scenario: As a user I want to create a List View
     Given I set the view with request endpoint to /list/{list_id}/view
     When I set the request body with following values:

@@ -1,6 +1,6 @@
 Feature: Delete Tags
 
-  @API @SmokeTesting @CreateTag
+  @API @SmokeTesting @Tag @CreateTag
   Scenario: As a user I want to delete a Tag's name
     Given I set the endpoint /space/{space_id}/tag/{tag_name}
     When I execute a DELETE request
