@@ -1,6 +1,6 @@
 Feature: Create Tags
 
-  @API @SmokeTesting @Tags @DeleteTag
+  @API @SmokeTesting @Tag @DeleteTag
   Scenario: As a user I want to create a Tag
     Given I set the endpoint /space/{space_id}/tag
     When I set the tags body with following values:
@@ -11,7 +11,7 @@ Feature: Create Tags
     Then I verify the values on the tags list
       And I verify that the response status is 200
 
-  @API @SmokeTesting @Tags @DeleteTag
+  @API @SmokeTesting @Tag @DeleteTag
   Scenario: As a user I want to create a Tag with only name
     Given I set the endpoint /space/{space_id}/tag
     When I set the tags body with following values:
@@ -20,7 +20,7 @@ Feature: Create Tags
     Then I verify the values on the tags list
       And I verify that the response status is 200
 
-  @API @NegativeTesting @Tags
+  @API @NegativeTesting @Tag
   Scenario: As a user I want to verify that it is not possible to create a Tag without name
     Given I set the endpoint /space/{space_id}/tag
     When I set the tags body with following values:

@@ -1,6 +1,6 @@
 Feature: Update Tags
 
-  @API @SmokeTesting @Tags @CreateTag @DeleteTag
+  @API @SmokeTesting @Tag @CreateTag @DeleteTag
   Scenario: As a user I want to update a Tag's name
     Given I set the endpoint /space/{space_id}/tag/{tag_name}
     When I set the tags body with following values:
@@ -9,7 +9,7 @@ Feature: Update Tags
     Then I verify the values on the tags list
       And I verify that the response status is 200
 
-  @API @SmokeTesting @Tags @CreateTag @DeleteTag
+  @API @SmokeTesting @Tag @CreateTag @DeleteTag
   Scenario: As a user I want to update a Tag's color
     Given I set the endpoint /space/{space_id}/tag/{tag_name}
     When I set the tags body with following values:
