@@ -1,6 +1,6 @@
 Feature: Delete task
 
-  @API @SmokeTesting @CreateTask
+  @API @SmokeTesting @Task @CreateTask
   Scenario: As a user I want to delete a task
     Given I set the task with request endpoint to /task/{task_id}
     When I execute the DELETE request

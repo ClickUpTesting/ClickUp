@@ -1,6 +1,6 @@
 Feature: Delete checklist item
 
-  @API @SmokeTesting @CreateChecklistItem
+  @API @SmokeTesting @Checklist @CreateChecklistItem
   Scenario: As a user I want to delete a checklist item from a checklist
     Given I set the checklistItem with request endpoint to /checklist/{checklist_id}/checklist_item/{checklist_item_id}
     When I execute a DELETE request

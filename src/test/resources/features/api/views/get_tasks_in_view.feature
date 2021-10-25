@@ -1,6 +1,6 @@
 Feature: Get all Tasks in View
 
-  @API @SmokeTesting @CreateTeamView @DeleteView @CreateTask @DeleteTask
+  @API @SmokeTesting @View @CreateTeamView @DeleteView @CreateTask @DeleteTask
   Scenario: As a user I want to get all tasks in a View
     Given I set the task with request endpoint to /view/{view_id}/task
       And I set the query parameters as:

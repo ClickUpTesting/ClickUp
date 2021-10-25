@@ -1,6 +1,6 @@
 Feature: Link a task to another
 
-  @API @SmokeTesting @LinkTask @DeleteTask
+  @API @SmokeTesting @Dependency @LinkTask @DeleteTask
   Scenario: As a user I want to link a task to another one
     Given I set the endpoint /task/{task_id}/link/{links_to}
     When I execute a POST request

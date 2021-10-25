@@ -1,6 +1,6 @@
 Feature: create a task attachment
 
-  @API @SmokeTesting @CreateTask @DeleteTask
+  @API @SmokeTesting @Attachment @CreateTask @DeleteTask
   Scenario: As a user I want to create a task attachment
     Given I set the endpoint /task/{task_id}/attachment
     When I Add an attachment to the task

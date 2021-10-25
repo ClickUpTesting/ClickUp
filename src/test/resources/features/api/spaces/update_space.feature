@@ -1,6 +1,6 @@
 Feature: Update Space
 
-  @API @SmokeTesting @CreateSpace @DeleteSpace
+  @API @SmokeTesting @Spaces @CreateSpace @DeleteSpace
   Scenario: As a user I want to update a space name
     Given I set the space with request endpoint to /space/{space_id}
     When I set the request body with following values:

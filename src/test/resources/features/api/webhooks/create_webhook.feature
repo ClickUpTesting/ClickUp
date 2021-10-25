@@ -1,6 +1,6 @@
 Feature: Create a webhook
 
-  @API @SmokeTesting @DeleteWebhooks
+  @API @SmokeTesting @WebHooks @DeleteWebhooks
   Scenario: As a user I want to create a webhook with all fields
     Given I set the webhooks with request endpoint to /team/{team_id}/webhook
     When I set the request body with following values:

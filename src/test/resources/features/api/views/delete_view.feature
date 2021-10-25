@@ -1,6 +1,6 @@
 Feature: Delete View
 
-  @API @SmokeTesting @CreateTeamView
+  @API @SmokeTesting @View @CreateTeamView
   Scenario: As a user I want to delete a team view
     Given I set the views with request endpoint to /view/{view_id}
     When I execute the DELETE request for views
