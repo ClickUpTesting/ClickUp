@@ -23,6 +23,8 @@ dependencies {
     implementation group: 'org.json', name: 'json', version: '20210307'
     testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '6.11.0'
     testImplementation group: 'org.testng', name: 'testng', version: '7.4.0'
+    implementation group: 'org.apache.poi', name: 'poi', version: '5.0.0'
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.0.0'
 }
 
 test {
