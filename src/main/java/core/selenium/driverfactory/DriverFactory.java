@@ -12,8 +12,16 @@ package core.selenium.driverfactory;
 
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebDriver;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class DriverFactory {
+    private static final Map<String, Browser> BROWSERS = new HashMap<>();
+    static {
+        BROWSERS.put("CHROME", new ChromeBrowser());
+        BROWSERS.put("FIREFOX", new FirefoxBrowser());
+        BROWSERS.put("EDGE", new EdgeBrowser());
+    }
 
     private DriverFactory() {
     }
@@ -26,15 +34,10 @@ public final class DriverFactory {
      * @author Jorge Caceres
      */
     public static WebDriver getDriver(final String type) {
-        switch (type) {
-            case "CHROME":
-                return new ChromeBrowser().getWebDriver();
-            case "EDGE":
-                return new EdgeBrowser().getWebDriver();
-            case "FIREFOX":
-                return new FirefoxBrowser().getWebDriver();
-            default:
-                throw new InvalidArgumentException("Unsupported WebDriver");
+        try {
+            return BROWSERS.get(type).getWebDriver();
+        } catch (InvalidArgumentException e) {
+            throw new InvalidArgumentException("Unsupported Browser");
         }
     }
 }
