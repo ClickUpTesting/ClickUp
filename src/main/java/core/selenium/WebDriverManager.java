@@ -21,7 +21,7 @@ public class WebDriverManager {
     private WebDriverWait wait;
 
     /**
-     * Initializes the web driver configuration configuration.
+     * Initializes the web driver configuration.
      *
      * @author Gustavo Huanca
      */
@@ -94,25 +94,6 @@ public class WebDriverManager {
         this.webDriver = DriverFactory.getDriver(webDriverConfig.getBrowser());
         maximizeScreen();
         deleteAllCookies();
-        setDriverWaits(webDriverConfig.getImplicitWaitTime(), webDriverConfig.getExplicitWaitTime(),
-                webDriverConfig.getWaitSleepTime());
-    }
-
-    /**
-     * Sets the web driver waits to the minimum to handle datatable elements.
-     *
-     * @author Gustavo Huanca
-     */
-    public void setTableWaitMode() {
-        setDriverWaits(0, 0, 0);
-    }
-
-    /**
-     * Sets the web driver waits to the property values.
-     *
-     * @author Gustavo Huanca
-     */
-    public void setDefaultWaitMode() {
         setDriverWaits(webDriverConfig.getImplicitWaitTime(), webDriverConfig.getExplicitWaitTime(),
                 webDriverConfig.getWaitSleepTime());
     }
