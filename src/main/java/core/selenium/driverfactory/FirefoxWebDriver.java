@@ -16,7 +16,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class FirefoxWebDriver implements IWebDriver {
-
     FirefoxOptions firefoxOptions;
 
     /**

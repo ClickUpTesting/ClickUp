@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebDriverElementText {
-
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected WebDriverManager webDriverManager;

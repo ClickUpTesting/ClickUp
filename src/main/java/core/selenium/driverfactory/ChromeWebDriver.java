@@ -16,7 +16,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeWebDriver implements IWebDriver {
-
     private ChromeOptions chromeOptions;
 
     /**
