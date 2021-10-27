@@ -17,11 +17,11 @@ import org.openqa.selenium.InvalidArgumentException;
 
 public final class DriverConfig {
     private static DriverConfig driverConfig;
+    private JsonFileManager jsonFileManager;
     private String browser;
     private int implicitTime;
     private int explicitTime;
     private int sleepTime;
-    private JsonFileManager jsonFileManager;
 
     private DriverConfig() {
         jsonFileManager = new JsonFileManager();

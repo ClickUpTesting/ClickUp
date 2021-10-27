@@ -24,6 +24,19 @@ public final class EnvConfig {
     }
 
     /**
+     * Returns the envConfig.
+     *
+     * @return the envConfig
+     * @author Gustavo Huanca
+     */
+    public static EnvConfig getInstance() {
+        if (envConfig == null) {
+            envConfig = new EnvConfig();
+        }
+        return envConfig;
+    }
+
+    /**
      * Initializes general properties.
      *
      * @author Gustavo Huanca
@@ -52,18 +65,5 @@ public final class EnvConfig {
      */
     public String getLoginUrl() {
         return loginUrl;
-    }
-
-    /**
-     * Returns the envConfig.
-     *
-     * @return the envConfig
-     * @author Gustavo Huanca
-     */
-    public static EnvConfig getInstance() {
-        if (envConfig == null) {
-            envConfig = new EnvConfig();
-        }
-        return envConfig;
     }
 }
