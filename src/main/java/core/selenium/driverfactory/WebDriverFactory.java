@@ -34,9 +34,9 @@ public final class WebDriverFactory {
      * @author Jorge Caceres
      */
     public static WebDriver getDriver(final String webDriver) {
-        if (DRIVERS.containsKey(webDriver)){
+        if (DRIVERS.containsKey(webDriver)) {
             return DRIVERS.get(webDriver).getWebDriver();
-        }else {
+        } else {
             throw new InvalidArgumentException("The supported Browsers are: CHROME, FIREFOX, EDGE ");
         }
     }
