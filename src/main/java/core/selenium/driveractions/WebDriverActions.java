@@ -8,9 +8,11 @@
  * @author Jorge Caceres
  */
 
-package core.selenium;
+package core.selenium.driveractions;
 
 import java.util.List;
+
+import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -39,26 +41,6 @@ public class WebDriverActions {
     }
 
     /**
-     * Waits until a web element is visible.
-     *
-     * @param locator of the web element to be waited
-     * @author Jorge Caceres
-     */
-    public void waitVisibilityOfElement(final By locator) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
-    /**
-     * Waits until a web element is visible.
-     *
-     * @param webElement to be waited
-     * @author Jorge Caceres
-     */
-    public void waitVisibilityOfElement(final WebElement webElement) {
-        wait.until(ExpectedConditions.visibilityOf(webElement));
-    }
-
-    /**
      * Clicks an element by locator.
      *
      * @param locator is the element to be clicked
@@ -80,51 +62,6 @@ public class WebDriverActions {
         webElement.click();
     }
 
-    /**
-     * Sends keys to a form .
-     *
-     * @param locator of the web element with an entry form
-     * @param input is the data to be sent
-     * @author Jorge Caceres
-     */
-    public void sendKeys(final By locator, final String input) {
-        driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(input);
-    }
-
-    /**
-     * Sends keys to an webelement with an entry form .
-     *
-     * @param webElement with an entry form
-     * @param input is the data to be sent
-     * @author Jorge Caceres
-     */
-    public void sendKeys(final WebElement webElement, final String input) {
-        webElement.clear();
-        webElement.sendKeys(input);
-    }
-
-    /**
-     * Gets the text of a web element.
-     *
-     * @param locator web element to get text
-     * @return web element's text
-     * @author Jorge Caceres
-     */
-    public String getText(final By locator) {
-        return driver.findElement(locator).getText();
-    }
-
-    /**
-     * Gets the text of a web element.
-     *
-     * @param webElement to get text
-     * @return web element's text
-     * @author Jorge Caceres
-     */
-    public String getText(final WebElement webElement) {
-        return webElement.getText();
-    }
 
     /**
      * Scrolls to the end of the page.

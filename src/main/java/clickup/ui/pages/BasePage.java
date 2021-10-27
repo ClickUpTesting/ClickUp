@@ -10,11 +10,15 @@
 
 package clickup.ui.pages;
 
-import core.selenium.WebDriverActions;
+import core.selenium.driveractions.WebDriverActions;
 import core.selenium.WebDriverManager;
+import core.selenium.driveractions.WebDriverElementText;
+import core.selenium.driveractions.WebDriverWait;
 
 public abstract class BasePage {
     protected WebDriverActions webDriverActions;
+    protected WebDriverElementText webDriverElementText;
+    protected WebDriverWait webDriverWait;
     protected WebDriverManager webDriverManager;
 
     /**
@@ -26,6 +30,8 @@ public abstract class BasePage {
     public BasePage(WebDriverManager webDriverManager) {
         this.webDriverManager = webDriverManager;
         webDriverActions = new WebDriverActions(this.webDriverManager);
+        webDriverElementText = new WebDriverElementText(this.webDriverManager);
+        webDriverWait = new WebDriverWait(this.webDriverManager);
     }
 
     /**

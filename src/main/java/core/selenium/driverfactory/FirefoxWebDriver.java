@@ -12,22 +12,22 @@ package core.selenium.driverfactory;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
-public class ChromeBrowser implements Browser {
+public class FirefoxWebDriver implements IWebDriver {
 
-    private ChromeOptions chromeOptions;
+    FirefoxOptions firefoxOptions;
 
     /**
      * Configures Chrome browser's options.
      *
      * @author Jorge Caceres
      */
-    public void setChromeOptions() {
-        chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--disable-notifications", "--ignore-certificate-errors",
-                "--disable-extensions", "--no-sandbox");
+    public void setFirefoxOptions() {
+        firefoxOptions = new FirefoxOptions();
+        firefoxOptions.addArguments("--disable-web-security");
+        firefoxOptions.addArguments("--allow-running-insecure-content");
     }
 
     /**
@@ -38,8 +38,8 @@ public class ChromeBrowser implements Browser {
      */
     @Override
     public WebDriver getWebDriver() {
-        WebDriverManager.chromedriver().setup();
-        setChromeOptions();
-        return new ChromeDriver(chromeOptions);
+        WebDriverManager.firefoxdriver().setup();
+        setFirefoxOptions();
+        return new FirefoxDriver(firefoxOptions);
     }
 }

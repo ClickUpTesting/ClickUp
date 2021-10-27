@@ -10,7 +10,7 @@
 
 package core.selenium;
 
-import core.selenium.driverfactory.DriverFactory;
+import core.selenium.driverfactory.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
@@ -26,7 +26,7 @@ public class WebDriverManager {
      * @author Gustavo Huanca
      */
     public WebDriverManager() {
-        this.webDriver = DriverFactory.getDriver(webDriverConfig.getBrowser());
+        this.webDriver = WebDriverFactory.getDriver(webDriverConfig.getBrowser());
         maximizeScreen();
         deleteAllCookies();
         setDriverWaits(webDriverConfig.getImplicitWaitTime(), webDriverConfig.getExplicitWaitTime(),

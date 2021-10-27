@@ -10,9 +10,11 @@
 
 package core.selenium.driverfactory;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 
-public interface Browser {
+public class EdgeWebDriver implements IWebDriver {
 
     /**
      * Gets the browser's driver.
@@ -20,5 +22,9 @@ public interface Browser {
      * @return the web driver
      * @author Jorge Caceres
      */
-    WebDriver getWebDriver();
+    @Override
+    public WebDriver getWebDriver() {
+        WebDriverManager.edgedriver().setup();
+        return new EdgeDriver();
+    }
 }

@@ -15,29 +15,29 @@ import org.openqa.selenium.WebDriver;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class DriverFactory {
-    private static final Map<String, Browser> BROWSERS = new HashMap<>();
+public final class WebDriverFactory {
+    private static final Map<String, IWebDriver> DRIVERS = new HashMap<>();
     static {
-        BROWSERS.put("CHROME", new ChromeBrowser());
-        BROWSERS.put("FIREFOX", new FirefoxBrowser());
-        BROWSERS.put("EDGE", new EdgeBrowser());
+        DRIVERS.put("CHROME", new ChromeWebDriver());
+        DRIVERS.put("FIREFOX", new FirefoxWebDriver());
+        DRIVERS.put("EDGE", new EdgeWebDriver());
     }
 
-    private DriverFactory() {
+    private WebDriverFactory() {
     }
 
     /**
      * Gets the type of driver.
      *
-     * @param type to define which type will be returned.
+     * @param webDriver to define which type will be returned.
      * @return the driver type.
      * @author Jorge Caceres
      */
-    public static WebDriver getDriver(final String type) {
-        try {
-            return BROWSERS.get(type).getWebDriver();
-        } catch (InvalidArgumentException e) {
-            throw new InvalidArgumentException("Unsupported Browser");
+    public static WebDriver getDriver(final String webDriver) {
+        if (DRIVERS.containsKey(webDriver)){
+            return DRIVERS.get(webDriver).getWebDriver();
+        }else {
+            throw new InvalidArgumentException("The supported Browsers are: CHROME, FIREFOX, EDGE ");
         }
     }
 }
