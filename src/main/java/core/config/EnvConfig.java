@@ -14,58 +14,24 @@ import core.utils.PropertiesReader;
 import java.util.Properties;
 
 public final class EnvConfig {
-
     private static EnvConfig envConfig;
     private Properties properties;
     private String loginUrl;
-    private String browser;
-    private int implicitTime;
-    private int explicitTime;
-    private int sleepTime;
     private String language;
 
     private EnvConfig() {
-        initialize();
+        initializeGeneralProperties();
     }
 
     /**
-     * Gets the browser to run the tests on.
+     * Initializes general properties.
      *
-     * @return a String
      * @author Gustavo Huanca
      */
-    public String getBrowser() {
-        return browser;
-    }
-
-    /**
-     * Gets the implicit time.
-     *
-     * @return int represents the driver implicit time
-     * @author Gustavo Huanca
-     */
-    public int getImplicitTime() {
-        return implicitTime;
-    }
-
-    /**
-     * Gets the explicit time.
-     *
-     * @return int represents the driver explicit time
-     * @author Gustavo Huanca
-     */
-    public int getExplicitTime() {
-        return explicitTime;
-    }
-
-    /**
-     * Gets the sleep time.
-     *
-     * @return int represents the driver sleep time
-     * @author Gustavo Huanca
-     */
-    public int getSleepTime() {
-        return sleepTime;
+    private void initializeGeneralProperties() {
+        properties = PropertiesReader.getProperties("config/environment/env_config.properties");
+        loginUrl = properties.getProperty("loginURL");
+        language = properties.getProperty("language");
     }
 
     /**
@@ -99,41 +65,5 @@ public final class EnvConfig {
             envConfig = new EnvConfig();
         }
         return envConfig;
-    }
-
-
-    /**
-     * Sets the configuration
-     *
-     * @author Gustavo Huanca
-     */
-    private void initialize() {
-        initializeGeneralProperties();
-    }
-
-    /**
-     * Initializes general properties.
-     *
-     * @author Gustavo Huanca
-     */
-    private void initializeGeneralProperties() {
-        properties = PropertiesReader.getProperties("config.properties");
-        loginUrl = getProperty("loginURL");
-        browser = getProperty("browser");
-        implicitTime = Integer.parseInt(getProperty("implicitTime"));
-        explicitTime = Integer.parseInt(getProperty("explicitTime"));
-        sleepTime = Integer.parseInt(getProperty("sleepTime"));
-        language = getProperty("language");
-    }
-
-    /**
-     * Gets a property from the Properties instance.
-     *
-     * @param property represents the property to retrieve
-     * @return a String
-     * @author Gustavo Huanca
-     */
-    private String getProperty(final String property) {
-        return properties.getProperty(property);
     }
 }

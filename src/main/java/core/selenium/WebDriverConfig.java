@@ -10,10 +10,9 @@
 
 package core.selenium;
 
-import core.config.EnvConfig;
+import core.config.DriverConfig;
 
 public class WebDriverConfig {
-
     private String browser;
     private int implicitWaitTime;
     private int explicitWaitTime;
@@ -43,10 +42,10 @@ public class WebDriverConfig {
      * @author Gustavo Huanca
      */
     public void initialize() {
-        browser = EnvConfig.getInstance().getBrowser();
-        implicitWaitTime = EnvConfig.getInstance().getImplicitTime();
-        explicitWaitTime = EnvConfig.getInstance().getExplicitTime();
-        waitSleepTime = EnvConfig.getInstance().getSleepTime();
+        browser = DriverConfig.getInstance().getBrowser();
+        implicitWaitTime = DriverConfig.getInstance().getImplicitTime();
+        explicitWaitTime = DriverConfig.getInstance().getExplicitTime();
+        waitSleepTime = DriverConfig.getInstance().getSleepTime();
     }
 
     /**

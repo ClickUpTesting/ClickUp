@@ -1,0 +1,17 @@
+{
+  "CHROME": {
+    "implicitTime": 20,
+    "explicitTime": 30,
+    "sleepTime": 500
+  },
+  "FIREFOX": {
+    "implicitTime": 20,
+    "explicitTime": 30,
+    "sleepTime": 500
+  },
+  "EDGE": {
+    "implicitTime": 20,
+    "explicitTime": 30,
+    "sleepTime": 500
+  }
+}

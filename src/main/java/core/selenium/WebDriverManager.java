@@ -26,7 +26,24 @@ public class WebDriverManager {
      * @author Gustavo Huanca
      */
     public WebDriverManager() {
-        initialize();
+        this.webDriver = DriverFactory.getDriver(webDriverConfig.getBrowser());
+        maximizeScreen();
+        deleteAllCookies();
+        setDriverWaits(webDriverConfig.getImplicitWaitTime(), webDriverConfig.getExplicitWaitTime(),
+                webDriverConfig.getWaitSleepTime());
+    }
+
+    /**
+     * Set a new WebDriverWait with a specific time.
+     *
+     * @param implicitWaitTime is implicit wait time in seconds
+     * @param explicitWaitTime is explicit wait time in seconds
+     * @param sleepTime        is sleep time in milliseconds
+     * @author Gustavo Huanca
+     */
+    private void setDriverWaits(final int implicitWaitTime, final int explicitWaitTime, final int sleepTime) {
+        this.webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitTime));
+        wait = new WebDriverWait(webDriver, Duration.ofSeconds(explicitWaitTime), Duration.ofMillis(sleepTime));
     }
 
     /**
@@ -83,31 +100,5 @@ public class WebDriverManager {
      */
     public void deleteAllCookies() {
         webDriver.manage().deleteAllCookies();
-    }
-
-    /**
-     * Initializes the webDriverManager configuration.
-     *
-     * @author Gustavo Huanca
-     */
-    private void initialize() {
-        this.webDriver = DriverFactory.getDriver(webDriverConfig.getBrowser());
-        maximizeScreen();
-        deleteAllCookies();
-        setDriverWaits(webDriverConfig.getImplicitWaitTime(), webDriverConfig.getExplicitWaitTime(),
-                webDriverConfig.getWaitSleepTime());
-    }
-
-    /**
-     * Set a new WebDriverWait with a specific time.
-     *
-     * @param implicitWaitTime is implicit wait time in seconds
-     * @param explicitWaitTime is explicit wait time in seconds
-     * @param sleepTime        is sleep time in milliseconds
-     * @author Gustavo Huanca
-     */
-    private void setDriverWaits(final int implicitWaitTime, final int explicitWaitTime, final int sleepTime) {
-        this.webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitTime));
-        wait = new WebDriverWait(webDriver, Duration.ofSeconds(explicitWaitTime), Duration.ofMillis(sleepTime));
     }
 }
