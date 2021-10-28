@@ -16,8 +16,9 @@ import java.util.Properties;
 public final class EnvConfig {
     private static EnvConfig envConfig;
     private Properties properties;
-    private String loginUrl;
+    private String baseUrl;
     private String language;
+
 
     private EnvConfig() {
         initializeGeneralProperties();
@@ -43,7 +44,7 @@ public final class EnvConfig {
      */
     private void initializeGeneralProperties() {
         properties = PropertiesReader.getProperties("config/environment/env_config.properties");
-        loginUrl = properties.getProperty("loginURL");
+        baseUrl = properties.getProperty("loginURL");
         language = properties.getProperty("language");
     }
 
@@ -58,12 +59,12 @@ public final class EnvConfig {
     }
 
     /**
-     * Returns the loginUrl.
+     * Returns the baseURL.
      *
      * @return the loginUrl
      * @author Gustavo Huanca
      */
-    public String getLoginUrl() {
-        return loginUrl;
+    public String getBaseUrl() {
+        return baseUrl;
     }
 }
