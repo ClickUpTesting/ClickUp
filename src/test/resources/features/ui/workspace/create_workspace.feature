@@ -1,8 +1,11 @@
+@GUI @Workspace
 Feature: Create Workspace
 
-  @UI @Workspace
-  Scenario: Create a campaign with only required fields
-    Given I go to my settings page
-    When I create a new workspace with field
-      | name|New workspace random |
-    Then I verify that the created workspace contains the correct information
+  @Smoke @DeleteWorkspace
+  Scenario: Create a Workspace with default setting
+    Given I login to click up as an admin
+    When I navigate to "team form" page
+    And I create a new "workspace" with field
+      | name | New workspace random |
+    Then I verify that the created "workspace" contains the default values
+
