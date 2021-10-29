@@ -31,10 +31,6 @@ import java.util.Base64;
 import java.util.Random;
 
 public final class EncryptManager {
-
-    private EncryptManager() {
-    }
-
     private static final int ENCODING_BYTES = 16;
     private static final int ITERATION_COUNT = 65123;
     private static final int KEY_LENGTH = 256;
@@ -42,6 +38,9 @@ public final class EncryptManager {
     private static final String PADDING = "AES/CBC/PKCS5Padding";
     private static final String ALGORITHM = "PBKDF2WithHmacSHA256";
     private static final String CRYPTO_SPECIFICATION = "AES";
+
+    private EncryptManager() {
+    }
 
     /**
      * Encrypts a text with the given key.
@@ -85,16 +84,9 @@ public final class EncryptManager {
      *
      * @param inputText is the text to decrypt
      * @param key to decrypt the string
-     * @throws NoSuchAlgorithmException           when algorithm is not found
-     * @throws NoSuchPaddingException             when padding match is not found
-     * @throws BadPaddingException                when the padding is not valid
-     * @throws IllegalBlockSizeException          when the block size is not valid
-     * @throws InvalidAlgorithmParameterException when there is no match for the algorithm
-     * @throws InvalidKeyException                when the key is invalid
      * @return decrypted string
      * @author Jorge Caceres
      */
-
     private static String decrypt(final String inputText, final String key) {
         try {
             byte[] decodedKey = Base64.getDecoder().decode(key);
@@ -122,8 +114,7 @@ public final class EncryptManager {
         KeySpec spec = new PBEKeySpec(generatePassword().toCharArray(), BYTES, ITERATION_COUNT, KEY_LENGTH);
         SecretKey tmp = factory.generateSecret(spec);
         SecretKeySpec key = new SecretKeySpec(tmp.getEncoded(), CRYPTO_SPECIFICATION);
-        String encodedKey = Base64.getEncoder().encodeToString(key.getEncoded());
-        return encodedKey;
+        return Base64.getEncoder().encodeToString(key.getEncoded());
     }
 
     /**
