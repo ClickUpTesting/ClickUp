@@ -13,15 +13,23 @@ package core.config;
 import core.utils.PropertiesReader;
 import java.util.Properties;
 
+import static core.utils.EncryptManager.decryptText;
+
 public final class EnvConfig {
     private static EnvConfig envConfig;
     private Properties properties;
     private String baseUrl;
     private String language;
+    private String adminUser;
+    private String adminPass;
+    private String guestUser;
+    private String guestPass;
 
 
     private EnvConfig() {
         initializeGeneralProperties();
+        initializeAdminProperties();
+        initializeGuestProperties();
     }
 
     /**
@@ -49,6 +57,27 @@ public final class EnvConfig {
     }
 
     /**
+     * Initializes admin credentials.
+     *
+     * @author Jorge Caceres
+     */
+    private void initializeAdminProperties() {
+        adminUser = System.getenv("CLICK_UP_USER");
+        adminPass = decryptText(System.getenv("CLICK_UP_PASS"));
+    }
+
+    /**
+     * Initializes guest credentials.
+     *
+     * @author Jorge Caceres
+     */
+    private void initializeGuestProperties() {
+        properties = PropertiesReader.getProperties("config/users/guest.properties");
+        guestUser = properties.getProperty("guestUser");
+        guestPass = decryptText(properties.getProperty("guestPassword"));
+    }
+
+    /**
      * Returns the language.
      *
      * @return the language
@@ -66,5 +95,45 @@ public final class EnvConfig {
      */
     public String getBaseUrl() {
         return baseUrl;
+    }
+
+    /**
+     * Gets the admin user.
+     *
+     * @return the admin user
+     * @author Jorge Caceres
+     */
+    public String getAdminUser() {
+        return adminUser;
+    }
+
+    /**
+     * Gets the admin pass.
+     *
+     * @return the admin pass
+     * @author Jorge Caceres
+     */
+    public String getAdminPass() {
+        return adminPass;
+    }
+
+    /**
+     * Gets the guest user.
+     *
+     * @return the guest user
+     * @author Jorge Caceres
+     */
+    public String getGuestUser() {
+        return guestUser;
+    }
+
+    /**
+     * Gets the guest pass.
+     *
+     * @return the guest pass
+     * @author Jorge Caceres
+     */
+    public String getGuestPass() {
+        return guestPass;
     }
 }
