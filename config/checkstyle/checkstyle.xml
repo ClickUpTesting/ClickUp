@@ -71,7 +71,7 @@
         <module name="FinalClass"/>
         <module name="HideUtilityClassConstructor"/>
         <module name="ThrowsCount">
-            <property name="max" value="2"/>
+            <property name="max" value="6"/>
         </module>
 
         <!-- Checks for common coding problems               -->
