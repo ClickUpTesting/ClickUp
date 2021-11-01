@@ -18,10 +18,9 @@ public final class PageUrl {
     private static final Map<String, String> URLS = new HashMap<>();
 
     static {
-        URLS.put("my teams", String.format("/%s/settings/teams", System.getenv("TEAM_ID")));
-        URLS.put("workspace form", "/onboarding");
-        URLS.put("login page", "/login");
-        URLS.put("page ClickUp", baseUrl);
+        URLS.put("workspace form", baseUrl.concat("/onboarding"));
+        URLS.put("login page", baseUrl.concat("/login"));
+        URLS.put("base ClickUp", baseUrl);
     }
 
     private PageUrl() {
@@ -34,6 +33,6 @@ public final class PageUrl {
      * @return a complete url of feature.
      */
     public static String getUrlPage(String pageURL) {
-        return baseUrl.concat(URLS.get(pageURL));
+        return URLS.get(pageURL);
     }
 }

@@ -13,6 +13,7 @@ package cucumber.ui.steps;
 import clickup.ui.pages.sidebar.SideBar;
 import clickup.ui.pages.sidebar.SubMenuSideBar;
 import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceForm;
+import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -25,14 +26,17 @@ public class WorkspaceSteps {
     private SideBar sideBar;
     private Map<String, String> bodyWorkspaceForm;
     private SoftAssert softAssert;
+    private ScenarioTrash scenarioTrash;
 
-    public WorkspaceSteps(final WebDriverManager webDriverManager, final SoftAssert softAssert) {
+    public WorkspaceSteps(WebDriverManager webDriverManager, SoftAssert softAssert, ScenarioTrash scenarioTrash) {
         this.webDriverManager = webDriverManager;
         this.softAssert = softAssert;
+        this.scenarioTrash = scenarioTrash;
     }
 
     @And("I create a new workspace with field")
     public void createANewWithField(final Map<String, String> bodyWorkspaceForm) {
+        scenarioTrash.setScenarioBodyRequest(bodyWorkspaceForm);
         this.bodyWorkspaceForm = bodyWorkspaceForm;
         SideBar sideBar2 = new SideBar(webDriverManager);
         SubMenuSideBar subMenuSideBar = sideBar2.clickUserSettingDropdown();
