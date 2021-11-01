@@ -38,12 +38,11 @@ public class WorkspaceSteps {
     public void createANewWithField(final Map<String, String> bodyWorkspaceForm) {
         scenarioTrash.setScenarioBodyRequest(bodyWorkspaceForm);
         this.bodyWorkspaceForm = bodyWorkspaceForm;
-        SideBar sideBar2 = new SideBar(webDriverManager);
-        SubMenuSideBar subMenuSideBar = sideBar2.clickUserSettingDropdown();
+        SideBar sideBarStart = new SideBar(webDriverManager);
+        SubMenuSideBar subMenuSideBar = sideBarStart.clickUserSettingDropdown();
         WorkspaceForm workspaceForm = subMenuSideBar.clickAddWorkspaceIcon();
         sideBar = workspaceForm.fillUpWorkspaceForm(bodyWorkspaceForm.get("name"));
     }
-
 
     @Then("I verify that the created workspace contains the default values")
     public void verifyThatTheCreatedContainsTheDefaultValues() {

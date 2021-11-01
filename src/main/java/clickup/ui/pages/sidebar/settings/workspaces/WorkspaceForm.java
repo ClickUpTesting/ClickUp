@@ -50,12 +50,6 @@ public class WorkspaceForm extends BasePage {
     @FindBy(css = "div.cu-onboarding-v2__small.ng-star-inserted")
     protected WebElement pressEnterText;
 
-    /**
-     * Initializes web element actions.
-     *
-     * @param webDriverManager to be managed for the webElementActions
-     * @author Gustavo Huanca
-     */
     public WorkspaceForm(WebDriverManager webDriverManager) {
         super(webDriverManager);
     }

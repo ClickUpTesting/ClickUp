@@ -35,12 +35,6 @@ public class Settings extends BasePage {
     @FindBy(css = "button[class='cu-btn cu-btn_fw-sm']")
     protected WebElement deleteWorkspaceButtonToDelete;
 
-    /**
-     * Initializes web element actions.
-     *
-     * @param webDriverManager to be managed for the webElementActions
-     * @author Gustavo Huanca
-     */
     public Settings(WebDriverManager webDriverManager) {
         super(webDriverManager);
     }

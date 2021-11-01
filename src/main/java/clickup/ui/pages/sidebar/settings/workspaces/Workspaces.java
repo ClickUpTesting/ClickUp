@@ -19,12 +19,6 @@ public class Workspaces extends BasePage {
     @FindBy(css = "div[class='team-list-item__icon']")
     protected WebElement addNewButton;
 
-    /**
-     * Initializes web element actions.
-     *
-     * @param webDriverManager to be managed for the webElementActions
-     * @author Gustavo Huanca
-     */
     public Workspaces(WebDriverManager webDriverManager) {
         super(webDriverManager);
     }

@@ -19,12 +19,6 @@ public class SideBar extends BasePage {
     @FindBy(css = "div[data-test='user-settings-dropdown-toggle']")
     protected WebElement userSettingDropdown;
 
-    /**
-     * Initializes web element actions.
-     *
-     * @param webDriverManager to be managed for the webElementActions
-     * @author Gustavo Huanca
-     */
     public SideBar(WebDriverManager webDriverManager) {
         super(webDriverManager);
     }

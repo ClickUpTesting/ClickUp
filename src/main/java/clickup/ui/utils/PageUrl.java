@@ -1,9 +1,11 @@
 /**
- * Copyright (c) 2021 Fundacion Jala.
- * This software is the confidential and proprietary information of Fundacion Jala
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
  * ("Confidential Information"). You shall not disclose such Confidential
  * Information and shall use it only in accordance with the terms of the
- * license agreement you entered into with Fundacion Jala
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Gustavo Huanca
  */
 
 package clickup.ui.utils;
@@ -31,6 +33,7 @@ public final class PageUrl {
      *
      * @param pageURL is a key of  URLs.
      * @return a complete url of feature.
+     * @author Gustavo Huanca
      */
     public static String getUrlPage(String pageURL) {
         return URLS.get(pageURL);

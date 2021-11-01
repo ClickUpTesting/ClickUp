@@ -15,6 +15,9 @@ import clickup.ui.utils.PageTransporter;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.en.Given;
 
+import static clickup.ui.utils.PageUrl.getUrlPage;
+import static core.utils.EncryptManager.decryptText;
+
 public class LoginSteps {
     private WebDriverManager webDriverManager;
     private PageTransporter pageTransporter;
@@ -27,10 +30,10 @@ public class LoginSteps {
 
     @Given("I login to click up as an admin")
     public void loginToClickUpAsAnAdmin() {
-        pageTransporter.goToUrl("https://app.clickup.com/login");
+        pageTransporter.goToUrl(getUrlPage("login page"));
         LoginPage loginpage = new LoginPage(webDriverManager);
-        loginpage.setUsernameTextBox("gustavozha@gmail.com");
-        loginpage.setPasswordTextBox("ClickUp8426");
+        loginpage.setUsernameTextBox(System.getenv("CLICK_UP_USER"));
+        loginpage.setPasswordTextBox(decryptText(System.getenv("CLICK_UP_PASS")));
         loginpage.clickLoginButton();
     }
 }
