@@ -7,4 +7,3 @@ Feature: Create Workspace
     When I create a new workspace with field
       | name | New workspace random |
     Then I verify that the created workspace contains the default values
-

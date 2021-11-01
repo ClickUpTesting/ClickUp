@@ -26,8 +26,7 @@ public class LoginSteps {
         this.webDriverManager = webDriverManager;
         this.pageTransporter = new PageTransporter(this.webDriverManager);
     }
-
-
+    
     @Given("I login to click up as an admin")
     public void loginToClickUpAsAnAdmin() {
         pageTransporter.goToUrl(getUrlPage("login page"));

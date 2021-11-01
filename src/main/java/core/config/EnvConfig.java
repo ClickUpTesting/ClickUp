@@ -25,7 +25,6 @@ public final class EnvConfig {
     private String guestUser;
     private String guestPass;
 
-
     private EnvConfig() {
         initializeGeneralProperties();
         initializeAdminProperties();
