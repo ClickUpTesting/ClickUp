@@ -12,6 +12,7 @@ package cucumber.hooks;
 
 import core.api.ApiHeaders;
 import core.api.ApiRequestBuilder;
+import core.selenium.WebDriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.testng.asserts.SoftAssert;
@@ -19,10 +20,13 @@ import org.testng.asserts.SoftAssert;
 public class ApiHooks {
     private ApiRequestBuilder apiRequestBuilder;
     private SoftAssert softAssert;
+    private WebDriverManager webDriverManager;
 
-    public ApiHooks(final ApiRequestBuilder apiRequestBuilder, final SoftAssert softAssert) {
+    public ApiHooks(final ApiRequestBuilder apiRequestBuilder, final SoftAssert softAssert,
+                    final WebDriverManager webDriverManager) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.softAssert = softAssert;
+        this.webDriverManager = webDriverManager;
     }
 
     @Before(order  = 1)
@@ -36,5 +40,10 @@ public class ApiHooks {
     @After
     public void assertAllSteps() {
         softAssert.assertAll();
+    }
+
+    @After(order = 1)
+    public void tearDown() {
+        webDriverManager.quitWebDriver();
     }
 }

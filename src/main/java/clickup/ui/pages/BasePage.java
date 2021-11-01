@@ -14,6 +14,7 @@ import core.selenium.driveractions.WebDriverActions;
 import core.selenium.WebDriverManager;
 import core.selenium.driveractions.WebDriverElementText;
 import core.selenium.driveractions.WebDriverWait;
+import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage {
     protected WebDriverActions webDriverActions;
@@ -32,6 +33,8 @@ public abstract class BasePage {
         webDriverActions = new WebDriverActions(this.webDriverManager);
         webDriverElementText = new WebDriverElementText(this.webDriverManager);
         webDriverWait = new WebDriverWait(this.webDriverManager);
+        PageFactory.initElements(webDriverManager.getWebDriver(), this);
+        waitForPageLoaded();
     }
 
     /**
