@@ -13,13 +13,18 @@ import core.config.EnvConfig;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PageUrl {
+public final class PageUrl {
     private static String baseUrl = EnvConfig.getInstance().getBaseUrl();
     private static final Map<String, String> URLS = new HashMap<>();
+
     static {
-        URLS.put("my teams", String.format("/%s/settings/teams"));
-        URLS.put("team form", "/onboarding");
+        URLS.put("my teams", String.format("/%s/settings/teams", System.getenv("TEAM_ID")));
+        URLS.put("workspace form", "/onboarding");
         URLS.put("login page", "/login");
+        URLS.put("page ClickUp", baseUrl);
+    }
+
+    private PageUrl() {
     }
 
     /**

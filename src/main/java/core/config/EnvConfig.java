@@ -52,7 +52,7 @@ public final class EnvConfig {
      */
     private void initializeGeneralProperties() {
         properties = PropertiesReader.getProperties("config/environment/env_config.properties");
-        baseUrl = properties.getProperty("loginURL");
+        baseUrl = properties.getProperty("baseURL");
         language = properties.getProperty("language");
     }
 
