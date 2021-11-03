@@ -104,4 +104,15 @@ public class WebDriverActions {
     public List<WebElement> getWebElements(final By locator) {
         return driver.findElements(locator);
     }
+
+    /**
+     * Verifies if an element is in the DOM.
+     *
+     * @param locator of the element to be verified
+     * @return a boolean that indicates if an element exists
+     * @author Jorge Caceres
+     */
+    public boolean isInDom(final By locator) {
+        return  !driver.findElements(locator).isEmpty();
+    }
 }

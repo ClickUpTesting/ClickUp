@@ -8,7 +8,7 @@
  * @author Jorge Caceres
  */
 
-package cucumber.hooks;
+package cucumber.api.hooks;
 
 import clickup.api.requests.ChecklistItemRequest;
 import clickup.api.requests.ChecklistRequest;

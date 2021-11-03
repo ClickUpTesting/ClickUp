@@ -8,41 +8,42 @@
  * @author Jorge Caceres
  */
 
-package cucumber.hooks;
+package cucumber;
 
 import core.api.ApiHeaders;
 import core.api.ApiRequestBuilder;
+import core.config.EnvConfig;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.testng.asserts.SoftAssert;
 
-public class ApiHooks {
+public class GeneralHooks {
     private ApiRequestBuilder apiRequestBuilder;
     private SoftAssert softAssert;
     private WebDriverManager webDriverManager;
+    private EnvConfig envConfig = EnvConfig.getInstance();
 
-    public ApiHooks(final ApiRequestBuilder apiRequestBuilder, final SoftAssert softAssert,
-                    final WebDriverManager webDriverManager) {
+    public GeneralHooks(final ApiRequestBuilder apiRequestBuilder, final SoftAssert softAssert,
+                        final WebDriverManager webDriverManager) {
         this.apiRequestBuilder = apiRequestBuilder;
         this.softAssert = softAssert;
         this.webDriverManager = webDriverManager;
     }
 
-    @Before(order  = 1)
+    @Before(order = 1)
     public void setUp() {
         apiRequestBuilder
                 .baseUri(ApiHeaders.URL_BASE.getValue())
                 .headers(ApiHeaders.AUTHORIZATION.getValue(), System.getenv("API_TOKEN"))
                 .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue());
     }
-
     @After
     public void assertAllSteps() {
         softAssert.assertAll();
     }
 
-    @After(order = 1)
+    @After(value = "@GUI")
     public void tearDown() {
         webDriverManager.quitWebDriver();
     }
