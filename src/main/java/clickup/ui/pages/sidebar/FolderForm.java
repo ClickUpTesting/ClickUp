@@ -25,18 +25,20 @@ public class FolderForm extends BasePage {
     public FolderForm(WebDriverManager webDriverManager) {
         super(webDriverManager);
     }
+
     /**
      * Sets the name of folder.
      *
      * @param nameFolder is the name of the folder
      * @author Gustavo Huanca
      */
-    public void setNameFolder(String nameFolder){
+    public void setNameFolder(String nameFolder) {
         webDriverElementText.setText(folderNameTextBox, nameFolder);
     }
 
     /**
      * Clicks in Create Folder button.
+     *
      * @author Gustavo Huanca
      */
     public void clickCreateFolderButton() {

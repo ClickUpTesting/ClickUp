@@ -1,4 +1,4 @@
-@GUI @FolderUI
+@GUI @Folder @FolderUI
 Feature: Create Workspace
 
   @Smoke @CreateSpace @DeleteSpace
