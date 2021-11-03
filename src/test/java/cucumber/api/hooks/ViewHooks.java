@@ -8,7 +8,7 @@
  * @author Raymundo Guaraguara
  */
 
-package cucumber.hooks;
+package cucumber.api.hooks;
 
 import clickup.api.requests.ViewsRequest;
 import clickup.utils.ScenarioTrash;

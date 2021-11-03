@@ -8,7 +8,7 @@
  * @author Gustavo Huanca
  */
 
-package cucumber.steps;
+package cucumber.api.steps;
 
 import clickup.api.entities.features.FeatureFactory;
 import clickup.api.entities.features.IFeature;

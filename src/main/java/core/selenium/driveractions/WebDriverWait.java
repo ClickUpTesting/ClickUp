@@ -34,6 +34,16 @@ public class WebDriverWait {
     }
 
     /**
+     * Waits until a web element is clickable.
+     *
+     * @param locator of the web element to be waited
+     * @author Jorge Caceres
+     */
+    public void waitRefreshedAndClickable(final By locator) {
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(locator)));
+    }
+
+    /**
      * Waits until a web element is visible.
      *
      * @param webElement to be waited

@@ -61,9 +61,11 @@ public class LoginPage extends BasePage {
     /**
      * Clicks on the login button.
      *
+     * @return a main click up page
      * @author Jorge Caceres
      */
-    public void clickLoginButton() {
-        loginButton.click();
+    public ClickUpMainPage clickLoginButton() {
+        webDriverActions.clickElement(loginButton);
+        return new ClickUpMainPage(webDriverManager);
     }
 }

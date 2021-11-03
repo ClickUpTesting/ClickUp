@@ -8,7 +8,7 @@
  * @author Jorge Caceres
  */
 
-package cucumber.hooks;
+package cucumber.api.hooks;
 
 import clickup.api.requests.DependencyRequest;
 import clickup.api.requests.TasksRequests;

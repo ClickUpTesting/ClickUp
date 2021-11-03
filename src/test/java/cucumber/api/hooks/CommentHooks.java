@@ -8,7 +8,7 @@
  * @author Gustavo Huanca
  */
 
-package cucumber.hooks;
+package cucumber.api.hooks;
 
 import clickup.api.requests.CommentRequest;
 import clickup.utils.ScenarioTrash;
