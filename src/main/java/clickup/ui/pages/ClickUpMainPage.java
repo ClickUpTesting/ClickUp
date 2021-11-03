@@ -47,8 +47,7 @@ public class ClickUpMainPage extends BasePage {
      * @author Jorge Caceres
      */
     public boolean verifySpaceName(final String spaceName) {
-        By space = By.xpath(String.format(sideBarSpace, spaceName));
-        return webDriverActions.isInDom(space);
+        return webDriverActions.isInDom(By.xpath(String.format(sideBarSpace, spaceName)));
     }
 
     /**
@@ -58,8 +57,7 @@ public class ClickUpMainPage extends BasePage {
      * @author Jorge Caceres
      */
     public void clickSpace(final String spaceName) {
-        By space = By.xpath(String.format(sideBarSpace, spaceName));
-        webDriverActions.clickElement(space);
+        webDriverActions.clickElement(By.xpath(String.format(sideBarSpace, spaceName)));
         webDriverWait.waitRefreshedAndClickable(By.xpath(String.format(topBarSpace, spaceName)));
     }
 
