@@ -8,7 +8,7 @@
  * @author Jorge Caceres
  */
 
-package cucumber.steps;
+package cucumber.api.steps;
 
 import clickup.api.entities.Attachment;
 import core.api.ApiHeaders;

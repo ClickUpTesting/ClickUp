@@ -8,7 +8,7 @@
  * @author Raymundo Guaraguara
  */
 
-package cucumber.steps;
+package cucumber.api.steps;
 
 import clickup.api.ApiEndpoints;
 import clickup.api.entities.features.IGetAllFeatures;
