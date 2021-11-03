@@ -44,7 +44,7 @@ checkstyle {
 checkstyleMain {
     source = 'src'
 }
-String tagToRun = "@API"    //This will be replaced by an env variable
+String tagToRun = System.getenv("TAGS")
 task runApiTests(type: Test) {
     useTestNG()
     options {
