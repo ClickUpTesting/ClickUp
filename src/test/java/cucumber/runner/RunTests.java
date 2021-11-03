@@ -48,7 +48,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
     public void setBaseEnv() throws JsonProcessingException, FileNotFoundException {
         scenarioContext = ScenarioContext.getInstance();
         scenarioContext.setBaseEnvironment("team_id", teamId);
-        scenarioContext.setBaseEnvironment("space_id", spaceRequest.createSpace());
+        scenarioContext.setBaseEnvironment("space_id", spaceRequest.createSpace().getId());
         scenarioContext.setBaseEnvironment("folder_id", foldersRequest.createFolder());
         scenarioContext.setBaseEnvironment("list_id", listsRequest.createListInFolder());
         scenarioContext.setBaseEnvironment("list_in_space_id", listsRequest.createListInSpace());

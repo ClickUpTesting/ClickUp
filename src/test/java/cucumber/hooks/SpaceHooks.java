@@ -27,7 +27,8 @@ public class SpaceHooks {
 
     @Before(value = "@CreateSpace")
     public void createSpace() throws JsonProcessingException {
-        scenarioTrash.setScenarioTrash("space_id", spaceRequest.createSpace());
+        scenarioTrash.setScenarioTrash("space_id", spaceRequest.createSpace().getId());
+        scenarioTrash.setScenarioTrash("name_space", spaceRequest.createSpace().getName());
     }
 
     @After(value = "@DeleteSpace")

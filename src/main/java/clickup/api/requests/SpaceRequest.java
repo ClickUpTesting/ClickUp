@@ -31,12 +31,12 @@ public class SpaceRequest extends BaseRequest {
      * @throws JsonProcessingException when the response is not a valid json
      * @author Jorge Caceres
      */
-    public String createSpace() throws JsonProcessingException {
+    public Space createSpace() throws JsonProcessingException {
         Space space = new Space();
         space.setName("Space created RunTest before From API".concat(random()));
         apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(space),
                 ApiEndpoints.CREATE_SPACE, "team_id", teamId);
-        return apiResponse.getBody(Space.class).getId();
+        return apiResponse.getBody(Space.class);
     }
 
     /**

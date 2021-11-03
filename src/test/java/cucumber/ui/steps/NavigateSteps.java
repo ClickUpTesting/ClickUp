@@ -14,17 +14,19 @@ import clickup.ui.utils.PageTransporter;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.en.Given;
 
+import static clickup.ui.utils.PageUrl.getUrlPage;
+
 public class NavigateSteps {
-    private WebDriverManager webDriverManager;
+    public WebDriverManager webDriverManager;
     private PageTransporter pageTransporter;
 
-    public NavigateSteps(final WebDriverManager webDriverManager) {
+    public NavigateSteps(WebDriverManager webDriverManager) {
         this.webDriverManager = webDriverManager;
-        this.pageTransporter = new PageTransporter(this.webDriverManager);
+        this.pageTransporter = new PageTransporter(webDriverManager);
     }
 
     @Given("^I navigate to (.*) page$")
     public void navigateMySettingsPage(String page) {
-        pageTransporter.navigateToPage(page);
+        pageTransporter.goToUrl(getUrlPage(page));
     }
 }
