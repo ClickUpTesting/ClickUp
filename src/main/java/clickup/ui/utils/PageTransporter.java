@@ -28,14 +28,7 @@ public class PageTransporter {
      * @author Gustavo Huanca
      */
     public void goToUrl(final String url) {
-//        System.out.println("--*-*-*- "+url);
         webDriverManager.getWebDriver().navigate().to(url);
-//        try {
-//            Thread.sleep(10000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
     }
 
     /**
@@ -46,6 +39,5 @@ public class PageTransporter {
      */
     public void navigateToPage(String featureName) {
         goToUrl(getUrlPage(featureName));
-//        return this.webDriverManager;
     }
 }

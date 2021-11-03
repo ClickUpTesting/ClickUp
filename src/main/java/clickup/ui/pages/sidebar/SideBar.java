@@ -12,11 +12,9 @@ package clickup.ui.pages.sidebar;
 
 import clickup.ui.pages.BasePage;
 import core.selenium.WebDriverManager;
-import core.selenium.driveractions.WebDriverActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +35,7 @@ public class SideBar extends BasePage {
      *
      * @param nameSpace is name of space
      * @return a list of folder's name
+     * @author Gustavo Huanca
      */
     public List<String> getFoldersInASpace(String nameSpace) {
         List<WebElement> webElementList = webDriverActions.getWebElements(By.xpath(String.format(selectFolderInSpace, nameSpace)));
@@ -46,27 +45,30 @@ public class SideBar extends BasePage {
     }
 
     /**
-     * Click in a space
+     * Clicks in a space.
      *
      * @param nameSpace is the name of space
+     * @author Gustavo Huanca
      */
     public void clickInASpace(String nameSpace) {
         webDriverActions.clickElement(By.xpath(String.format(selectSpace, nameSpace)));
     }
 
     /**
-     * Click on a folder in a space
+     * Clicks on a folder in a space.
      *
      * @param nameSpace is name of space
+     * @author Gustavo Huanca
      */
     public void clickFolderInSpace(String nameSpace) {
         webDriverActions.clickElement(By.xpath(String.format(selectFolderInSpace, nameSpace)));
     }
 
     /**
-     * Click Folder link text in a space.
+     * Clicks Folder link text in a space.
      *
      * @return a object type FolderForm
+     * @author Gustavo Huanca
      */
     public FolderForm clickFolderTextLink(){
         webDriverActions.clickElement(By.xpath(folderTextLink));
@@ -84,6 +86,11 @@ public class SideBar extends BasePage {
         return new SubMenuSideBar(webDriverManager);
     }
 
+    /**
+     * Waits for the page to be loaded.
+     *
+     * @author Gustavo Huanca
+     */
     @Override
     protected void waitForPageLoaded() {
         webDriverWait.waitVisibilityOfElement(userSettingDropdown);

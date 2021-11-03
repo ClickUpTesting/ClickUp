@@ -10,6 +10,7 @@
 
 package cucumber.hooks;
 
+import clickup.api.entities.features.spaces.Space;
 import clickup.api.requests.SpaceRequest;
 import clickup.utils.ScenarioTrash;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -27,8 +28,9 @@ public class SpaceHooks {
 
     @Before(value = "@CreateSpace")
     public void createSpace() throws JsonProcessingException {
-        scenarioTrash.setScenarioTrash("space_id", spaceRequest.createSpace().getId());
-        scenarioTrash.setScenarioTrash("name_space", spaceRequest.createSpace().getName());
+        Space space = spaceRequest.createSpace();
+        scenarioTrash.setScenarioTrash("space_id", space.getId());
+        scenarioTrash.setScenarioTrash("name_space", space.getName());
     }
 
     @After(value = "@DeleteSpace")
