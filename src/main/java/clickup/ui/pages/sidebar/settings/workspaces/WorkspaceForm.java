@@ -29,7 +29,7 @@ public class WorkspaceForm extends BasePage {
     @FindBy(css = "div.cu-onboarding-v2__number-of-team-users div[class*='2-5']")
     protected WebElement workTwoToFiveOptions;
 
-    @FindBy(css = "div.cu-onboarding-v2__number-of-team-users div[class*='item-1 ng']")
+    @FindBy(css = "div div[class*='item-1 ng']")
     protected WebElement workJustMeOptions;
 
     @FindBy(css = "button.cu-btn.onboarding__emails-next")

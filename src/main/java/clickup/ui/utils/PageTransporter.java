@@ -8,7 +8,6 @@
  * @author Gustavo Huanca
  */
 
-
 package clickup.ui.utils;
 
 import core.selenium.WebDriverManager;

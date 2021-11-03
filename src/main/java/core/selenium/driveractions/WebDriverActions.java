@@ -61,7 +61,6 @@ public class WebDriverActions {
         webElement.click();
     }
 
-
     /**
      * Scrolls to the end of the page.
      *
