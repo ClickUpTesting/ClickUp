@@ -12,7 +12,6 @@ package cucumber.ui.hooks;
 
 import core.api.ApiHeaders;
 import core.api.ApiRequestBuilder;
-import core.config.EnvConfig;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -30,7 +29,7 @@ public class GuiHooks {
         this.webDriverManager = webDriverManager;
     }
 
-    @Before(order = 1,value = "@GUI")
+    @Before(order = 1, value = "@GUI")
     public void setUp() {
         apiRequestBuilder
                 .baseUri(ApiHeaders.URL_BASE.getValue())
