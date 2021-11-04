@@ -16,7 +16,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ClickUpMainPage extends BasePage {
-    @FindBy(css = "img[src='./assets/images/brand/clickup-text_white.svg']")
+    @FindBy(css = "img[src*='./assets/images/brand/clickup-text']")
     protected WebElement clickUpIcon;
     private SideBar sideBar = new SideBar(webDriverManager);
 
