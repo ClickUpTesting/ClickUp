@@ -32,7 +32,6 @@ public class TaskSteps {
     public void createANewTaskWithField(final Map<String, String> settingsMap) {
         this.settingsMap = settingsMap;
         SideBar sideBar = new SideBar(webDriverManager);
-        System.out.println(scenarioContext.getEnvData("space_name"));
         sideBar.clickInASpace(scenarioContext.getEnvData("space_name"));
         sideBar.clickFolderInSpace(scenarioContext.getEnvData("space_name"));
         sideBar.clickInAList(scenarioTrash.getTrashValue("list_name"));
