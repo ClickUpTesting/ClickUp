@@ -34,8 +34,13 @@ public class CreateNew extends BasePage {
         return new TaskForm(webDriverManager);
     }
 
+    /**
+     * Waits for the page to be loaded.
+     *
+     * @author Gustavo Huanca
+     */
     @Override
     protected void waitForPageLoaded() {
-
+        webDriverWait.waitVisibilityOfElement(newTaskButton);
     }
 }

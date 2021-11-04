@@ -34,7 +34,13 @@ public class FeatureSettings extends BasePage {
         return new CreateNew(webDriverManager);
     }
 
+    /**
+     * Waits for the page to be loaded.
+     *
+     * @author Gustavo Huanca
+     */
     @Override
     protected void waitForPageLoaded() {
+        webDriverWait.waitVisibilityOfElement(createNewButton);
     }
 }

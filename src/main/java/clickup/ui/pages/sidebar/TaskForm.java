@@ -45,8 +45,13 @@ public class TaskForm extends BasePage {
         webDriverActions.clickElement(createTaskButton);
     }
 
+    /**
+     * Waits for the page to be loaded.
+     *
+     * @author Gustavo Huanca
+     */
     @Override
     protected void waitForPageLoaded() {
-
+        webDriverWait.waitVisibilityOfElement(createTaskButton);
     }
 }
