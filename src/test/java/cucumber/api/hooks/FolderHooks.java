@@ -27,7 +27,7 @@ public class FolderHooks {
 
     @Before(value = "@CreateFolder")
     public void createFolder() throws JsonProcessingException {
-        scenarioTrash.setScenarioTrash("folder_id", foldersRequest.createFolder());
+        scenarioTrash.setScenarioTrash("folder_id", foldersRequest.createFolder().getId());
     }
 
     @After(value = "@DeleteFolder")

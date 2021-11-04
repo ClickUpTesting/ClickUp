@@ -26,12 +26,12 @@ public class ListsRequest extends BaseRequest {
      * @throws JsonProcessingException when the response is not a valid json
      * @author Gustavo huanca
      */
-    public String createListInFolder() throws JsonProcessingException {
+    public Lisst createListInFolder() throws JsonProcessingException {
         Lisst lisst = new Lisst();
         lisst.setName("List before From API".concat(random()));
         apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(lisst),
                 ApiEndpoints.LIST_IN_FOLDER, "folder_id", scenarioContext.getEnvData("folder_id"));
-        return apiResponse.getBody(Lisst.class).getId();
+        return apiResponse.getBody(Lisst.class);
 
     }
 

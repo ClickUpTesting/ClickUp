@@ -15,16 +15,22 @@ import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class SideBar extends BasePage {
     @FindBy(css = "div[data-test='user-settings-dropdown-toggle']")
     protected WebElement userSettingDropdown;
+    @FindBy(xpath = "//cu-nav-section[@class='cu-nav-section cu-nav-section_active']"
+            + "//div[@data-test='list-settings-toggle-btn']")
+    protected WebElement selectListSetting;
     protected String selectSpace = "//a[normalize-space()='%s']";
     protected String folderTextLink = "//span[normalize-space()='Folder']";
     protected String selectFolderInSpace = selectSpace.concat("/../../../.."
             + "//*[contains(@class,'nav-category__name-text')]");
+    protected String selectList = "//div[@class='cu-nav-section__name-text'][normalize-space()='%s']";
+
 
     public SideBar(WebDriverManager webDriverManager) {
         super(webDriverManager);
@@ -63,6 +69,27 @@ public class SideBar extends BasePage {
      */
     public void clickFolderInSpace(String nameSpace) {
         webDriverActions.clickElement(By.xpath(String.format(selectFolderInSpace, nameSpace)));
+    }
+
+    /**
+     * Clicks on a list.
+     *
+     * @param nameList is name of list
+     * @author Gustavo Huanca
+     */
+    public void clickInAList(String nameList) {
+        webDriverActions.clickElement(By.xpath(String.format(selectList, nameList)));
+    }
+
+    /**
+     * Clicks in Add icon in a list.
+     *
+     * @return an object type FeatureSettings
+     * @author Gustavo Huanca
+     */
+    public FeatureSettings clickInSettingList() {
+        webDriverActions.clickElement(selectListSetting);
+        return new FeatureSettings(webDriverManager);
     }
 
     /**

@@ -10,6 +10,9 @@
 
 package cucumber.runner;
 
+import clickup.api.entities.features.folders.Folder;
+import clickup.api.entities.features.lists.Lisst;
+import clickup.api.entities.features.spaces.Space;
 import clickup.api.requests.ChecklistRequest;
 import clickup.api.requests.FoldersRequest;
 import clickup.api.requests.ListsRequest;
@@ -23,7 +26,6 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterTest;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -48,9 +50,15 @@ public class RunTests extends AbstractTestNGCucumberTests {
     public void setBaseEnv() throws JsonProcessingException, FileNotFoundException {
         scenarioContext = ScenarioContext.getInstance();
         scenarioContext.setBaseEnvironment("team_id", teamId);
-        scenarioContext.setBaseEnvironment("space_id", spaceRequest.createSpace().getId());
-        scenarioContext.setBaseEnvironment("folder_id", foldersRequest.createFolder());
-        scenarioContext.setBaseEnvironment("list_id", listsRequest.createListInFolder());
+        Space space = spaceRequest.createSpace();
+        scenarioContext.setBaseEnvironment("space_id", space.getId());
+        scenarioContext.setBaseEnvironment("space_name", space.getName());
+        Folder folder = foldersRequest.createFolder();
+        scenarioContext.setBaseEnvironment("folder_id", folder.getId());
+        scenarioContext.setBaseEnvironment("folder_name", folder.getName());
+        Lisst listInFolder = listsRequest.createListInFolder();
+        scenarioContext.setBaseEnvironment("list_id", listInFolder.getId());
+        scenarioContext.setBaseEnvironment("list_name", listInFolder.getName());
         scenarioContext.setBaseEnvironment("list_in_space_id", listsRequest.createListInSpace());
         scenarioContext.setBaseEnvironment("task_id", tasksRequests.createTask());
         scenarioContext.setBaseEnvironment("checklist_id", checklistRequest.createChecklist());
