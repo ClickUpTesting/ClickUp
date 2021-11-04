@@ -10,6 +10,7 @@
 
 package cucumber.api.hooks;
 
+import clickup.api.entities.features.lists.Lisst;
 import clickup.api.requests.ListsRequest;
 import clickup.utils.ScenarioTrash;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -29,7 +30,9 @@ public class ListHooks {
 
     @Before(value = "@CreateListInFolder")
     public void createListInFolder() throws JsonProcessingException {
-        scenarioTrash.setScenarioTrash("list_id", listsRequest.createListInFolder());
+        Lisst lisst = listsRequest.createListInFolder();
+        scenarioTrash.setScenarioTrash("list_id", lisst.getId());
+        scenarioTrash.setScenarioTrash("list_name", lisst.getName());
     }
 
     @Before(value = "@CreateListInSpace")

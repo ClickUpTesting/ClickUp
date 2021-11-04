@@ -26,12 +26,12 @@ public class FoldersRequest extends BaseRequest {
      * @throws JsonProcessingException when the response is not a valid json
      * @author Raymundo GuaraGuara
      */
-    public String createFolder() throws JsonProcessingException {
+    public Folder createFolder() throws JsonProcessingException {
         Folder folder = new Folder();
         folder.setName("Folder created in FolderHooks From API".concat(random()));
         apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(folder),
                 ApiEndpoints.CREATE_FOLDER_IN_SPACE, "space_id", scenarioContext.getEnvData("space_id"));
-        return apiResponse.getBody(Folder.class).getId();
+        return apiResponse.getBody(Folder.class);
     }
 
     /**
