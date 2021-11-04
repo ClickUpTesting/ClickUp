@@ -14,14 +14,12 @@ import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListPage extends BasePage {
     @FindBy(xpath = "//div[@class='cu-list-group__name']")
     private WebElement nameOfList;
-
     private By tasksList = By.cssSelector("span[class='cu-task-row-main__link-text-inner']");
 
     public ListPage(WebDriverManager webDriverManager) {
