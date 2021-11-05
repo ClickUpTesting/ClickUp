@@ -1,6 +1,7 @@
+@API @Checklist
 Feature: Create checklist
 
-  @API @SmokeTesting @Checklist @DeleteChecklists
+  @Smoke @DeleteChecklists
   Scenario: As a user I want to create a checklist
     Given I set the checklists with request endpoint to /task/{task_id}/checklist
     When I set the request body with following values:

@@ -2,6 +2,7 @@ package core.selenium.driveractions;
 
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -42,6 +43,18 @@ public class WebDriverElementText {
      * @author Jorge Caceres
      */
     public void setText(final WebElement webElement, final String input) {
+        webElement.clear();
+        webElement.sendKeys(input);
+    }
+
+    /**
+     * Sends keys to a web element with an entry form .
+     *
+     * @param webElement with an entry form
+     * @param input is the data to be sent
+     * @author Jorge Caceres
+     */
+    public void setText(final WebElement webElement, final Keys input) {
         webElement.clear();
         webElement.sendKeys(input);
     }

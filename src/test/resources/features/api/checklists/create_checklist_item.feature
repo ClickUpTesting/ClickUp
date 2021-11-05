@@ -1,6 +1,7 @@
+@API @Checklist
 Feature: Create checklist item
 
-  @API @SmokeTesting @Checklist @DeleteChecklistItem
+  @Smoke @DeleteChecklistItem
   Scenario: As a user I want to create a checklist item inside a checklist
     Given I set the checklists with request endpoint to /checklist/{checklist_id}/checklist_item
     When I set the request body with following values:

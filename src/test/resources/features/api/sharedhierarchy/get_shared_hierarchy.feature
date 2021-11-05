@@ -1,6 +1,7 @@
+@API
 Feature: Get Shared Hierarchy
 
-  @API @SmokeTesting @SharedHierarchy
+  @Smoke @SharedHierarchy
   Scenario: As a user I want to get a shared hierarchy
     Given I set the shares with request endpoint to /team/{team_id}/shared
     When I execute the GET request

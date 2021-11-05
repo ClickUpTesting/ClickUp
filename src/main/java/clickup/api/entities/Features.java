@@ -27,6 +27,15 @@ public class Features {
     @JsonProperty("due_dates")
     private DueDates dueDates;
     private Points points;
+    private Object tags;
+
+    public Object getTags() {
+        return tags;
+    }
+
+    public void setTags(Object tags) {
+        this.tags = tags;
+    }
 
     public void setChecklists(final Checklists checklists) {
         this.checklists = checklists;

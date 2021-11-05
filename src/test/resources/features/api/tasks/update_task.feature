@@ -1,6 +1,7 @@
+@API @Task
 Feature: Update task
 
-  @API @SmokeTesting @Task @CreateTask @DeleteTask
+  @Smoke @CreateTask @DeleteTask
   Scenario: As a user I want to update a task with required field
     Given I set the task with request endpoint to /task/{task_id}
     When I set the request body with following values:
@@ -10,7 +11,7 @@ Feature: Update task
       And I verify that the response matches with the body
       And I verify the schema matches the file: schemas/task/update_task_required_field.json
 
-  @API @SmokeTesting @Task @CreateTask @DeleteTask
+  @Smoke @CreateTask @DeleteTask
   Scenario: As a user I want to update a task with all fields enabled
     Given I set the task with request endpoint to /task/{task_id}
     When I set the request body with following values:

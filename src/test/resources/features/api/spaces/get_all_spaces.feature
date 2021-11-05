@@ -1,6 +1,7 @@
+@API @Space
 Feature: Get all Spaces
 
-  @API @RegressionTesting @Space @DeleteSpaces
+  @Regression @DeleteSpaces
   Scenario: As a user I want to get all spaces and verity the quantity
     Given I get the initial amount of not archived spaces
       And I set the space with request endpoint to /team/{team_id}/space

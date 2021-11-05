@@ -1,6 +1,7 @@
+@API @View
 Feature: Get all Views
 
-  @API @RegressionTesting @View @DeleteViews
+  @Regression @DeleteViews
   Scenario: As a user I want to get all Team Views and verity the quantity
     Given I get the initial amount of team views
       And I set the views with request endpoint to /team/{team_id}/view
@@ -9,7 +10,7 @@ Feature: Get all Views
     Then I verify the amount of views has increased by 2
       And I verify that the response status is 200
 
-  @API @RegressionTesting @View @DeleteViews
+  @Regression @DeleteViews
   Scenario: As a user I want to get all Space Views and verity the quantity
     Given I get the initial amount of space views
       And I set the views with request endpoint to /space/{space_id}/view
@@ -18,7 +19,7 @@ Feature: Get all Views
     Then I verify the amount of views has increased by 2
       And I verify that the response status is 200
 
-  @API @RegressionTesting @View @DeleteViews
+  @Regression @DeleteViews
   Scenario: As a user I want to get all Folder Views and verity the quantity
     Given I get the initial amount of folder views
       And I set the views with request endpoint to /folder/{folder_id}/view
@@ -27,7 +28,7 @@ Feature: Get all Views
     Then I verify the amount of views has increased by 2
       And I verify that the response status is 200
 
-  @API @RegressionTesting @View @DeleteViews
+  @Regression @DeleteViews
   Scenario: As a user I want to get all List Views and verity the quantity
     Given I get the initial amount of list views
       And I set the views with request endpoint to /list/{list_id}/view

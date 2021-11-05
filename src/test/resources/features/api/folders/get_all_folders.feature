@@ -1,6 +1,7 @@
+@API @Folder
 Feature: Get all Folders
 
-  @API @RegressionTesting @Folder @DeleteFolders
+  @Regression @DeleteFolders
   Scenario: As a user I want to get all folders and verity the quantity
     Given I get the initial amount of not archived folders
       And I set the folder with request endpoint to /space/{space_id}/folder

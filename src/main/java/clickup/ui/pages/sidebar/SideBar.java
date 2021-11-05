@@ -140,6 +140,7 @@ public class SideBar extends BasePage {
         webDriverActions.clickElement(newSpaceButton);
         return new CreateNewSpacePage(webDriverManager);
     }
+
     /**
      * Verifies the spaces name if exists in the DOM.
      *

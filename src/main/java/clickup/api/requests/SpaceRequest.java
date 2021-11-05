@@ -12,12 +12,11 @@ package clickup.api.requests;
 
 import clickup.api.ApiEndpoints;
 import clickup.api.entities.features.spaces.Space;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import core.api.ApiManager;
 import core.api.ApiMethod;
 import core.api.ApiRequest;
 import java.util.LinkedList;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.JSONObject;
 
 import static core.utils.RandomCustom.random;
 
@@ -28,13 +27,17 @@ public class SpaceRequest extends BaseRequest {
      * Creates a space and returns its identifier.
      *
      * @return a space_id
-     * @throws JsonProcessingException when the response is not a valid json
      * @author Jorge Caceres
      */
-    public Space createSpace() throws JsonProcessingException {
-        Space space = new Space();
-        space.setName("Space created RunTest before From API".concat(random()));
-        apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(space),
+    public Space createSpace() {
+        JSONObject spaceBody = new JSONObject();
+        JSONObject featuresBody = new JSONObject();
+        JSONObject tagBody = new JSONObject();
+        tagBody.put("enabled", true);
+        featuresBody.put("tags", tagBody);
+        spaceBody.put("name", "Space created RunTest before From API".concat(random()));
+        spaceBody.put("features", featuresBody);
+        apiResponse = apiFacade.createObject(spaceBody.toString(),
                 ApiEndpoints.CREATE_SPACE, "team_id", teamId);
         return apiResponse.getBody(Space.class);
     }

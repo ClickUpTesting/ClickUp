@@ -1,5 +1,5 @@
 @GUI @Folder @FolderUI
-Feature: Create Workspace
+Feature: Create Folder
 
   @Smoke @CreateSpace @DeleteSpace
   Scenario: Create a folder with default setting

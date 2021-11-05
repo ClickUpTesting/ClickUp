@@ -132,7 +132,7 @@
             "enabled"
           ]
         },
-        "checklists": {
+        "tags": {
           "type": "object",
           "properties": {
             "enabled": {
@@ -204,7 +204,6 @@
         "sprints",
         "points",
         "custom_items",
-        "checklists",
         "zoom",
         "milestones",
         "remap_dependencies",

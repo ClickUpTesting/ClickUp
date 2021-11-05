@@ -1,6 +1,7 @@
+@API @Comment
 Feature: Update comment
 
-  @API @SmokeTesting @Comment @CreateCommentInList @DeleteComment
+  @Smoke @CreateCommentInList @DeleteComment
   Scenario: As a user I want to update a comment in list
     Given I set the comment with request endpoint to /comment/{comment_id}
     When I set the request body with following values:
