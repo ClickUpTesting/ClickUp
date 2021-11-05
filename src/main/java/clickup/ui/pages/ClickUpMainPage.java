@@ -16,8 +16,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ClickUpMainPage extends BasePage {
-    @FindBy(css = "img[src*='./assets/images/brand/clickup-text']")
-    protected WebElement clickUpIcon;
+    @FindBy(css = "div[data-test='simple-bar__item-label']")
+    protected WebElement homeIcon;
     private SideBar sideBar = new SideBar(webDriverManager);
 
     /**
@@ -39,6 +39,6 @@ public class ClickUpMainPage extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(clickUpIcon);
+        webDriverWait.waitVisibilityOfElement(homeIcon);
     }
 }

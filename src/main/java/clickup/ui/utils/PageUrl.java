@@ -23,6 +23,7 @@ public final class PageUrl {
         URLS.put("login page", baseUrl.concat("/login"));
         URLS.put("base ClickUp", baseUrl);
         URLS.put("workspace environment", baseUrl.concat(String.format("/%s", System.getenv("TEAM_ID"))));
+        URLS.put("task", baseUrl.concat("/t/"));
     }
 
     private PageUrl() {
