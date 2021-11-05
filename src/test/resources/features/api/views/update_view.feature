@@ -1,6 +1,7 @@
+@API @View
 Feature: Update View
 
-  @API @SmokeTesting @View @CreateTeamView @DeleteView
+  @Smoke @CreateTeamView @DeleteView
   Scenario: As a user I want to update a view name and its type
     Given I set the view with request endpoint to /view/{view_id}
     When I set the request body with following values:

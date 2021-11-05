@@ -1,5 +1,5 @@
 @GUI @List
-Feature: Create Space
+Feature: Create List
 
   @Smoke @CreateSpace @DeleteSpace
   Scenario: Create a list with default settings

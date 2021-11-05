@@ -1,6 +1,7 @@
+@API @Space
 Feature: Create Space
 
-  @API @SmokeTesting @Space @DeleteSpace
+  @Smoke @DeleteSpace
   Scenario: As a user I want to create a space
     Given I set the space with request endpoint to /team/{team_id}/space
     When I set the request body with following values:

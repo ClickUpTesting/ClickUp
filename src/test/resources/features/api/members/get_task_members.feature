@@ -1,6 +1,7 @@
+@API @Member
 Feature: Get task members
 
-  @API @SmokeTesting @Member @CreateTask @DeleteTask
+  @Smoke @CreateTask @DeleteTask
   Scenario: As a user I want to get the task's members
     Given I set the endpoint /task/{task_id}/member
     When I execute a GET request

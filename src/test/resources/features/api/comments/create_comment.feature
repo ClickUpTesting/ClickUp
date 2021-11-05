@@ -1,6 +1,7 @@
+@API @Comment
 Feature: Create comment
 
-  @API @SmokeTesting @Comment @DeleteComment
+  @Smoke @DeleteComment
   Scenario: As a user I want to create a comment in list
     Given I set the comment with request endpoint to /list/{list_id}/comment
     When I set the request body with following values:
@@ -12,7 +13,7 @@ Feature: Create comment
       And I verify the values on the comments list
       And I verify the schema matches the file: schemas/comment/create_comment_in_task.json
 
-  @API @SmokeTesting @DeleteComment
+  @Smoke @DeleteComment
   Scenario: As a user I want to create a comment in task
     Given I set the comment with request endpoint to /task/{task_id}/comment
     When I set the request body with following values:
@@ -24,7 +25,7 @@ Feature: Create comment
       And I verify the values on the comments task
       And I verify the schema matches the file: schemas/comment/create_comment_in_task.json
 
-  @API @SmokeTesting @CreateTeamViewTypeConversation @DeleteView
+  @Smoke @CreateTeamViewTypeConversation @DeleteView
   Scenario: As a user I want to create a comment in team view
     Given I set the comment with request endpoint to /view/{view_id}/comment
     When I set the request body with following values:

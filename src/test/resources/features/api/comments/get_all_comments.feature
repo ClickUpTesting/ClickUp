@@ -1,6 +1,7 @@
+@API @Comment
 Feature: Get all Comments
 
-  @API @SmokeTesting @Comment @CreateTask @DeleteTask
+  @Smoke @CreateTask @DeleteTask
   Scenario: As a user I want to get all Comments and verity the quantity
     Given I set the comment with request endpoint to /task/{task_id}/comment
     When I add the amount of 3 to the total of comments in the "task"
@@ -9,7 +10,7 @@ Feature: Get all Comments
       And I verify that the response status is 200
       And I verify the schema matches the file: schemas/comment/get_comments.json
 
-  @API @RegressionTesting @Comment @CreateTeamViewTypeConversation @DeleteView
+  @Regression @CreateTeamViewTypeConversation @DeleteView
   Scenario: As a user I want to get all Comments in chat view and verity the quantity
     Given I set the comment with request endpoint to /view/{view_id}/comment
     When I add the amount of 4 to the total of comments in the "chat view"
@@ -18,7 +19,7 @@ Feature: Get all Comments
       And I verify that the response status is 200
       And I verify the schema matches the file: schemas/comment/get_comments.json
 
-  @API @RegressionTesting @Comment @CreateListInFolder @DeleteList
+  @Regression @CreateListInFolder @DeleteList
   Scenario: As a user I want to get all Comments and verity the quantity
     Given I set the comment with request endpoint to /list/{list_id}/comment
     When I add the amount of 2 to the total of comments in the "list"
