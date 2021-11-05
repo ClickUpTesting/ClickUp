@@ -1,4 +1,4 @@
-@API@Checklist
+@API @Checklist
 Feature: Delete checklist item
 
   @Smoke @CreateChecklistItem
