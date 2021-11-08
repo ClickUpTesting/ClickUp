@@ -19,11 +19,36 @@ import org.openqa.selenium.support.FindBy;
 public class TaskPage extends BasePage {
     @FindBy(css = ".cu-tags-view__icon.icon.ng-star-inserted")
     private WebElement addTagButton;
+    @FindBy(css = "textarea[type='text']")
+    protected WebElement nameTextBox;
+    @FindBy(css = "div[data-test='task-close__icon']")
+    protected WebElement closeIcon;
     private TagForm tagForm;
     private String addedTag = "//div[@class='cu-tags-select__name'][normalize-space()='%s']";
 
+
     public TaskPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
+    }
+
+    /**
+     * Types in textBox.
+     *
+     * @param nameTask is the name of task
+     * @author Gustavo Huanca
+     */
+    public void typeName(String nameTask) {
+        webDriverElementText.cleartext(nameTextBox);
+        webDriverElementText.setText(nameTextBox, nameTask);
+    }
+
+    /**
+     * Clicks in close icon.
+     *
+     * @author Gustavo Huanca
+     */
+    public void clickCloseIcon(){
+        webDriverActions.clickElement(closeIcon);
     }
 
     /**
