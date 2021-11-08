@@ -47,7 +47,7 @@ public class TaskPage extends BasePage {
      *
      * @author Gustavo Huanca
      */
-    public void clickCloseIcon(){
+    public void clickCloseIcon() {
         webDriverActions.clickElement(closeIcon);
     }
 

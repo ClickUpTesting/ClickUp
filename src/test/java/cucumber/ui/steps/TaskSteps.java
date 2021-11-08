@@ -60,7 +60,7 @@ public class TaskSteps {
     }
 
     @When("I update a new task with field")
-    public void iUpdateANewTaskWithField(final Map<String, String> settingsMap) {
+    public void updateANewTaskWithField(final Map<String, String> settingsMap) {
         this.settingsMap = settingsMap;
         scenarioTrash.setScenarioBodyRequest(settingsMap);
         TaskPage taskPage = new TaskPage(webDriverManager);

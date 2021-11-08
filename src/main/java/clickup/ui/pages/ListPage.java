@@ -14,6 +14,7 @@ import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,8 +34,8 @@ public class ListPage extends BasePage {
      * @param nameTask a name of task
      * @author Gustavo Huanca
      */
-    public void clickATask(final String nameTask){
-        webDriverActions.clickElement(By.xpath(String.format(taskList,nameTask)));
+    public void clickATask(final String nameTask) {
+        webDriverActions.clickElement(By.xpath(String.format(taskList, nameTask)));
     }
 
     /**
