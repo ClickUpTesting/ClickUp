@@ -10,8 +10,9 @@
 
 package core.selenium.driveractions;
 
+import java.time.Duration;
 import java.util.List;
-
+import core.selenium.WebDriverConfig;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -27,6 +28,7 @@ public class WebDriverActions {
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected WebDriverManager webDriverManager;
+    private WebDriverConfig webDriverConfig = WebDriverConfig.getInstance();
 
     /**
      * Selects and initializes a wev driver action.
@@ -117,17 +119,23 @@ public class WebDriverActions {
     }
 
     /**
-     * Finds an element and verifies if that exist.
+     * Finds a locator and verifies if that exist.
      *
-     * @param webElement is web element
-     * @return a boolean if a webElement exists
+     * @param by           is locator
+     * @param intervalTime is interval time
+     * @return a boolean if a locator exists
      * @author Gustavo Huanca
      */
-    public boolean tryFindElement(final WebElement webElement) {
+    public boolean isElementPresent(final By by, final int intervalTime) {
+        webDriverManager.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofMillis(intervalTime));
         try {
-            return webElement.isDisplayed();
+            driver.findElement(by);
+            return true;
         } catch (NoSuchElementException e) {
             return false;
+        } finally {
+            webDriverManager.setDriverWaits(webDriverConfig.getImplicitWaitTime(),
+                    webDriverConfig.getExplicitWaitTime(), webDriverConfig.getWaitSleepTime());
         }
     }
 }

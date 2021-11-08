@@ -20,17 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SideBar extends BasePage {
-    @FindBy(css = "div[data-test='user-settings-dropdown-toggle'] svg[class='ng-star-inserted']")
+    @FindBy(css = "cu-user-settings-menu[class*='cu-simple-bar__bottom-menu']")
     protected WebElement userSettingDropdown;
     @FindBy(css = "a[data-test='simple-sidebar-home-item']")
     protected WebElement homeButton;
     @FindBy(xpath = "//cu-nav-section[@class='cu-nav-section cu-nav-section_active']"
             + "//div[@data-test='list-settings-toggle-btn']")
     protected WebElement selectListSetting;
-    @FindBy(css = "div[data-test='modal-close-btn']")
-    protected WebElement closeIconInCreateSpace;
-    @FindBy(css = "div.toast__close-button-block.toast__close-button-block_top-right")
-    protected WebElement spaceCopiedCloseIcon;
     protected String selectSpace = "//a[normalize-space()='%s']";
     protected String folderTextLink = "//span[normalize-space()='Folder']";
     protected String listTextLink = "//span[normalize-space()='List']";
@@ -174,11 +170,6 @@ public class SideBar extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        if (webDriverActions.tryFindElement(closeIconInCreateSpace)) {
-            webDriverActions.clickElement(closeIconInCreateSpace);
-        } else if (webDriverActions.tryFindElement(spaceCopiedCloseIcon)) {
-            webDriverActions.clickElement(spaceCopiedCloseIcon);
-        }
         webDriverWait.waitVisibilityOfElement(homeButton);
     }
 }

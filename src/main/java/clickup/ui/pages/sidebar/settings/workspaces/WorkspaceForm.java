@@ -11,7 +11,6 @@
 package clickup.ui.pages.sidebar.settings.workspaces;
 
 import clickup.ui.pages.BasePage;
-import clickup.ui.pages.sidebar.SideBar;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -130,29 +129,26 @@ public class WorkspaceForm extends BasePage {
     /**
      * Clicks in Play with ClickUp button.
      *
-     * @return a new page that contains sidebar
      * @author Gustavo Huanca
      */
-    public SideBar clickPlayWithClickUPButton() {
+    public void clickPlayWithClickUPButton() {
         webDriverActions.clickElement(playWithClickUPButton);
-        return new SideBar(webDriverManager);
     }
 
     /**
      * Creates the workspace by default values.
      *
      * @param nameWorkspace is name workspace.
-     * @return a new page that contains sidebar (Home page)
      * @author Gustavo Huanca
      */
-    public SideBar fillUpWorkspaceForm(String nameWorkspace) {
+    public void fillUpWorkspaceForm(String nameWorkspace) {
         setNameWorkspaceTxt(nameWorkspace);
         clickNexButtonOfNameWorkspace();
         clickImHappySoFarButton();
         clickWorkJustMeOptions();
         clickLooksGoodButton();
         clickNoThanksButtonInImportTasks();
-       return clickPlayWithClickUPButton();
+        clickPlayWithClickUPButton();
     }
 
     @Override

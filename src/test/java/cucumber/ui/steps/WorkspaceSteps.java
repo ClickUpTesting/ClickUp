@@ -10,6 +10,7 @@
 
 package cucumber.ui.steps;
 
+import clickup.ui.pages.ClickUpMainPage;
 import clickup.ui.pages.sidebar.SideBar;
 import clickup.ui.pages.sidebar.SubMenuSideBar;
 import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceForm;
@@ -18,7 +19,6 @@ import core.selenium.WebDriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.testng.asserts.SoftAssert;
-
 import java.util.Map;
 
 public class WorkspaceSteps {
@@ -27,6 +27,7 @@ public class WorkspaceSteps {
     private Map<String, String> bodyWorkspaceForm;
     private SoftAssert softAssert;
     private ScenarioTrash scenarioTrash;
+    private ClickUpMainPage clickUpMainPage;
 
     public WorkspaceSteps(WebDriverManager webDriverManager, SoftAssert softAssert, ScenarioTrash scenarioTrash) {
         this.webDriverManager = webDriverManager;
@@ -38,14 +39,17 @@ public class WorkspaceSteps {
     public void createANewWithField(final Map<String, String> bodyWorkspaceForm) {
         scenarioTrash.setScenarioBodyRequest(bodyWorkspaceForm);
         this.bodyWorkspaceForm = bodyWorkspaceForm;
-        SideBar sideBarStart = new SideBar(webDriverManager);
-        SubMenuSideBar subMenuSideBar = sideBarStart.clickUserSettingDropdown();
+        clickUpMainPage = new ClickUpMainPage(webDriverManager);
+        sideBar = clickUpMainPage.getSideBar();
+        SubMenuSideBar subMenuSideBar = sideBar.clickUserSettingDropdown();
         WorkspaceForm workspaceForm = subMenuSideBar.clickAddWorkspaceIcon();
-        sideBar = workspaceForm.fillUpWorkspaceForm(bodyWorkspaceForm.get("name"));
+        workspaceForm.fillUpWorkspaceForm(bodyWorkspaceForm.get("name"));
     }
 
     @Then("I verify that the created workspace contains the default values")
     public void verifyThatTheCreatedContainsTheDefaultValues() {
+        clickUpMainPage.clickMessageSpaceCopied();
+        clickUpMainPage.clickIconInCreateSpace();
         SubMenuSideBar subMenuSideBar = sideBar.clickUserSettingDropdown();
         softAssert.assertEquals(subMenuSideBar.getWorkSpaceTittle(), bodyWorkspaceForm.get("name"));
     }

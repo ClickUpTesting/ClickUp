@@ -2,7 +2,7 @@
 Feature: Update task
 
   @Smoke @CreateTask @DeleteTask
-  Scenario: Create a update a list with default setting
+  Scenario: Update a task with default setting
     Given I login to click up as an admin
       And I open a task
     When I update a new task with field
