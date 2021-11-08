@@ -15,6 +15,7 @@ import clickup.ui.pages.sidebar.CreateNew;
 import clickup.ui.pages.sidebar.FeatureSettings;
 import clickup.ui.pages.sidebar.SideBar;
 import clickup.ui.pages.sidebar.TaskForm;
+import clickup.ui.pages.task.TaskPage;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
@@ -51,10 +52,19 @@ public class TaskSteps {
         taskForm.clickCreateTaskButton();
     }
 
-    @Then("I verify that the created task contains the default values")
+    @Then("^I verify that the (?:.*) task contains the default values$")
     public void verifyThatTheCreatedTaskContainsTheDefaultValues() {
         ListPage listPage = new ListPage(webDriverManager);
         softAssert.assertTrue(listPage.getTasks().stream().
                 anyMatch(value -> value.equals(settingsMap.get("name"))));
+    }
+
+    @When("I update a new task with field")
+    public void updateANewTaskWithField(final Map<String, String> settingsMap) {
+        this.settingsMap = settingsMap;
+        scenarioTrash.setScenarioBodyRequest(settingsMap);
+        TaskPage taskPage = new TaskPage(webDriverManager);
+        taskPage.typeName(settingsMap.get("name"));
+        taskPage.clickCloseIcon();
     }
 }

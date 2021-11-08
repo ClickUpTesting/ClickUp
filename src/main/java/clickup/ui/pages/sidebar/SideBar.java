@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SideBar extends BasePage {
-    @FindBy(css = "div[data-test='user-settings-dropdown-toggle']")
+    @FindBy(css = "cu-user-settings-menu[class*='cu-simple-bar__bottom-menu']")
     protected WebElement userSettingDropdown;
     @FindBy(css = "a[data-test='simple-sidebar-home-item']")
     protected WebElement homeButton;

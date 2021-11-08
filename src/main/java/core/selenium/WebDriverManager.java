@@ -41,7 +41,7 @@ public class WebDriverManager {
      * @param sleepTime        is sleep time in milliseconds
      * @author Gustavo Huanca
      */
-    private void setDriverWaits(final int implicitWaitTime, final int explicitWaitTime, final int sleepTime) {
+    public void setDriverWaits(final int implicitWaitTime, final int explicitWaitTime, final int sleepTime) {
         this.webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitTime));
         wait = new WebDriverWait(webDriver, Duration.ofSeconds(explicitWaitTime), Duration.ofMillis(sleepTime));
     }

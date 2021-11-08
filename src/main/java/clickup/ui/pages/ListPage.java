@@ -21,9 +21,20 @@ public class ListPage extends BasePage {
     @FindBy(xpath = "//div[@class='cu-list-group__name']")
     private WebElement nameOfList;
     private By tasksList = By.cssSelector("span[class='cu-task-row-main__link-text-inner']");
+    private String taskList = "//span[text() = '%s']";
 
     public ListPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
+    }
+
+    /**
+     * Clicks a task in a list.
+     *
+     * @param nameTask a name of task
+     * @author Gustavo Huanca
+     */
+    public void clickATask(final String nameTask) {
+        webDriverActions.clickElement(By.xpath(String.format(taskList, nameTask)));
     }
 
     /**

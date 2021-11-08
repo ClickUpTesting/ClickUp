@@ -12,6 +12,7 @@ package clickup.ui.pages;
 
 import clickup.ui.pages.sidebar.SideBar;
 import core.selenium.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -19,6 +20,10 @@ public class ClickUpMainPage extends BasePage {
     @FindBy(css = "div[data-test='simple-bar__item-label']")
     protected WebElement homeIcon;
     private SideBar sideBar = new SideBar(webDriverManager);
+    protected By closeIconInCreateSpace = By.cssSelector("div[data-test='modal-close-btn']");
+    protected By spaceCopiedCloseIcon = By.cssSelector("div.toast__close-button-block.toast__"
+            + "close-button-block_top-right");
+    private static final int INTERVAL_TIME = 2000;
 
     /**
      * Gets the sidebar menu
@@ -29,16 +34,34 @@ public class ClickUpMainPage extends BasePage {
     public SideBar getSideBar() {
         return sideBar;
     }
+
     public ClickUpMainPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
     }
+
     /**
-     * Waits for the page to be loaded.
+     * Closes create space form.
      *
-     * @author Jorge Caceres
+     * @author Gustavo Huanca
      */
+    public void clickIconInCreateSpace() {
+        if (webDriverActions.isElementPresent(closeIconInCreateSpace, INTERVAL_TIME)) {
+            webDriverActions.clickElement(closeIconInCreateSpace);
+        }
+    }
+
+    /**
+     * Closes the message Space copied successful.
+     *
+     * @author Gustavo Huanca
+     */
+    public void clickMessageSpaceCopied() {
+        if (webDriverActions.isElementPresent(spaceCopiedCloseIcon, INTERVAL_TIME)) {
+            webDriverActions.clickElement(spaceCopiedCloseIcon);
+        }
+    }
+
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(homeIcon);
     }
 }

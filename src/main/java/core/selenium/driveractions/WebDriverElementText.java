@@ -80,4 +80,15 @@ public class WebDriverElementText {
     public String getWebElementText(final WebElement webElement) {
         return webElement.getText();
     }
+
+    /**
+     * Clears a webElement.
+     *
+     * @param webElement to clear textBox
+     * @author Gustavo Huanca
+     */
+    public void cleartext(final WebElement webElement) {
+        webElement.sendKeys(Keys.CONTROL + "a");
+        webElement.sendKeys(Keys.DELETE);
+    }
 }
