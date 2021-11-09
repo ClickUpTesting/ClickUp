@@ -34,6 +34,15 @@ public class ListSettingMenu extends BasePage {
     }
 
     /**
+     * Clicks on the delete list button.
+     *
+     * @author Jorge Caceres
+     */
+    public void clickDeleteButton() {
+        webDriverActions.clickElement(deleteButton);
+    }
+
+    /**
      * Waits for the page to be loaded.
      *
      * @author Jorge Caceres
