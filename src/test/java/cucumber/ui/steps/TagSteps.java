@@ -40,8 +40,18 @@ public class TagSteps {
         taskPage.getTagForm().setTagTextArea(tagsSettings.get("name"));
     }
 
-    @Then("I verify that the created tag contains the default values")
-    public void verifyTag() {
+    @When("I update a tag with the following parameters")
+    public void updateTagName(Map<String, String> settingsMap) {
+        scenarioTrash.setScenarioBodyRequest(settingsMap);
+        tagsSettings = settingsMap;
+        taskPage = new TaskPage(webDriverManager);
+        taskPage.clickTag(scenarioTrash.getTrashValue("tag_name"));
+        taskPage.getTagSettings().clickRenameButton();
+        taskPage.editTagName(tagsSettings.get("name"));
+    }
+
+    @Then("I verify that the tag contains the configured values")
+    public void verifyTagConfiguration() {
         softAssert.assertTrue(taskPage.verifySpaceName(tagsSettings.get("name")));
     }
 }
