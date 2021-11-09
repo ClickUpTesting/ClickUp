@@ -15,8 +15,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ListSettingMenu extends BasePage {
-    @FindBy(css = ".cu-search-filter__input-container input")
-    private WebElement searchTasks;
+    @FindBy(css = "div[data-test='nav-menu-item__name']")
+    private WebElement deleteButton;
     @FindBy(css = "button[aria-label='Rename']")
     private WebElement editButton;
 
@@ -40,6 +40,6 @@ public class ListSettingMenu extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWaits.waitVisibilityOfElement(searchTasks);
+        webDriverWaits.waitVisibilityOfElement(deleteButton);
     }
 }
