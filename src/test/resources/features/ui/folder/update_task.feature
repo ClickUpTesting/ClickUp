@@ -1,4 +1,4 @@
-@GUI @Folder @FolderGUI2
+@GUI @Folder @FolderUI
 Feature: Update Folder
 
   @Smoke @CreateFolder @DeleteFolder
