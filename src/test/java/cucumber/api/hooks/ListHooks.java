@@ -27,7 +27,6 @@ public class ListHooks {
         this.scenarioTrash = scenarioTrash;
     }
 
-
     @Before(value = "@CreateListInFolder")
     public void createListInFolder() throws JsonProcessingException {
         Lisst lisst = listsRequest.createListInFolder();
@@ -40,7 +39,6 @@ public class ListHooks {
         Lisst lisst = listsRequest.createListInSpace();
         scenarioTrash.setScenarioTrash("list_id", lisst.getId());
         scenarioTrash.setScenarioTrash("list_name", lisst.getName());
-
     }
 
     @After(value = "@DeleteList")
