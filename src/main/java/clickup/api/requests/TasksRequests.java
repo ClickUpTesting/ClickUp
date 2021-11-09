@@ -26,12 +26,12 @@ public class TasksRequests extends BaseRequest {
      * @throws JsonProcessingException when the response is not a valid json
      * @author Jorge Caceres
      */
-    public String createTask() throws JsonProcessingException {
+    public Task createTask() throws JsonProcessingException {
         Task task = new Task();
         task.setName("Task created in TasksRequests From API".concat(random()));
         apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(task),
                 ApiEndpoints.CREATE_TASK, "list_id", scenarioContext.getEnvData("list_id"));
-        return apiResponse.getBody(Task.class).getId();
+        return apiResponse.getBody(Task.class);
     }
 
     /**

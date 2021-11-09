@@ -10,6 +10,7 @@
 
 package cucumber.api.hooks;
 
+import clickup.api.entities.features.tasks.Task;
 import clickup.api.requests.TasksRequests;
 import clickup.utils.ScenarioTrash;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -28,7 +29,9 @@ public class TasksHooks {
 
     @Before(value = "@CreateTask")
     public void createTask() throws JsonProcessingException {
-        scenarioTrash.setScenarioTrash("task_id", tasksRequests.createTask());
+        Task task = tasksRequests.createTask();
+        scenarioTrash.setScenarioTrash("task_id", task.getId());
+        scenarioTrash.setScenarioTrash("task_name", task.getName());
     }
 
     @After(value = "@DeleteTask")

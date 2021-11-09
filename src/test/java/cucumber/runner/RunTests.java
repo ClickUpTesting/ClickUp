@@ -61,7 +61,7 @@ public class RunTests extends AbstractTestNGCucumberTests {
         scenarioContext.setBaseEnvironment("list_name", listInFolder.getName());
         Lisst listInSpace = listsRequest.createListInSpace();
         scenarioContext.setBaseEnvironment("list_in_space_id", listInSpace.getId());
-        scenarioContext.setBaseEnvironment("task_id", tasksRequests.createTask());
+        scenarioContext.setBaseEnvironment("task_id", tasksRequests.createTask().getId());
         scenarioContext.setBaseEnvironment("checklist_id", checklistRequest.createChecklist());
         fileOutputStream = new FileOutputStream("attachment.txt");
     }
