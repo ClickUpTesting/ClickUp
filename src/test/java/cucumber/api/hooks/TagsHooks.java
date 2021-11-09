@@ -24,12 +24,13 @@ import static core.utils.RandomCustom.generateFourRandom;
 public class TagsHooks {
     private TagsRequest tagsRequest;
     private ScenarioTrash scenarioTrash;
-    TasksRequests tasksRequests = new TasksRequests();
+    private TasksRequests tasksRequests;
     ScenarioContext scenarioContext = ScenarioContext.getInstance();
 
     public TagsHooks(ScenarioTrash scenarioTrash) {
         this.scenarioTrash = scenarioTrash;
         this.tagsRequest = new TagsRequest();
+        this.tasksRequests = new TasksRequests();
     }
 
     @Before(value = "@CreateTag")
@@ -54,7 +55,7 @@ public class TagsHooks {
         String tagName = "tag".concat(generateFourRandom()).toLowerCase(Locale.ROOT);
         tagsRequest.createTag(tagName);
         scenarioTrash.setScenarioTrash("tag_name", tagName);
-        scenarioTrash.setScenarioTrash("task_id", tasksRequests.createTask());
+        scenarioTrash.setScenarioTrash("task_id", tasksRequests.createTask().getId());
         tagsRequest
                 .addTagToTask(scenarioTrash.getTrashValue("tag_name"), scenarioTrash.getTrashValue("task_id"));
     }
