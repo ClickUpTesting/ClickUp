@@ -1,7 +1,16 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Gustavo Huanca
+ */
+
 package clickup.ui.pages.topbar;
 
 import clickup.ui.pages.BasePage;
-
 import clickup.ui.pages.sidebar.FeatureSettings;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.Keys;
@@ -21,9 +30,10 @@ public class FolderTopBar extends BasePage {
     }
 
     /**
-     * Clicks on the list name text.
+     * Clicks on the folder name text.
      *
-     * @author Jorge Caceres
+     * @return a new object FeatureSettings
+     * @author Gustavo Huanca
      */
     public FeatureSettings clicksFolderName() {
         webDriverActions.clickElement(folderName);
@@ -31,10 +41,10 @@ public class FolderTopBar extends BasePage {
     }
 
     /**
-     * Updates the list name.
+     * Updates the folder name.
      *
-     * @param newListName list name to be updated
-     * @author Jorge Caceres
+     * @param newListName folder name to be updated
+     * @author Gustavo Huanca
      */
     public void editFolderName(final String newListName) {
         webDriverElementText.cleartext(folderNameTxtArea);
@@ -42,18 +52,24 @@ public class FolderTopBar extends BasePage {
         webDriverElementText.pressKeyboard(folderNameTxtArea, Keys.TAB);
     }
 
-//    public String getFolderName() {
-//        webDriverWait.waitRefreshedAndClickable(folderName);
-//        return webDriverElementText.getWebElementText(folderName);
-//    }
+    /**
+     * Gets the folder name.
+     *
+     * @return a string with name of folder
+     * @author Gustavo Huanca
+     */
+    public String getFolderName() {
+        webDriverWaits.waitRefreshedAndClickable(folderName);
+        return webDriverElementText.getWebElementText(folderName);
+    }
 
     /**
      * Waits until the page is loaded.
      *
-     * @author Jorge Caceres
+     * @author Gustavo Huanca
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(folderName);
+        webDriverWaits.waitVisibilityOfElement(folderName);
     }
 }

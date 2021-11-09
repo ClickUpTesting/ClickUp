@@ -27,6 +27,8 @@ public class SideBar extends BasePage {
     @FindBy(xpath = "//cu-nav-section[@class='cu-nav-section cu-nav-section_active']"
             + "//div[@data-test='list-settings-toggle-btn']")
     protected WebElement selectListSetting;
+    @FindBy(css = "div[data-test='create-space-btn']")
+    protected WebElement newSpaceButton;
     protected String selectSpace = "//a[normalize-space()='%s']";
     protected String folderTextLink = "//span[normalize-space()='Folder']";
     protected String listTextLink = "//span[normalize-space()='List']";
@@ -35,11 +37,9 @@ public class SideBar extends BasePage {
             + "//*[contains(@class,'nav-category__name-text')]");
     protected String nameFolderText = "//cu-nav-category[@data-source='folder']//div[contains(.,'%s')]"
             + "//*[contains(@class,'nav-category__name-text')]";
-    @FindBy(css = "div[data-test='create-space-btn']")
-    protected WebElement newSpaceButton;
+    protected String selectFolderSetting = "//cu-nav-category[@data-source='folder']//div[contains(.,'%s')]"
+           + "//div[@data-test='dropdown__toggle']";
     private static final int INTERVAL_TIME = 2000;
-    protected String selectFolderSetting = "//cu-nav-category[@data-source='folder']//div[contains(.,'%s')]" +
-            "//div[@data-test='dropdown__toggle']";
 
     public SideBar(WebDriverManager webDriverManager) {
         super(webDriverManager);
@@ -115,11 +115,12 @@ public class SideBar extends BasePage {
     /**
      * Clicks in ... icon in a folder.
      *
+     * @param nameFolder is name folder
      * @return an object type FeatureSettings
      * @author Gustavo Huanca
      */
     public FeatureSettings clickInSettingFolder(String nameFolder) {
-        webDriverActions.clickElement(By.xpath(String.format(selectFolderSetting,nameFolder)));
+        webDriverActions.clickElement(By.xpath(String.format(selectFolderSetting, nameFolder)));
         return new FeatureSettings(webDriverManager);
     }
 

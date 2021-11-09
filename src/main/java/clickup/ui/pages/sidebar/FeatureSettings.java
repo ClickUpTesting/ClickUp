@@ -25,7 +25,12 @@ public class FeatureSettings extends BasePage {
         super(webDriverManager);
     }
 
-    public void clickRenameIcon(){
+    /**
+     * Clicks in Rename icon.
+     *
+     * @author Gustavo Huanca
+     */
+    public void clickRenameIcon() {
         webDriverActions.clickElement(renameIcon);
     }
 

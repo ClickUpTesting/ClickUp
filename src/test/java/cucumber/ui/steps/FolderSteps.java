@@ -25,6 +25,7 @@ public class FolderSteps {
     protected WebDriverManager webDriverManager;
     protected ScenarioTrash scenarioTrash;
     private Map<String, String> bodyFolderForm;
+    private FolderTopBar folderTopBar;
     private SoftAssert softAssert;
 
     public FolderSteps(WebDriverManager webDriverManager, ScenarioTrash scenarioTrash, SoftAssert softAssert) {
@@ -52,11 +53,16 @@ public class FolderSteps {
     }
 
     @When("I update a new folder with field")
-    public void iUpdateANewFolderWithField(final Map<String, String> bodyFolderForm) {
+    public void updateANewFolderWithField(final Map<String, String> bodyFolderForm) {
         this.bodyFolderForm = bodyFolderForm;
-        FolderTopBar folderTopBar = new FolderTopBar(webDriverManager);
+        folderTopBar = new FolderTopBar(webDriverManager);
         FeatureSettings featureSettings = folderTopBar.clicksFolderName();
         featureSettings.clickRenameIcon();
         folderTopBar.editFolderName(bodyFolderForm.get("name"));
+    }
+
+    @Then("I verify that the folder contains the default values")
+    public void verifyThatTheFolderContainsTheDefaultValues() {
+        softAssert.assertEquals(folderTopBar.getFolderName(), bodyFolderForm.get("name"));
     }
 }
