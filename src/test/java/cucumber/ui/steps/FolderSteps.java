@@ -69,14 +69,14 @@ public class FolderSteps {
     }
 
     @When("I delete a folder")
-    public void iDeleteAFolder() {
+    public void deleteAFolder() {
         folderTopBar = new FolderTopBar(webDriverManager);
         FeatureSettings featureSettings = folderTopBar.clicksFolderName();
         featureSettings.clickDeleteIcon();
     }
 
-    @Then("I verify that the folder does not exist in the list")
-    public void iVerifyThatTheFolderDoesNotExistInTheList() {
+    @Then("I verify that the folder does not exist in the space")
+    public void verifyThatTheFolderDoesNotExistInTheSpace() {
         SideBar sideBar = new SideBar(webDriverManager);
         softAssert.assertFalse(sideBar.getFoldersInASpace(scenarioContext.getEnvData("space_id")).stream().
                 anyMatch(value -> value.equals(scenarioTrash.getTrashValue("folder_name"))));
