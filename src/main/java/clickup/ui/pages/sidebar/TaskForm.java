@@ -52,6 +52,6 @@ public class TaskForm extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(createTaskButton);
+        webDriverWaits.waitVisibilityOfElement(createTaskButton);
     }
 }

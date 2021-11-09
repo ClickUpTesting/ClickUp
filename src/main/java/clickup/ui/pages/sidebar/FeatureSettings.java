@@ -41,6 +41,6 @@ public class FeatureSettings extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(createNewButton);
+        webDriverWaits.waitVisibilityOfElement(createNewButton);
     }
 }

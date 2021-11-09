@@ -52,6 +52,6 @@ public class FolderForm extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(folderNameTextBox);
+        webDriverWaits.waitVisibilityOfElement(folderNameTextBox);
     }
 }

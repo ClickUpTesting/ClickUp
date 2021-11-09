@@ -63,7 +63,7 @@ public class SideBar extends BasePage {
      */
     public void clickInASpace(String nameSpace) {
         webDriverActions.clickElement(By.xpath(String.format(selectSpace, nameSpace)));
-        webDriverWait.waitRefreshedAndClickable(By.xpath(String.format(selectSpace, nameSpace)));
+        webDriverWaits.waitRefreshedAndClickable(By.xpath(String.format(selectSpace, nameSpace)));
     }
 
     /**
@@ -170,6 +170,6 @@ public class SideBar extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(homeButton);
+        webDriverWaits.waitVisibilityOfElement(homeButton);
     }
 }

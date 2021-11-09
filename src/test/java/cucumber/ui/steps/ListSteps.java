@@ -13,6 +13,7 @@ package cucumber.ui.steps;
 import clickup.ui.pages.ClickUpMainPage;
 import clickup.ui.pages.sidebar.ListForm;
 import clickup.ui.pages.sidebar.SideBar;
+import clickup.ui.pages.topbar.ListTopBar;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.en.Then;
@@ -24,7 +25,8 @@ public class ListSteps {
     private WebDriverManager webDriverManager;
     private ScenarioTrash scenarioTrash;
     private Map<String, String> listSettings;
-    ClickUpMainPage clickUpMainPage;
+    private ClickUpMainPage clickUpMainPage;
+    private ListTopBar listTopBar;
     private SoftAssert softAssert;
 
     public ListSteps(WebDriverManager webDriverManager, ScenarioTrash scenarioTrash, SoftAssert softAssert) {
@@ -47,5 +49,19 @@ public class ListSteps {
     @Then("I verify that the created list contains the default values")
     public void verifyDefaultListSettings() {
         softAssert.assertTrue(clickUpMainPage.getSideBar().verifyListName(listSettings.get("name")));
+    }
+
+    @When("I update a list with the following parameters")
+    public void updateListSettings(Map<String, String> settingsMap) {
+        listSettings = settingsMap;
+        listTopBar = new ListTopBar(webDriverManager);
+        listTopBar.clicksListName();
+        listTopBar.getListSettingMenu().clickEditButton();
+        listTopBar.editListName(listSettings.get("name"));
+    }
+
+    @Then("I verify that the list contains the default values")
+    public void verifyListSettings() {
+        softAssert.assertEquals(listTopBar.getListName(), listSettings.get("name"));
     }
 }
