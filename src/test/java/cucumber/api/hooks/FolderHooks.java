@@ -10,6 +10,7 @@
 
 package cucumber.api.hooks;
 
+import clickup.api.entities.features.folders.Folder;
 import clickup.api.requests.FoldersRequest;
 import clickup.utils.ScenarioTrash;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -27,7 +28,9 @@ public class FolderHooks {
 
     @Before(value = "@CreateFolder")
     public void createFolder() throws JsonProcessingException {
-        scenarioTrash.setScenarioTrash("folder_id", foldersRequest.createFolder().getId());
+        Folder folder =foldersRequest.createFolder();
+        scenarioTrash.setScenarioTrash("folder_id", folder.getId());
+        scenarioTrash.setScenarioTrash("folder_name", folder.getName());
     }
 
     @After(value = "@DeleteFolder")

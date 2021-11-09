@@ -10,8 +10,10 @@
 
 package cucumber.ui.steps;
 
+import clickup.ui.pages.sidebar.FeatureSettings;
 import clickup.ui.pages.sidebar.FolderForm;
 import clickup.ui.pages.sidebar.SideBar;
+import clickup.ui.pages.topbar.FolderTopBar;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.en.Then;
@@ -47,5 +49,14 @@ public class FolderSteps {
         sideBar.clickFolderInSpace(scenarioTrash.getTrashValue("name_space"));
         softAssert.assertTrue(sideBar.getFoldersInASpace(scenarioTrash.getTrashValue("name_space")).stream().
                 anyMatch(value -> value.equals(bodyFolderForm.get("name"))));
+    }
+
+    @When("I update a new folder with field")
+    public void iUpdateANewFolderWithField(final Map<String, String> bodyFolderForm) {
+        this.bodyFolderForm = bodyFolderForm;
+        FolderTopBar folderTopBar = new FolderTopBar(webDriverManager);
+        FeatureSettings featureSettings = folderTopBar.clicksFolderName();
+        featureSettings.clickRenameIcon();
+        folderTopBar.editFolderName(bodyFolderForm.get("name"));
     }
 }

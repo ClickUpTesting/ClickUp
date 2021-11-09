@@ -33,11 +33,25 @@ public class SideBar extends BasePage {
     protected String selectList = "//div[@class='cu-nav-section__name-text'][normalize-space()='%s']";
     protected String selectFolderInSpace = selectSpace.concat("/../../../.."
             + "//*[contains(@class,'nav-category__name-text')]");
+    protected String nameFolderText = "//cu-nav-category[@data-source='folder']//div[contains(.,'%s')]"
+            + "//*[contains(@class,'nav-category__name-text')]";
     @FindBy(css = "div[data-test='create-space-btn']")
     protected WebElement newSpaceButton;
+    protected String selectFolderSetting = "//cu-nav-category[@data-source='folder']//div[contains(.,'%s')]" +
+            "//div[@data-test='dropdown__toggle']";
 
     public SideBar(WebDriverManager webDriverManager) {
         super(webDriverManager);
+    }
+
+    /**
+     * Clicks on a folder.
+     *
+     * @param nameFolder is name of folder
+     * @author Gustavo Huanca
+     */
+    public void clickFolder(String nameFolder) {
+        webDriverActions.clickElement(By.xpath(String.format(nameFolderText, nameFolder)));
     }
 
     /**
@@ -94,6 +108,17 @@ public class SideBar extends BasePage {
      */
     public FeatureSettings clickInSettingList() {
         webDriverActions.clickElement(selectListSetting);
+        return new FeatureSettings(webDriverManager);
+    }
+
+    /**
+     * Clicks in ... icon in a folder.
+     *
+     * @return an object type FeatureSettings
+     * @author Gustavo Huanca
+     */
+    public FeatureSettings clickInSettingFolder(String nameFolder) {
+        webDriverActions.clickElement(By.xpath(String.format(selectFolderSetting,nameFolder)));
         return new FeatureSettings(webDriverManager);
     }
 

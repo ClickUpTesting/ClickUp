@@ -91,4 +91,15 @@ public class WebDriverElementText {
         webElement.sendKeys(Keys.CONTROL + "a");
         webElement.sendKeys(Keys.DELETE);
     }
+
+    /**
+     * Press only a key
+     *
+     * @param webElement is the webElement
+     * @param input is the key to press
+     * @author Gustavo Huanca
+     */
+    public void pressKeyboard(final WebElement webElement,final Keys input) {
+        webElement.sendKeys(input);
+    }
 }
