@@ -16,6 +16,7 @@ import clickup.ui.pages.sidebar.FeatureSettings;
 import clickup.ui.pages.sidebar.SideBar;
 import clickup.ui.pages.sidebar.TaskForm;
 import clickup.ui.pages.task.TaskPage;
+import clickup.ui.pages.task.TaskSettings;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
@@ -66,5 +67,19 @@ public class TaskSteps {
         TaskPage taskPage = new TaskPage(webDriverManager);
         taskPage.typeName(settingsMap.get("name"));
         taskPage.clickCloseIcon();
+    }
+
+    @When("I delete a task")
+    public void deleteATask() {
+        TaskPage taskPage = new TaskPage(webDriverManager);
+        TaskSettings taskSettings = taskPage.clickTaskSetting();
+        taskSettings.clickDeleteIcon();
+    }
+
+    @Then("I verify that the task does not exist in the list")
+    public void verifyThatTheTaskDoesNotExistInTheList() {
+        ListPage listPage = new ListPage(webDriverManager);
+        softAssert.assertFalse(listPage.getTasks().stream().
+                anyMatch(value -> value.equals(scenarioTrash.getTrashValue("task_name"))));
     }
 }
