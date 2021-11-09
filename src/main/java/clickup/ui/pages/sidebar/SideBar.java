@@ -35,6 +35,7 @@ public class SideBar extends BasePage {
             + "//*[contains(@class,'nav-category__name-text')]");
     @FindBy(css = "div[data-test='create-space-btn']")
     protected WebElement newSpaceButton;
+    private static final int INTERVAL_TIME = 2000;
 
     public SideBar(WebDriverManager webDriverManager) {
         super(webDriverManager);
@@ -160,7 +161,7 @@ public class SideBar extends BasePage {
      * @author Jorge Caceres
      */
     public boolean verifyListName(final String listName) {
-        return webDriverActions.isInDom(By.xpath(String.format(selectList, listName)));
+        return webDriverActions.isElementPresent(By.xpath(String.format(selectList, listName)), INTERVAL_TIME);
     }
 
     /**

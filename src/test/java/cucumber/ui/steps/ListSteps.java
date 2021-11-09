@@ -64,4 +64,17 @@ public class ListSteps {
     public void verifyListSettings() {
         softAssert.assertEquals(listTopBar.getListName(), listSettings.get("name"));
     }
+
+    @When("I delete a list")
+    public void deleteList() {
+        listTopBar = new ListTopBar(webDriverManager);
+        listTopBar.clicksListName();
+        listTopBar.getListSettingMenu().clickDeleteButton();
+    }
+
+    @Then("I verify that the list does not exist in the space")
+    public void verifyDeletedList() {
+        SideBar sideBar = new SideBar(webDriverManager);
+        softAssert.assertFalse(sideBar.verifyListName(scenarioTrash.getTrashValue("list_name")));
+    }
 }
