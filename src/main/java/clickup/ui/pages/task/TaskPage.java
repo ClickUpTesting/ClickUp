@@ -24,6 +24,8 @@ public class TaskPage extends BasePage {
     protected WebElement nameTextBox;
     @FindBy(css = "div[data-test='task-close__icon']")
     protected WebElement closeIcon;
+    @FindBy(css = "div[class*='cu-dropdown_center'] div[class*='cu-task-header__control']")
+    protected WebElement taskSettingIcon;
     private TagForm tagForm;
     private TagSettings tagSettings;
     private String addedTag = "//div[@class='cu-tags-select__name'][normalize-space()='%s']";
@@ -36,6 +38,17 @@ public class TaskPage extends BasePage {
 
     public TaskPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
+    }
+
+    /**
+     * Clicks in task setting.
+     *
+     * @return a new TaskSettings
+     * @author Gustavo Huanca
+     */
+    public TaskSettings clickTaskSetting() {
+        webDriverActions.clickElement(taskSettingIcon);
+        return new TaskSettings(webDriverManager);
     }
 
     /**
