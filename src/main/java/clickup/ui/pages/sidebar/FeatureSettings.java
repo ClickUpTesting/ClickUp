@@ -20,6 +20,8 @@ public class FeatureSettings extends BasePage {
     protected WebElement createNewButton;
     @FindBy(xpath = "//button[@aria-label='Rename']")
     protected WebElement renameIcon;
+    @FindBy(xpath = "//a[@class='nav-menu-item ng-star-inserted']/div[contains(@class,'icon_delete')]")
+    protected WebElement deleteIcon;
 
     public FeatureSettings(WebDriverManager webDriverManager) {
         super(webDriverManager);
@@ -32,6 +34,15 @@ public class FeatureSettings extends BasePage {
      */
     public void clickRenameIcon() {
         webDriverActions.clickElement(renameIcon);
+    }
+
+    /**
+     * Clicks in delete icon.
+     *
+     * @author Gustavo Huanca
+     */
+    public void clickDeleteIcon(){
+        webDriverActions.clickElement(deleteIcon);
     }
 
     /**
