@@ -18,9 +18,20 @@ import org.openqa.selenium.support.FindBy;
 public class FeatureSettings extends BasePage {
     @FindBy(css = "div[class='nav-menu__group ng-star-inserted'] div[class='cu-dropdown'] a[class='nav-menu-item']")
     protected WebElement createNewButton;
+    @FindBy(xpath = "//button[@aria-label='Rename']")
+    protected WebElement renameIcon;
 
     public FeatureSettings(WebDriverManager webDriverManager) {
         super(webDriverManager);
+    }
+
+    /**
+     * Clicks in Rename icon.
+     *
+     * @author Gustavo Huanca
+     */
+    public void clickRenameIcon() {
+        webDriverActions.clickElement(renameIcon);
     }
 
     /**

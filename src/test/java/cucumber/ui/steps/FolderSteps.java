@@ -10,8 +10,10 @@
 
 package cucumber.ui.steps;
 
+import clickup.ui.pages.sidebar.FeatureSettings;
 import clickup.ui.pages.sidebar.FolderForm;
 import clickup.ui.pages.sidebar.SideBar;
+import clickup.ui.pages.topbar.FolderTopBar;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.en.Then;
@@ -23,6 +25,7 @@ public class FolderSteps {
     protected WebDriverManager webDriverManager;
     protected ScenarioTrash scenarioTrash;
     private Map<String, String> bodyFolderForm;
+    private FolderTopBar folderTopBar;
     private SoftAssert softAssert;
 
     public FolderSteps(WebDriverManager webDriverManager, ScenarioTrash scenarioTrash, SoftAssert softAssert) {
@@ -47,5 +50,19 @@ public class FolderSteps {
         sideBar.clickFolderInSpace(scenarioTrash.getTrashValue("name_space"));
         softAssert.assertTrue(sideBar.getFoldersInASpace(scenarioTrash.getTrashValue("name_space")).stream().
                 anyMatch(value -> value.equals(bodyFolderForm.get("name"))));
+    }
+
+    @When("I update a new folder with field")
+    public void updateANewFolderWithField(final Map<String, String> bodyFolderForm) {
+        this.bodyFolderForm = bodyFolderForm;
+        folderTopBar = new FolderTopBar(webDriverManager);
+        FeatureSettings featureSettings = folderTopBar.clicksFolderName();
+        featureSettings.clickRenameIcon();
+        folderTopBar.editFolderName(bodyFolderForm.get("name"));
+    }
+
+    @Then("I verify that the folder contains the default values")
+    public void verifyThatTheFolderContainsTheDefaultValues() {
+        softAssert.assertEquals(folderTopBar.getFolderName(), bodyFolderForm.get("name"));
     }
 }

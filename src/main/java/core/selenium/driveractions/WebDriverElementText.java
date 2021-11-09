@@ -28,7 +28,7 @@ public class WebDriverElementText {
      * Sends keys to a form .
      *
      * @param locator of the web element with an entry form
-     * @param input is the data to be sent
+     * @param input   is the data to be sent
      * @author Jorge Caceres
      */
     public void setText(final By locator, final String input) {
@@ -39,7 +39,7 @@ public class WebDriverElementText {
      * Sends keys to a web element with an entry form .
      *
      * @param webElement with an entry form
-     * @param input is the data to be sent
+     * @param input      is the data to be sent
      * @author Jorge Caceres
      */
     public void setText(final WebElement webElement, final String input) {
@@ -51,7 +51,7 @@ public class WebDriverElementText {
      * Sends keys to a web element with an entry form .
      *
      * @param webElement with an entry form
-     * @param input is the data to be sent
+     * @param input      is the data to be sent
      * @author Jorge Caceres
      */
     public void setText(final WebElement webElement, final Keys input) {
@@ -89,5 +89,16 @@ public class WebDriverElementText {
     public void cleartext(final WebElement webElement) {
         webElement.sendKeys(Keys.CONTROL + "a");
         webElement.sendKeys(Keys.DELETE);
+    }
+
+    /**
+     * Press only a key
+     *
+     * @param webElement is the webElement
+     * @param input      is the key to press
+     * @author Gustavo Huanca
+     */
+    public void pressKeyboard(final WebElement webElement, final Keys input) {
+        webElement.sendKeys(input);
     }
 }
