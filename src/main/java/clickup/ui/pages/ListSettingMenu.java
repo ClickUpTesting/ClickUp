@@ -8,30 +8,38 @@
  * @author Jorge Caceres
  */
 
-package clickup.ui.pages.spaces;
+package clickup.ui.pages;
 
-import clickup.ui.pages.BasePage;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ColorOrAvatarPage extends BasePage {
-    @FindBy(css = ".cu-btn.cu-btn_m.cu-create-project-modal__next.ng-star-inserted")
-    private WebElement nextButton;
+public class ListSettingMenu extends BasePage {
+    @FindBy(css = "div[data-test='nav-menu-item__name']")
+    private WebElement deleteButton;
+    @FindBy(css = "button[aria-label='Rename']")
+    private WebElement editButton;
 
-    public ColorOrAvatarPage(WebDriverManager webDriverManager) {
+    public ListSettingMenu(WebDriverManager webDriverManager) {
         super(webDriverManager);
     }
 
     /**
-     * Clicks on the next button.
+     * Clicks on the edit button.
      *
-     * @return a Share space page
      * @author Jorge Caceres
      */
-    public ShareSpacePage clickNextButton() {
-        webDriverActions.clickElement(nextButton);
-        return new ShareSpacePage(webDriverManager);
+    public void clickEditButton() {
+        webDriverActions.clickElement(editButton);
+    }
+
+    /**
+     * Clicks on the delete list button.
+     *
+     * @author Jorge Caceres
+     */
+    public void clickDeleteButton() {
+        webDriverActions.clickElement(deleteButton);
     }
 
     /**
@@ -41,6 +49,6 @@ public class ColorOrAvatarPage extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWaits.waitVisibilityOfElement(nextButton);
+        webDriverWaits.waitVisibilityOfElement(deleteButton);
     }
 }

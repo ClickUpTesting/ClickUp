@@ -24,6 +24,7 @@ public final class PageUrl {
         URLS.put("base ClickUp", baseUrl);
         URLS.put("workspace environment", baseUrl.concat(String.format("/%s", System.getenv("TEAM_ID"))));
         URLS.put("task", baseUrl.concat("/t/"));
+        URLS.put("list", getUrlPage("workspace environment").concat("/v/l/li/"));
         URLS.put("folder", baseUrl.concat(String.format("/%s/v/l/f/", System.getenv("TEAM_ID"))));
     }
 

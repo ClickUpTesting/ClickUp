@@ -57,6 +57,6 @@ public class ListPage extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(nameOfList);
+        webDriverWaits.waitVisibilityOfElement(nameOfList);
     }
 }

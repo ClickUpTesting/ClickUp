@@ -37,6 +37,7 @@ public class SideBar extends BasePage {
             + "//*[contains(@class,'nav-category__name-text')]";
     @FindBy(css = "div[data-test='create-space-btn']")
     protected WebElement newSpaceButton;
+    private static final int INTERVAL_TIME = 2000;
     protected String selectFolderSetting = "//cu-nav-category[@data-source='folder']//div[contains(.,'%s')]" +
             "//div[@data-test='dropdown__toggle']";
 
@@ -77,7 +78,7 @@ public class SideBar extends BasePage {
      */
     public void clickInASpace(String nameSpace) {
         webDriverActions.clickElement(By.xpath(String.format(selectSpace, nameSpace)));
-        webDriverWait.waitRefreshedAndClickable(By.xpath(String.format(selectSpace, nameSpace)));
+        webDriverWaits.waitRefreshedAndClickable(By.xpath(String.format(selectSpace, nameSpace)));
     }
 
     /**
@@ -185,7 +186,7 @@ public class SideBar extends BasePage {
      * @author Jorge Caceres
      */
     public boolean verifyListName(final String listName) {
-        return webDriverActions.isInDom(By.xpath(String.format(selectList, listName)));
+        return webDriverActions.isElementPresent(By.xpath(String.format(selectList, listName)), INTERVAL_TIME);
     }
 
     /**
@@ -195,6 +196,6 @@ public class SideBar extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(homeButton);
+        webDriverWaits.waitVisibilityOfElement(homeButton);
     }
 }

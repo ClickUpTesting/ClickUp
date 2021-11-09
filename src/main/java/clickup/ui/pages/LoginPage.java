@@ -35,7 +35,7 @@ public class LoginPage extends BasePage {
      */
     @Override
     public void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(loginButton);
+        webDriverWaits.waitVisibilityOfElement(loginButton);
     }
 
     /**

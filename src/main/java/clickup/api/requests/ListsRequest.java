@@ -42,12 +42,12 @@ public class ListsRequest extends BaseRequest {
      * @throws JsonProcessingException when the response is not a valid json
      * @author Gustavo Huanca
      */
-    public String createListInSpace() throws JsonProcessingException {
+    public Lisst createListInSpace() throws JsonProcessingException {
         Lisst lisst = new Lisst();
         lisst.setName("List before in space From API".concat(random()));
         apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(lisst),
                 ApiEndpoints.LIST_IN_SPACE, "space_id", scenarioContext.getEnvData("space_id"));
-        return apiResponse.getBody(Lisst.class).getId();
+        return apiResponse.getBody(Lisst.class);
 
     }
 

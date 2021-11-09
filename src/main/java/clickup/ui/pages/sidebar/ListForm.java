@@ -54,6 +54,6 @@ public class ListForm extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(createListButton);
+        webDriverWaits.waitVisibilityOfElement(createListButton);
     }
 }

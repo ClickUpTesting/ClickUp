@@ -89,6 +89,6 @@ public class TaskPage extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(addTagButton);
+        webDriverWaits.waitVisibilityOfElement(addTagButton);
     }
 }

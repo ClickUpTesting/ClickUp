@@ -41,6 +41,6 @@ public class TaskStatusesPage extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(nextButton);
+        webDriverWaits.waitVisibilityOfElement(nextButton);
     }
 }

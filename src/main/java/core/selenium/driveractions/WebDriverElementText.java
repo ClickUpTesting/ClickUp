@@ -55,7 +55,6 @@ public class WebDriverElementText {
      * @author Jorge Caceres
      */
     public void setText(final WebElement webElement, final Keys input) {
-        webElement.clear();
         webElement.sendKeys(input);
     }
 

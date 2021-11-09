@@ -41,6 +41,6 @@ public class CreateNew extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(newTaskButton);
+        webDriverWaits.waitVisibilityOfElement(newTaskButton);
     }
 }
