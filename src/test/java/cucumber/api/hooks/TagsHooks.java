@@ -14,6 +14,7 @@ import clickup.api.requests.TagsRequest;
 import clickup.api.requests.TasksRequests;
 import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import java.util.Locale;
@@ -49,11 +50,13 @@ public class TagsHooks {
     }
 
     @Before(value = "@AddTagToTask")
-    public void addTagToTask() {
+    public void addTagToTask() throws JsonProcessingException {
         String tagName = "tag".concat(generateFourRandom()).toLowerCase(Locale.ROOT);
         tagsRequest.createTag(tagName);
         scenarioTrash.setScenarioTrash("tag_name", tagName);
-        tagsRequest.addTagToTask(scenarioTrash.getTrashValue("tag_name"));
+        scenarioTrash.setScenarioTrash("task_id", tasksRequests.createTask());
+        tagsRequest
+                .addTagToTask(scenarioTrash.getTrashValue("tag_name"), scenarioTrash.getTrashValue("task_id"));
     }
 
     @After(value = "@RemoveTagFromTask")

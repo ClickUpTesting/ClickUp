@@ -13,6 +13,7 @@ package clickup.ui.pages.task;
 import clickup.ui.pages.BasePage;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -24,8 +25,14 @@ public class TaskPage extends BasePage {
     @FindBy(css = "div[data-test='task-close__icon']")
     protected WebElement closeIcon;
     private TagForm tagForm;
+    private TagSettings tagSettings;
     private String addedTag = "//div[@class='cu-tags-select__name'][normalize-space()='%s']";
-
+    private String tagSettingsButton = "//div[@class='cu-tags-select__name-shadow'][normalize-space()='%s']";
+    private By tagButton;
+    @FindBy(css = "input[class='nav-editor__input ng-untouched ng-pristine ng-valid']")
+    private WebElement filledTextArea;
+    @FindBy(css = "input[class='nav-editor__input ng-untouched ng-valid ng-dirty']")
+    private WebElement textAreaToFill;
 
     public TaskPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
@@ -62,6 +69,16 @@ public class TaskPage extends BasePage {
     }
 
     /**
+     * Gets a tag settings menu.
+     *
+     * @return Tag Settings menu
+     * @author Jorge Caceres
+     */
+    public TagSettings getTagSettings() {
+        return tagSettings;
+    }
+
+    /**
      * Clicks on the add tag button.
      *
      * @author Jorge Caceres
@@ -69,6 +86,30 @@ public class TaskPage extends BasePage {
     public void clickAddTagButton() {
         webDriverActions.clickElement(addTagButton);
         tagForm = new TagForm(webDriverManager);
+    }
+
+    /**
+     * Clicks a Tag.
+     *
+     * @param tagName tag to be clicked
+     * @author Jorge Caceres
+     */
+    public void clickTag(final String tagName) {
+        tagButton = By.xpath(String.format(tagSettingsButton, tagName));
+        webDriverActions.clickElement(tagButton);
+        tagSettings = new TagSettings(webDriverManager);
+    }
+
+    /**
+     * Edits a Tag name.
+     *
+     * @param tagName newTagName to be set
+     * @author Jorge Caceres
+     */
+    public void editTagName(final String tagName) {
+        webDriverElementText.cleartext(filledTextArea);
+        webDriverElementText.setText(textAreaToFill, tagName);
+        webDriverElementText.setText(textAreaToFill, Keys.TAB);
     }
 
     /**

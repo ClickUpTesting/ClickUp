@@ -41,11 +41,12 @@ public class TagsRequest extends BaseRequest {
      * Adds a tag to a task.
      *
      * @param tagName to be added to a task
+     * @param taskId task where the tag will be added
      * @author Jorge Caceres
      */
-    public void addTagToTask(final String tagName) {
+    public void addTagToTask(final String tagName, final String taskId) {
         Map<String, String> mapPathParams = new HashMap<>();
-        mapPathParams.put("task_id", scenarioContext.getEnvData("task_id"));
+        mapPathParams.put("task_id", taskId);
         mapPathParams.put("tag_name", tagName);
         apiFacade.createObject("", ApiEndpoints.ADD_TAG_TO_TASK, mapPathParams);
     }

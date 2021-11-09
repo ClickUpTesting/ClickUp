@@ -7,5 +7,5 @@ Feature: Create Tag
       And I navigate to a task menu
     When I create a tag with the following parameters
       | name | my tag created |
-    Then I verify that the created tag contains the default values
+    Then I verify that the tag contains the configured values
 
