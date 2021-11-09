@@ -5,42 +5,41 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with JalaSoft
  *
- * @author Gustavo Huanca
+ * @author Jorge Caceres
  */
 
-package clickup.ui.pages.sidebar;
+package clickup.ui.pages;
 
-import clickup.ui.pages.BasePage;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CreateNew extends BasePage {
-    @FindBy(css = "a[cutooltip='Create task']")
-    protected WebElement newTaskButton;
+public class ListSettingMenu extends BasePage {
+    @FindBy(css = ".cu-search-filter__input-container input")
+    private WebElement searchTasks;
+    @FindBy(css = "button[aria-label='Rename']")
+    private WebElement editButton;
 
-    public CreateNew(WebDriverManager webDriverManager) {
+    public ListSettingMenu(WebDriverManager webDriverManager) {
         super(webDriverManager);
     }
 
     /**
-     * Click in New task.
+     * Clicks on the edit button.
      *
-     * @return a TaskForm object
-     * @author Gustavo Huanca
+     * @author Jorge Caceres
      */
-    public TaskForm clickNewTask() {
-        webDriverActions.clickElement(newTaskButton);
-        return new TaskForm(webDriverManager);
+    public void clickEditButton() {
+        webDriverActions.clickElement(editButton);
     }
 
     /**
      * Waits for the page to be loaded.
      *
-     * @author Gustavo Huanca
+     * @author Jorge Caceres
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWaits.waitVisibilityOfElement(newTaskButton);
+        webDriverWaits.waitVisibilityOfElement(searchTasks);
     }
 }

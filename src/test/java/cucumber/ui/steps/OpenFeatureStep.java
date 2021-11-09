@@ -25,10 +25,9 @@ public class OpenFeatureStep {
     public OpenFeatureStep(WebDriverManager webDriverManager, ScenarioTrash scenarioTrash) {
         this.webDriverManager = webDriverManager;
         this.scenarioTrash = scenarioTrash;
-        this.pageTransporter = new PageTransporter(webDriverManager);
+        this.pageTransporter = new PageTransporter(this.webDriverManager);
     }
-
-    @And("^I open (?:.*) (.*)$")
+    @And("^I navigate to a (.*) menu")
     public void openFeature(String featureName) {
         pageTransporter.goToUrl(getUrlPage(featureName)
                 .concat(scenarioTrash.getTrashValue(String.format("%s_id", featureName))));

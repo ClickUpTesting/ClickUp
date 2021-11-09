@@ -154,7 +154,7 @@ public class WorkspaceForm extends BasePage {
     @Override
     protected void waitForPageLoaded() {
         //The locator need one click on the page to work
-        webDriverWait.waitVisibilityOfElement(nextButtonOfNameWorkSpace);
+        webDriverWaits.waitVisibilityOfElement(nextButtonOfNameWorkSpace);
         webDriverActions.clickElement(pressEnterText);
     }
 }

@@ -39,6 +39,6 @@ public class TagForm extends BasePage {
 
     @Override
     protected void waitForPageLoaded() {
-        webDriverWait.waitVisibilityOfElement(tagTextArea);
+        webDriverWaits.waitVisibilityOfElement(tagTextArea);
     }
 }

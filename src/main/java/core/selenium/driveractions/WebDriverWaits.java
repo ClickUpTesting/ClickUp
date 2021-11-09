@@ -5,10 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class WebDriverWait {
+public class WebDriverWaits {
     protected WebDriver driver;
-    protected org.openqa.selenium.support.ui.WebDriverWait wait;
+    protected WebDriverWait wait;
     protected WebDriverManager webDriverManager;
 
     /**
@@ -17,7 +18,7 @@ public class WebDriverWait {
      * @param webDriverManager to be used for the interactions
      * @author Jorge Caceres
      */
-    public WebDriverWait(WebDriverManager webDriverManager) {
+    public WebDriverWaits(WebDriverManager webDriverManager) {
         this.webDriverManager = webDriverManager;
         this.driver = this.webDriverManager.getWebDriver();
         this.wait = this.webDriverManager.getWait();
@@ -40,6 +41,16 @@ public class WebDriverWait {
      * @author Jorge Caceres
      */
     public void waitRefreshedAndClickable(final By locator) {
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(locator)));
+    }
+
+    /**
+     * Waits until a web element is clickable.
+     *
+     * @param locator of the web element to be waited
+     * @author Jorge Caceres
+     */
+    public void waitRefreshedAndClickable(final WebElement locator) {
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(locator)));
     }
 

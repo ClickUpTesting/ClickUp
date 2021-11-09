@@ -44,7 +44,7 @@ checkstyle {
 checkstyleMain {
     source = 'src'
 }
-String tagToRun = System.getenv("TAGS")
+String tagToRun = "@GUI"//System.getenv("TAGS")
 task runApiTests(type: Test) {
     useTestNG()
     options {
