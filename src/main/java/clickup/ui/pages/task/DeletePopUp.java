@@ -7,7 +7,6 @@
  *
  * @author Jorge Caceres
  */
-
 package clickup.ui.pages.task;
 
 import clickup.ui.pages.BasePage;
@@ -15,34 +14,23 @@ import core.selenium.WebDriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class TagSettings extends BasePage {
-    @FindBy(xpath = "//div[normalize-space()='Rename']")
-    private WebElement renameButton;
-    @FindBy(css = ".nav-menu-item__icon.nav-menu-item__icon_delete.icon")
+public class DeletePopUp extends BasePage {
+    @FindBy(css = "button[class='cu-btn']")
     private WebElement deleteButton;
 
-    public TagSettings(WebDriverManager webDriverManager) {
+    public DeletePopUp(WebDriverManager webDriverManager) {
         super(webDriverManager);
-    }
-
-    /**
-     * click the rename button.
-     *
-     * @author Jorge Caceres
-     */
-    public void clickRenameButton() {
-        webDriverActions.clickElement(renameButton);
     }
 
     /**
      * Clicks the Delete icon
      *
-     * @return a Delete popup
+     * @return to the task page after delete a tag
      * @author Jorge Caceres
      */
-    public DeletePopUp clickDeleteIcon() {
+    public TaskPage clickDeleteIcon() {
         webDriverActions.clickElement(deleteButton);
-        return new DeletePopUp(webDriverManager);
+        return new TaskPage(webDriverManager);
     }
 
     /**
@@ -52,6 +40,6 @@ public class TagSettings extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWaits.waitVisibilityOfElement(renameButton);
+        webDriverWaits.waitVisibilityOfElement(deleteButton);
     }
 }

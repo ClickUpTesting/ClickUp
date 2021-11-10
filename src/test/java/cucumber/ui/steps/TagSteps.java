@@ -10,6 +10,7 @@
 
 package cucumber.ui.steps;
 
+import clickup.ui.pages.task.DeletePopUp;
 import clickup.ui.pages.task.TaskPage;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
@@ -52,6 +53,19 @@ public class TagSteps {
 
     @Then("I verify that the tag contains the configured values")
     public void verifyTagConfiguration() {
-        softAssert.assertTrue(taskPage.verifySpaceName(tagsSettings.get("name")));
+        softAssert.assertTrue(taskPage.verifyTagPresence(tagsSettings.get("name")));
+    }
+
+    @When("I delete a tag")
+    public void deleteTagFormTaskPage() {
+        taskPage = new TaskPage(webDriverManager);
+        taskPage.clickTag(scenarioTrash.getTrashValue("tag_name"));
+        DeletePopUp deletePopUp =  taskPage.getTagSettings().clickDeleteIcon();
+        taskPage = deletePopUp.clickDeleteIcon();
+    }
+
+    @Then("I verify that the tag has been deleted")
+    public void verifyDeletedTag() {
+        softAssert.assertFalse(taskPage.verifyTagPresence(scenarioTrash.getTrashValue("tag_name")));
     }
 }

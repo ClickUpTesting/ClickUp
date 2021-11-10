@@ -28,13 +28,15 @@ public class TaskPage extends BasePage {
     protected WebElement taskSettingIcon;
     private TagForm tagForm;
     private TagSettings tagSettings;
-    private String addedTag = "//div[@class='cu-tags-select__name'][normalize-space()='%s']";
+    private String addedTag = "//div[@class='cu-tags-select__badge list-view ng-star-inserted']"
+            + "//div[@class='cu-tags-select__name-shadow'][normalize-space()='%s']";
     private String tagSettingsButton = "//div[@class='cu-tags-select__name-shadow'][normalize-space()='%s']";
     private By tagButton;
     @FindBy(css = "input[class='nav-editor__input ng-untouched ng-pristine ng-valid']")
     private WebElement filledTextArea;
     @FindBy(css = "input[class='nav-editor__input ng-untouched ng-valid ng-dirty']")
     private WebElement textAreaToFill;
+    private static final int INTERVAL_TIME = 2000;
 
     public TaskPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
@@ -132,8 +134,8 @@ public class TaskPage extends BasePage {
      * @return a boolean true if the tag exists
      * @author Jorge Caceres
      */
-    public boolean verifySpaceName(final String tagName) {
-        return webDriverActions.isInDom(By.xpath(String.format(addedTag, tagName)));
+    public boolean verifyTagPresence(final String tagName) {
+        return webDriverActions.isElementPresent(By.xpath(String.format(addedTag, tagName)), INTERVAL_TIME);
     }
 
     /**
