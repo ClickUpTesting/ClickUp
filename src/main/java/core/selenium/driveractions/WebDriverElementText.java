@@ -92,6 +92,17 @@ public class WebDriverElementText {
     }
 
     /**
+     * Clears a webElement.
+     *
+     * @param webElement to clear textBox
+     * @author Gustavo Huanca
+     */
+    public void cleartext(final By webElement) {
+        driver.findElement(webElement).sendKeys(Keys.CONTROL + "a");
+        driver.findElement(webElement).sendKeys(Keys.DELETE);
+    }
+
+    /**
      * Press only a key
      *
      * @param webElement is the webElement

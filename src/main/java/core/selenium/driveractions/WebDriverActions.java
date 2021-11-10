@@ -97,6 +97,15 @@ public class WebDriverActions {
     }
 
     /**
+     * Refresh the page.
+     *
+     * @author Jorge Caceres
+     */
+    public void refreshPage() {
+        driver.navigate().refresh();
+    }
+
+    /**
      * Returns a list of elements found from the given locator.
      *
      * @param locator represents the locator

@@ -10,6 +10,7 @@
 
 package cucumber.ui.steps;
 
+import clickup.ui.pages.task.DeletePopUp;
 import clickup.ui.pages.task.TaskPage;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
@@ -40,8 +41,31 @@ public class TagSteps {
         taskPage.getTagForm().setTagTextArea(tagsSettings.get("name"));
     }
 
-    @Then("I verify that the created tag contains the default values")
-    public void verifyTag() {
-        softAssert.assertTrue(taskPage.verifySpaceName(tagsSettings.get("name")));
+    @When("I update a tag with the following parameters")
+    public void updateTagName(Map<String, String> settingsMap) {
+        scenarioTrash.setScenarioBodyRequest(settingsMap);
+        tagsSettings = settingsMap;
+        taskPage = new TaskPage(webDriverManager);
+        taskPage.clickTag(scenarioTrash.getTrashValue("tag_name"));
+        taskPage.getTagSettings().clickRenameButton();
+        taskPage.editTagName(tagsSettings.get("name"));
+    }
+
+    @Then("I verify that the tag contains the configured values")
+    public void verifyTagConfiguration() {
+        softAssert.assertTrue(taskPage.verifyTagPresence(tagsSettings.get("name")));
+    }
+
+    @When("I delete a tag")
+    public void deleteTagFormTaskPage() {
+        taskPage = new TaskPage(webDriverManager);
+        taskPage.clickTag(scenarioTrash.getTrashValue("tag_name"));
+        DeletePopUp deletePopUp =  taskPage.getTagSettings().clickDeleteIcon();
+        taskPage = deletePopUp.clickDeleteIcon();
+    }
+
+    @Then("I verify that the tag has been deleted")
+    public void verifyDeletedTag() {
+        softAssert.assertFalse(taskPage.verifyTagPresence(scenarioTrash.getTrashValue("tag_name")));
     }
 }

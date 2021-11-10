@@ -13,6 +13,7 @@ package clickup.ui.pages.task;
 import clickup.ui.pages.BasePage;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -26,8 +27,16 @@ public class TaskPage extends BasePage {
     @FindBy(css = "div[class*='cu-dropdown_center'] div[class*='cu-task-header__control']")
     protected WebElement taskSettingIcon;
     private TagForm tagForm;
-    private String addedTag = "//div[@class='cu-tags-select__name'][normalize-space()='%s']";
-
+    private TagSettings tagSettings;
+    private String addedTag = "//div[@class='cu-tags-select__badge list-view ng-star-inserted']"
+            + "//div[@class='cu-tags-select__name-shadow'][normalize-space()='%s']";
+    private String tagSettingsButton = "//div[@class='cu-tags-select__name-shadow'][normalize-space()='%s']";
+    private By tagButton;
+    @FindBy(css = "input[class='nav-editor__input ng-untouched ng-pristine ng-valid']")
+    private WebElement filledTextArea;
+    @FindBy(css = "input[class='nav-editor__input ng-untouched ng-valid ng-dirty']")
+    private WebElement textAreaToFill;
+    private static final int INTERVAL_TIME = 2000;
 
     public TaskPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
@@ -75,6 +84,16 @@ public class TaskPage extends BasePage {
     }
 
     /**
+     * Gets a tag settings menu.
+     *
+     * @return Tag Settings menu
+     * @author Jorge Caceres
+     */
+    public TagSettings getTagSettings() {
+        return tagSettings;
+    }
+
+    /**
      * Clicks on the add tag button.
      *
      * @author Jorge Caceres
@@ -85,14 +104,38 @@ public class TaskPage extends BasePage {
     }
 
     /**
+     * Clicks a Tag.
+     *
+     * @param tagName tag to be clicked
+     * @author Jorge Caceres
+     */
+    public void clickTag(final String tagName) {
+        tagButton = By.xpath(String.format(tagSettingsButton, tagName));
+        webDriverActions.clickElement(tagButton);
+        tagSettings = new TagSettings(webDriverManager);
+    }
+
+    /**
+     * Edits a Tag name.
+     *
+     * @param tagName newTagName to be set
+     * @author Jorge Caceres
+     */
+    public void editTagName(final String tagName) {
+        webDriverElementText.cleartext(filledTextArea);
+        webDriverElementText.setText(textAreaToFill, tagName);
+        webDriverElementText.setText(textAreaToFill, Keys.TAB);
+    }
+
+    /**
      * Verifies the tag name if exists in the DOM.
      *
      * @param tagName to be verified
      * @return a boolean true if the tag exists
      * @author Jorge Caceres
      */
-    public boolean verifySpaceName(final String tagName) {
-        return webDriverActions.isInDom(By.xpath(String.format(addedTag, tagName)));
+    public boolean verifyTagPresence(final String tagName) {
+        return webDriverActions.isElementPresent(By.xpath(String.format(addedTag, tagName)), INTERVAL_TIME);
     }
 
     /**
