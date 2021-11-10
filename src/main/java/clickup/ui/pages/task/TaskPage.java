@@ -35,6 +35,7 @@ public class TaskPage extends BasePage {
     private WebElement filledTextArea;
     @FindBy(css = "input[class='nav-editor__input ng-untouched ng-valid ng-dirty']")
     private WebElement textAreaToFill;
+    private static final int INTERVAL_TIME = 2000;
 
     public TaskPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
@@ -132,8 +133,8 @@ public class TaskPage extends BasePage {
      * @return a boolean true if the tag exists
      * @author Jorge Caceres
      */
-    public boolean verifySpaceName(final String tagName) {
-        return webDriverActions.isInDom(By.xpath(String.format(addedTag, tagName)));
+    public boolean verifyTagPresence(final String tagName) {
+        return webDriverActions.isElementPresent(By.xpath(String.format(addedTag, tagName)), INTERVAL_TIME);
     }
 
     /**

@@ -18,6 +18,8 @@ import org.openqa.selenium.support.FindBy;
 public class TagSettings extends BasePage {
     @FindBy(xpath = "//div[normalize-space()='Rename']")
     private WebElement renameButton;
+    @FindBy(css = ".nav-menu-item__icon.nav-menu-item__icon_delete.icon")
+    private WebElement deleteButton;
 
     public TagSettings(WebDriverManager webDriverManager) {
         super(webDriverManager);
@@ -30,6 +32,16 @@ public class TagSettings extends BasePage {
      */
     public void clickRenameButton() {
         webDriverActions.clickElement(renameButton);
+    }
+
+    /**
+     * Clicks the Delete icon
+     *
+     * @author Jorge Caceres
+     */
+    public DeletePopUp clickDeleteIcon() {
+        webDriverActions.clickElement(deleteButton);
+        return new DeletePopUp(webDriverManager);
     }
 
     /**
