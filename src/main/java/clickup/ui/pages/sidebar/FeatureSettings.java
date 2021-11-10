@@ -41,7 +41,7 @@ public class FeatureSettings extends BasePage {
      *
      * @author Gustavo Huanca
      */
-    public void clickDeleteIcon(){
+    public void clickDeleteIcon() {
         webDriverActions.clickElement(deleteIcon);
     }
 
