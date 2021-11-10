@@ -11,6 +11,7 @@
 package clickup.ui.pages.sidebar.settings;
 
 import clickup.ui.pages.BasePage;
+import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceSetting;
 import clickup.ui.pages.sidebar.settings.workspaces.Workspaces;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.WebElement;
@@ -23,22 +24,21 @@ public class Settings extends BasePage {
     @FindBy(css = "a[href*='general']")
     protected WebElement settingsLinkTxt;
 
-    @FindBy(css = "button.cu-btn.cu-btn_danger-link")
-    protected WebElement deleteWorkspaceButtonInSettingsLinkTxt;
-
-    @FindBy(css = "input[class*='cu-dc__input cu-dc__input_team']")
-    protected WebElement deleteWorkspaceTxtBox;
-
-    @FindBy(css = "div.cu-dc__subtitle")
-    protected WebElement workspaceToDeleteTxt;
-
-    @FindBy(css = "button[class='cu-btn cu-btn_fw-sm']")
-    protected WebElement deleteWorkspaceButtonToDelete;
+    @FindBy(css = "a[data-test='settings-back-btn']")
+    protected WebElement backButton;
 
     public Settings(WebDriverManager webDriverManager) {
         super(webDriverManager);
     }
 
+    /**
+     * Clicks BACK button.
+     *
+     * @author Gustavo Huanca
+     */
+    public void clickBackButton() {
+        webDriverActions.clickElement(backButton);
+    }
 
     /***
      * Clicks in workspaces in my settings page.
@@ -54,55 +54,21 @@ public class Settings extends BasePage {
     /**
      * Clicks in settings of workspace.
      *
+     * @return a new object WorkspaceSetting
      * @author Gustavo Huanca
      */
-    public void clickSettingsLinkTxt() {
+    public WorkspaceSetting clickSettingsLinkTxt() {
         webDriverActions.clickElement(settingsLinkTxt);
+        return new WorkspaceSetting(webDriverManager);
     }
 
     /**
-     * Gets name of workspace to delete
-     * Settings < Settings (workspace) < Delete Workspace button < Workspace deletion form
-     *
-     * @return is String with name of workspace
-     * @author Gustavo Huanca
-     */
-    public String getWorkspaceToDeleteTxt() {
-       return webDriverElementText.getWebElementText(workspaceToDeleteTxt);
-    }
-
-    /**
-     * Types or fills up workspace name to delete
-     * Settings < Settings (workspace) < Delete Workspace button < Workspace deletion form
-     *
-     * @param nameWorkspaceToDelete is name of workspace will be deleted
-     * @author Gustavo Huanca
-     */
-    public void fillUpDeleteWorkspaceTxtBox(String nameWorkspaceToDelete) {
-        webDriverElementText.setText(deleteWorkspaceTxtBox, nameWorkspaceToDelete);
-    }
-
-    /**
-     * Click delete button to delete workspace
-     * Settings < Settings (workspace) < Delete Workspace button < Workspace deletion form
+     * Waits for the page to be loaded.
      *
      * @author Gustavo Huanca
      */
-    public void clickDeleteWorkspaceButtonToDelete() {
-        webDriverActions.clickElement(deleteWorkspaceButtonToDelete);
-    }
-
-    /**
-     * Click delete button to delete workspace
-     * Settings < Settings (workspace)
-     *
-     * @author Gustavo Huanca
-     */
-    public void clickDeleteWorkspaceButtonInSettingsLinkTxt() {
-        webDriverActions.clickElement(deleteWorkspaceButtonInSettingsLinkTxt);
-    }
-
     @Override
     protected void waitForPageLoaded() {
+        webDriverWaits.waitVisibilityOfElement(settingsLinkTxt);
     }
 }

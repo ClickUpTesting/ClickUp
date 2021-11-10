@@ -13,12 +13,16 @@ package cucumber.ui.steps;
 import clickup.ui.pages.ClickUpMainPage;
 import clickup.ui.pages.sidebar.SideBar;
 import clickup.ui.pages.sidebar.SubMenuSideBar;
+import clickup.ui.pages.sidebar.settings.Settings;
 import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceForm;
+import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceSetting;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.testng.asserts.SoftAssert;
+
 import java.util.Map;
 
 public class WorkspaceSteps {
@@ -37,7 +41,7 @@ public class WorkspaceSteps {
 
     @And("I create a new workspace with field")
     public void createANewWithField(final Map<String, String> bodyWorkspaceForm) {
-        scenarioTrash.setScenarioBodyRequest(bodyWorkspaceForm);
+        scenarioTrash.setScenarioTrash("workspace_name", bodyWorkspaceForm.get("name"));
         this.bodyWorkspaceForm = bodyWorkspaceForm;
         clickUpMainPage = new ClickUpMainPage(webDriverManager);
         sideBar = clickUpMainPage.getSideBar();
@@ -52,5 +56,19 @@ public class WorkspaceSteps {
         clickUpMainPage.clickIconInCreateSpace();
         SubMenuSideBar subMenuSideBar = sideBar.clickUserSettingDropdown();
         softAssert.assertEquals(subMenuSideBar.getWorkSpaceTittle(), bodyWorkspaceForm.get("name"));
+    }
+
+    @When("I update a workspace with the following parameters")
+    public void updateAWorkspaceWithTheFollowingParameters(final Map<String, String> bodyWorkspaceForm) {
+        this.bodyWorkspaceForm = bodyWorkspaceForm;
+        clickUpMainPage = new ClickUpMainPage(webDriverManager);
+        sideBar = clickUpMainPage.getSideBar();
+        SubMenuSideBar subMenuSideBar = sideBar.clickUserSettingDropdown();
+        WorkspaceSetting workspaceSetting = subMenuSideBar.clickWorkspaceSettingTxt();
+        workspaceSetting.typeNameWorkspace(bodyWorkspaceForm.get("name"));
+        workspaceSetting.clickSavedButton();
+        Settings settings = new Settings(webDriverManager);
+        settings.clickBackButton();
+        scenarioTrash.setScenarioTrash("workspace_name", bodyWorkspaceForm.get("name"));
     }
 }

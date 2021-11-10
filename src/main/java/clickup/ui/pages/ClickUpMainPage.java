@@ -19,6 +19,9 @@ import org.openqa.selenium.support.FindBy;
 public class ClickUpMainPage extends BasePage {
     @FindBy(css = "div[data-test='simple-bar__item-label']")
     protected WebElement homeIcon;
+    @FindBy(xpath = "//div[contains(@class,'cu-simple-bar__toggle') or "
+            + "@class='cu-collapsed-sidebar__toggle-icon']//*[@class='ng-star-inserted']")
+    protected WebElement sideBarCollapseIcon;
     private SideBar sideBar = new SideBar(webDriverManager);
     protected By closeIconInCreateSpace = By.cssSelector("div[data-test='modal-close-btn']");
     protected By spaceCopiedCloseIcon = By.cssSelector("div.toast__close-button-block.toast__"
@@ -61,7 +64,13 @@ public class ClickUpMainPage extends BasePage {
         }
     }
 
+    /**
+     * Waits for the page to be loaded.
+     *
+     * @author Gustavo Huanca
+     */
     @Override
-    protected void waitForPageLoaded() {
+    public void waitForPageLoaded() {
+        webDriverWaits.waitVisibilityOfElement(sideBarCollapseIcon);
     }
 }
