@@ -37,6 +37,7 @@ public class TagSettings extends BasePage {
     /**
      * Clicks the Delete icon
      *
+     * @return a Delete popup
      * @author Jorge Caceres
      */
     public DeletePopUp clickDeleteIcon() {

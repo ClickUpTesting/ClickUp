@@ -28,7 +28,8 @@ public class TaskPage extends BasePage {
     protected WebElement taskSettingIcon;
     private TagForm tagForm;
     private TagSettings tagSettings;
-    private String addedTag = "//div[@class='cu-tags-select__name'][normalize-space()='%s']";
+    private String addedTag = "//div[@class='cu-tags-select__badge list-view ng-star-inserted']"
+            + "//div[@class='cu-tags-select__name-shadow'][normalize-space()='%s']";
     private String tagSettingsButton = "//div[@class='cu-tags-select__name-shadow'][normalize-space()='%s']";
     private By tagButton;
     @FindBy(css = "input[class='nav-editor__input ng-untouched ng-pristine ng-valid']")

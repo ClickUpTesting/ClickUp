@@ -57,7 +57,7 @@ public class TagSteps {
     }
 
     @When("I delete a tag")
-    public void iDeleteATag() {
+    public void deleteTagFormTaskPage() {
         taskPage = new TaskPage(webDriverManager);
         taskPage.clickTag(scenarioTrash.getTrashValue("tag_name"));
         DeletePopUp deletePopUp =  taskPage.getTagSettings().clickDeleteIcon();
@@ -65,7 +65,7 @@ public class TagSteps {
     }
 
     @Then("I verify that the tag has been deleted")
-    public void iVerifyThatTheTgDoesNotExistInTheTask() {
+    public void verifyDeletedTag() {
         softAssert.assertFalse(taskPage.verifyTagPresence(scenarioTrash.getTrashValue("tag_name")));
     }
 }
