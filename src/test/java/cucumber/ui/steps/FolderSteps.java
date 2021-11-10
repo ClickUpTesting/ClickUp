@@ -14,6 +14,7 @@ import clickup.ui.pages.sidebar.FeatureSettings;
 import clickup.ui.pages.sidebar.FolderForm;
 import clickup.ui.pages.sidebar.SideBar;
 import clickup.ui.pages.topbar.FolderTopBar;
+import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.en.Then;
@@ -22,6 +23,7 @@ import org.testng.asserts.SoftAssert;
 import java.util.Map;
 
 public class FolderSteps {
+    protected ScenarioContext scenarioContext = clickup.utils.ScenarioContext.getInstance();
     protected WebDriverManager webDriverManager;
     protected ScenarioTrash scenarioTrash;
     private Map<String, String> bodyFolderForm;
@@ -64,5 +66,19 @@ public class FolderSteps {
     @Then("I verify that the folder contains the default values")
     public void verifyThatTheFolderContainsTheDefaultValues() {
         softAssert.assertEquals(folderTopBar.getFolderName(), bodyFolderForm.get("name"));
+    }
+
+    @When("I delete a folder")
+    public void deleteAFolder() {
+        folderTopBar = new FolderTopBar(webDriverManager);
+        FeatureSettings featureSettings = folderTopBar.clicksFolderName();
+        featureSettings.clickDeleteIcon();
+    }
+
+    @Then("I verify that the folder does not exist in the space")
+    public void verifyThatTheFolderDoesNotExistInTheSpace() {
+        SideBar sideBar = new SideBar(webDriverManager);
+        softAssert.assertFalse(sideBar.getFoldersInASpace(scenarioContext.getEnvData("space_id")).stream().
+                anyMatch(value -> value.equals(scenarioTrash.getTrashValue("folder_name"))));
     }
 }
