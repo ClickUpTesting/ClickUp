@@ -11,6 +11,7 @@
 package clickup.ui.utils;
 
 public final class GetUrl {
+
     private GetUrl() {
     }
 

@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2021 JalaSoft.
+ * This software is the confidential and proprietary information of JalaSoft
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with JalaSoft
+ *
+ * @author Gustavo Huanca
+ */
+
 package clickup.ui.pages.sidebar.settings.workspaces;
 
 import clickup.ui.pages.BasePage;
@@ -8,10 +18,8 @@ import org.openqa.selenium.support.FindBy;
 public class WorkspaceSetting extends BasePage {
     @FindBy(css = "button.cu-btn.cu-btn_danger-link")
     protected WebElement deleteWorkspaceButtonInSettingsLinkTxt;
-
     @FindBy(css = "div.cu-form__field input[placeholder]")
     protected WebElement workspaceNameTextBox;
-
     @FindBy(css = "div.cu-btn__text")
     protected WebElement savedButton;
 

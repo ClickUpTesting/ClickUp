@@ -22,7 +22,6 @@ public class ClickUpMainPage extends BasePage {
     @FindBy(xpath = "//div[contains(@class,'cu-simple-bar__toggle') or "
             + "@class='cu-collapsed-sidebar__toggle-icon']//*[@class='ng-star-inserted']")
     protected WebElement sideBarCollapseIcon;
-
     private SideBar sideBar = new SideBar(webDriverManager);
     protected By closeIconInCreateSpace = By.cssSelector("div[data-test='modal-close-btn']");
     protected By spaceCopiedCloseIcon = By.cssSelector("div.toast__close-button-block.toast__"

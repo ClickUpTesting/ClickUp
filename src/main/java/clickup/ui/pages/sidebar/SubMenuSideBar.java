@@ -25,7 +25,6 @@ public class SubMenuSideBar extends BasePage {
     protected WebElement workspaceSettingTxt;
     @FindBy(css = "div[data-test*='column-title-name'][tooltipmodifier]")
     protected WebElement workSpaceTittle;
-
     @FindBy(xpath = "//div[@class='cu-user-settings-menu-v2__workspaces-add-plus icon']")
     protected WebElement addWorkspaceIcon;
 
