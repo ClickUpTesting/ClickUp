@@ -19,11 +19,14 @@ import org.openqa.selenium.support.FindBy;
 public class ClickUpMainPage extends BasePage {
     @FindBy(css = "div[data-test='simple-bar__item-label']")
     protected WebElement homeIcon;
+    @FindBy(xpath = "//div[contains(@class,'cu-simple-bar__toggle') or "
+            + "@class='cu-collapsed-sidebar__toggle-icon']//*[@class='ng-star-inserted']")
+    protected WebElement sideBarCollapseIcon;
+
     private SideBar sideBar = new SideBar(webDriverManager);
     protected By closeIconInCreateSpace = By.cssSelector("div[data-test='modal-close-btn']");
     protected By spaceCopiedCloseIcon = By.cssSelector("div.toast__close-button-block.toast__"
             + "close-button-block_top-right");
-    public By sideBarCollapseIcon = By.xpath("//div[contains(@class,'cu-simple-bar__toggle') or @class='cu-collapsed-sidebar__toggle-icon']//*[@class='ng-star-inserted']");
     private static final int INTERVAL_TIME = 2000;
 
     /**
@@ -62,9 +65,13 @@ public class ClickUpMainPage extends BasePage {
         }
     }
 
+    /**
+     * Waits for the page to be loaded.
+     *
+     * @author Gustavo Huanca
+     */
     @Override
     public void waitForPageLoaded() {
-        By sideBarCollapseIcon2 = By.xpath("//div[contains(@class,'cu-simple-bar__toggle') or @class='cu-collapsed-sidebar__toggle-icon']//*[@class='ng-star-inserted']");
-        webDriverWaits.waitVisibilityOfElement(sideBarCollapseIcon2);
+        webDriverWaits.waitVisibilityOfElement(sideBarCollapseIcon);
     }
 }

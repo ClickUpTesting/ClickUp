@@ -15,12 +15,14 @@ import clickup.ui.pages.sidebar.SideBar;
 import clickup.ui.pages.sidebar.SubMenuSideBar;
 import clickup.ui.pages.sidebar.settings.Settings;
 import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceForm;
+import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceSetting;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.asserts.SoftAssert;
+
 import java.util.Map;
 
 public class WorkspaceSteps {
@@ -39,7 +41,7 @@ public class WorkspaceSteps {
 
     @And("I create a new workspace with field")
     public void createANewWithField(final Map<String, String> bodyWorkspaceForm) {
-        scenarioTrash.setScenarioBodyRequest(bodyWorkspaceForm);
+        scenarioTrash.setScenarioTrash("workspace_name", bodyWorkspaceForm.get("name"));
         this.bodyWorkspaceForm = bodyWorkspaceForm;
         clickUpMainPage = new ClickUpMainPage(webDriverManager);
         sideBar = clickUpMainPage.getSideBar();
@@ -62,11 +64,11 @@ public class WorkspaceSteps {
         clickUpMainPage = new ClickUpMainPage(webDriverManager);
         sideBar = clickUpMainPage.getSideBar();
         SubMenuSideBar subMenuSideBar = sideBar.clickUserSettingDropdown();
-        Settings settings = subMenuSideBar.clickWorkspaceSettingTxt();
-        settings.clickSettingsLinkTxt();
-        settings.typeNameWorkspace(bodyWorkspaceForm.get("name"));
-        settings.clickSavedButton();
+        WorkspaceSetting workspaceSetting = subMenuSideBar.clickWorkspaceSettingTxt();
+        workspaceSetting.typeNameWorkspace(bodyWorkspaceForm.get("name"));
+        workspaceSetting.clickSavedButton();
+        Settings settings = new Settings(webDriverManager);
         settings.clickBackButton();
-        scenarioTrash.setScenarioTrash("workspace_name",bodyWorkspaceForm.get("name"));
+        scenarioTrash.setScenarioTrash("workspace_name", bodyWorkspaceForm.get("name"));
     }
 }

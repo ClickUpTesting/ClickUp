@@ -26,8 +26,9 @@ public class LoginPage extends BasePage {
 
     @FindBy(css = "button[type='submit']")
     public WebElement loginButton;
-    protected By sideBarCollapseIcon = By.xpath("//div[contains(@class,'cu-simple-bar__toggle') or @class='cu-collapsed-sidebar__toggle-icon']//*[@class='ng-star-inserted']");
-
+    protected By sideBarCollapseIcon = By.xpath("//div[contains(@class,'cu-simple-bar__toggle') "
+            + "or @class='cu-collapsed-sidebar__toggle-icon']//*[@class='ng-star-inserted']");
+    private static final int INTERVAL_TIME = 1000;
 
     public LoginPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
@@ -65,20 +66,23 @@ public class LoginPage extends BasePage {
     /**
      * Clicks on the login button.
      *
-     * @return a main click up page
      * @author Jorge Caceres
      */
     public void clickLoginButton() {
         webDriverActions.clickElement(loginButton);
     }
 
-    public ClickUpMainPage loginClickUp(){
-        if (!webDriverActions.isElementPresent(sideBarCollapseIcon,1000)) {
+    /**
+     * Logs in clickUp only once time.
+     *
+     * @author Gustavo Huanca
+     */
+    public void loginClickUp() {
+        if (!webDriverActions.isElementPresent(sideBarCollapseIcon, INTERVAL_TIME)) {
             webDriverWaits.waitVisibilityOfElement(loginButton);
             setUsernameTextBox(System.getenv("CLICK_UP_USER"));
             setPasswordTextBox(decryptText(System.getenv("CLICK_UP_PASS")));
             clickLoginButton();
         }
-       return new ClickUpMainPage(webDriverManager);
     }
 }

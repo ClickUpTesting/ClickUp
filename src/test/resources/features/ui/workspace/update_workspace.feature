@@ -1,4 +1,4 @@
-@GUI @Workspace3
+@GUI @Workspace2
 Feature: Create Workspace
 
   @Smoke @CreateWorkspace @DeleteWorkspace

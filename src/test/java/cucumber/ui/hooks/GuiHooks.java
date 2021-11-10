@@ -20,7 +20,6 @@ import io.cucumber.java.Before;
 import org.testng.asserts.SoftAssert;
 
 import static clickup.ui.utils.PageUrl.getUrlPage;
-import static core.utils.EncryptManager.decryptText;
 
 public class GuiHooks {
     private ApiRequestBuilder apiRequestBuilder;

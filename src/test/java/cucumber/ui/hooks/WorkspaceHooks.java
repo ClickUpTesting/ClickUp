@@ -5,6 +5,8 @@ import clickup.ui.pages.sidebar.SideBar;
 import clickup.ui.pages.sidebar.SubMenuSideBar;
 import clickup.ui.pages.sidebar.settings.Settings;
 import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceForm;
+import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceFormToDelete;
+import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceSetting;
 import clickup.ui.utils.PageTransporter;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
@@ -29,7 +31,7 @@ public class WorkspaceHooks {
 
     @Before(value = "@CreateWorkspace")
     public void createWorkspace() {
-        String nameWorkspace ="workspace before From API".concat(random());
+        String nameWorkspace = "workspace before From API".concat(random());
         clickUpMainPage = new ClickUpMainPage(webDriverManager);
         SideBar sideBar = clickUpMainPage.getSideBar();
         SubMenuSideBar subMenuSideBar = sideBar.clickUserSettingDropdown();
@@ -45,10 +47,10 @@ public class WorkspaceHooks {
         pageTransporter.goToUrl(getUrlPage("base ClickUp"));
         SideBar sideBar = new SideBar(webDriverManager);
         SubMenuSideBar subMenuSideBar = sideBar.clickUserSettingDropdown();
-        Settings settings =  subMenuSideBar.clickMySettingLinkTxt();
-        settings.clickSettingsLinkTxt();
-        settings.clickDeleteWorkspaceButtonInSettingsLinkTxt();
-        settings.fillUpDeleteWorkspaceTxtBox(scenarioTrash.getTrashValue("workspace_name"));
-        settings.clickDeleteWorkspaceButtonToDelete();
+        Settings settings = subMenuSideBar.clickMySettingLinkTxt();
+        WorkspaceSetting workspaceSetting = settings.clickSettingsLinkTxt();
+        WorkspaceFormToDelete workspaceFormToDelete = workspaceSetting.clickDeleteWorkspaceButtonInSettingsLinkTxt();
+        workspaceFormToDelete.fillUpDeleteWorkspaceTxtBox(scenarioTrash.getTrashValue("workspace_name"));
+        workspaceFormToDelete.clickDeleteWorkspaceButtonToDelete();
     }
 }
