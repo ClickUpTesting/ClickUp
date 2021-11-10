@@ -31,8 +31,10 @@ public class LoginSteps {
     public void loginToClickUpAsAnAdmin() {
         pageTransporter.goToUrl(getUrlPage("login page"));
         LoginPage loginpage = new LoginPage(webDriverManager);
-        loginpage.setUsernameTextBox(System.getenv("CLICK_UP_USER"));
-        loginpage.setPasswordTextBox(decryptText(System.getenv("CLICK_UP_PASS")));
-        loginpage.clickLoginButton();
+//        loginpage.setUsernameTextBox(System.getenv("CLICK_UP_USER"));
+//        loginpage.setPasswordTextBox(decryptText(System.getenv("CLICK_UP_PASS")));
+//        loginpage.clickLoginButton();
+        loginpage.loginClickUp();
+
     }
 }

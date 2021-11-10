@@ -35,10 +35,30 @@ public class Settings extends BasePage {
     @FindBy(css = "button[class='cu-btn cu-btn_fw-sm']")
     protected WebElement deleteWorkspaceButtonToDelete;
 
+    @FindBy(css = "div.cu-form__field input[placeholder]")
+    protected WebElement workspaceNameTextBox;
+
+    @FindBy(css = "div.cu-btn__text")
+    protected WebElement savedButton;
+
+    @FindBy(css = "a[data-test='settings-back-btn']")
+    protected WebElement backButton;
+
     public Settings(WebDriverManager webDriverManager) {
         super(webDriverManager);
     }
 
+    public void clickSavedButton(){
+        webDriverActions.clickElement(savedButton);
+    }
+
+    public void typeNameWorkspace(String nameWorkspace){
+        webDriverElementText.setText(workspaceNameTextBox, nameWorkspace);
+    }
+
+    public void clickBackButton(){
+        webDriverActions.clickElement(backButton);
+    }
 
     /***
      * Clicks in workspaces in my settings page.

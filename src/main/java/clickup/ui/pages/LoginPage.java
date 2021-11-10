@@ -11,8 +11,11 @@
 package clickup.ui.pages;
 
 import core.selenium.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import static core.utils.EncryptManager.decryptText;
 
 public class LoginPage extends BasePage {
     @FindBy(id = "login-email-input")
@@ -23,6 +26,8 @@ public class LoginPage extends BasePage {
 
     @FindBy(css = "button[type='submit']")
     public WebElement loginButton;
+    protected By sideBarCollapseIcon = By.xpath("//div[contains(@class,'cu-simple-bar__toggle') or @class='cu-collapsed-sidebar__toggle-icon']//*[@class='ng-star-inserted']");
+
 
     public LoginPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
@@ -35,7 +40,6 @@ public class LoginPage extends BasePage {
      */
     @Override
     public void waitForPageLoaded() {
-        webDriverWaits.waitVisibilityOfElement(loginButton);
     }
 
     /**
@@ -64,8 +68,17 @@ public class LoginPage extends BasePage {
      * @return a main click up page
      * @author Jorge Caceres
      */
-    public ClickUpMainPage clickLoginButton() {
+    public void clickLoginButton() {
         webDriverActions.clickElement(loginButton);
-        return new ClickUpMainPage(webDriverManager);
+    }
+
+    public ClickUpMainPage loginClickUp(){
+        if (!webDriverActions.isElementPresent(sideBarCollapseIcon,1000)) {
+            webDriverWaits.waitVisibilityOfElement(loginButton);
+            setUsernameTextBox(System.getenv("CLICK_UP_USER"));
+            setPasswordTextBox(decryptText(System.getenv("CLICK_UP_PASS")));
+            clickLoginButton();
+        }
+       return new ClickUpMainPage(webDriverManager);
     }
 }

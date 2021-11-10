@@ -23,6 +23,7 @@ public class ClickUpMainPage extends BasePage {
     protected By closeIconInCreateSpace = By.cssSelector("div[data-test='modal-close-btn']");
     protected By spaceCopiedCloseIcon = By.cssSelector("div.toast__close-button-block.toast__"
             + "close-button-block_top-right");
+    public By sideBarCollapseIcon = By.xpath("//div[contains(@class,'cu-simple-bar__toggle') or @class='cu-collapsed-sidebar__toggle-icon']//*[@class='ng-star-inserted']");
     private static final int INTERVAL_TIME = 2000;
 
     /**
@@ -62,6 +63,8 @@ public class ClickUpMainPage extends BasePage {
     }
 
     @Override
-    protected void waitForPageLoaded() {
+    public void waitForPageLoaded() {
+        By sideBarCollapseIcon2 = By.xpath("//div[contains(@class,'cu-simple-bar__toggle') or @class='cu-collapsed-sidebar__toggle-icon']//*[@class='ng-star-inserted']");
+        webDriverWaits.waitVisibilityOfElement(sideBarCollapseIcon2);
     }
 }

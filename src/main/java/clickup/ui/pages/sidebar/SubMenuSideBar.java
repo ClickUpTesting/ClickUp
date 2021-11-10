@@ -20,7 +20,8 @@ import org.openqa.selenium.support.FindBy;
 public class SubMenuSideBar extends BasePage {
     @FindBy(css = "a.ng-star-inserted[data-test='user-settings-menu-item-my-settings']")
     protected WebElement mySettingLinkTxt;
-
+    @FindBy(xpath = "//a[@data-test='workspace-settings-menu-item-settings']")
+    protected WebElement workspaceSettingTxt;
     @FindBy(css = "div[data-test*='column-title-name'][tooltipmodifier]")
     protected WebElement workSpaceTittle;
 
@@ -33,6 +34,11 @@ public class SubMenuSideBar extends BasePage {
 
     public Settings clickMySettingLinkTxt() {
         webDriverActions.clickElement(mySettingLinkTxt);
+        return new Settings(webDriverManager);
+    }
+
+    public Settings clickWorkspaceSettingTxt() {
+        webDriverActions.clickElement(workspaceSettingTxt);
         return new Settings(webDriverManager);
     }
 
