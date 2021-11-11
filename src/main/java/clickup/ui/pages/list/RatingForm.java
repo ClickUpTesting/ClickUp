@@ -41,7 +41,7 @@ public class RatingForm extends BasePage {
      *
      * @author Gustavo Huanca
      */
-    public void clickAddColumnButton(){
+    public void clickAddColumnButton() {
         webDriverActions.clickElement(addColumnButton);
     }
 

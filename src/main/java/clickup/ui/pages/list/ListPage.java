@@ -15,6 +15,7 @@ import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +31,8 @@ public class ListPage extends BasePage {
     protected String taskList = "//span[text() = '%s']";
     private static final int INTERVAL_TIME = 1000;
 
-    public boolean isDisplayedRantingStars(){
-        return webDriverActions.isElementPresent(iconStarsToRanting,INTERVAL_TIME);
+    public boolean isDisplayedRantingStars() {
+        return webDriverActions.isElementPresent(iconStarsToRanting, INTERVAL_TIME);
     }
 
     public ListPage(WebDriverManager webDriverManager) {
@@ -43,7 +44,7 @@ public class ListPage extends BasePage {
         return webDriverActions.getStringsOfElements(nameColumnOfTaskInStatus);
     }
 
-    public AddNewColumn clickAddNewColumnIcon(){
+    public AddNewColumn clickAddNewColumnIcon() {
         webDriverActions.clickElement(addNewColumnIcon);
         return new AddNewColumn(webDriverManager);
     }

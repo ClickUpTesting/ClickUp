@@ -37,7 +37,7 @@ public class CustomFieldSteps {
     }
 
     @When("I create a new custom field ranting with field")
-    public void iCreateANewCustomFieldRantingWithField(final Map<String, String> bodyCustomFieldForm) {
+    public void createANewCustomFieldRantingWithField(final Map<String, String> bodyCustomFieldForm) {
         this.bodyCustomFieldForm = bodyCustomFieldForm;
         listPage = new ListPage(webDriverManager);
         AddNewColumn addNewColumn = listPage.clickAddNewColumnIcon();
@@ -48,10 +48,10 @@ public class CustomFieldSteps {
     }
 
     @Then("I verify that the created list contains the default values of ranting")
-    public void iVerifyThatTheCreatedListContainsTheDefaultValuesOfRanting() {
+    public void verifyThatTheCreatedListContainsTheDefaultValuesOfRanting() {
         ListPage listPageRefresh = new ListPage(webDriverManager);
         softAssert.assertTrue(listPageRefresh.getNameColumnsOfTaskInStatus().stream().
-                anyMatch(value -> value.equals(bodyCustomFieldForm.get("name").toUpperCase())),"Don't match");
-        softAssert.assertTrue(listPageRefresh.isDisplayedRantingStars(),"Doesn't exit stars");
+                anyMatch(value -> value.equals(bodyCustomFieldForm.get("name").toUpperCase())), "Don't match");
+        softAssert.assertTrue(listPageRefresh.isDisplayedRantingStars(), "Doesn't exit stars");
     }
 }
