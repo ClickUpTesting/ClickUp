@@ -33,6 +33,7 @@ public class TasksRequests extends BaseRequest {
     /**
      * Creates a task and returns an object Task.
      *
+     * @param listId the listId where the task was created
      * @return a Task
      * @throws JsonProcessingException when the response is not a valid json
      * @author Gustavo Huanca
