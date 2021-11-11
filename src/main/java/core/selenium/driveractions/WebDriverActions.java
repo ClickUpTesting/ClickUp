@@ -11,6 +11,7 @@
 package core.selenium.driveractions;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import core.selenium.WebDriverConfig;
 import core.selenium.WebDriverManager;
@@ -114,6 +115,13 @@ public class WebDriverActions {
      */
     public List<WebElement> getWebElements(final By locator) {
         return driver.findElements(locator);
+    }
+
+    public List<String> getStringsOfElements(final By locator){
+        List<WebElement> webElementList = getWebElements(locator);
+        List<String> list = new ArrayList<>();
+        webElementList.forEach(element -> list.add(element.getText()));
+        return list;
     }
 
     /**

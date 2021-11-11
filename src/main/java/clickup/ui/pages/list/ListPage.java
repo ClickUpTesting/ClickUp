@@ -8,8 +8,9 @@
  * @author Gustavo Huanca
  */
 
-package clickup.ui.pages;
+package clickup.ui.pages.list;
 
+import clickup.ui.pages.BasePage;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -19,12 +20,32 @@ import java.util.List;
 
 public class ListPage extends BasePage {
     @FindBy(xpath = "//div[@class='cu-list-group__name']")
-    private WebElement nameOfList;
-    private By tasksList = By.cssSelector("span[class='cu-task-row-main__link-text-inner']");
-    private String taskList = "//span[text() = '%s']";
+    protected WebElement nameOfList;
+    @FindBy(css = "button[class*='cu-task-list-header-settings'][class*='add_right-btn']")
+    protected WebElement addNewColumnIcon;
+    protected By iconStarsToRanting = By.xpath("//div[@class='cu-emoji-custom-field-value__container']");
+    protected By nameColumnOfTaskInStatus = By.xpath("//div[@class='cu-task-list-header-field__title-text']"
+            + "[normalize-space()]");
+    protected By tasksList = By.cssSelector("span[class='cu-task-row-main__link-text-inner']");
+    protected String taskList = "//span[text() = '%s']";
+    private static final int INTERVAL_TIME = 1000;
+
+    public boolean isDisplayedRantingStars(){
+        return webDriverActions.isElementPresent(iconStarsToRanting,INTERVAL_TIME);
+    }
 
     public ListPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
+    }
+
+    public List<String> getNameColumnsOfTaskInStatus() {
+        webDriverActions.refreshPage();
+        return webDriverActions.getStringsOfElements(nameColumnOfTaskInStatus);
+    }
+
+    public AddNewColumn clickAddNewColumnIcon(){
+        webDriverActions.clickElement(addNewColumnIcon);
+        return new AddNewColumn(webDriverManager);
     }
 
     /**

@@ -27,10 +27,15 @@ public class TasksRequests extends BaseRequest {
      * @author Jorge Caceres
      */
     public Task createTask() throws JsonProcessingException {
+        return createTask(scenarioContext.getEnvData("list_id"));
+    }
+
+
+    public Task createTask(String listId) throws JsonProcessingException {
         Task task = new Task();
         task.setName("Task created in TasksRequests From API".concat(random()));
         apiResponse = apiFacade.createObject(new ObjectMapper().writeValueAsString(task),
-                ApiEndpoints.CREATE_TASK, "list_id", scenarioContext.getEnvData("list_id"));
+                ApiEndpoints.CREATE_TASK, "list_id", listId);
         return apiResponse.getBody(Task.class);
     }
 
