@@ -15,7 +15,6 @@ import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,19 +30,37 @@ public class ListPage extends BasePage {
     protected String taskList = "//span[text() = '%s']";
     private static final int INTERVAL_TIME = 1000;
 
-    public boolean isDisplayedRantingStars() {
-        return webDriverActions.isElementPresent(iconStarsToRanting, INTERVAL_TIME);
-    }
-
     public ListPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
     }
 
+    /**
+     * Verifies the Stars icon exist.
+     *
+     * @return a boolean
+     * @author Gustavo Huanca
+     */
+    public boolean isDisplayedRantingStars() {
+        return webDriverActions.isElementPresent(iconStarsToRanting, INTERVAL_TIME);
+    }
+
+    /**
+     * Gets column's name in the status.
+     *
+     * @return a list with column's name
+     * @author Gustavo Huanca
+     */
     public List<String> getNameColumnsOfTaskInStatus() {
         webDriverActions.refreshPage();
         return webDriverActions.getStringsOfElements(nameColumnOfTaskInStatus);
     }
 
+    /**
+     * Clicks in tab add a New Column
+     *
+     * @return a new object AddNewColumn
+     * @author Gustavo Huanca
+     */
     public AddNewColumn clickAddNewColumnIcon() {
         webDriverActions.clickElement(addNewColumnIcon);
         return new AddNewColumn(webDriverManager);

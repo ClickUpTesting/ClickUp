@@ -22,7 +22,7 @@ public class TasksRequests extends BaseRequest {
     /**
      * Creates a task and returns its identifier.
      *
-     * @return a task_id
+     * @return a Task
      * @throws JsonProcessingException when the response is not a valid json
      * @author Jorge Caceres
      */
@@ -30,7 +30,13 @@ public class TasksRequests extends BaseRequest {
         return createTask(scenarioContext.getEnvData("list_id"));
     }
 
-
+    /**
+     * Creates a task and returns an object Task.
+     *
+     * @return a Task
+     * @throws JsonProcessingException when the response is not a valid json
+     * @author Gustavo Huanca
+     */
     public Task createTask(String listId) throws JsonProcessingException {
         Task task = new Task();
         task.setName("Task created in TasksRequests From API".concat(random()));

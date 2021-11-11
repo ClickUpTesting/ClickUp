@@ -118,6 +118,13 @@ public class WebDriverActions {
         return driver.findElements(locator);
     }
 
+    /**
+     * Gets texts on a List of webElement.
+     *
+     * @param locator is a locator
+     * @return a list with text in the webElements
+     * @author Gustavo Huanca
+     */
     public List<String> getStringsOfElements(final By locator) {
         List<WebElement> webElementList = getWebElements(locator);
         List<String> list = new ArrayList<>();
