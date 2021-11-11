@@ -28,3 +28,4 @@ Feature: Create Tags
       | tag_bg | #3c9d9b |
       And I execute a POST request
     Then I verify that the response status is 400
+    
