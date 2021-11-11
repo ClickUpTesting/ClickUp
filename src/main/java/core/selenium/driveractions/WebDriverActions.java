@@ -11,7 +11,9 @@
 package core.selenium.driveractions;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
+
 import core.selenium.WebDriverConfig;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
@@ -114,6 +116,20 @@ public class WebDriverActions {
      */
     public List<WebElement> getWebElements(final By locator) {
         return driver.findElements(locator);
+    }
+
+    /**
+     * Gets texts on a List of webElement.
+     *
+     * @param locator is a locator
+     * @return a list with text in the webElements
+     * @author Gustavo Huanca
+     */
+    public List<String> getStringsOfElements(final By locator) {
+        List<WebElement> webElementList = getWebElements(locator);
+        List<String> list = new ArrayList<>();
+        webElementList.forEach(element -> list.add(element.getText()));
+        return list;
     }
 
     /**

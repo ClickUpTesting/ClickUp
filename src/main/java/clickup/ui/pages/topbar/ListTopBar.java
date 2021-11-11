@@ -11,7 +11,7 @@
 package clickup.ui.pages.topbar;
 
 import clickup.ui.pages.BasePage;
-import clickup.ui.pages.ListSettingMenu;
+import clickup.ui.pages.sidebar.ListSettingMenu;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;

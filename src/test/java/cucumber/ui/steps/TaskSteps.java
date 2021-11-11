@@ -10,7 +10,7 @@
 
 package cucumber.ui.steps;
 
-import clickup.ui.pages.ListPage;
+import clickup.ui.pages.list.ListPage;
 import clickup.ui.pages.sidebar.CreateNew;
 import clickup.ui.pages.sidebar.FeatureSettings;
 import clickup.ui.pages.sidebar.SideBar;
