@@ -1,8 +1,8 @@
 @GUI @Workspace
-Feature: Delete a task
+Feature: Delete a workspace
 
   @Smoke @CreateWorkspace
-  Scenario: Delete a workspace in a list
+  Scenario: Delete a workspace
     Given I login to click up as an admin
       And I navigate to a workspace menu
     When I delete a workspace
