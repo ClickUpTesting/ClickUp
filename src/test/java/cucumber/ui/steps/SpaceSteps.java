@@ -12,9 +12,10 @@ package cucumber.ui.steps;
 
 import clickup.ui.pages.ClickUpMainPage;
 import clickup.ui.pages.sidebar.SideBar;
+import clickup.ui.pages.spaces.CreateNewSpacePage;
 import clickup.ui.pages.spaces.AllGoodPage;
 import clickup.ui.pages.spaces.ColorOrAvatarPage;
-import clickup.ui.pages.spaces.CreateNewSpacePage;
+import clickup.ui.pages.spaces.EditSpaceName;
 import clickup.ui.pages.spaces.EnableClickAppsPage;
 import clickup.ui.pages.spaces.RemoveSpacePopUp;
 import clickup.ui.pages.spaces.ShareSpacePage;
@@ -26,6 +27,7 @@ import core.selenium.WebDriverManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.asserts.SoftAssert;
+
 import java.util.Map;
 
 import static core.utils.UrlSplitter.getLastUrlID;
@@ -62,7 +64,7 @@ public class SpaceSteps {
         clickUpMainPage.getSideBar().clickInASpace(spaceSettings.get("name"));
     }
 
-    @Then("I verify that the created space contains the default values")
+    @Then("^I verify that the (?:.*?) space contains the default values$")
     public void verifySpaceSettings() {
         String spaceId = getLastUrlID(webDriverManager.getWebDriver());
         scenarioTrash.setScenarioTrash("space_id", spaceId);
@@ -81,5 +83,16 @@ public class SpaceSteps {
     @Then("I verify that the space does not exist in the sidebar")
     public void verifyTheDeletedSpace() {
         softAssert.assertFalse(sideBar.verifySpaceName(scenarioTrash.getTrashValue("name_space")));
+    }
+
+    @When("I update a space with the following parameters")
+    public void updateASpaceWithTheFollowingParameters(Map<String, String> settingsMap) {
+        this.spaceSettings = settingsMap;
+        scenarioTrash.setScenarioBodyRequest(settingsMap);
+        clickUpMainPage = new ClickUpMainPage(webDriverManager);
+        SpaceTopBar spaceTopBar = new SpaceTopBar(webDriverManager);
+        EditSpaceName editSpaceName = spaceTopBar.clickSpaceName().clickRenameIcon();
+        editSpaceName.typeNameSpace(settingsMap.get("name"));
+        editSpaceName.clickSaveButton();
     }
 }
