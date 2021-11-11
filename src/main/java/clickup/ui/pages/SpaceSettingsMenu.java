@@ -23,7 +23,7 @@ public class SpaceSettingsMenu extends BasePage {
     }
 
     /**
-     * Clicks on the edit button.
+     * Clicks on the delete button.
      *
      * @return a popup to edit the space's name
      * @author Jorge Caceres
