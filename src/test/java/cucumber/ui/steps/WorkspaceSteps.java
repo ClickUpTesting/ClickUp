@@ -15,7 +15,9 @@ import clickup.ui.pages.sidebar.SideBar;
 import clickup.ui.pages.sidebar.SubMenuSideBar;
 import clickup.ui.pages.sidebar.settings.Settings;
 import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceForm;
+import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceFormToDelete;
 import clickup.ui.pages.sidebar.settings.workspaces.WorkspaceSetting;
+import clickup.ui.pages.sidebar.settings.workspaces.Workspaces;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.en.And;
@@ -70,5 +72,26 @@ public class WorkspaceSteps {
         Settings settings = new Settings(webDriverManager);
         settings.clickBackButton();
         scenarioTrash.setScenarioTrash("workspace_name", bodyWorkspaceForm.get("name"));
+    }
+
+    @When("I delete a workspace")
+    public void deleteAWorkspace() {
+        SideBar sideBar = new SideBar(webDriverManager);
+        SubMenuSideBar subMenuSideBar = sideBar.clickUserSettingDropdown();
+        Settings settings = subMenuSideBar.clickMySettingLinkTxt();
+        WorkspaceSetting workspaceSetting = settings.clickSettingsLinkTxt();
+        WorkspaceFormToDelete workspaceFormToDelete = workspaceSetting.clickDeleteWorkspaceButtonInSettingsLinkTxt();
+        workspaceFormToDelete.fillUpDeleteWorkspaceTxtBox(scenarioTrash.getTrashValue("workspace_name"));
+        workspaceFormToDelete.clickDeleteWorkspaceButtonToDelete();
+    }
+
+    @Then("I verify that the workspace does not exist in the list of workspace")
+    public void verifyThatTheWorkspaceDoesNotExistInTheListOfWorkspace() {
+        SideBar sideBar = new SideBar(webDriverManager);
+        SubMenuSideBar subMenuSideBar = sideBar.clickUserSettingDropdown();
+        Settings settings = subMenuSideBar.clickMySettingLinkTxt();
+        Workspaces workspaces = settings.clickWorkspacesLinkTxt();
+        softAssert.assertFalse(workspaces.getNamesWorkspace().stream().
+                anyMatch(value -> value.equals(scenarioTrash.getTrashValue("workspace_name"))));
     }
 }
