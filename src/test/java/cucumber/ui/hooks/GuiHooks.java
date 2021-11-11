@@ -43,13 +43,6 @@ public class GuiHooks {
                 .headers(ApiHeaders.CONTENT_TYPE.getValue(), ApiHeaders.APPLICATION_JSON.getValue());
     }
 
-    @Before(order = 2, value = "@GUI")
-    public void loginClickUp() {
-        pageTransporter.goToUrl(getUrlPage("login page"));
-        LoginPage loginpage = new LoginPage(webDriverManager);
-        loginpage.loginClickUp();
-    }
-
     @After(value = "@GUI")
     public void assertAllSteps() {
         softAssert.assertAll();
