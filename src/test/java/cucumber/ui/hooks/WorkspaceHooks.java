@@ -1,6 +1,7 @@
 package cucumber.ui.hooks;
 
 import clickup.ui.pages.ClickUpMainPage;
+import clickup.ui.pages.LoginPage;
 import clickup.ui.pages.sidebar.SideBar;
 import clickup.ui.pages.sidebar.SubMenuSideBar;
 import clickup.ui.pages.sidebar.settings.Settings;
@@ -31,6 +32,9 @@ public class WorkspaceHooks {
 
     @Before(value = "@CreateWorkspace")
     public void createWorkspace() {
+        pageTransporter.goToUrl(getUrlPage("login page"));
+        LoginPage loginpage = new LoginPage(webDriverManager);
+        loginpage.loginClickUp();
         String nameWorkspace = "workspace before From API".concat(random());
         clickUpMainPage = new ClickUpMainPage(webDriverManager);
         SideBar sideBar = clickUpMainPage.getSideBar();
