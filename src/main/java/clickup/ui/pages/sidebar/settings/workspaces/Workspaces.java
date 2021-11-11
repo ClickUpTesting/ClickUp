@@ -15,7 +15,6 @@ import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +44,7 @@ public class Workspaces extends BasePage {
      * @return a list with a name of workspace
      * @author Gustavo Huanca
      */
-    public List<String> getNamesWorkspace(){
+    public List<String> getNamesWorkspace() {
         List<WebElement> webElementList = webDriverActions.getWebElements(listNameWorkspace);
         List<String> list = new ArrayList<>();
         webElementList.forEach(element -> list.add(webDriverElementText.getWebElementText(element)));
