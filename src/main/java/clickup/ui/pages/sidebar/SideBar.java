@@ -176,7 +176,7 @@ public class SideBar extends BasePage {
      * @author Jorge Caceres
      */
     public boolean verifySpaceName(final String spaceName) {
-        return webDriverActions.isInDom(By.xpath(String.format(selectSpace, spaceName)));
+        return webDriverActions.isElementPresent(By.xpath(String.format(selectSpace, spaceName)), INTERVAL_TIME);
     }
 
     /**

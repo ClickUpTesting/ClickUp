@@ -11,13 +11,16 @@
 package cucumber.ui.steps;
 
 import clickup.ui.pages.ClickUpMainPage;
+import clickup.ui.pages.sidebar.SideBar;
 import clickup.ui.pages.spaces.AllGoodPage;
 import clickup.ui.pages.spaces.ColorOrAvatarPage;
 import clickup.ui.pages.spaces.CreateNewSpacePage;
 import clickup.ui.pages.spaces.EnableClickAppsPage;
+import clickup.ui.pages.spaces.RemoveSpacePopUp;
 import clickup.ui.pages.spaces.ShareSpacePage;
 import clickup.ui.pages.spaces.TaskStatusesPage;
 import clickup.ui.pages.spaces.ViewsSettingsPage;
+import clickup.ui.pages.topbar.SpaceTopBar;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.en.Then;
@@ -33,6 +36,8 @@ public class SpaceSteps {
     private Map<String, String> spaceSettings;
     private SoftAssert softAssert;
     private ScenarioTrash scenarioTrash;
+    private SpaceTopBar spaceTopBar;
+    private SideBar sideBar;
 
     public SpaceSteps(WebDriverManager webDriverManager, SoftAssert softAssert, ScenarioTrash scenarioTrash) {
         this.webDriverManager = webDriverManager;
@@ -62,5 +67,19 @@ public class SpaceSteps {
         String spaceId = getLastUrlID(webDriverManager.getWebDriver());
         scenarioTrash.setScenarioTrash("space_id", spaceId);
         softAssert.assertTrue(clickUpMainPage.getSideBar().verifySpaceName(spaceSettings.get("name")));
+    }
+
+    @When("I delete a scape")
+    public void deleteASpaceFromTopBar() {
+        spaceTopBar = new SpaceTopBar(webDriverManager);
+        spaceTopBar.clicksSpaceName(scenarioTrash.getTrashValue("name_space"));
+        RemoveSpacePopUp removeSpacePopUp = spaceTopBar.getSpaceSettingsMenu().clickDeleteButton();
+        removeSpacePopUp.fillSpaceName(scenarioTrash.getTrashValue("name_space"));
+        sideBar = removeSpacePopUp.clickDelete();
+    }
+
+    @Then("I verify that the space does not exist in the sidebar")
+    public void verifyTheDeletedSpace() {
+        softAssert.assertFalse(sideBar.verifySpaceName(scenarioTrash.getTrashValue("name_space")));
     }
 }

@@ -27,6 +27,7 @@ public final class PageUrl {
         URLS.put("list", getUrlPage("workspace environment").concat("/v/l/li/"));
         URLS.put("folder", baseUrl.concat(String.format("/%s/v/l/f/", System.getenv("TEAM_ID"))));
         URLS.put("workspace", baseUrl.concat("/"));
+        URLS.put("space", baseUrl.concat(String.format("/%s/v/l/s/", System.getenv("TEAM_ID"))));
     }
 
     private PageUrl() {
