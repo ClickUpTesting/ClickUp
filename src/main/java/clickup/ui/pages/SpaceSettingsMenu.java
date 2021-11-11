@@ -15,7 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class SpaceSettingsMenu extends BasePage {
-    @FindBy(xpath = "//div[normalize-space()='Delete']")
+    @FindBy(css = "div[data-test='nav-menu-item__name']")
     protected WebElement deleteIcon;
 
     public SpaceSettingsMenu(WebDriverManager webDriverManager) {
