@@ -12,6 +12,7 @@ package cucumber.ui.steps;
 
 import clickup.ui.pages.ClickUpMainPage;
 import clickup.ui.pages.list.AddNewColumn;
+import clickup.ui.pages.list.FormulaForm;
 import clickup.ui.pages.list.ListPage;
 import clickup.ui.pages.list.RatingForm;
 import clickup.utils.ScenarioTrash;
@@ -53,5 +54,24 @@ public class CustomFieldSteps {
         softAssert.assertTrue(listPageRefresh.getNameColumnsOfTaskInStatus().stream().
                 anyMatch(value -> value.equals(bodyCustomFieldForm.get("name").toUpperCase())), "Don't match");
         softAssert.assertTrue(listPageRefresh.isDisplayedRantingStars(), "Doesn't exit stars");
+    }
+
+    @When("I create a new custom field formula with field")
+    public void createANewCustomFieldFormulaWithField(final Map<String, String> bodyCustomFieldForm) {
+        this.bodyCustomFieldForm = bodyCustomFieldForm;
+        listPage = new ListPage(webDriverManager);
+        AddNewColumn addNewColumn = listPage.clickAddNewColumnIcon();
+        addNewColumn.clickEnableButton();
+        FormulaForm formulaForm = addNewColumn.clickFormula();
+        formulaForm.typeFieldName(bodyCustomFieldForm.get("name"));
+        formulaForm.clickAddColumnButton();
+    }
+
+    @Then("I verify that the created list contains the default values of formula")
+    public void verifyThatTheCreatedListContainsTheDefaultValuesOfFormula() {
+        ListPage listPageRefresh = new ListPage(webDriverManager);
+        softAssert.assertTrue(listPageRefresh.getNameColumnsOfTaskInStatus().stream().
+                anyMatch(value -> value.equals(bodyCustomFieldForm.get("name").toUpperCase())), "Don't match");
+        softAssert.assertTrue(listPageRefresh.isDisplayedFormulaIcon(), "Doesn't exit stars");
     }
 }

@@ -24,6 +24,7 @@ public class ListPage extends BasePage {
     @FindBy(css = "button[class*='cu-task-list-header-settings'][class*='add_right-btn']")
     protected WebElement addNewColumnIcon;
     protected By iconStarsToRanting = By.xpath("//div[@class='cu-emoji-custom-field-value__container']");
+    protected By iconFormulaFx = By.xpath("//div[@class='cu-custom-field-type-formula__fx icon ng-star-inserted']");
     protected By nameColumnOfTaskInStatus = By.xpath("//div[@class='cu-task-list-header-field__title-text']"
             + "[normalize-space()]");
     protected By tasksList = By.cssSelector("span[class='cu-task-row-main__link-text-inner']");
@@ -42,6 +43,16 @@ public class ListPage extends BasePage {
      */
     public boolean isDisplayedRantingStars() {
         return webDriverActions.isElementPresent(iconStarsToRanting, INTERVAL_TIME);
+    }
+
+    /**
+     * Verifies the Fx icon exist
+     *
+     * @return a boolean
+     * @author Gustavo Huanca
+     */
+    public boolean isDisplayedFormulaIcon() {
+        return webDriverActions.isElementPresent(iconFormulaFx, INTERVAL_TIME);
     }
 
     /**

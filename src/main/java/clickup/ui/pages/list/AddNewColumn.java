@@ -50,6 +50,17 @@ public class AddNewColumn extends BasePage {
     }
 
     /**
+     * Clicks Rating text.
+     *
+     * @return a new object RatingForm
+     * @author Gustavo Huanca
+     */
+    public FormulaForm clickFormula() {
+        webDriverActions.clickElement(By.xpath(String.format(textCustomField, "Formula")));
+        return new FormulaForm(webDriverManager);
+    }
+
+    /**
      * Waits for the page to be loaded.
      *
      * @author Gustavo Huanca
