@@ -7,40 +7,33 @@
  *
  * @author Jorge Caceres
  */
+package clickup.ui.pages.sidebar;
 
-package clickup.ui.pages;
-
+import clickup.ui.pages.BasePage;
+import clickup.ui.pages.spaces.RemoveSpacePopUp;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ListSettingMenu extends BasePage {
+public class SpaceSettingsMenu extends BasePage {
     @FindBy(css = "div[data-test='nav-menu-item__name']")
-    private WebElement deleteButton;
-    @FindBy(css = "button[aria-label='Rename']")
-    private WebElement editButton;
+    protected WebElement deleteIcon;
 
-    public ListSettingMenu(WebDriverManager webDriverManager) {
+    public SpaceSettingsMenu(WebDriverManager webDriverManager) {
         super(webDriverManager);
     }
 
     /**
-     * Clicks on the edit button.
+     * Clicks on the delete button.
      *
+     * @return a popup to edit the space's name
      * @author Jorge Caceres
      */
-    public void clickEditButton() {
-        webDriverActions.clickElement(editButton);
+    public RemoveSpacePopUp clickDeleteButton() {
+        webDriverActions.clickElement(deleteIcon);
+        return new RemoveSpacePopUp(webDriverManager);
     }
 
-    /**
-     * Clicks on the delete list button.
-     *
-     * @author Jorge Caceres
-     */
-    public void clickDeleteButton() {
-        webDriverActions.clickElement(deleteButton);
-    }
 
     /**
      * Waits for the page to be loaded.
@@ -49,6 +42,6 @@ public class ListSettingMenu extends BasePage {
      */
     @Override
     protected void waitForPageLoaded() {
-        webDriverWaits.waitVisibilityOfElement(deleteButton);
+        webDriverWaits.waitVisibilityOfElement(deleteIcon);
     }
 }
