@@ -66,23 +66,27 @@ public class LoginPage extends BasePage {
     /**
      * Clicks on the login button.
      *
+     * @return a main click up page
      * @author Jorge Caceres
      */
-    public void clickLoginButton() {
+    public ClickUpMainPage clickLoginButton() {
         webDriverActions.clickElement(loginButton);
+        return new ClickUpMainPage(webDriverManager);
     }
 
     /**
      * Logs in clickUp only once time.
      *
+     * @return a main click up page
      * @author Gustavo Huanca
      */
-    public void loginClickUp() {
+    public ClickUpMainPage loginClickUp() {
         if (!webDriverActions.isElementPresent(sideBarCollapseIcon, INTERVAL_TIME)) {
             webDriverWaits.waitVisibilityOfElement(loginButton);
             setUsernameTextBox(System.getenv("CLICK_UP_USER"));
             setPasswordTextBox(decryptText(System.getenv("CLICK_UP_PASS")));
-            clickLoginButton();
+            return clickLoginButton();
         }
+        return new ClickUpMainPage(webDriverManager);
     }
 }

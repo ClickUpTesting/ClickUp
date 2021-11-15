@@ -16,6 +16,7 @@ import core.selenium.WebDriverManager;
 import io.cucumber.java.en.Given;
 
 import static clickup.ui.utils.PageUrl.getUrlPage;
+import static core.utils.EncryptManager.decryptText;
 
 public class LoginSteps {
     private WebDriverManager webDriverManager;
@@ -30,6 +31,8 @@ public class LoginSteps {
     public void loginToClickUpAsAnAdmin() {
         pageTransporter.goToUrl(getUrlPage("login page"));
         LoginPage loginpage = new LoginPage(webDriverManager);
-        loginpage.loginClickUp();
+        loginpage.setUsernameTextBox(System.getenv("CLICK_UP_USER"));
+        loginpage.setPasswordTextBox(decryptText(System.getenv("CLICK_UP_PASS")));
+        loginpage.clickLoginButton();
     }
 }
