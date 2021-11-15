@@ -68,8 +68,9 @@ public class LoginPage extends BasePage {
      *
      * @author Jorge Caceres
      */
-    public void clickLoginButton() {
+    public ClickUpMainPage clickLoginButton() {
         webDriverActions.clickElement(loginButton);
+        return new ClickUpMainPage(webDriverManager);
     }
 
     /**
@@ -77,12 +78,13 @@ public class LoginPage extends BasePage {
      *
      * @author Gustavo Huanca
      */
-    public void loginClickUp() {
+    public ClickUpMainPage loginClickUp() {
         if (!webDriverActions.isElementPresent(sideBarCollapseIcon, INTERVAL_TIME)) {
             webDriverWaits.waitVisibilityOfElement(loginButton);
             setUsernameTextBox(System.getenv("CLICK_UP_USER"));
             setPasswordTextBox(decryptText(System.getenv("CLICK_UP_PASS")));
-            clickLoginButton();
+            return clickLoginButton();
         }
+        return new ClickUpMainPage(webDriverManager);
     }
 }
