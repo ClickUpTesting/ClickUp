@@ -11,7 +11,6 @@
 package clickup.ui.pages.topbar;
 
 import clickup.ui.pages.BasePage;
-import clickup.ui.pages.SpaceSettingsMenu;
 import clickup.ui.pages.spaces.SpaceSetting;
 import clickup.ui.pages.sidebar.SpaceSettingsMenu;
 import core.selenium.WebDriverManager;
