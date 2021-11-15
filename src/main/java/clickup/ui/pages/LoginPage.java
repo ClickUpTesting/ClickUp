@@ -66,6 +66,7 @@ public class LoginPage extends BasePage {
     /**
      * Clicks on the login button.
      *
+     * @return a main click up page
      * @author Jorge Caceres
      */
     public ClickUpMainPage clickLoginButton() {
@@ -76,6 +77,7 @@ public class LoginPage extends BasePage {
     /**
      * Logs in clickUp only once time.
      *
+     * @return a main click up page
      * @author Gustavo Huanca
      */
     public ClickUpMainPage loginClickUp() {
