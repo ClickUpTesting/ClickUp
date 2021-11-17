@@ -1,0 +1,87 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-17T15:16:57.454Z",
+        "before": [
+          {
+            "result": {
+              "duration": 3200141000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1793522000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TasksHooks.createTaskInList()"
+            }
+          }
+        ],
+        "line": 13,
+        "name": "Update a task with default setting",
+        "description": "",
+        "id": "update-task;update-a-task-with-default-setting",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Task"
+          },
+          {
+            "name": "@TaskGUI2"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateTaskInList"
+          },
+          {
+            "name": "@DeleteList"
+          }
+        ]
+      }
+    ],
+    "name": "Update task",
+    "description": "",
+    "id": "update-task",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/task/update_task.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Task",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      },
+      {
+        "name": "@TaskGUI2",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 12
+        }
+      }
+    ]
+  }
+]
