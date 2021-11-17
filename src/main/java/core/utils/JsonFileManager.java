@@ -10,6 +10,7 @@
 
 package core.utils;
 
+import io.cucumber.messages.internal.com.google.gson.JsonArray;
 import io.cucumber.messages.internal.com.google.gson.JsonObject;
 import io.cucumber.messages.internal.com.google.gson.JsonParser;
 import org.json.JSONObject;
@@ -31,8 +32,7 @@ public class JsonFileManager {
      */
     public String readFileJson(final String pathFile) throws IOException {
         Reader reader = Files.newBufferedReader(Paths.get(pathFile));
-        JsonObject parser = JsonParser.parseReader(reader).getAsJsonObject();
-        return parser.toString();
+        return JsonParser.parseReader(reader).getAsJsonObject().toString();
     }
 
     /**
@@ -45,8 +45,20 @@ public class JsonFileManager {
      */
     public JsonObject readFileJsonToJsonObject(final String pathFile) throws IOException {
         Reader reader = Files.newBufferedReader(Paths.get(pathFile));
-        JsonObject parser = JsonParser.parseReader(reader).getAsJsonObject();
-        return parser;
+        return JsonParser.parseReader(reader).getAsJsonObject();
+    }
+
+    /**
+     * Reads a file json.
+     *
+     * @param pathFile a path of file to read
+     * @return a JsonArray with content of file
+     * @throws IOException is exception if path or file are wrong
+     * @author Gustavo Huanca
+     */
+    public JsonArray readFileJsonToJsonArray(final String pathFile) throws IOException {
+        Reader reader = Files.newBufferedReader(Paths.get(pathFile));
+        return JsonParser.parseReader(reader).getAsJsonArray();
     }
 
     /**
