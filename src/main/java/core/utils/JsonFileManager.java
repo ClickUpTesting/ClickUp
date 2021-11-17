@@ -52,7 +52,7 @@ public class JsonFileManager {
      * Reads a file json.
      *
      * @param pathFile a path of file to read
-     * @return a JsonObject with content of file
+     * @return a JsonArray with content of file
      * @throws IOException is exception if path or file are wrong
      * @author Gustavo Huanca
      */

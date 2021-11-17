@@ -50,5 +50,4 @@ public class TransformJsonToEntityTest {
     public void assertObjectWithJsonFile(String actual, String expected) {
         Assert.assertEquals(actual, expected);
     }
-
 }
