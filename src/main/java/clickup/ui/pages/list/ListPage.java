@@ -29,10 +29,22 @@ public class ListPage extends BasePage {
             + "[normalize-space()]");
     protected By tasksList = By.cssSelector("span[class='cu-task-row-main__link-text-inner']");
     protected String taskList = "//span[text() = '%s']";
+    protected String dueDateOfTask = "//cu-task-row[contains(.,'%s')]//cu-task-row-recurring-date-picker";
     private static final int INTERVAL_TIME = 1000;
 
     public ListPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
+    }
+
+    /**
+     * Gets the due date of task
+     *
+     * @param taskName is name of task
+     * @return a name of task
+     * @author Gustavo Huanca
+     */
+    public String getDueDateOfTask(final String taskName) {
+        return webDriverElementText.getWebElementText(By.xpath(String.format(dueDateOfTask, taskName)));
     }
 
     /**
