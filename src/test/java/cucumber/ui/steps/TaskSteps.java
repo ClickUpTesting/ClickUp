@@ -25,6 +25,8 @@ import io.cucumber.java.en.When;
 import org.testng.asserts.SoftAssert;
 import java.util.Map;
 
+import static core.utils.SpecificationProvider.execute;
+
 public class TaskSteps {
     protected WebDriverManager webDriverManager;
     protected ScenarioTrash scenarioTrash;
@@ -56,8 +58,12 @@ public class TaskSteps {
     @Then("^I verify that the (?:.*) task contains the default values$")
     public void verifyThatTheCreatedTaskContainsTheDefaultValues() {
         ListPage listPage = new ListPage(webDriverManager);
-        softAssert.assertTrue(listPage.getTasks().stream().
-                anyMatch(value -> value.equals(settingsMap.get("name"))));
+        execute(() -> softAssert.assertTrue(listPage.getTasks().stream().
+                        anyMatch(value -> value.equals(settingsMap.get("name")))),
+                () -> settingsMap.get("name"));
+        execute(() -> softAssert.assertEquals(listPage.getDueDateOfTask(scenarioTrash.getTrashValue("task_name")),
+                        settingsMap.get("due date")),
+                () -> settingsMap.get("due date"));
     }
 
     @When("I update a new task with field")
@@ -65,7 +71,7 @@ public class TaskSteps {
         this.settingsMap = settingsMap;
         scenarioTrash.setScenarioBodyRequest(settingsMap);
         TaskPage taskPage = new TaskPage(webDriverManager);
-        taskPage.typeName(settingsMap.get("name"));
+        taskPage.fillUpField(settingsMap);
         taskPage.clickCloseIcon();
     }
 

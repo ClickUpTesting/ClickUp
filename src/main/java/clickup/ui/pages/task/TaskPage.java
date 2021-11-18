@@ -11,11 +11,15 @@
 package clickup.ui.pages.task;
 
 import clickup.ui.pages.BasePage;
+import clickup.ui.pages.calendar.Calendar;
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import java.util.Map;
+
+import static core.utils.SpecificationProvider.execute;
 
 public class TaskPage extends BasePage {
     @FindBy(css = ".cu-tags-view__icon.icon.ng-star-inserted")
@@ -36,10 +40,23 @@ public class TaskPage extends BasePage {
     private WebElement filledTextArea;
     @FindBy(css = "input[class='nav-editor__input ng-untouched ng-valid ng-dirty']")
     private WebElement textAreaToFill;
+    @FindBy(xpath = "//div[@class='cu-avatar cu-avatar_lg icon ng-star-inserted']")
+    private WebElement dueDateEmptyIcon;
     private static final int INTERVAL_TIME = 2000;
 
     public TaskPage(WebDriverManager webDriverManager) {
         super(webDriverManager);
+    }
+
+    /**
+     * Clicks in Calendar icon.
+     *
+     * @return a new Calendar object
+     * @author Gustavo Huanca
+     */
+    public Calendar clickDueDateEmptyIcon() {
+        webDriverActions.clickElement(dueDateEmptyIcon);
+        return new Calendar(webDriverManager);
     }
 
     /**
@@ -139,6 +156,28 @@ public class TaskPage extends BasePage {
     }
 
     /**
+     * Sets a date of calendar
+     *
+     * @param date is date of calendar
+     * @author Gustavo Huanca
+     */
+    public void setDueDate(String date) {
+        Calendar calendar = clickDueDateEmptyIcon();
+        calendar.clickQuickDataOptions(date);
+    }
+
+    /**
+     * Updates a task.
+     *
+     * @param tableMap is map with values to set
+     * @author Gustavo Huanca
+     */
+    public void fillUpField(final Map<String, String> tableMap) {
+        execute(() -> typeName(tableMap.get("name")), () -> tableMap.get("name"));
+        execute(() -> setDueDate(tableMap.get("due date")), () -> tableMap.get("due date"));
+    }
+
+    /**
      * Waits for the page to be loaded.
      *
      * @author Jorge Caceres
@@ -147,4 +186,6 @@ public class TaskPage extends BasePage {
     protected void waitForPageLoaded() {
         webDriverWaits.waitVisibilityOfElement(addTagButton);
     }
+
+
 }

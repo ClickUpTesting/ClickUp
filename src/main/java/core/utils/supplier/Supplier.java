@@ -8,7 +8,7 @@
  * @author Saul Caspa
  */
 
-package core.utils;
+package core.utils.supplier;
 
 public interface Supplier<T> {
     T run();
