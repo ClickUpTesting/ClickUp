@@ -1,4 +1,4 @@
-@GUI @TaskGUIs
+@GUI @TaskGUI
 Feature: Delete a task
 
   @Smoke @CreateTask

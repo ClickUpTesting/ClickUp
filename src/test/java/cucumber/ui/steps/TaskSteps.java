@@ -23,7 +23,6 @@ import core.selenium.WebDriverManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.asserts.SoftAssert;
-
 import java.util.Map;
 
 import static core.utils.SpecificationProvider.execute;

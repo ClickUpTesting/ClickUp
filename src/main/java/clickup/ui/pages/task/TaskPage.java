@@ -48,6 +48,12 @@ public class TaskPage extends BasePage {
         super(webDriverManager);
     }
 
+    /**
+     * Clicks in Calendar icon.
+     *
+     * @return a new Calendar object
+     * @author Gustavo Huanca
+     */
     public Calendar clickDueDateEmptyIcon() {
         webDriverActions.clickElement(dueDateEmptyIcon);
         return new Calendar(webDriverManager);
@@ -161,6 +167,17 @@ public class TaskPage extends BasePage {
     }
 
     /**
+     * Updates a task.
+     *
+     * @param tableMap is map with values to set
+     * @author Gustavo Huanca
+     */
+    public void fillUpField(final Map<String, String> tableMap) {
+        execute(() -> typeName(tableMap.get("name")), () -> tableMap.get("name"));
+        execute(() -> setDueDate(tableMap.get("due date")), () -> tableMap.get("due date"));
+    }
+
+    /**
      * Waits for the page to be loaded.
      *
      * @author Jorge Caceres
@@ -170,8 +187,5 @@ public class TaskPage extends BasePage {
         webDriverWaits.waitVisibilityOfElement(addTagButton);
     }
 
-    public void fillUpField(final Map<String, String> table) {
-        execute(() -> typeName(table.get("name")), () -> table.get("name"));
-        execute(() -> setDueDate(table.get("due date")), () -> table.get("due date"));
-    }
+
 }
