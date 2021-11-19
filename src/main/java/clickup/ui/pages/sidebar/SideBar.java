@@ -38,11 +38,25 @@ public class SideBar extends BasePage {
     protected String nameFolderText = "//cu-nav-category[@data-source='folder']//div[contains(.,'%s')]"
             + "//*[contains(@class,'nav-category__name-text')]";
     protected String selectFolderSetting = "//cu-nav-category[@data-source='folder']//div[contains(.,'%s')]"
-           + "//div[@data-test='dropdown__toggle']";
+            + "//div[@data-test='dropdown__toggle']";
+    protected String getListOnFolder = "//*[contains(@class,'nav-category__name-text')][contains(text(),'%s')]/../../.."
+            + "//div[@class='cu-nav-section__name-text']";
     private static final int INTERVAL_TIME = 2000;
 
     public SideBar(WebDriverManager webDriverManager) {
         super(webDriverManager);
+    }
+
+    /**
+     * Gets a list on a folder.
+     *
+     * @param folderName is name of folder
+     * @return a List< String > with name of list
+     * @author Gustavo Huanca
+     */
+    public List<String> getListInFolder(String folderName) {
+        By listsInFolder = By.xpath(String.format(getListOnFolder, folderName));
+        return webDriverActions.getStringsOfElements(listsInFolder);
     }
 
     /**

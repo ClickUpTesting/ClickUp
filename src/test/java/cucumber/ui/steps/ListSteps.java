@@ -11,9 +11,12 @@
 package cucumber.ui.steps;
 
 import clickup.ui.pages.ClickUpMainPage;
+import clickup.ui.pages.sidebar.FeatureSettings;
 import clickup.ui.pages.sidebar.ListForm;
+import clickup.ui.pages.sidebar.MoveOption;
 import clickup.ui.pages.sidebar.SideBar;
 import clickup.ui.pages.topbar.ListTopBar;
+import clickup.utils.ScenarioContext;
 import clickup.utils.ScenarioTrash;
 import core.selenium.WebDriverManager;
 import io.cucumber.java.en.Then;
@@ -22,6 +25,7 @@ import org.testng.asserts.SoftAssert;
 import java.util.Map;
 
 public class ListSteps {
+    protected ScenarioContext scenarioContext = ScenarioContext.getInstance();
     private WebDriverManager webDriverManager;
     private ScenarioTrash scenarioTrash;
     private Map<String, String> listSettings;
@@ -76,5 +80,25 @@ public class ListSteps {
     public void verifyDeletedList() {
         SideBar sideBar = new SideBar(webDriverManager);
         softAssert.assertFalse(sideBar.verifyListName(scenarioTrash.getTrashValue("list_name")));
+    }
+
+    @When("I move a list from folder to folder")
+    public void moveAListFromFolderToFolder() {
+        SideBar sideBar = new SideBar(webDriverManager);
+        sideBar.clickInAList(scenarioTrash.getTrashValue("list_name"));
+        FeatureSettings featureSettings = sideBar.clickInSettingList();
+        MoveOption moveOption = featureSettings.clickMoveOption();
+        moveOption.clickMoveList();
+        moveOption.clickDropDownSpaceLists();
+        moveOption.selectASpaceOfDropDownSpaceLists(scenarioContext.getEnvData("space_name"));
+        moveOption.selectAFolder(scenarioTrash.getTrashValue("folder_name"));
+        moveOption.clickMoveButton();
+    }
+
+    @Then("I verify that the list has been moved to a different folder")
+    public void verifyThatTheListHasBeenMovedToADifferentFolder() {
+        SideBar sideBar = new SideBar(webDriverManager);
+        softAssert.assertTrue(sideBar.getListInFolder(scenarioTrash.getTrashValue("folder_name")).stream().
+                anyMatch(value -> value.equals(scenarioTrash.getTrashValue("list_name"))));
     }
 }

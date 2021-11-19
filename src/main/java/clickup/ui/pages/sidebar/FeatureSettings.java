@@ -22,9 +22,22 @@ public class FeatureSettings extends BasePage {
     protected WebElement renameIcon;
     @FindBy(xpath = "//a[@class='nav-menu-item ng-star-inserted']/div[contains(@class,'icon_delete')]")
     protected WebElement deleteIcon;
+    @FindBy(xpath = "//a[@tooltipmodifier='tooltip_near']/..//a[@class='nav-menu-item']")
+    protected WebElement moveIcon;
 
     public FeatureSettings(WebDriverManager webDriverManager) {
         super(webDriverManager);
+    }
+
+    /**
+     * Clicks move options.
+     *
+     * @return a new MoveOption object
+     * @author Gustavo Huanca
+     */
+    public MoveOption clickMoveOption() {
+        webDriverActions.clickElement(moveIcon);
+        return new MoveOption(webDriverManager);
     }
 
     /**
