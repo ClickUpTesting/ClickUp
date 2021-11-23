@@ -8,18 +8,25 @@
  * @author Gustavo Huanca
  */
 
-package core.report.cucumber.entities;
+package core.report.cucumber.core.entities;
 
-import java.util.List;
+public class Location {
+    private int line;
+    private int column;
 
-public class MainEntity {
-    private List<Scenario> response;
-
-    public void setResponse(List<Scenario> response) {
-        this.response = response;
+    public void setLine(int line) {
+        this.line = line;
     }
 
-    public List<Scenario> getResponse() {
-        return response;
+    public int getLine() {
+        return line;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public int getColumn() {
+        return column;
     }
 }

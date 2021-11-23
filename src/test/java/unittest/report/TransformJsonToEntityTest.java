@@ -12,7 +12,7 @@ package unittest.report;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import core.report.cucumber.entities.Scenario;
+import core.report.cucumber.core.entities.ScenarioEntity;
 import core.utils.JsonFileManager;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -30,19 +30,19 @@ public class TransformJsonToEntityTest {
 
     @DataProvider(name = "fileJson")
     public static Object[][] valuesOfJsonFile() throws IOException {
-        Type listType = new TypeToken<List<Scenario>>() {
+        Type listType = new TypeToken<List<ScenarioEntity>>() {
         }.getType();
-        List<Scenario> scenarioList = new Gson().fromJson(
+        List<ScenarioEntity> scenarioEntityList = new Gson().fromJson(
                 jsonFileManager.readFileJsonToJsonArray("src/test/resources/test/cucumber.json").toString(),
                 listType);
-        Scenario scenario = scenarioList.get(0);
-        return new Object[][]{{scenario.getName(), "Update task"},
-                {scenario.getKeyword(), "Feature"},
-                {scenario.getTags().get(0).getName(), "@GUI"},
-                {scenario.getTags().get(0).getType(), "Tag"},
-                {scenario.getElements().get(0).getStartTimestamp(), "2021-11-17T15:16:57.454Z"},
-                {scenario.getElements().get(0).getDescription(), ""},
-                {scenario.getElements().get(0).getName(), "Update a task with default setting"}
+        ScenarioEntity scenarioEntity = scenarioEntityList.get(0);
+        return new Object[][]{{scenarioEntity.getName(), "Update task"},
+                {scenarioEntity.getKeyword(), "Feature"},
+                {scenarioEntity.getTags().get(0).getName(), "@GUI"},
+                {scenarioEntity.getTags().get(0).getType(), "Tag"},
+                {scenarioEntity.getElements().get(0).getStartTimestamp(), "2021-11-17T15:16:57.454Z"},
+                {scenarioEntity.getElements().get(0).getDescription(), ""},
+                {scenarioEntity.getElements().get(0).getName(), "Update a task with default setting"}
         };
     }
 

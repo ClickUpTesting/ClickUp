@@ -8,25 +8,25 @@
  * @author Gustavo Huanca
  */
 
-package core.report.cucumber.entities;
+package core.report.cucumber.core.entities;
 
-public class Arguments {
-    private String val;
-    private int offset;
+public class After {
+    private Result result;
+    private Match match;
 
-    public void setVal(String val) {
-        this.val = val;
+    public void setResult(Result result) {
+        this.result = result;
     }
 
-    public String getVal() {
-        return val;
+    public Result getResult() {
+        return result;
     }
 
-    public void setOffset(int offset) {
-        this.offset = offset;
+    public void setMatch(Match match) {
+        this.match = match;
     }
 
-    public int getOffset() {
-        return offset;
+    public Match getMatch() {
+        return match;
     }
 }

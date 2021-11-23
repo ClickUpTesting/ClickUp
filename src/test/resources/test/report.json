@@ -1,0 +1,3453 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T19:48:01.688Z",
+        "before": [
+          {
+            "result": {
+              "duration": 6802656400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 2071978500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TasksHooks.createTaskInList()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Create a custom field formula with default setting in a list",
+        "description": "",
+        "id": "create-custom-field-formula;create-a-custom-field-formula-with-default-setting-in-a-list",
+        "after": [
+          {
+            "result": {
+              "duration": 4581642000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 916600800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.ListHooks.deleteList()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 52364264200,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 40946569200,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a list menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "list",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2566861500,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I create a new custom field formula with field",
+            "match": {
+              "location": "cucumber.ui.steps.CustomFieldSteps.createANewCustomFieldFormulaWithField(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "New custom formula"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 41339128400,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I verify that the created list contains the default values of formula",
+            "match": {
+              "location": "cucumber.ui.steps.CustomFieldSteps.verifyThatTheCreatedListContainsTheDefaultValuesOfFormula()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@CustomField"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateTaskInList"
+          },
+          {
+            "name": "@DeleteList"
+          }
+        ]
+      }
+    ],
+    "name": "Create custom field formula",
+    "description": "",
+    "id": "create-custom-field-formula",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/customfield/create_formula.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@CustomField",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T19:50:33.349Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1429573700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1702089600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TasksHooks.createTaskInList()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Create a custom field ranting with default setting in a list",
+        "description": "",
+        "id": "create-custom-field-ranting;create-a-custom-field-ranting-with-default-setting-in-a-list",
+        "after": [
+          {
+            "result": {
+              "duration": 4612637700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1171692700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.ListHooks.deleteList()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 48389944700,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 41239550800,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a list menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "list",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2937554100,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I create a new custom field ranting with field",
+            "match": {
+              "location": "cucumber.ui.steps.CustomFieldSteps.createANewCustomFieldRantingWithField(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "New custom field ranting"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 41547049900,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I verify that the created list contains the default values of ranting",
+            "match": {
+              "location": "cucumber.ui.steps.CustomFieldSteps.verifyThatTheCreatedListContainsTheDefaultValuesOfRanting()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@CustomField"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateTaskInList"
+          },
+          {
+            "name": "@DeleteList"
+          }
+        ]
+      }
+    ],
+    "name": "Create custom field ranting",
+    "description": "",
+    "id": "create-custom-field-ranting",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/customfield/create_ranting.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@CustomField",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T19:52:56.399Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1285176300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1042707200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.SpaceHooks.createSpace()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Create a folder with default setting",
+        "description": "",
+        "id": "create-folder;create-a-folder-with-default-setting",
+        "after": [
+          {
+            "result": {
+              "duration": 4515746700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 828038800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.SpaceHooks.deleteSpace()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 48197464400,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2943064000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I create a new folder with field",
+            "match": {
+              "location": "cucumber.ui.steps.FolderSteps.createANewFolderWithField(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "New folder random"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1623213500,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I verify that the created folder contains the default values",
+            "match": {
+              "location": "cucumber.ui.steps.FolderSteps.verifyThatTheCreatedFolderContainsTheDefaultValues()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Folder"
+          },
+          {
+            "name": "@FolderUI"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateSpace"
+          },
+          {
+            "name": "@DeleteSpace"
+          }
+        ]
+      }
+    ],
+    "name": "Create Folder",
+    "description": "",
+    "id": "create-folder",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/folder/create_folder.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Folder",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      },
+      {
+        "name": "@FolderUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 14
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T19:53:56.854Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1331671800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 692928800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.FolderHooks.createFolder()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Delete a folder in a space",
+        "description": "",
+        "id": "delete-a-folder;delete-a-folder-in-a-space",
+        "after": [
+          {
+            "result": {
+              "duration": 4653602900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 48843386300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 41730426300,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a folder menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "folder",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator \u0027By.cssSelector: div[class\u003d\u0027nav-menu__group ng-star-inserted\u0027] div[class\u003d\u0027cu-dropdown\u0027] a[class\u003d\u0027nav-menu-item\u0027]\u0027 (tried for 30 second(s) with 500 milliseconds interval)\r\n\tat org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)\r\n\tat core.selenium.driveractions.WebDriverWaits.waitVisibilityOfElement(WebDriverWaits.java:64)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.waitForPageLoaded(FeatureSettings.java:79)\r\n\tat clickup.ui.pages.BasePage.\u003cinit\u003e(BasePage.java:37)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.\u003cinit\u003e(FeatureSettings.java:29)\r\n\tat clickup.ui.pages.topbar.FolderTopBar.clicksFolderName(FolderTopBar.java:40)\r\n\tat cucumber.ui.steps.FolderSteps.deleteAFolder(FolderSteps.java:74)\r\n\tat ✽.I delete a folder(file:///C:/Users/Gustavo.Huanca/Desktop/ClickUp/ClickUp/src/test/resources/features/ui/folder/delete_folder.feature:8)\r\nCaused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"div[class\u003d\u0027nav-menu__group ng-star-inserted\u0027] div[class\u003d\u0027cu-dropdown\u0027] a[class\u003d\u0027nav-menu-item\u0027]\"}\n  (Session info: chrome\u003d96.0.4664.45)\nFor documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element\nBuild info: version: \u00274.0.0\u0027, revision: \u00273a21814679\u0027\nSystem info: host: \u0027GHUANCAA-VD01\u0027, ip: \u002710.24.48.225\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002716.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [02f9060e773025d3cdd681ce3df1acd4, findElement {using\u003dcss selector, value\u003ddiv[class\u003d\u0027nav-menu__group ng-star-inserted\u0027] div[class\u003d\u0027cu-dropdown\u0027] a[class\u003d\u0027nav-menu-item\u0027]}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.45, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\\Users\\GUSTAV~1.HUA\\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:60763}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60763/devtoo..., se:cdpVersion: 96.0.4664.45, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: 02f9060e773025d3cdd681ce3df1acd4\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)\r\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)\r\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)\r\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)\r\n\tat jdk.proxy2/jdk.proxy2.$Proxy47.isDisplayed(Unknown Source)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)\r\n\tat core.selenium.driveractions.WebDriverWaits.waitVisibilityOfElement(WebDriverWaits.java:64)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.waitForPageLoaded(FeatureSettings.java:79)\r\n\tat clickup.ui.pages.BasePage.\u003cinit\u003e(BasePage.java:37)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.\u003cinit\u003e(FeatureSettings.java:29)\r\n\tat clickup.ui.pages.topbar.FolderTopBar.clicksFolderName(FolderTopBar.java:40)\r\n\tat cucumber.ui.steps.FolderSteps.deleteAFolder(FolderSteps.java:74)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat io.cucumber.java.Invoker.doInvoke(Invoker.java:66)\r\n\tat io.cucumber.java.Invoker.invoke(Invoker.java:24)\r\n\tat io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)\r\n\tat io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)\r\n\tat io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)\r\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)\r\n\tat io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)\r\n\tat io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)\r\n\tat io.cucumber.core.runner.TestStep.run(TestStep.java:64)\r\n\tat io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)\r\n\tat io.cucumber.core.runner.TestCase.run(TestCase.java:104)\r\n\tat io.cucumber.core.runner.Runner.runPickle(Runner.java:73)\r\n\tat io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:134)\r\n\tat io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:117)\r\n\tat io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:131)\r\n\tat io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:31)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)\r\n\tat org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)\r\n\tat org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)\r\n\tat org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)\r\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\r\n\tat org.testng.TestRunner.privateRun(TestRunner.java:794)\r\n\tat org.testng.TestRunner.run(TestRunner.java:596)\r\n\tat org.testng.SuiteRunner.runTest(SuiteRunner.java:377)\r\n\tat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)\r\n\tat org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)\r\n\tat org.testng.SuiteRunner.run(SuiteRunner.java:276)\r\n\tat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)\r\n\tat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)\r\n\tat org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)\r\n\tat org.testng.TestNG.runSuitesLocally(TestNG.java:1134)\r\n\tat org.testng.TestNG.runSuites(TestNG.java:1063)\r\n\tat org.testng.TestNG.run(TestNG.java:1031)\r\n\tat org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.runTests(TestNGTestClassProcessor.java:141)\r\n\tat org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.stop(TestNGTestClassProcessor.java:90)\r\n\tat org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)\r\n\tat org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)\r\n\tat org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)\r\n\tat jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)\r\n\tat org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)\r\n\tat org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)\r\n\tat org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)\r\n\tat org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)\r\n\tat java.base/java.lang.Thread.run(Thread.java:831)\r\n",
+              "duration": 61144719900,
+              "status": "failed"
+            },
+            "line": 8,
+            "name": "I delete a folder",
+            "match": {
+              "location": "cucumber.ui.steps.FolderSteps.deleteAFolder()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": "I verify that the folder does not exist in the space",
+            "match": {
+              "location": "cucumber.ui.steps.FolderSteps.verifyThatTheFolderDoesNotExistInTheSpace()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Folder"
+          },
+          {
+            "name": "@FolderUI"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateFolder"
+          }
+        ]
+      }
+    ],
+    "name": "Delete a folder",
+    "description": "",
+    "id": "delete-a-folder",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/folder/delete_folder.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Folder",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      },
+      {
+        "name": "@FolderUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 14
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T19:56:35.285Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1355435200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1394268000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.FolderHooks.createFolder()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Update a folder with default setting",
+        "description": "",
+        "id": "update-folder;update-a-folder-with-default-setting",
+        "after": [
+          {
+            "result": {
+              "duration": 606599400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 731571000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.FolderHooks.deleteFolder()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 47782319100,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 41482544900,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a folder menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "folder",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator \u0027By.cssSelector: div[class\u003d\u0027nav-menu__group ng-star-inserted\u0027] div[class\u003d\u0027cu-dropdown\u0027] a[class\u003d\u0027nav-menu-item\u0027]\u0027 (tried for 30 second(s) with 500 milliseconds interval)\r\n\tat org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)\r\n\tat core.selenium.driveractions.WebDriverWaits.waitVisibilityOfElement(WebDriverWaits.java:64)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.waitForPageLoaded(FeatureSettings.java:79)\r\n\tat clickup.ui.pages.BasePage.\u003cinit\u003e(BasePage.java:37)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.\u003cinit\u003e(FeatureSettings.java:29)\r\n\tat clickup.ui.pages.topbar.FolderTopBar.clicksFolderName(FolderTopBar.java:40)\r\n\tat cucumber.ui.steps.FolderSteps.updateANewFolderWithField(FolderSteps.java:61)\r\n\tat ✽.I update a new folder with field(file:///C:/Users/Gustavo.Huanca/Desktop/ClickUp/ClickUp/src/test/resources/features/ui/folder/update_folder.feature:8)\r\nCaused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"div[class\u003d\u0027nav-menu__group ng-star-inserted\u0027] div[class\u003d\u0027cu-dropdown\u0027] a[class\u003d\u0027nav-menu-item\u0027]\"}\n  (Session info: chrome\u003d96.0.4664.45)\nFor documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element\nBuild info: version: \u00274.0.0\u0027, revision: \u00273a21814679\u0027\nSystem info: host: \u0027GHUANCAA-VD01\u0027, ip: \u002710.24.48.225\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002716.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [db271679f19dcd96914915b7756360f4, findElement {using\u003dcss selector, value\u003ddiv[class\u003d\u0027nav-menu__group ng-star-inserted\u0027] div[class\u003d\u0027cu-dropdown\u0027] a[class\u003d\u0027nav-menu-item\u0027]}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.45, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\\Users\\GUSTAV~1.HUA\\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:60907}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60907/devtoo..., se:cdpVersion: 96.0.4664.45, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: db271679f19dcd96914915b7756360f4\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)\r\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)\r\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)\r\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)\r\n\tat jdk.proxy2/jdk.proxy2.$Proxy47.isDisplayed(Unknown Source)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)\r\n\tat core.selenium.driveractions.WebDriverWaits.waitVisibilityOfElement(WebDriverWaits.java:64)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.waitForPageLoaded(FeatureSettings.java:79)\r\n\tat clickup.ui.pages.BasePage.\u003cinit\u003e(BasePage.java:37)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.\u003cinit\u003e(FeatureSettings.java:29)\r\n\tat clickup.ui.pages.topbar.FolderTopBar.clicksFolderName(FolderTopBar.java:40)\r\n\tat cucumber.ui.steps.FolderSteps.updateANewFolderWithField(FolderSteps.java:61)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat io.cucumber.java.Invoker.doInvoke(Invoker.java:66)\r\n\tat io.cucumber.java.Invoker.invoke(Invoker.java:24)\r\n\tat io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)\r\n\tat io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)\r\n\tat io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)\r\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)\r\n\tat io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)\r\n\tat io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)\r\n\tat io.cucumber.core.runner.TestStep.run(TestStep.java:64)\r\n\tat io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)\r\n\tat io.cucumber.core.runner.TestCase.run(TestCase.java:104)\r\n\tat io.cucumber.core.runner.Runner.runPickle(Runner.java:73)\r\n\tat io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:134)\r\n\tat io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:117)\r\n\tat io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:131)\r\n\tat io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:31)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)\r\n\tat org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)\r\n\tat org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)\r\n\tat org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)\r\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\r\n\tat org.testng.TestRunner.privateRun(TestRunner.java:794)\r\n\tat org.testng.TestRunner.run(TestRunner.java:596)\r\n\tat org.testng.SuiteRunner.runTest(SuiteRunner.java:377)\r\n\tat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)\r\n\tat org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)\r\n\tat org.testng.SuiteRunner.run(SuiteRunner.java:276)\r\n\tat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)\r\n\tat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)\r\n\tat org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)\r\n\tat org.testng.TestNG.runSuitesLocally(TestNG.java:1134)\r\n\tat org.testng.TestNG.runSuites(TestNG.java:1063)\r\n\tat org.testng.TestNG.run(TestNG.java:1031)\r\n\tat org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.runTests(TestNGTestClassProcessor.java:141)\r\n\tat org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.stop(TestNGTestClassProcessor.java:90)\r\n\tat org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)\r\n\tat org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)\r\n\tat org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)\r\n\tat jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)\r\n\tat org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)\r\n\tat org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)\r\n\tat org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)\r\n\tat org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)\r\n\tat java.base/java.lang.Thread.run(Thread.java:831)\r\n",
+              "duration": 61211540100,
+              "status": "failed"
+            },
+            "line": 8,
+            "name": "I update a new folder with field",
+            "match": {
+              "location": "cucumber.ui.steps.FolderSteps.updateANewFolderWithField(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "New folder updated"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 10,
+            "name": "I verify that the folder contains the default values",
+            "match": {
+              "location": "cucumber.ui.steps.FolderSteps.verifyThatTheFolderContainsTheDefaultValues()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Folder"
+          },
+          {
+            "name": "@FolderUI"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateFolder"
+          },
+          {
+            "name": "@DeleteFolder"
+          }
+        ]
+      }
+    ],
+    "name": "Update Folder",
+    "description": "",
+    "id": "update-folder",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/folder/update_folder.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Folder",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      },
+      {
+        "name": "@FolderUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 14
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T19:59:09.883Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1275703800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 695131500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.SpaceHooks.createSpace()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Create a list with default settings",
+        "description": "",
+        "id": "create-list;create-a-list-with-default-settings",
+        "after": [
+          {
+            "result": {
+              "duration": 498184400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 630428400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.SpaceHooks.deleteSpace()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 47782531900,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3134670700,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I create a list with the following parameters",
+            "match": {
+              "location": "cucumber.ui.steps.ListSteps.createListWithDefaultSettings(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "My List created"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1312831500,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I verify that the created list contains the default values",
+            "match": {
+              "location": "cucumber.ui.steps.ListSteps.verifyDefaultListSettings()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@List"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateSpace"
+          },
+          {
+            "name": "@DeleteSpace"
+          }
+        ]
+      }
+    ],
+    "name": "Create List",
+    "description": "",
+    "id": "create-list",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/list/create_list.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@List",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:00:05.230Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1215497500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 896968700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.ListHooks.createListInSpace()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Delete a list from the top bar menu",
+        "description": "",
+        "id": "delete-a-list;delete-a-list-from-the-top-bar-menu",
+        "after": [
+          {
+            "result": {
+              "duration": 4608611200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 47938490300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 41316334300,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a list menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "list",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1378903100,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I delete a list",
+            "match": {
+              "location": "cucumber.ui.steps.ListSteps.deleteList()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2161191000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I verify that the list does not exist in the space",
+            "match": {
+              "location": "cucumber.ui.steps.ListSteps.verifyDeletedList()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@List"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateListInSpace"
+          }
+        ]
+      }
+    ],
+    "name": "Delete a List",
+    "description": "",
+    "id": "delete-a-list",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/list/delete_list.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@List",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:01:44.782Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1634130100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1106408900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.ListHooks.createListInSpace()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Update a list name from the top bar menu",
+        "description": "",
+        "id": "update-a-list;update-a-list-name-from-the-top-bar-menu",
+        "after": [
+          {
+            "result": {
+              "duration": 4595743900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 791671800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.ListHooks.deleteList()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 48628066700,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 40555289900,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a list menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "list",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1811409700,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I update a list with the following parameters",
+            "match": {
+              "location": "cucumber.ui.steps.ListSteps.updateListSettings(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "My List Updated"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 257845100,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I verify that the list contains the default values",
+            "match": {
+              "location": "cucumber.ui.steps.ListSteps.verifyListSettings()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@List"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateListInSpace"
+          },
+          {
+            "name": "@DeleteList"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-11-22T20:03:24.165Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1328426500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1071669100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.FolderHooks.createFolder()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1274611200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.ListHooks.createListInFolder()"
+            }
+          }
+        ],
+        "line": 13,
+        "name": "Move the list from folder to folder",
+        "description": "",
+        "id": "update-a-list;move-the-list-from-folder-to-folder",
+        "after": [
+          {
+            "result": {
+              "duration": 716623600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 782549000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.FolderHooks.deleteFolder()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 48120284900,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 41919340100,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "I navigate to a list menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "list",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator \u0027By.cssSelector: div[class\u003d\u0027nav-menu__group ng-star-inserted\u0027] div[class\u003d\u0027cu-dropdown\u0027] a[class\u003d\u0027nav-menu-item\u0027]\u0027 (tried for 30 second(s) with 500 milliseconds interval)\r\n\tat org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)\r\n\tat core.selenium.driveractions.WebDriverWaits.waitVisibilityOfElement(WebDriverWaits.java:64)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.waitForPageLoaded(FeatureSettings.java:79)\r\n\tat clickup.ui.pages.BasePage.\u003cinit\u003e(BasePage.java:37)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.\u003cinit\u003e(FeatureSettings.java:29)\r\n\tat clickup.ui.pages.sidebar.SideBar.clickInSettingList(SideBar.java:126)\r\n\tat cucumber.ui.steps.ListSteps.moveAListFromFolderToFolder(ListSteps.java:89)\r\n\tat ✽.I move a list from folder to folder(file:///C:/Users/Gustavo.Huanca/Desktop/ClickUp/ClickUp/src/test/resources/features/ui/list/update_list.feature:16)\r\nCaused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"div[class\u003d\u0027nav-menu__group ng-star-inserted\u0027] div[class\u003d\u0027cu-dropdown\u0027] a[class\u003d\u0027nav-menu-item\u0027]\"}\n  (Session info: chrome\u003d96.0.4664.45)\nFor documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element\nBuild info: version: \u00274.0.0\u0027, revision: \u00273a21814679\u0027\nSystem info: host: \u0027GHUANCAA-VD01\u0027, ip: \u002710.24.48.225\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002716.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [0e531bc68fcaf7dd7deaf68063726683, findElement {using\u003dcss selector, value\u003ddiv[class\u003d\u0027nav-menu__group ng-star-inserted\u0027] div[class\u003d\u0027cu-dropdown\u0027] a[class\u003d\u0027nav-menu-item\u0027]}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.45, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\\Users\\GUSTAV~1.HUA\\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61463}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61463/devtoo..., se:cdpVersion: 96.0.4664.45, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: 0e531bc68fcaf7dd7deaf68063726683\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)\r\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)\r\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)\r\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)\r\n\tat jdk.proxy2/jdk.proxy2.$Proxy47.isDisplayed(Unknown Source)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)\r\n\tat core.selenium.driveractions.WebDriverWaits.waitVisibilityOfElement(WebDriverWaits.java:64)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.waitForPageLoaded(FeatureSettings.java:79)\r\n\tat clickup.ui.pages.BasePage.\u003cinit\u003e(BasePage.java:37)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.\u003cinit\u003e(FeatureSettings.java:29)\r\n\tat clickup.ui.pages.sidebar.SideBar.clickInSettingList(SideBar.java:126)\r\n\tat cucumber.ui.steps.ListSteps.moveAListFromFolderToFolder(ListSteps.java:89)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat io.cucumber.java.Invoker.doInvoke(Invoker.java:66)\r\n\tat io.cucumber.java.Invoker.invoke(Invoker.java:24)\r\n\tat io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)\r\n\tat io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)\r\n\tat io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)\r\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)\r\n\tat io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)\r\n\tat io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)\r\n\tat io.cucumber.core.runner.TestStep.run(TestStep.java:64)\r\n\tat io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)\r\n\tat io.cucumber.core.runner.TestCase.run(TestCase.java:104)\r\n\tat io.cucumber.core.runner.Runner.runPickle(Runner.java:73)\r\n\tat io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:134)\r\n\tat io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:117)\r\n\tat io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:131)\r\n\tat io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:31)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)\r\n\tat org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)\r\n\tat org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)\r\n\tat org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)\r\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\r\n\tat org.testng.TestRunner.privateRun(TestRunner.java:794)\r\n\tat org.testng.TestRunner.run(TestRunner.java:596)\r\n\tat org.testng.SuiteRunner.runTest(SuiteRunner.java:377)\r\n\tat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)\r\n\tat org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)\r\n\tat org.testng.SuiteRunner.run(SuiteRunner.java:276)\r\n\tat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)\r\n\tat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)\r\n\tat org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)\r\n\tat org.testng.TestNG.runSuitesLocally(TestNG.java:1134)\r\n\tat org.testng.TestNG.runSuites(TestNG.java:1063)\r\n\tat org.testng.TestNG.run(TestNG.java:1031)\r\n\tat org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.runTests(TestNGTestClassProcessor.java:141)\r\n\tat org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.stop(TestNGTestClassProcessor.java:90)\r\n\tat org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)\r\n\tat org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)\r\n\tat org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)\r\n\tat jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)\r\n\tat org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)\r\n\tat org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)\r\n\tat org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)\r\n\tat org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)\r\n\tat java.base/java.lang.Thread.run(Thread.java:831)\r\n",
+              "duration": 61932193800,
+              "status": "failed"
+            },
+            "line": 16,
+            "name": "I move a list from folder to folder",
+            "match": {
+              "location": "cucumber.ui.steps.ListSteps.moveAListFromFolderToFolder()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 17,
+            "name": "I navigate to a folder menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "folder",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 18,
+            "name": "I verify that the list has been moved to a different folder",
+            "match": {
+              "location": "cucumber.ui.steps.ListSteps.verifyThatTheListHasBeenMovedToADifferentFolder()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@List"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateListInFolder"
+          },
+          {
+            "name": "@CreateFolder"
+          },
+          {
+            "name": "@DeleteFolder"
+          }
+        ]
+      }
+    ],
+    "name": "Update a List",
+    "description": "",
+    "id": "update-a-list",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/list/update_list.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@List",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:06:01.328Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1314206500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Create a space with default settings",
+        "description": "",
+        "id": "create-space;create-a-space-with-default-settings",
+        "after": [
+          {
+            "result": {
+              "duration": 657155800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1137542100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.SpaceHooks.deleteSpace()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 49467266200,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator \u0027By.cssSelector: .cu-btn.cu-btn_m.cu-create-project-modal__statuses-btn.ng-star-inserted\u0027 (tried for 30 second(s) with 500 milliseconds interval)\r\n\tat org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)\r\n\tat core.selenium.driveractions.WebDriverWaits.waitVisibilityOfElement(WebDriverWaits.java:64)\r\n\tat clickup.ui.pages.spaces.TaskStatusesPage.waitForPageLoaded(TaskStatusesPage.java:44)\r\n\tat clickup.ui.pages.BasePage.\u003cinit\u003e(BasePage.java:37)\r\n\tat clickup.ui.pages.spaces.TaskStatusesPage.\u003cinit\u003e(TaskStatusesPage.java:23)\r\n\tat clickup.ui.pages.spaces.ShareSpacePage.clickNextButton(ShareSpacePage.java:34)\r\n\tat cucumber.ui.steps.SpaceSteps.createASpaceWithDefaultSettings(SpaceSteps.java:59)\r\n\tat ✽.I create a space with the following parameters(file:///C:/Users/Gustavo.Huanca/Desktop/ClickUp/ClickUp/src/test/resources/features/ui/space/create_space.feature:7)\r\nCaused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\".cu-btn.cu-btn_m.cu-create-project-modal__statuses-btn.ng-star-inserted\"}\n  (Session info: chrome\u003d96.0.4664.45)\nFor documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element\nBuild info: version: \u00274.0.0\u0027, revision: \u00273a21814679\u0027\nSystem info: host: \u0027GHUANCAA-VD01\u0027, ip: \u002710.24.48.225\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002716.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [5c51167d5cb749ec6d1f2d1640531c12, findElement {using\u003dcss selector, value\u003d.cu-btn.cu-btn_m.cu-create-project-modal__statuses-btn.ng-star-inserted}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.45, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\\Users\\GUSTAV~1.HUA\\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:61602}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61602/devtoo..., se:cdpVersion: 96.0.4664.45, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: 5c51167d5cb749ec6d1f2d1640531c12\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)\r\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)\r\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)\r\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)\r\n\tat jdk.proxy2/jdk.proxy2.$Proxy47.isDisplayed(Unknown Source)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)\r\n\tat core.selenium.driveractions.WebDriverWaits.waitVisibilityOfElement(WebDriverWaits.java:64)\r\n\tat clickup.ui.pages.spaces.TaskStatusesPage.waitForPageLoaded(TaskStatusesPage.java:44)\r\n\tat clickup.ui.pages.BasePage.\u003cinit\u003e(BasePage.java:37)\r\n\tat clickup.ui.pages.spaces.TaskStatusesPage.\u003cinit\u003e(TaskStatusesPage.java:23)\r\n\tat clickup.ui.pages.spaces.ShareSpacePage.clickNextButton(ShareSpacePage.java:34)\r\n\tat cucumber.ui.steps.SpaceSteps.createASpaceWithDefaultSettings(SpaceSteps.java:59)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat io.cucumber.java.Invoker.doInvoke(Invoker.java:66)\r\n\tat io.cucumber.java.Invoker.invoke(Invoker.java:24)\r\n\tat io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)\r\n\tat io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)\r\n\tat io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)\r\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)\r\n\tat io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)\r\n\tat io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)\r\n\tat io.cucumber.core.runner.TestStep.run(TestStep.java:64)\r\n\tat io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)\r\n\tat io.cucumber.core.runner.TestCase.run(TestCase.java:104)\r\n\tat io.cucumber.core.runner.Runner.runPickle(Runner.java:73)\r\n\tat io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:134)\r\n\tat io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:117)\r\n\tat io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:131)\r\n\tat io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:31)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)\r\n\tat org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)\r\n\tat org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)\r\n\tat org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)\r\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\r\n\tat org.testng.TestRunner.privateRun(TestRunner.java:794)\r\n\tat org.testng.TestRunner.run(TestRunner.java:596)\r\n\tat org.testng.SuiteRunner.runTest(SuiteRunner.java:377)\r\n\tat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)\r\n\tat org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)\r\n\tat org.testng.SuiteRunner.run(SuiteRunner.java:276)\r\n\tat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)\r\n\tat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)\r\n\tat org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)\r\n\tat org.testng.TestNG.runSuitesLocally(TestNG.java:1134)\r\n\tat org.testng.TestNG.runSuites(TestNG.java:1063)\r\n\tat org.testng.TestNG.run(TestNG.java:1031)\r\n\tat org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.runTests(TestNGTestClassProcessor.java:141)\r\n\tat org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.stop(TestNGTestClassProcessor.java:90)\r\n\tat org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)\r\n\tat org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)\r\n\tat org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)\r\n\tat jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)\r\n\tat org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)\r\n\tat org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)\r\n\tat org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)\r\n\tat org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)\r\n\tat java.base/java.lang.Thread.run(Thread.java:831)\r\n",
+              "duration": 63384992900,
+              "status": "failed"
+            },
+            "line": 7,
+            "name": "I create a space with the following parameters",
+            "match": {
+              "location": "cucumber.ui.steps.SpaceSteps.createASpaceWithDefaultSettings(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "My space created"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": "I verify that the created space contains the default values",
+            "match": {
+              "location": "cucumber.ui.steps.SpaceSteps.verifySpaceSettings()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Space"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@DeleteSpace"
+          }
+        ]
+      }
+    ],
+    "name": "Create Space",
+    "description": "",
+    "id": "create-space",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/space/create_space.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Space",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:07:57.324Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1263587200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 867677500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.SpaceHooks.createSpace()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Delete a space from the top bar menu",
+        "description": "",
+        "id": "delete-a-space;delete-a-space-from-the-top-bar-menu",
+        "after": [
+          {
+            "result": {
+              "duration": 4563494300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 47407724400,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 41353934800,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a space menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "space",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3557145900,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I delete a scape",
+            "match": {
+              "location": "cucumber.ui.steps.SpaceSteps.deleteASpaceFromTopBar()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2039128600,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I verify that the space does not exist in the sidebar",
+            "match": {
+              "location": "cucumber.ui.steps.SpaceSteps.verifyTheDeletedSpace()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Space"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateSpace"
+          }
+        ]
+      }
+    ],
+    "name": "Delete a space",
+    "description": "",
+    "id": "delete-a-space",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/space/delete_space.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Space",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:09:38.379Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1278961800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1005302600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.SpaceHooks.createSpace()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Update a space name from the top bar menu",
+        "description": "",
+        "id": "update-a-space;update-a-space-name-from-the-top-bar-menu",
+        "after": [
+          {
+            "result": {
+              "duration": 4592711000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1125876800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.SpaceHooks.deleteSpace()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 47582014600,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 41372128800,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a space menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "space",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1811396000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I update a space with the following parameters",
+            "match": {
+              "location": "cucumber.ui.steps.SpaceSteps.updateASpaceWithTheFollowingParameters(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "My space Updated"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 834187500,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I verify that the updated space contains the default values",
+            "match": {
+              "location": "cucumber.ui.steps.SpaceSteps.verifySpaceSettings()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Space"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateSpace"
+          },
+          {
+            "name": "@DeleteSpace"
+          }
+        ]
+      }
+    ],
+    "name": "Update a Space",
+    "description": "",
+    "id": "update-a-space",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/space/update_space.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Space",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:11:18.018Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1264673000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 870750500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TasksHooks.createTask()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Create a tag with default settings",
+        "description": "",
+        "id": "create-tag;create-a-tag-with-default-settings",
+        "after": [
+          {
+            "result": {
+              "duration": 4551957100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1573747200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TasksHooks.deleteTask()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 48415650100,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 41123549300,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a task menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "task",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1423481200,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I create a tag with the following parameters",
+            "match": {
+              "location": "cucumber.ui.steps.TagSteps.createTag(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "my tag created"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 71218300,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I verify that the tag contains the configured values",
+            "match": {
+              "location": "cucumber.ui.steps.TagSteps.verifyTagConfiguration()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Tag"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateTask"
+          },
+          {
+            "name": "@DeleteTask"
+          }
+        ]
+      }
+    ],
+    "name": "Create Tag",
+    "description": "",
+    "id": "create-tag",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/tag/create_tag.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Tag",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:12:57.314Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1282496500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 3086302000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TagsHooks.addTagToTask()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Delete a tag in a task",
+        "description": "",
+        "id": "delete-a-tag;delete-a-tag-in-a-task",
+        "after": [
+          {
+            "result": {
+              "duration": 4590411700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 823577800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TasksHooks.deleteTask()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 48514874600,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 40343105300,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a task menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "task",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1463687600,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I delete a tag",
+            "match": {
+              "location": "cucumber.ui.steps.TagSteps.deleteTagFormTaskPage()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2026127100,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I verify that the tag has been deleted",
+            "match": {
+              "location": "cucumber.ui.steps.TagSteps.verifyDeletedTag()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Tag"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@AddTagToTask"
+          },
+          {
+            "name": "@DeleteTask"
+          }
+        ]
+      }
+    ],
+    "name": "Delete a tag",
+    "description": "",
+    "id": "delete-a-tag",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/tag/delete_tag.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Tag",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:14:39.463Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1281679900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 2742943400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TagsHooks.addTagToTask()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Update a tag\u0027s name",
+        "description": "",
+        "id": "update-tag;update-a-tag-s-name",
+        "after": [
+          {
+            "result": {
+              "duration": 4587879900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 787000400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TasksHooks.deleteTask()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 48225524300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 40356272000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a task menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "task",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1722346500,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I update a tag with the following parameters",
+            "match": {
+              "location": "cucumber.ui.steps.TagSteps.updateTagName(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "my tag updated"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 283362400,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I verify that the tag contains the configured values",
+            "match": {
+              "location": "cucumber.ui.steps.TagSteps.verifyTagConfiguration()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Tag"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@AddTagToTask"
+          },
+          {
+            "name": "@DeleteTask"
+          }
+        ]
+      }
+    ],
+    "name": "Update Tag",
+    "description": "",
+    "id": "update-tag",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/tag/update_tag.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Tag",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:16:19.468Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1278468500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 940450000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.ListHooks.createListInFolder()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Create a task in a list with default setting",
+        "description": "",
+        "id": "create-task;create-a-task-in-a-list-with-default-setting",
+        "after": [
+          {
+            "result": {
+              "duration": 611470600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 819876900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.ListHooks.deleteList()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 47931203100,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator \u0027By.cssSelector: div[class\u003d\u0027nav-menu__group ng-star-inserted\u0027] div[class\u003d\u0027cu-dropdown\u0027] a[class\u003d\u0027nav-menu-item\u0027]\u0027 (tried for 30 second(s) with 500 milliseconds interval)\r\n\tat org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)\r\n\tat core.selenium.driveractions.WebDriverWaits.waitVisibilityOfElement(WebDriverWaits.java:64)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.waitForPageLoaded(FeatureSettings.java:79)\r\n\tat clickup.ui.pages.BasePage.\u003cinit\u003e(BasePage.java:37)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.\u003cinit\u003e(FeatureSettings.java:29)\r\n\tat clickup.ui.pages.sidebar.SideBar.clickInSettingList(SideBar.java:126)\r\n\tat cucumber.ui.steps.TaskSteps.createANewTaskWithField(TaskSteps.java:51)\r\n\tat ✽.I create a new task with field(file:///C:/Users/Gustavo.Huanca/Desktop/ClickUp/ClickUp/src/test/resources/features/ui/task/create_task.feature:7)\r\nCaused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"div[class\u003d\u0027nav-menu__group ng-star-inserted\u0027] div[class\u003d\u0027cu-dropdown\u0027] a[class\u003d\u0027nav-menu-item\u0027]\"}\n  (Session info: chrome\u003d96.0.4664.45)\nFor documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element\nBuild info: version: \u00274.0.0\u0027, revision: \u00273a21814679\u0027\nSystem info: host: \u0027GHUANCAA-VD01\u0027, ip: \u002710.24.48.225\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002716.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [9f39b72276d45c3f2c51df78a7d50824, findElement {using\u003dcss selector, value\u003ddiv[class\u003d\u0027nav-menu__group ng-star-inserted\u0027] div[class\u003d\u0027cu-dropdown\u0027] a[class\u003d\u0027nav-menu-item\u0027]}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.45, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\\Users\\GUSTAV~1.HUA\\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:62472}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:62472/devtoo..., se:cdpVersion: 96.0.4664.45, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: 9f39b72276d45c3f2c51df78a7d50824\r\n\tat jdk.internal.reflect.GeneratedConstructorAccessor94.newInstance(Unknown Source)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)\r\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)\r\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)\r\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)\r\n\tat jdk.proxy2/jdk.proxy2.$Proxy47.isDisplayed(Unknown Source)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)\r\n\tat core.selenium.driveractions.WebDriverWaits.waitVisibilityOfElement(WebDriverWaits.java:64)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.waitForPageLoaded(FeatureSettings.java:79)\r\n\tat clickup.ui.pages.BasePage.\u003cinit\u003e(BasePage.java:37)\r\n\tat clickup.ui.pages.sidebar.FeatureSettings.\u003cinit\u003e(FeatureSettings.java:29)\r\n\tat clickup.ui.pages.sidebar.SideBar.clickInSettingList(SideBar.java:126)\r\n\tat cucumber.ui.steps.TaskSteps.createANewTaskWithField(TaskSteps.java:51)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat io.cucumber.java.Invoker.doInvoke(Invoker.java:66)\r\n\tat io.cucumber.java.Invoker.invoke(Invoker.java:24)\r\n\tat io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)\r\n\tat io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)\r\n\tat io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)\r\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)\r\n\tat io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)\r\n\tat io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)\r\n\tat io.cucumber.core.runner.TestStep.run(TestStep.java:64)\r\n\tat io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)\r\n\tat io.cucumber.core.runner.TestCase.run(TestCase.java:104)\r\n\tat io.cucumber.core.runner.Runner.runPickle(Runner.java:73)\r\n\tat io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:134)\r\n\tat io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:117)\r\n\tat io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:131)\r\n\tat io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:31)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)\r\n\tat org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)\r\n\tat org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)\r\n\tat org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)\r\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\r\n\tat org.testng.TestRunner.privateRun(TestRunner.java:794)\r\n\tat org.testng.TestRunner.run(TestRunner.java:596)\r\n\tat org.testng.SuiteRunner.runTest(SuiteRunner.java:377)\r\n\tat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)\r\n\tat org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)\r\n\tat org.testng.SuiteRunner.run(SuiteRunner.java:276)\r\n\tat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)\r\n\tat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)\r\n\tat org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)\r\n\tat org.testng.TestNG.runSuitesLocally(TestNG.java:1134)\r\n\tat org.testng.TestNG.runSuites(TestNG.java:1063)\r\n\tat org.testng.TestNG.run(TestNG.java:1031)\r\n\tat org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.runTests(TestNGTestClassProcessor.java:141)\r\n\tat org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.stop(TestNGTestClassProcessor.java:90)\r\n\tat org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)\r\n\tat org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)\r\n\tat org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)\r\n\tat jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)\r\n\tat org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)\r\n\tat org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)\r\n\tat org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)\r\n\tat org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)\r\n\tat org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)\r\n\tat org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)\r\n\tat java.base/java.lang.Thread.run(Thread.java:831)\r\n",
+              "duration": 64664799600,
+              "status": "failed"
+            },
+            "line": 7,
+            "name": "I create a new task with field",
+            "match": {
+              "location": "cucumber.ui.steps.TaskSteps.createANewTaskWithField(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "New workspace random"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": "I verify that the created task contains the default values",
+            "match": {
+              "location": "cucumber.ui.steps.TaskSteps.verifyThatTheCreatedTaskContainsTheDefaultValues()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Task"
+          },
+          {
+            "name": "@TaskGUI"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateListInFolder"
+          },
+          {
+            "name": "@DeleteList"
+          }
+        ]
+      }
+    ],
+    "name": "Create task",
+    "description": "",
+    "id": "create-task",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/task/create_task.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Task",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      },
+      {
+        "name": "@TaskGUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 12
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:18:15.730Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1279668400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 903823300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TasksHooks.createTask()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Delete a task in a list",
+        "description": "",
+        "id": "delete-a-task;delete-a-task-in-a-list",
+        "after": [
+          {
+            "result": {
+              "duration": 4582206400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 51061930900,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 41362550500,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a task menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "task",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1247137500,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I delete a task",
+            "match": {
+              "location": "cucumber.ui.steps.TaskSteps.deleteATask()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1468414800,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I verify that the task does not exist in the list",
+            "match": {
+              "location": "cucumber.ui.steps.TaskSteps.verifyThatTheTaskDoesNotExistInTheList()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@TaskGUI"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateTask"
+          }
+        ]
+      }
+    ],
+    "name": "Delete a task",
+    "description": "",
+    "id": "delete-a-task",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/task/delete_task.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@TaskGUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:19:57.637Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1248400200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1173700300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TasksHooks.createTask()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Update a task with default setting",
+        "description": "",
+        "id": "update-task;update-a-task-with-default-setting",
+        "after": [
+          {
+            "result": {
+              "duration": 4595194500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1349412300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TasksHooks.deleteTask()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 47968263200,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 41503859000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to a task menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "task",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1934354300,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I update a new task with field",
+            "match": {
+              "location": "cucumber.ui.steps.TaskSteps.updateANewTaskWithField(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "New task updated"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 982709300,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I verify that the updated task contains the default values",
+            "match": {
+              "location": "cucumber.ui.steps.TaskSteps.verifyThatTheCreatedTaskContainsTheDefaultValues()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Task"
+          },
+          {
+            "name": "@TaskGUI"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateTask"
+          },
+          {
+            "name": "@DeleteTask"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-11-22T20:21:38.411Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1239481400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 905250800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TasksHooks.createTask()"
+            }
+          }
+        ],
+        "line": 13,
+        "name": "Update a task with default setting",
+        "description": "",
+        "id": "update-task;update-a-task-with-default-setting",
+        "after": [
+          {
+            "result": {
+              "duration": 4531156700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          },
+          {
+            "result": {
+              "duration": 767502600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.api.hooks.TasksHooks.deleteTask()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 48016847400,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 41486936600,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "I navigate to a task menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "task",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2311550600,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I update a new task with field",
+            "match": {
+              "location": "cucumber.ui.steps.TaskSteps.updateANewTaskWithField(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "due date",
+                  "Tomorrow"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1007669900,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I verify that the updated task contains the default values",
+            "match": {
+              "location": "cucumber.ui.steps.TaskSteps.verifyThatTheCreatedTaskContainsTheDefaultValues()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Task"
+          },
+          {
+            "name": "@TaskGUI"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateTask"
+          },
+          {
+            "name": "@DeleteTask"
+          }
+        ]
+      }
+    ],
+    "name": "Update task",
+    "description": "",
+    "id": "update-task",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/task/update_task.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Task",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      },
+      {
+        "name": "@TaskGUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 12
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:23:18.695Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1304902700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Create a workspace with default setting",
+        "description": "",
+        "id": "create-workspace;create-a-workspace-with-default-setting",
+        "after": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document\n  (Session info: chrome\u003d96.0.4664.45)\nFor documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference\nBuild info: version: \u00274.0.0\u0027, revision: \u00273a21814679\u0027\nSystem info: host: \u0027GHUANCAA-VD01\u0027, ip: \u002710.24.48.225\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002716.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [7abf85e48eda8b6634d6957761193b27, isElementDisplayed {id\u003de3dbbe80-7bfe-4d85-9b3c-0d9130bde166}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.45, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\\Users\\GUSTAV~1.HUA\\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:63042}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63042/devtoo..., se:cdpVersion: 96.0.4664.45, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nElement: [[ChromeDriver: chrome on WINDOWS (7abf85e48eda8b6634d6957761193b27)] -\u003e css selector: a[href*\u003d\u0027general\u0027]]\nSession ID: 7abf85e48eda8b6634d6957761193b27\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:307)\r\n\tat jdk.internal.reflect.GeneratedMethodAccessor169.invoke(Unknown Source)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)\r\n\tat jdk.proxy2/jdk.proxy2.$Proxy47.isDisplayed(Unknown Source)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)\r\n\tat core.selenium.driveractions.WebDriverWaits.waitVisibilityOfElement(WebDriverWaits.java:64)\r\n\tat clickup.ui.pages.sidebar.settings.Settings.waitForPageLoaded(Settings.java:72)\r\n\tat clickup.ui.pages.BasePage.\u003cinit\u003e(BasePage.java:37)\r\n\tat clickup.ui.pages.sidebar.settings.Settings.\u003cinit\u003e(Settings.java:31)\r\n\tat clickup.ui.pages.sidebar.SubMenuSideBar.clickMySettingLinkTxt(SubMenuSideBar.java:53)\r\n\tat cucumber.ui.hooks.WorkspaceHooks.deleteWorkspace(WorkspaceHooks.java:54)\r\n",
+              "duration": 42345191100,
+              "status": "failed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.WorkspaceHooks.deleteWorkspace()"
+            }
+          },
+          {
+            "result": {
+              "duration": 4624686300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 48100794600,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3646452500,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I create a new workspace with field",
+            "match": {
+              "location": "cucumber.ui.steps.WorkspaceSteps.createANewWithField(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "New workspace random"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 4418959100,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I verify that the created workspace contains the default values",
+            "match": {
+              "location": "cucumber.ui.steps.WorkspaceSteps.verifyThatTheCreatedContainsTheDefaultValues()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Workspace"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@DeleteWorkspace"
+          }
+        ]
+      }
+    ],
+    "name": "Create workspace",
+    "description": "",
+    "id": "create-workspace",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/workspace/create_workspace.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Workspace",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:25:03.138Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1267639700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 53948150300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.WorkspaceHooks.createWorkspace()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Delete a workspace",
+        "description": "",
+        "id": "delete-a-workspace;delete-a-workspace",
+        "after": [
+          {
+            "result": {
+              "duration": 4682826200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#login\\-email\\-input\"}\n  (Session info: chrome\u003d96.0.4664.45)\nFor documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element\nBuild info: version: \u00274.0.0\u0027, revision: \u00273a21814679\u0027\nSystem info: host: \u0027GHUANCAA-VD01\u0027, ip: \u002710.24.48.225\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002716.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [26b2ae4db00b8a4a5d6415744586d15a, findElement {using\u003did, value\u003dlogin-email-input}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.45, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\\Users\\GUSTAV~1.HUA\\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:63201}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63201/devtoo..., se:cdpVersion: 96.0.4664.45, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: 26b2ae4db00b8a4a5d6415744586d15a\r\n\tat jdk.internal.reflect.GeneratedConstructorAccessor94.newInstance(Unknown Source)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)\r\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)\r\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)\r\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)\r\n\tat jdk.proxy2/jdk.proxy2.$Proxy47.clear(Unknown Source)\r\n\tat core.selenium.driveractions.WebDriverElementText.setText(WebDriverElementText.java:46)\r\n\tat clickup.ui.pages.LoginPage.setUsernameTextBox(LoginPage.java:53)\r\n\tat cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin(LoginSteps.java:34)\r\n\tat ✽.I login to click up as an admin(file:///C:/Users/Gustavo.Huanca/Desktop/ClickUp/ClickUp/src/test/resources/features/ui/workspace/delete_workspace.feature:6)\r\n",
+              "duration": 62913459700,
+              "status": "failed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": "I navigate to a workspace menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "workspace",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "I delete a workspace",
+            "match": {
+              "location": "cucumber.ui.steps.WorkspaceSteps.deleteAWorkspace()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": "I verify that the workspace does not exist in the list of workspace",
+            "match": {
+              "location": "cucumber.ui.steps.WorkspaceSteps.verifyThatTheWorkspaceDoesNotExistInTheListOfWorkspace()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Workspace"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateWorkspace"
+          }
+        ]
+      }
+    ],
+    "name": "Delete a workspace",
+    "description": "",
+    "id": "delete-a-workspace",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/workspace/delete_workspace.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Workspace",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-11-22T20:27:05.966Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1318340600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 54534519700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.WorkspaceHooks.createWorkspace()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Create a workspace with default setting",
+        "description": "",
+        "id": "update-workspace;create-a-workspace-with-default-setting",
+        "after": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document\n  (Session info: chrome\u003d96.0.4664.45)\nFor documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference\nBuild info: version: \u00274.0.0\u0027, revision: \u00273a21814679\u0027\nSystem info: host: \u0027GHUANCAA-VD01\u0027, ip: \u002710.24.48.225\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002716.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [cb6ad7f0d160d1d5b641cf9887e1ce69, isElementDisplayed {id\u003d84ce3e90-9496-41d1-91f6-b3b8fbcfea22}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.45, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\\Users\\GUSTAV~1.HUA\\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:63355}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63355/devtoo..., se:cdpVersion: 96.0.4664.45, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nElement: [[ChromeDriver: chrome on WINDOWS (cb6ad7f0d160d1d5b641cf9887e1ce69)] -\u003e css selector: div.cu-form__field input[placeholder]]\nSession ID: cb6ad7f0d160d1d5b641cf9887e1ce69\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:307)\r\n\tat jdk.internal.reflect.GeneratedMethodAccessor169.invoke(Unknown Source)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)\r\n\tat jdk.proxy2/jdk.proxy2.$Proxy47.isDisplayed(Unknown Source)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)\r\n\tat core.selenium.driveractions.WebDriverWaits.waitVisibilityOfElement(WebDriverWaits.java:64)\r\n\tat clickup.ui.pages.sidebar.settings.workspaces.WorkspaceSetting.waitForPageLoaded(WorkspaceSetting.java:67)\r\n\tat clickup.ui.pages.BasePage.\u003cinit\u003e(BasePage.java:37)\r\n\tat clickup.ui.pages.sidebar.settings.workspaces.WorkspaceSetting.\u003cinit\u003e(WorkspaceSetting.java:27)\r\n\tat clickup.ui.pages.sidebar.settings.Settings.clickSettingsLinkTxt(Settings.java:62)\r\n\tat cucumber.ui.hooks.WorkspaceHooks.deleteWorkspace(WorkspaceHooks.java:55)\r\n",
+              "duration": 43127912500,
+              "status": "failed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.WorkspaceHooks.deleteWorkspace()"
+            }
+          },
+          {
+            "result": {
+              "duration": 4672724300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "cucumber.ui.hooks.GuiHooks.assertAllSteps()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#login\\-email\\-input\"}\n  (Session info: chrome\u003d96.0.4664.45)\nFor documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element\nBuild info: version: \u00274.0.0\u0027, revision: \u00273a21814679\u0027\nSystem info: host: \u0027GHUANCAA-VD01\u0027, ip: \u002710.24.48.225\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002716.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [cb6ad7f0d160d1d5b641cf9887e1ce69, findElement {using\u003did, value\u003dlogin-email-input}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.45, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\\Users\\GUSTAV~1.HUA\\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:63355}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63355/devtoo..., se:cdpVersion: 96.0.4664.45, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: cb6ad7f0d160d1d5b641cf9887e1ce69\r\n\tat jdk.internal.reflect.GeneratedConstructorAccessor94.newInstance(Unknown Source)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)\r\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)\r\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)\r\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)\r\n\tat jdk.proxy2/jdk.proxy2.$Proxy47.clear(Unknown Source)\r\n\tat core.selenium.driveractions.WebDriverElementText.setText(WebDriverElementText.java:46)\r\n\tat clickup.ui.pages.LoginPage.setUsernameTextBox(LoginPage.java:53)\r\n\tat cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin(LoginSteps.java:34)\r\n\tat ✽.I login to click up as an admin(file:///C:/Users/Gustavo.Huanca/Desktop/ClickUp/ClickUp/src/test/resources/features/ui/workspace/update_workspace.feature:6)\r\n",
+              "duration": 61054187300,
+              "status": "failed"
+            },
+            "line": 6,
+            "name": "I login to click up as an admin",
+            "match": {
+              "location": "cucumber.ui.steps.LoginSteps.loginToClickUpAsAnAdmin()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": "I navigate to a workspace menu",
+            "match": {
+              "arguments": [
+                {
+                  "val": "workspace",
+                  "offset": 16
+                }
+              ],
+              "location": "cucumber.ui.steps.OpenFeatureStep.openFeature(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "I update a workspace with the following parameters",
+            "match": {
+              "location": "cucumber.ui.steps.WorkspaceSteps.updateAWorkspaceWithTheFollowingParameters(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "My workspace Updated"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 10,
+            "name": "I verify that the created workspace contains the default values",
+            "match": {
+              "location": "cucumber.ui.steps.WorkspaceSteps.verifyThatTheCreatedContainsTheDefaultValues()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUI"
+          },
+          {
+            "name": "@Workspace"
+          },
+          {
+            "name": "@Smoke"
+          },
+          {
+            "name": "@CreateWorkspace"
+          },
+          {
+            "name": "@DeleteWorkspace"
+          }
+        ]
+      }
+    ],
+    "name": "Update workspace",
+    "description": "",
+    "id": "update-workspace",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ui/workspace/update_workspace.feature",
+    "tags": [
+      {
+        "name": "@GUI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Workspace",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    ]
+  }
+]

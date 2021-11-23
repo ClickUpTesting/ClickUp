@@ -8,7 +8,7 @@
  * @author Gustavo Huanca
  */
 
-package core.report.cucumber.entities;
+package core.report.cucumber.core.entities;
 
 public class Tags {
     private String name;
