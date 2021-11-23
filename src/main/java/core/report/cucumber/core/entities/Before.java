@@ -8,9 +8,9 @@
  * @author Gustavo Huanca
  */
 
-package core.report.cucumber.entities;
+package core.report.cucumber.core.entities;
 
-public class After {
+public class Before {
     private Result result;
     private Match match;
 

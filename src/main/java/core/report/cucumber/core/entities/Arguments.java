@@ -8,18 +8,25 @@
  * @author Gustavo Huanca
  */
 
-package core.report.cucumber.entities;
+package core.report.cucumber.core.entities;
 
-import java.util.List;
+public class Arguments {
+    private String val;
+    private int offset;
 
-public class RowsItem {
-    private List<String> cells;
-
-    public void setCells(List<String> cells) {
-        this.cells = cells;
+    public void setVal(String val) {
+        this.val = val;
     }
 
-    public List<String> getCells() {
-        return cells;
+    public String getVal() {
+        return val;
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
+
+    public int getOffset() {
+        return offset;
     }
 }

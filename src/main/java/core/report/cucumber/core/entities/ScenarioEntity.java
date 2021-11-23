@@ -8,11 +8,11 @@
  * @author Gustavo Huanca
  */
 
-package core.report.cucumber.entities;
+package core.report.cucumber.core.entities;
 
 import java.util.List;
 
-public class Scenario {
+public class ScenarioEntity {
     private int line;
     private List<Elements> elements;
     private String name;

@@ -77,5 +77,6 @@ public class RunTests extends AbstractTestNGCucumberTests {
     @AfterSuite
     public void createReports() {
         ReportGenerator.generateReport();
+        //ExtractError extractError = new ExtractError("build/cucumber/cucumber.json");
     }
 }
